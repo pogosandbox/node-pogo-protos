@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/pogosandbox/node-pogo-protos#readme",
   "dependencies": {
-    "protobufjs": "^6.8.0"
+    "protobufjs": "^6.8.4"
   },
   "typings": "./pogo-protos.d.ts",
   "devDependencies": {
@@ -32,7 +32,7 @@
   },
   "scripts": {
     "compile": "node proto/compile.js",
-    "js": "pbjs --keep-case -t static-module -o compiled.js ./proto/POGOProtos.proto",
-    "ts": "pbts -o compiled.d.ts compiled.js"
+    "js": "pbjs --keep-case -t static-module --no-verify -o compiled.js ./proto/POGOProtos.proto",
+    "ts": "pbts --no-comments -o compiled.d.ts compiled.js"
   }
 }
