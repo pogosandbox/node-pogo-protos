@@ -1,6 +1,6 @@
 {
   "name": "node-pogo-protos-vnext",
-  "version": "2.18.0",
+  "version": "2.20.1",
   "description": "Pokémon Go Protobuf files from POGOProtos, wrapped up in a Node module using protobuf.js",
   "main": "index.js",
   "repository": {
@@ -32,7 +32,8 @@
   },
   "scripts": {
     "compile": "node proto/compile.js",
-    "js": "pbjs --keep-case -t static-module -o compiled.js ./proto/POGOProtos.proto",
-    "ts": "pbts -o compiled.d.ts compiled.js"
+    "minjs": "pbjs --keep-case -t static-module --no-verify --no-beautify --no-comments -o compiled.js ./proto/POGOProtos.proto",
+    "js": "pbjs --keep-case -t static-module --no-verify -o temp.js ./proto/POGOProtos.proto",
+    "ts": "pbts --no-comments -o compiled.d.ts temp.js"
   }
 }
