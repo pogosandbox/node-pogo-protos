@@ -5592,6 +5592,23 @@ export namespace POGOProtos {
                     public toJSON(): { [k: string]: any };
                 }
 
+                interface IJoinEventRequest {
+                    qrcode?: (string|null);
+                }
+
+                class JoinEventRequest implements IJoinEventRequest {
+                    constructor(properties?: POGOProtos.Networking.Platform.Requests.IJoinEventRequest);
+                    public qrcode: string;
+                    public static create(properties?: POGOProtos.Networking.Platform.Requests.IJoinEventRequest): POGOProtos.Networking.Platform.Requests.JoinEventRequest;
+                    public static encode(message: POGOProtos.Networking.Platform.Requests.IJoinEventRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Platform.Requests.IJoinEventRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Platform.Requests.JoinEventRequest;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Platform.Requests.JoinEventRequest;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Platform.Requests.JoinEventRequest;
+                    public static toObject(message: POGOProtos.Networking.Platform.Requests.JoinEventRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
                 interface ISendEncryptedSignatureRequest {
                     encrypted_signature?: (Uint8Array|null);
                 }
@@ -5780,6 +5797,34 @@ export namespace POGOProtos {
                     }
                 }
 
+                interface IJoinEventResponse {
+                    status?: (POGOProtos.Networking.Platform.Responses.JoinEventResponse.Status|null);
+                    qrcode?: (string|null);
+                }
+
+                class JoinEventResponse implements IJoinEventResponse {
+                    constructor(properties?: POGOProtos.Networking.Platform.Responses.IJoinEventResponse);
+                    public status: POGOProtos.Networking.Platform.Responses.JoinEventResponse.Status;
+                    public qrcode: string;
+                    public static create(properties?: POGOProtos.Networking.Platform.Responses.IJoinEventResponse): POGOProtos.Networking.Platform.Responses.JoinEventResponse;
+                    public static encode(message: POGOProtos.Networking.Platform.Responses.IJoinEventResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Platform.Responses.IJoinEventResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Platform.Responses.JoinEventResponse;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Platform.Responses.JoinEventResponse;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Platform.Responses.JoinEventResponse;
+                    public static toObject(message: POGOProtos.Networking.Platform.Responses.JoinEventResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                namespace JoinEventResponse {
+
+                    enum Status {
+                        UNDEFINED = 0,
+                        SUCCESS = 1,
+                        INVALID = 2
+                    }
+                }
+
                 interface ISendEncryptedSignatureResponse {
                     received?: (boolean|null);
                 }
@@ -5867,6 +5912,31 @@ export namespace POGOProtos {
                     public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.AttackGymMessage;
                     public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.AttackGymMessage;
                     public static toObject(message: POGOProtos.Networking.Requests.Messages.AttackGymMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IAttackRaidBattleMessage {
+                    gym_id?: (string|null);
+                    battle_id?: (string|null);
+                    attacker_actions?: (POGOProtos.Data.Battle.IBattleAction[]|null);
+                    last_retrieved_action?: (POGOProtos.Data.Battle.IBattleAction|null);
+                    timestamp_ms?: (number|Long|null);
+                }
+
+                class AttackRaidBattleMessage implements IAttackRaidBattleMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IAttackRaidBattleMessage);
+                    public gym_id: string;
+                    public battle_id: string;
+                    public attacker_actions: POGOProtos.Data.Battle.IBattleAction[];
+                    public last_retrieved_action?: (POGOProtos.Data.Battle.IBattleAction|null);
+                    public timestamp_ms: (number|Long);
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IAttackRaidBattleMessage): POGOProtos.Networking.Requests.Messages.AttackRaidBattleMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IAttackRaidBattleMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IAttackRaidBattleMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.AttackRaidBattleMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.AttackRaidBattleMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.AttackRaidBattleMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.AttackRaidBattleMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
                     public toJSON(): { [k: string]: any };
                 }
 
@@ -6690,6 +6760,35 @@ export namespace POGOProtos {
                     public toJSON(): { [k: string]: any };
                 }
 
+                interface IGymBattleAttackMessage {
+                    gym_id?: (string|null);
+                    battle_id?: (string|null);
+                    attacker_actions?: (POGOProtos.Data.Battle.IBattleAction[]|null);
+                    last_retrieved_action?: (POGOProtos.Data.Battle.IBattleAction|null);
+                    player_lat_degrees?: (number|null);
+                    player_lng_degrees?: (number|null);
+                    timestamp_ms?: (number|Long|null);
+                }
+
+                class GymBattleAttackMessage implements IGymBattleAttackMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IGymBattleAttackMessage);
+                    public gym_id: string;
+                    public battle_id: string;
+                    public attacker_actions: POGOProtos.Data.Battle.IBattleAction[];
+                    public last_retrieved_action?: (POGOProtos.Data.Battle.IBattleAction|null);
+                    public player_lat_degrees: number;
+                    public player_lng_degrees: number;
+                    public timestamp_ms: (number|Long);
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IGymBattleAttackMessage): POGOProtos.Networking.Requests.Messages.GymBattleAttackMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IGymBattleAttackMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IGymBattleAttackMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.GymBattleAttackMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.GymBattleAttackMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.GymBattleAttackMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.GymBattleAttackMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
                 interface IGymDeployMessage {
                     fort_id?: (string|null);
                     pokemon_id?: (number|Long|null);
@@ -6765,6 +6864,31 @@ export namespace POGOProtos {
                     public toJSON(): { [k: string]: any };
                 }
 
+                interface IGymStartSessionMessage {
+                    gym_id?: (string|null);
+                    attacking_pokemon_id?: ((number|Long)[]|null);
+                    defending_pokemon_id?: (number|Long|null);
+                    player_lat_degrees?: (number|null);
+                    player_lng_degrees?: (number|null);
+                }
+
+                class GymStartSessionMessage implements IGymStartSessionMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IGymStartSessionMessage);
+                    public gym_id: string;
+                    public attacking_pokemon_id: (number|Long)[];
+                    public defending_pokemon_id: (number|Long);
+                    public player_lat_degrees: number;
+                    public player_lng_degrees: number;
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IGymStartSessionMessage): POGOProtos.Networking.Requests.Messages.GymStartSessionMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IGymStartSessionMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IGymStartSessionMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.GymStartSessionMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.GymStartSessionMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.GymStartSessionMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.GymStartSessionMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
                 interface IIncenseEncounterMessage {
                     encounter_id?: (number|Long|null);
                     encounter_location?: (string|null);
@@ -6781,6 +6905,58 @@ export namespace POGOProtos {
                     public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.IncenseEncounterMessage;
                     public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.IncenseEncounterMessage;
                     public static toObject(message: POGOProtos.Networking.Requests.Messages.IncenseEncounterMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IJoinLobbyMessage {
+                    raid_seed?: (number|Long|null);
+                    gym_id?: (string|null);
+                    lobby_id?: (number[]|null);
+                    "private"?: (boolean|null);
+                    player_lat_degrees?: (number|null);
+                    player_lng_degrees?: (number|null);
+                    gym_lat_degrees?: (number|null);
+                    gym_lng_degrees?: (number|null);
+                }
+
+                class JoinLobbyMessage implements IJoinLobbyMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IJoinLobbyMessage);
+                    public raid_seed: (number|Long);
+                    public gym_id: string;
+                    public lobby_id: number[];
+                    public private: boolean;
+                    public player_lat_degrees: number;
+                    public player_lng_degrees: number;
+                    public gym_lat_degrees: number;
+                    public gym_lng_degrees: number;
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IJoinLobbyMessage): POGOProtos.Networking.Requests.Messages.JoinLobbyMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IJoinLobbyMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IJoinLobbyMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.JoinLobbyMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.JoinLobbyMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.JoinLobbyMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.JoinLobbyMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface ILeaveLobbyMessage {
+                    raid_seed?: (number|Long|null);
+                    gym_id?: (string|null);
+                    lobby_id?: (number[]|null);
+                }
+
+                class LeaveLobbyMessage implements ILeaveLobbyMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.ILeaveLobbyMessage);
+                    public raid_seed: (number|Long);
+                    public gym_id: string;
+                    public lobby_id: number[];
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.ILeaveLobbyMessage): POGOProtos.Networking.Requests.Messages.LeaveLobbyMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.ILeaveLobbyMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.ILeaveLobbyMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.LeaveLobbyMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.LeaveLobbyMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.LeaveLobbyMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.LeaveLobbyMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
                     public toJSON(): { [k: string]: any };
                 }
 
@@ -7201,6 +7377,29 @@ export namespace POGOProtos {
                     public toJSON(): { [k: string]: any };
                 }
 
+                interface ISetLobbyPokemonMessage {
+                    raid_seed?: (number|Long|null);
+                    gym_id?: (string|null);
+                    lobby_id?: (number[]|null);
+                    pokemon_id?: ((number|Long)[]|null);
+                }
+
+                class SetLobbyPokemonMessage implements ISetLobbyPokemonMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.ISetLobbyPokemonMessage);
+                    public raid_seed: (number|Long);
+                    public gym_id: string;
+                    public lobby_id: number[];
+                    public pokemon_id: (number|Long)[];
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.ISetLobbyPokemonMessage): POGOProtos.Networking.Requests.Messages.SetLobbyPokemonMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.ISetLobbyPokemonMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.ISetLobbyPokemonMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.SetLobbyPokemonMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.SetLobbyPokemonMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.SetLobbyPokemonMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.SetLobbyPokemonMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
                 interface ISetPlayerTeamMessage {
                     team?: (POGOProtos.Enums.TeamColor|null);
                 }
@@ -7272,6 +7471,37 @@ export namespace POGOProtos {
                     public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.StartGymBattleMessage;
                     public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.StartGymBattleMessage;
                     public static toObject(message: POGOProtos.Networking.Requests.Messages.StartGymBattleMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IStartRaidBattleMessage {
+                    gym_id?: (string|null);
+                    raid_seed?: (number|Long|null);
+                    lobby_id?: (number[]|null);
+                    attacking_pokemon_id?: ((number|Long)[]|null);
+                    player_lat_degrees?: (number|null);
+                    player_lng_degrees?: (number|null);
+                    gym_lat_degrees?: (number|null);
+                    gym_lng_degrees?: (number|null);
+                }
+
+                class StartRaidBattleMessage implements IStartRaidBattleMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IStartRaidBattleMessage);
+                    public gym_id: string;
+                    public raid_seed: (number|Long);
+                    public lobby_id: number[];
+                    public attacking_pokemon_id: (number|Long)[];
+                    public player_lat_degrees: number;
+                    public player_lng_degrees: number;
+                    public gym_lat_degrees: number;
+                    public gym_lng_degrees: number;
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IStartRaidBattleMessage): POGOProtos.Networking.Requests.Messages.StartRaidBattleMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IStartRaidBattleMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IStartRaidBattleMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.StartRaidBattleMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.StartRaidBattleMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.StartRaidBattleMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.StartRaidBattleMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
                     public toJSON(): { [k: string]: any };
                 }
 
@@ -7733,6 +7963,38 @@ export namespace POGOProtos {
                     SUCCESS = 1,
                     ERROR_INVALID_ATTACK_ACTIONS = 2,
                     ERROR_NOT_IN_RANGE = 3
+                }
+            }
+
+            interface IAttackRaidBattleResponse {
+                result?: (POGOProtos.Networking.Responses.AttackRaidBattleResponse.Result|null);
+                battle_update?: (POGOProtos.Data.Battle.IBattleUpdate|null);
+            }
+
+            class AttackRaidBattleResponse implements IAttackRaidBattleResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IAttackRaidBattleResponse);
+                public result: POGOProtos.Networking.Responses.AttackRaidBattleResponse.Result;
+                public battle_update?: (POGOProtos.Data.Battle.IBattleUpdate|null);
+                public static create(properties?: POGOProtos.Networking.Responses.IAttackRaidBattleResponse): POGOProtos.Networking.Responses.AttackRaidBattleResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IAttackRaidBattleResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IAttackRaidBattleResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.AttackRaidBattleResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.AttackRaidBattleResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.AttackRaidBattleResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.AttackRaidBattleResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace AttackRaidBattleResponse {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_GYM_NOT_FOUND = 2,
+                    ERROR_BATTLE_NOT_FOUND = 3,
+                    ERROR_INVALID_ATTACK_ACTIONS = 4,
+                    ERROR_NOT_PART_OF_BATTLE = 5,
+                    ERROR_BATTLE_ID_NOT_RAID = 6
                 }
             }
 
@@ -9195,6 +9457,39 @@ export namespace POGOProtos {
                 }
             }
 
+            interface IGymBattleAttackResponse {
+                result?: (POGOProtos.Networking.Responses.GymBattleAttackResponse.Result|null);
+                battle_update?: (POGOProtos.Data.Battle.IBattleUpdate|null);
+                gym_badge?: (POGOProtos.Data.Badge.IAwardedGymBadge|null);
+            }
+
+            class GymBattleAttackResponse implements IGymBattleAttackResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IGymBattleAttackResponse);
+                public result: POGOProtos.Networking.Responses.GymBattleAttackResponse.Result;
+                public battle_update?: (POGOProtos.Data.Battle.IBattleUpdate|null);
+                public gym_badge?: (POGOProtos.Data.Badge.IAwardedGymBadge|null);
+                public static create(properties?: POGOProtos.Networking.Responses.IGymBattleAttackResponse): POGOProtos.Networking.Responses.GymBattleAttackResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IGymBattleAttackResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IGymBattleAttackResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.GymBattleAttackResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.GymBattleAttackResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.GymBattleAttackResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.GymBattleAttackResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace GymBattleAttackResponse {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_INVALID_ATTACK_ACTIONS = 2,
+                    ERROR_NOT_IN_RANGE = 3,
+                    ERROR_WRONG_BATTLE_TYPE = 4,
+                    ERROR_RAID_ACTIVE = 5
+                }
+            }
+
             interface IGymDeployResponse {
                 result?: (POGOProtos.Networking.Responses.GymDeployResponse.Result|null);
                 gym_status_and_defenders?: (POGOProtos.Data.Gym.IGymStatusAndDefenders|null);
@@ -9340,6 +9635,47 @@ export namespace POGOProtos {
                 }
             }
 
+            interface IGymStartSessionResponse {
+                result?: (POGOProtos.Networking.Responses.GymStartSessionResponse.Result|null);
+                battle?: (POGOProtos.Data.Battle.IBattle|null);
+            }
+
+            class GymStartSessionResponse implements IGymStartSessionResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IGymStartSessionResponse);
+                public result: POGOProtos.Networking.Responses.GymStartSessionResponse.Result;
+                public battle?: (POGOProtos.Data.Battle.IBattle|null);
+                public static create(properties?: POGOProtos.Networking.Responses.IGymStartSessionResponse): POGOProtos.Networking.Responses.GymStartSessionResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IGymStartSessionResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IGymStartSessionResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.GymStartSessionResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.GymStartSessionResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.GymStartSessionResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.GymStartSessionResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace GymStartSessionResponse {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_GYM_NOT_FOUND = 2,
+                    ERROR_GYM_NEUTRAL = 3,
+                    ERROR_GYM_WRONG_TEAM = 4,
+                    ERROR_GYM_EMPTY = 5,
+                    ERROR_INVALID_DEFENDER = 6,
+                    ERROR_TRAINING_INVALID_ATTACKER_COUNT = 7,
+                    ERROR_ALL_POKEMON_FAINTED = 8,
+                    ERROR_TOO_MANY_BATTLES = 9,
+                    ERROR_TOO_MANY_PLAYERS = 10,
+                    ERROR_GYM_BATTLE_LOCKOUT = 11,
+                    ERROR_PLAYER_BELOW_MINIMUM_LEVEL = 12,
+                    ERROR_NOT_IN_RANGE = 13,
+                    ERROR_POI_INACCESSIBLE = 14,
+                    ERROR_RAID_ACTIVE = 15
+                }
+            }
+
             interface IIncenseEncounterResponse {
                 result?: (POGOProtos.Networking.Responses.IncenseEncounterResponse.Result|null);
                 pokemon_data?: (POGOProtos.Data.IPokemonData|null);
@@ -9372,6 +9708,70 @@ export namespace POGOProtos {
                     INCENSE_ENCOUNTER_SUCCESS = 1,
                     INCENSE_ENCOUNTER_NOT_AVAILABLE = 2,
                     POKEMON_INVENTORY_FULL = 3
+                }
+            }
+
+            interface IJoinLobbyResponse {
+                result?: (POGOProtos.Networking.Responses.JoinLobbyResponse.Result|null);
+                lobby?: (POGOProtos.Data.Raid.ILobby|null);
+            }
+
+            class JoinLobbyResponse implements IJoinLobbyResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IJoinLobbyResponse);
+                public result: POGOProtos.Networking.Responses.JoinLobbyResponse.Result;
+                public lobby?: (POGOProtos.Data.Raid.ILobby|null);
+                public static create(properties?: POGOProtos.Networking.Responses.IJoinLobbyResponse): POGOProtos.Networking.Responses.JoinLobbyResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IJoinLobbyResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IJoinLobbyResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.JoinLobbyResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.JoinLobbyResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.JoinLobbyResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.JoinLobbyResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace JoinLobbyResponse {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_NOT_IN_RANGE = 2,
+                    ERROR_RAID_UNAVAILABLE = 3,
+                    ERROR_RAID_COMPLETED = 4,
+                    ERROR_NO_AVAILABLE_LOBBIES = 5,
+                    ERROR_PLAYER_BELOW_MINIMUM_LEVEL = 6,
+                    ERROR_POI_INACCESSIBLE = 7,
+                    ERROR_GYM_LOCKOUT = 8,
+                    ERROR_NO_TICKET = 9
+                }
+            }
+
+            interface ILeaveLobbyResponse {
+                result?: (POGOProtos.Networking.Responses.LeaveLobbyResponse.Result|null);
+                lobby?: (POGOProtos.Data.Raid.ILobby|null);
+            }
+
+            class LeaveLobbyResponse implements ILeaveLobbyResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.ILeaveLobbyResponse);
+                public result: POGOProtos.Networking.Responses.LeaveLobbyResponse.Result;
+                public lobby?: (POGOProtos.Data.Raid.ILobby|null);
+                public static create(properties?: POGOProtos.Networking.Responses.ILeaveLobbyResponse): POGOProtos.Networking.Responses.LeaveLobbyResponse;
+                public static encode(message: POGOProtos.Networking.Responses.ILeaveLobbyResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.ILeaveLobbyResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.LeaveLobbyResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.LeaveLobbyResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.LeaveLobbyResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.LeaveLobbyResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace LeaveLobbyResponse {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_RAID_UNAVAILABLE = 2,
+                    ERROR_LOBBY_NOT_FOUND = 3
                 }
             }
 
@@ -9941,6 +10341,36 @@ export namespace POGOProtos {
                 }
             }
 
+            interface ISetLobbyPokemonResponse {
+                result?: (POGOProtos.Networking.Responses.SetLobbyPokemonResponse.Result|null);
+                lobby?: (POGOProtos.Data.Raid.ILobby|null);
+            }
+
+            class SetLobbyPokemonResponse implements ISetLobbyPokemonResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.ISetLobbyPokemonResponse);
+                public result: POGOProtos.Networking.Responses.SetLobbyPokemonResponse.Result;
+                public lobby?: (POGOProtos.Data.Raid.ILobby|null);
+                public static create(properties?: POGOProtos.Networking.Responses.ISetLobbyPokemonResponse): POGOProtos.Networking.Responses.SetLobbyPokemonResponse;
+                public static encode(message: POGOProtos.Networking.Responses.ISetLobbyPokemonResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.ISetLobbyPokemonResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.SetLobbyPokemonResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.SetLobbyPokemonResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.SetLobbyPokemonResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.SetLobbyPokemonResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace SetLobbyPokemonResponse {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_LOBBY_NOT_FOUND = 2,
+                    ERROR_RAID_UNAVAILABLE = 3,
+                    ERROR_INVALID_POKEMON = 4
+                }
+            }
+
             interface ISetPlayerTeamResponse {
                 status?: (POGOProtos.Networking.Responses.SetPlayerTeamResponse.Status|null);
                 player_data?: (POGOProtos.Data.IPlayerData|null);
@@ -10063,6 +10493,44 @@ export namespace POGOProtos {
                     ERROR_PLAYER_BELOW_MINIMUM_LEVEL = 12,
                     ERROR_NOT_IN_RANGE = 13,
                     ERROR_POI_INACCESSIBLE = 14
+                }
+            }
+
+            interface IStartRaidBattleResponse {
+                result?: (POGOProtos.Networking.Responses.StartRaidBattleResponse.Result|null);
+                battle?: (POGOProtos.Data.Battle.IBattle|null);
+            }
+
+            class StartRaidBattleResponse implements IStartRaidBattleResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IStartRaidBattleResponse);
+                public result: POGOProtos.Networking.Responses.StartRaidBattleResponse.Result;
+                public battle?: (POGOProtos.Data.Battle.IBattle|null);
+                public static create(properties?: POGOProtos.Networking.Responses.IStartRaidBattleResponse): POGOProtos.Networking.Responses.StartRaidBattleResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IStartRaidBattleResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IStartRaidBattleResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.StartRaidBattleResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.StartRaidBattleResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.StartRaidBattleResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.StartRaidBattleResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace StartRaidBattleResponse {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_GYM_NOT_FOUND = 2,
+                    ERROR_RAID_UNAVAILABLE = 3,
+                    ERROR_RAID_COMPLETED = 4,
+                    ERROR_INVALID_ATTACKERS = 5,
+                    ERROR_PLAYER_BELOW_MINIMUM_LEVEL = 6,
+                    ERROR_NOT_IN_RANGE = 7,
+                    ERROR_POI_INACCESSIBLE = 8,
+                    ERROR_LOBBY_NOT_FOUND = 9,
+                    ERROR_NO_TICKET = 10,
+                    ERROR_INVALID_SERVER = 11,
+                    ERROR_NEVER_JOINED_BATTLE = 12
                 }
             }
 

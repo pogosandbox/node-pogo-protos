@@ -2,6 +2,7 @@ syntax = "proto3";
 package POGOProtos.Data.Battle;
 
 import "POGOProtos/Data/Gym/GymState.proto";
+import "POGOProtos/Data/Gym/GymStatusAndDefenders.proto";
 import "POGOProtos/Data/Battle/BattleParticipant.proto";
 import "POGOProtos/Data/Gym/GymStatusAndDefenders.proto";
 import "POGOProtos/Data/Raid/Participation.proto";

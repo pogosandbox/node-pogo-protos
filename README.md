@@ -9,7 +9,7 @@ Uses [protobuf.js](https://github.com/dcodeIO/protobuf.js) to compile the Protob
 
 ## How to use
 ```javascript
-const POGOProtos = require('node-pogo-protos');
+const POGOProtos = require('node-pogo-protos-vnext');
 
 var myMessage = POGOProtos.Networking.Requests.Messages.RecycleInventoryItemMessage.fromObject({
   item_id: POGOProtos.Inventory.Item.ItemId.ITEM_POTION,
