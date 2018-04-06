@@ -344,6 +344,8 @@ export namespace POGOProtos {
                 defeated_pokemon?: (POGOProtos.Data.Battle.IBattlePokemonInfo[]|null);
                 lobby_pokemon?: (POGOProtos.Map.Pokemon.ILobbyPokemon[]|null);
                 damage_dealt?: (number|null);
+                super_effective_charge_move?: (boolean|null);
+                weather_boosted?: (boolean|null);
             }
 
             class BattleParticipant implements IBattleParticipant {
@@ -354,6 +356,8 @@ export namespace POGOProtos {
                 public defeated_pokemon: POGOProtos.Data.Battle.IBattlePokemonInfo[];
                 public lobby_pokemon: POGOProtos.Map.Pokemon.ILobbyPokemon[];
                 public damage_dealt: number;
+                public super_effective_charge_move: boolean;
+                public weather_boosted: boolean;
                 public static create(properties?: POGOProtos.Data.Battle.IBattleParticipant): POGOProtos.Data.Battle.BattleParticipant;
                 public static encode(message: POGOProtos.Data.Battle.IBattleParticipant, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Data.Battle.IBattleParticipant, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -711,6 +715,9 @@ export namespace POGOProtos {
                 buddy_pokemon?: (POGOProtos.Data.Logs.IBuddyPokemonLogEntry|null);
                 raid_rewards?: (POGOProtos.Data.Logs.IRaidRewardsLogEntry|null);
                 passcode_rewards?: (POGOProtos.Data.Logs.IPasscodeRewardsLogEntry|null);
+                complete_quest?: (POGOProtos.Data.Logs.ICompleteQuestLogEntry|null);
+                complete_quest_stamp_card?: (POGOProtos.Data.Logs.ICompleteQuestStampCardLogEntry|null);
+                complete_quest_pokemon_encounter?: (POGOProtos.Data.Logs.ICompleteQuestPokemonEncounterLogEntry|null);
             }
 
             class ActionLogEntry implements IActionLogEntry {
@@ -722,7 +729,10 @@ export namespace POGOProtos {
                 public buddy_pokemon?: (POGOProtos.Data.Logs.IBuddyPokemonLogEntry|null);
                 public raid_rewards?: (POGOProtos.Data.Logs.IRaidRewardsLogEntry|null);
                 public passcode_rewards?: (POGOProtos.Data.Logs.IPasscodeRewardsLogEntry|null);
-                public Action?: ("catch_pokemon"|"fort_search"|"buddy_pokemon"|"raid_rewards"|"passcode_rewards");
+                public complete_quest?: (POGOProtos.Data.Logs.ICompleteQuestLogEntry|null);
+                public complete_quest_stamp_card?: (POGOProtos.Data.Logs.ICompleteQuestStampCardLogEntry|null);
+                public complete_quest_pokemon_encounter?: (POGOProtos.Data.Logs.ICompleteQuestPokemonEncounterLogEntry|null);
+                public Action?: ("catch_pokemon"|"fort_search"|"buddy_pokemon"|"raid_rewards"|"passcode_rewards"|"complete_quest"|"complete_quest_stamp_card"|"complete_quest_pokemon_encounter");
                 public static create(properties?: POGOProtos.Data.Logs.IActionLogEntry): POGOProtos.Data.Logs.ActionLogEntry;
                 public static encode(message: POGOProtos.Data.Logs.IActionLogEntry, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Data.Logs.IActionLogEntry, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -798,6 +808,98 @@ export namespace POGOProtos {
                     POKEMON_CAPTURED = 1,
                     POKEMON_FLED = 2,
                     POKEMON_HATCHED = 3
+                }
+            }
+
+            interface ICompleteQuestLogEntry {
+                result?: (POGOProtos.Data.Logs.CompleteQuestLogEntry.Result|null);
+                quest?: (POGOProtos.Data.Quests.IClientQuest|null);
+                stamp?: (POGOProtos.Data.Quests.IQuestStamp[]|null);
+            }
+
+            class CompleteQuestLogEntry implements ICompleteQuestLogEntry {
+                constructor(properties?: POGOProtos.Data.Logs.ICompleteQuestLogEntry);
+                public result: POGOProtos.Data.Logs.CompleteQuestLogEntry.Result;
+                public quest?: (POGOProtos.Data.Quests.IClientQuest|null);
+                public stamp: POGOProtos.Data.Quests.IQuestStamp[];
+                public static create(properties?: POGOProtos.Data.Logs.ICompleteQuestLogEntry): POGOProtos.Data.Logs.CompleteQuestLogEntry;
+                public static encode(message: POGOProtos.Data.Logs.ICompleteQuestLogEntry, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Logs.ICompleteQuestLogEntry, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Logs.CompleteQuestLogEntry;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Logs.CompleteQuestLogEntry;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Logs.CompleteQuestLogEntry;
+                public static toObject(message: POGOProtos.Data.Logs.CompleteQuestLogEntry, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace CompleteQuestLogEntry {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1
+                }
+            }
+
+            interface ICompleteQuestPokemonEncounterLogEntry {
+                result?: (POGOProtos.Data.Logs.CompleteQuestPokemonEncounterLogEntry.Result|null);
+                pokedex_number?: (number|null);
+                combat_points?: (number|null);
+                pokemon_id?: (number|Long|null);
+                pokemon_display?: (POGOProtos.Data.IPokemonDisplay|null);
+                encounter_type?: (POGOProtos.Enums.EncounterType|null);
+            }
+
+            class CompleteQuestPokemonEncounterLogEntry implements ICompleteQuestPokemonEncounterLogEntry {
+                constructor(properties?: POGOProtos.Data.Logs.ICompleteQuestPokemonEncounterLogEntry);
+                public result: POGOProtos.Data.Logs.CompleteQuestPokemonEncounterLogEntry.Result;
+                public pokedex_number: number;
+                public combat_points: number;
+                public pokemon_id: (number|Long);
+                public pokemon_display?: (POGOProtos.Data.IPokemonDisplay|null);
+                public encounter_type: POGOProtos.Enums.EncounterType;
+                public static create(properties?: POGOProtos.Data.Logs.ICompleteQuestPokemonEncounterLogEntry): POGOProtos.Data.Logs.CompleteQuestPokemonEncounterLogEntry;
+                public static encode(message: POGOProtos.Data.Logs.ICompleteQuestPokemonEncounterLogEntry, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Logs.ICompleteQuestPokemonEncounterLogEntry, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Logs.CompleteQuestPokemonEncounterLogEntry;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Logs.CompleteQuestPokemonEncounterLogEntry;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Logs.CompleteQuestPokemonEncounterLogEntry;
+                public static toObject(message: POGOProtos.Data.Logs.CompleteQuestPokemonEncounterLogEntry, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace CompleteQuestPokemonEncounterLogEntry {
+
+                enum Result {
+                    UNSET = 0,
+                    POKEMON_CAPTURED = 1,
+                    POKEMON_FLED = 2
+                }
+            }
+
+            interface ICompleteQuestStampCardLogEntry {
+                result?: (POGOProtos.Data.Logs.CompleteQuestStampCardLogEntry.Result|null);
+                reward?: (POGOProtos.Data.Quests.IQuestReward[]|null);
+            }
+
+            class CompleteQuestStampCardLogEntry implements ICompleteQuestStampCardLogEntry {
+                constructor(properties?: POGOProtos.Data.Logs.ICompleteQuestStampCardLogEntry);
+                public result: POGOProtos.Data.Logs.CompleteQuestStampCardLogEntry.Result;
+                public reward: POGOProtos.Data.Quests.IQuestReward[];
+                public static create(properties?: POGOProtos.Data.Logs.ICompleteQuestStampCardLogEntry): POGOProtos.Data.Logs.CompleteQuestStampCardLogEntry;
+                public static encode(message: POGOProtos.Data.Logs.ICompleteQuestStampCardLogEntry, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Logs.ICompleteQuestStampCardLogEntry, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Logs.CompleteQuestStampCardLogEntry;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Logs.CompleteQuestStampCardLogEntry;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Logs.CompleteQuestStampCardLogEntry;
+                public static toObject(message: POGOProtos.Data.Logs.CompleteQuestStampCardLogEntry, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace CompleteQuestStampCardLogEntry {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1
                 }
             }
 
@@ -1211,6 +1313,7 @@ export namespace POGOProtos {
                 total_defended_ms?: (number|Long|null);
                 event_badges?: (POGOProtos.Enums.GymBadgeType[]|null);
                 km_walked_past_active_day?: (number|null);
+                num_challenge_quests_completed?: (number|null);
             }
 
             class PlayerStats implements IPlayerStats {
@@ -1248,6 +1351,7 @@ export namespace POGOProtos {
                 public total_defended_ms: (number|Long);
                 public event_badges: POGOProtos.Enums.GymBadgeType[];
                 public km_walked_past_active_day: number;
+                public num_challenge_quests_completed: number;
                 public static create(properties?: POGOProtos.Data.Player.IPlayerStats): POGOProtos.Data.Player.PlayerStats;
                 public static encode(message: POGOProtos.Data.Player.IPlayerStats, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Data.Player.IPlayerStats, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -1509,6 +1613,59 @@ export namespace POGOProtos {
                 public toJSON(): { [k: string]: any };
             }
 
+            interface IClientQuest {
+                quest?: (POGOProtos.Data.Quests.IQuest|null);
+                quest_display?: (POGOProtos.Data.Quests.ClientQuest.IQuestDisplay|null);
+            }
+
+            class ClientQuest implements IClientQuest {
+                constructor(properties?: POGOProtos.Data.Quests.IClientQuest);
+                public quest?: (POGOProtos.Data.Quests.IQuest|null);
+                public quest_display?: (POGOProtos.Data.Quests.ClientQuest.IQuestDisplay|null);
+                public static create(properties?: POGOProtos.Data.Quests.IClientQuest): POGOProtos.Data.Quests.ClientQuest;
+                public static encode(message: POGOProtos.Data.Quests.IClientQuest, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Quests.IClientQuest, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Quests.ClientQuest;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.ClientQuest;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.ClientQuest;
+                public static toObject(message: POGOProtos.Data.Quests.ClientQuest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace ClientQuest {
+
+                interface IQuestDisplay {
+                    quest_id?: (string|null);
+                    dialog?: (POGOProtos.Data.Quests.IQuestDialog[]|null);
+                    description?: (string|null);
+                    title?: (string|null);
+                    slot?: (number|null);
+                    subdisplay?: (POGOProtos.Data.Quests.ClientQuest.IQuestDisplay[]|null);
+                    story_ending_quest?: (boolean|null);
+                    story_ending_description?: (string|null);
+                }
+
+                class QuestDisplay implements IQuestDisplay {
+                    constructor(properties?: POGOProtos.Data.Quests.ClientQuest.IQuestDisplay);
+                    public quest_id: string;
+                    public dialog: POGOProtos.Data.Quests.IQuestDialog[];
+                    public description: string;
+                    public title: string;
+                    public slot: number;
+                    public subdisplay: POGOProtos.Data.Quests.ClientQuest.IQuestDisplay[];
+                    public story_ending_quest: boolean;
+                    public story_ending_description: string;
+                    public static create(properties?: POGOProtos.Data.Quests.ClientQuest.IQuestDisplay): POGOProtos.Data.Quests.ClientQuest.QuestDisplay;
+                    public static encode(message: POGOProtos.Data.Quests.ClientQuest.IQuestDisplay, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Data.Quests.ClientQuest.IQuestDisplay, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Quests.ClientQuest.QuestDisplay;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.ClientQuest.QuestDisplay;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.ClientQuest.QuestDisplay;
+                    public static toObject(message: POGOProtos.Data.Quests.ClientQuest.QuestDisplay, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+            }
+
             interface IDailyQuest {
                 current_period_bucket?: (number|null);
                 current_streak_count?: (number|null);
@@ -1533,16 +1690,22 @@ export namespace POGOProtos {
                 daily_quest?: (POGOProtos.Data.Quests.IDailyQuest|null);
                 multi_part?: (POGOProtos.Data.Quests.Quest.IMultiPartQuest|null);
                 catch_pokemon?: (POGOProtos.Data.Quests.ICatchPokemonQuest|null);
+                quest_id?: (string|null);
                 quest_seed?: (number|Long|null);
                 quest_context?: (POGOProtos.Data.Quests.Quest.Context|null);
                 template_id?: (string|null);
                 progress?: (number|null);
                 goal?: (POGOProtos.Data.Quests.IQuestGoal|null);
                 status?: (POGOProtos.Data.Quests.Quest.Status|null);
-                quest_rewards?: (POGOProtos.Data.Quests.IQuestReward|null);
+                quest_rewards?: (POGOProtos.Data.Quests.IQuestReward[]|null);
                 creation_timestamp_ms?: (number|Long|null);
                 last_update_timestamp_ms?: (number|Long|null);
                 compeletion_timestamp_ms?: (number|Long|null);
+                fort_id?: (string|null);
+                admin_generated?: (boolean|null);
+                stamp_count_override_enabled?: (boolean|null);
+                stamp_count_override?: (number|null);
+                s2_cell_id?: (number|Long|null);
             }
 
             class Quest implements IQuest {
@@ -1551,16 +1714,22 @@ export namespace POGOProtos {
                 public daily_quest?: (POGOProtos.Data.Quests.IDailyQuest|null);
                 public multi_part?: (POGOProtos.Data.Quests.Quest.IMultiPartQuest|null);
                 public catch_pokemon?: (POGOProtos.Data.Quests.ICatchPokemonQuest|null);
+                public quest_id: string;
                 public quest_seed: (number|Long);
                 public quest_context: POGOProtos.Data.Quests.Quest.Context;
                 public template_id: string;
                 public progress: number;
                 public goal?: (POGOProtos.Data.Quests.IQuestGoal|null);
                 public status: POGOProtos.Data.Quests.Quest.Status;
-                public quest_rewards?: (POGOProtos.Data.Quests.IQuestReward|null);
+                public quest_rewards: POGOProtos.Data.Quests.IQuestReward[];
                 public creation_timestamp_ms: (number|Long);
                 public last_update_timestamp_ms: (number|Long);
                 public compeletion_timestamp_ms: (number|Long);
+                public fort_id: string;
+                public admin_generated: boolean;
+                public stamp_count_override_enabled: boolean;
+                public stamp_count_override: number;
+                public s2_cell_id: (number|Long);
                 public static create(properties?: POGOProtos.Data.Quests.IQuest): POGOProtos.Data.Quests.Quest;
                 public static encode(message: POGOProtos.Data.Quests.IQuest, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Data.Quests.IQuest, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -1591,8 +1760,9 @@ export namespace POGOProtos {
                 }
 
                 enum Context {
-                    STORY_QUEST = 0,
-                    CHALLENGE_QUEST = 1
+                    UNSET = 0,
+                    STORY_QUEST = 1,
+                    CHALLENGE_QUEST = 2
                 }
 
                 enum Status {
@@ -1602,14 +1772,450 @@ export namespace POGOProtos {
                 }
             }
 
+            interface IQuestCondition {
+                type?: (POGOProtos.Data.Quests.QuestCondition.ConditionType|null);
+                with_pokemon_type?: (POGOProtos.Data.Quests.QuestCondition.IWithPokemonType|null);
+                with_pokemon_category?: (POGOProtos.Data.Quests.QuestCondition.IWithPokemonCategory|null);
+                with_weather_boost?: (POGOProtos.Data.Quests.QuestCondition.IWithWeatherBoost|null);
+                with_daily_capture_bonus?: (POGOProtos.Data.Quests.QuestCondition.IWithDailyCaptureBonus|null);
+                with_daily_spin_bonus?: (POGOProtos.Data.Quests.QuestCondition.IWithDailySpinBonus|null);
+                with_win_raid_status?: (POGOProtos.Data.Quests.QuestCondition.IWithWinRaidStatus|null);
+                with_raid_level?: (POGOProtos.Data.Quests.QuestCondition.IWithRaidLevel|null);
+                with_throw_type?: (POGOProtos.Data.Quests.QuestCondition.IWithThrowType|null);
+                with_win_gym_battle_status?: (POGOProtos.Data.Quests.QuestCondition.IWithWinGymBattleStatus|null);
+                with_super_effective_charge_move?: (POGOProtos.Data.Quests.QuestCondition.IWithSuperEffectiveChargeMove|null);
+                with_item?: (POGOProtos.Data.Quests.QuestCondition.IWithItem|null);
+                with_unique_pokestop?: (POGOProtos.Data.Quests.QuestCondition.IWithUniquePokestop|null);
+                with_quest_context?: (POGOProtos.Data.Quests.QuestCondition.IWithQuestContext|null);
+                with_badge_type?: (POGOProtos.Data.Quests.QuestCondition.IWithBadgeType|null);
+                with_player_level?: (POGOProtos.Data.Quests.QuestCondition.IWithPlayerLevel|null);
+            }
+
+            class QuestCondition implements IQuestCondition {
+                constructor(properties?: POGOProtos.Data.Quests.IQuestCondition);
+                public type: POGOProtos.Data.Quests.QuestCondition.ConditionType;
+                public with_pokemon_type?: (POGOProtos.Data.Quests.QuestCondition.IWithPokemonType|null);
+                public with_pokemon_category?: (POGOProtos.Data.Quests.QuestCondition.IWithPokemonCategory|null);
+                public with_weather_boost?: (POGOProtos.Data.Quests.QuestCondition.IWithWeatherBoost|null);
+                public with_daily_capture_bonus?: (POGOProtos.Data.Quests.QuestCondition.IWithDailyCaptureBonus|null);
+                public with_daily_spin_bonus?: (POGOProtos.Data.Quests.QuestCondition.IWithDailySpinBonus|null);
+                public with_win_raid_status?: (POGOProtos.Data.Quests.QuestCondition.IWithWinRaidStatus|null);
+                public with_raid_level?: (POGOProtos.Data.Quests.QuestCondition.IWithRaidLevel|null);
+                public with_throw_type?: (POGOProtos.Data.Quests.QuestCondition.IWithThrowType|null);
+                public with_win_gym_battle_status?: (POGOProtos.Data.Quests.QuestCondition.IWithWinGymBattleStatus|null);
+                public with_super_effective_charge_move?: (POGOProtos.Data.Quests.QuestCondition.IWithSuperEffectiveChargeMove|null);
+                public with_item?: (POGOProtos.Data.Quests.QuestCondition.IWithItem|null);
+                public with_unique_pokestop?: (POGOProtos.Data.Quests.QuestCondition.IWithUniquePokestop|null);
+                public with_quest_context?: (POGOProtos.Data.Quests.QuestCondition.IWithQuestContext|null);
+                public with_badge_type?: (POGOProtos.Data.Quests.QuestCondition.IWithBadgeType|null);
+                public with_player_level?: (POGOProtos.Data.Quests.QuestCondition.IWithPlayerLevel|null);
+                public static create(properties?: POGOProtos.Data.Quests.IQuestCondition): POGOProtos.Data.Quests.QuestCondition;
+                public static encode(message: POGOProtos.Data.Quests.IQuestCondition, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Quests.IQuestCondition, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Quests.QuestCondition;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.QuestCondition;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.QuestCondition;
+                public static toObject(message: POGOProtos.Data.Quests.QuestCondition, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace QuestCondition {
+
+                enum ConditionType {
+                    UNSET = 0,
+                    WITH_POKEMON_TYPE = 1,
+                    WITH_POKEMON_CATEGORY = 2,
+                    WITH_WEATHER_BOOST = 3,
+                    WITH_DAILY_CAPTURE_BONUS = 4,
+                    WITH_DAILY_SPIN_BONUS = 5,
+                    WITH_WIN_RAID_STATUS = 6,
+                    WITH_RAID_LEVEL = 7,
+                    WITH_THROW_TYPE = 8,
+                    WITH_WIN_GYM_BATTLE_STATUS = 9,
+                    WITH_SUPER_EFFECTIVE_CHARGE = 10,
+                    WITH_ITEM = 11,
+                    WITH_UNIQUE_POKESTOP = 12,
+                    WITH_QUEST_CONTEXT = 13,
+                    WITH_THROW_TYPE_IN_A_ROW = 14,
+                    WITH_CURVE_BALL = 15,
+                    WITH_BADGE_TYPE = 16,
+                    WITH_PLAYER_LEVEL = 17
+                }
+
+                interface IWithPokemonType {
+                    pokemon_type?: (POGOProtos.Enums.PokemonType[]|null);
+                }
+
+                class WithPokemonType implements IWithPokemonType {
+                    constructor(properties?: POGOProtos.Data.Quests.QuestCondition.IWithPokemonType);
+                    public pokemon_type: POGOProtos.Enums.PokemonType[];
+                    public static create(properties?: POGOProtos.Data.Quests.QuestCondition.IWithPokemonType): POGOProtos.Data.Quests.QuestCondition.WithPokemonType;
+                    public static encode(message: POGOProtos.Data.Quests.QuestCondition.IWithPokemonType, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Data.Quests.QuestCondition.IWithPokemonType, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Quests.QuestCondition.WithPokemonType;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.QuestCondition.WithPokemonType;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.QuestCondition.WithPokemonType;
+                    public static toObject(message: POGOProtos.Data.Quests.QuestCondition.WithPokemonType, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IWithWeatherBoost {
+                }
+
+                class WithWeatherBoost implements IWithWeatherBoost {
+                    constructor(properties?: POGOProtos.Data.Quests.QuestCondition.IWithWeatherBoost);
+                    public static create(properties?: POGOProtos.Data.Quests.QuestCondition.IWithWeatherBoost): POGOProtos.Data.Quests.QuestCondition.WithWeatherBoost;
+                    public static encode(message: POGOProtos.Data.Quests.QuestCondition.IWithWeatherBoost, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Data.Quests.QuestCondition.IWithWeatherBoost, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Quests.QuestCondition.WithWeatherBoost;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.QuestCondition.WithWeatherBoost;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.QuestCondition.WithWeatherBoost;
+                    public static toObject(message: POGOProtos.Data.Quests.QuestCondition.WithWeatherBoost, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IWithPokemonCategory {
+                    category_name?: (string|null);
+                    pokemon_ids?: (POGOProtos.Enums.PokemonId[]|null);
+                }
+
+                class WithPokemonCategory implements IWithPokemonCategory {
+                    constructor(properties?: POGOProtos.Data.Quests.QuestCondition.IWithPokemonCategory);
+                    public category_name: string;
+                    public pokemon_ids: POGOProtos.Enums.PokemonId[];
+                    public static create(properties?: POGOProtos.Data.Quests.QuestCondition.IWithPokemonCategory): POGOProtos.Data.Quests.QuestCondition.WithPokemonCategory;
+                    public static encode(message: POGOProtos.Data.Quests.QuestCondition.IWithPokemonCategory, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Data.Quests.QuestCondition.IWithPokemonCategory, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Quests.QuestCondition.WithPokemonCategory;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.QuestCondition.WithPokemonCategory;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.QuestCondition.WithPokemonCategory;
+                    public static toObject(message: POGOProtos.Data.Quests.QuestCondition.WithPokemonCategory, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IWithDailyCaptureBonus {
+                }
+
+                class WithDailyCaptureBonus implements IWithDailyCaptureBonus {
+                    constructor(properties?: POGOProtos.Data.Quests.QuestCondition.IWithDailyCaptureBonus);
+                    public static create(properties?: POGOProtos.Data.Quests.QuestCondition.IWithDailyCaptureBonus): POGOProtos.Data.Quests.QuestCondition.WithDailyCaptureBonus;
+                    public static encode(message: POGOProtos.Data.Quests.QuestCondition.IWithDailyCaptureBonus, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Data.Quests.QuestCondition.IWithDailyCaptureBonus, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Quests.QuestCondition.WithDailyCaptureBonus;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.QuestCondition.WithDailyCaptureBonus;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.QuestCondition.WithDailyCaptureBonus;
+                    public static toObject(message: POGOProtos.Data.Quests.QuestCondition.WithDailyCaptureBonus, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IWithDailySpinBonus {
+                }
+
+                class WithDailySpinBonus implements IWithDailySpinBonus {
+                    constructor(properties?: POGOProtos.Data.Quests.QuestCondition.IWithDailySpinBonus);
+                    public static create(properties?: POGOProtos.Data.Quests.QuestCondition.IWithDailySpinBonus): POGOProtos.Data.Quests.QuestCondition.WithDailySpinBonus;
+                    public static encode(message: POGOProtos.Data.Quests.QuestCondition.IWithDailySpinBonus, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Data.Quests.QuestCondition.IWithDailySpinBonus, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Quests.QuestCondition.WithDailySpinBonus;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.QuestCondition.WithDailySpinBonus;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.QuestCondition.WithDailySpinBonus;
+                    public static toObject(message: POGOProtos.Data.Quests.QuestCondition.WithDailySpinBonus, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IWithWinRaidStatus {
+                }
+
+                class WithWinRaidStatus implements IWithWinRaidStatus {
+                    constructor(properties?: POGOProtos.Data.Quests.QuestCondition.IWithWinRaidStatus);
+                    public static create(properties?: POGOProtos.Data.Quests.QuestCondition.IWithWinRaidStatus): POGOProtos.Data.Quests.QuestCondition.WithWinRaidStatus;
+                    public static encode(message: POGOProtos.Data.Quests.QuestCondition.IWithWinRaidStatus, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Data.Quests.QuestCondition.IWithWinRaidStatus, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Quests.QuestCondition.WithWinRaidStatus;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.QuestCondition.WithWinRaidStatus;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.QuestCondition.WithWinRaidStatus;
+                    public static toObject(message: POGOProtos.Data.Quests.QuestCondition.WithWinRaidStatus, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IWithRaidLevel {
+                    raid_level?: (POGOProtos.Enums.RaidLevel[]|null);
+                }
+
+                class WithRaidLevel implements IWithRaidLevel {
+                    constructor(properties?: POGOProtos.Data.Quests.QuestCondition.IWithRaidLevel);
+                    public raid_level: POGOProtos.Enums.RaidLevel[];
+                    public static create(properties?: POGOProtos.Data.Quests.QuestCondition.IWithRaidLevel): POGOProtos.Data.Quests.QuestCondition.WithRaidLevel;
+                    public static encode(message: POGOProtos.Data.Quests.QuestCondition.IWithRaidLevel, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Data.Quests.QuestCondition.IWithRaidLevel, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Quests.QuestCondition.WithRaidLevel;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.QuestCondition.WithRaidLevel;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.QuestCondition.WithRaidLevel;
+                    public static toObject(message: POGOProtos.Data.Quests.QuestCondition.WithRaidLevel, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IWithThrowType {
+                    throw_type?: (POGOProtos.Enums.ActivityType|null);
+                    hit?: (boolean|null);
+                }
+
+                class WithThrowType implements IWithThrowType {
+                    constructor(properties?: POGOProtos.Data.Quests.QuestCondition.IWithThrowType);
+                    public throw_type: POGOProtos.Enums.ActivityType;
+                    public hit: boolean;
+                    public static create(properties?: POGOProtos.Data.Quests.QuestCondition.IWithThrowType): POGOProtos.Data.Quests.QuestCondition.WithThrowType;
+                    public static encode(message: POGOProtos.Data.Quests.QuestCondition.IWithThrowType, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Data.Quests.QuestCondition.IWithThrowType, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Quests.QuestCondition.WithThrowType;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.QuestCondition.WithThrowType;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.QuestCondition.WithThrowType;
+                    public static toObject(message: POGOProtos.Data.Quests.QuestCondition.WithThrowType, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IWithCurveBall {
+                }
+
+                class WithCurveBall implements IWithCurveBall {
+                    constructor(properties?: POGOProtos.Data.Quests.QuestCondition.IWithCurveBall);
+                    public static create(properties?: POGOProtos.Data.Quests.QuestCondition.IWithCurveBall): POGOProtos.Data.Quests.QuestCondition.WithCurveBall;
+                    public static encode(message: POGOProtos.Data.Quests.QuestCondition.IWithCurveBall, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Data.Quests.QuestCondition.IWithCurveBall, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Quests.QuestCondition.WithCurveBall;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.QuestCondition.WithCurveBall;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.QuestCondition.WithCurveBall;
+                    public static toObject(message: POGOProtos.Data.Quests.QuestCondition.WithCurveBall, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IWithWinGymBattleStatus {
+                }
+
+                class WithWinGymBattleStatus implements IWithWinGymBattleStatus {
+                    constructor(properties?: POGOProtos.Data.Quests.QuestCondition.IWithWinGymBattleStatus);
+                    public static create(properties?: POGOProtos.Data.Quests.QuestCondition.IWithWinGymBattleStatus): POGOProtos.Data.Quests.QuestCondition.WithWinGymBattleStatus;
+                    public static encode(message: POGOProtos.Data.Quests.QuestCondition.IWithWinGymBattleStatus, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Data.Quests.QuestCondition.IWithWinGymBattleStatus, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Quests.QuestCondition.WithWinGymBattleStatus;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.QuestCondition.WithWinGymBattleStatus;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.QuestCondition.WithWinGymBattleStatus;
+                    public static toObject(message: POGOProtos.Data.Quests.QuestCondition.WithWinGymBattleStatus, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IWithSuperEffectiveChargeMove {
+                }
+
+                class WithSuperEffectiveChargeMove implements IWithSuperEffectiveChargeMove {
+                    constructor(properties?: POGOProtos.Data.Quests.QuestCondition.IWithSuperEffectiveChargeMove);
+                    public static create(properties?: POGOProtos.Data.Quests.QuestCondition.IWithSuperEffectiveChargeMove): POGOProtos.Data.Quests.QuestCondition.WithSuperEffectiveChargeMove;
+                    public static encode(message: POGOProtos.Data.Quests.QuestCondition.IWithSuperEffectiveChargeMove, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Data.Quests.QuestCondition.IWithSuperEffectiveChargeMove, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Quests.QuestCondition.WithSuperEffectiveChargeMove;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.QuestCondition.WithSuperEffectiveChargeMove;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.QuestCondition.WithSuperEffectiveChargeMove;
+                    public static toObject(message: POGOProtos.Data.Quests.QuestCondition.WithSuperEffectiveChargeMove, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IWithItem {
+                    item?: (POGOProtos.Inventory.Item.ItemId|null);
+                }
+
+                class WithItem implements IWithItem {
+                    constructor(properties?: POGOProtos.Data.Quests.QuestCondition.IWithItem);
+                    public item: POGOProtos.Inventory.Item.ItemId;
+                    public static create(properties?: POGOProtos.Data.Quests.QuestCondition.IWithItem): POGOProtos.Data.Quests.QuestCondition.WithItem;
+                    public static encode(message: POGOProtos.Data.Quests.QuestCondition.IWithItem, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Data.Quests.QuestCondition.IWithItem, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Quests.QuestCondition.WithItem;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.QuestCondition.WithItem;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.QuestCondition.WithItem;
+                    public static toObject(message: POGOProtos.Data.Quests.QuestCondition.WithItem, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IWithUniquePokestop {
+                }
+
+                class WithUniquePokestop implements IWithUniquePokestop {
+                    constructor(properties?: POGOProtos.Data.Quests.QuestCondition.IWithUniquePokestop);
+                    public static create(properties?: POGOProtos.Data.Quests.QuestCondition.IWithUniquePokestop): POGOProtos.Data.Quests.QuestCondition.WithUniquePokestop;
+                    public static encode(message: POGOProtos.Data.Quests.QuestCondition.IWithUniquePokestop, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Data.Quests.QuestCondition.IWithUniquePokestop, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Quests.QuestCondition.WithUniquePokestop;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.QuestCondition.WithUniquePokestop;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.QuestCondition.WithUniquePokestop;
+                    public static toObject(message: POGOProtos.Data.Quests.QuestCondition.WithUniquePokestop, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IWithQuestContext {
+                    context?: (POGOProtos.Data.Quests.QuestCondition.WithQuestContext.Context|null);
+                }
+
+                class WithQuestContext implements IWithQuestContext {
+                    constructor(properties?: POGOProtos.Data.Quests.QuestCondition.IWithQuestContext);
+                    public context: POGOProtos.Data.Quests.QuestCondition.WithQuestContext.Context;
+                    public static create(properties?: POGOProtos.Data.Quests.QuestCondition.IWithQuestContext): POGOProtos.Data.Quests.QuestCondition.WithQuestContext;
+                    public static encode(message: POGOProtos.Data.Quests.QuestCondition.IWithQuestContext, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Data.Quests.QuestCondition.IWithQuestContext, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Quests.QuestCondition.WithQuestContext;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.QuestCondition.WithQuestContext;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.QuestCondition.WithQuestContext;
+                    public static toObject(message: POGOProtos.Data.Quests.QuestCondition.WithQuestContext, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                namespace WithQuestContext {
+
+                    enum Context {
+                        UNSET = 0,
+                        STORY_QUEST = 1,
+                        CHALLENGE_QUEST = 2
+                    }
+                }
+
+                interface IWithBadgeType {
+                    badge_type?: (POGOProtos.Enums.BadgeType[]|null);
+                    badge_rank?: (number|null);
+                    amount?: (number|null);
+                }
+
+                class WithBadgeType implements IWithBadgeType {
+                    constructor(properties?: POGOProtos.Data.Quests.QuestCondition.IWithBadgeType);
+                    public badge_type: POGOProtos.Enums.BadgeType[];
+                    public badge_rank: number;
+                    public amount: number;
+                    public static create(properties?: POGOProtos.Data.Quests.QuestCondition.IWithBadgeType): POGOProtos.Data.Quests.QuestCondition.WithBadgeType;
+                    public static encode(message: POGOProtos.Data.Quests.QuestCondition.IWithBadgeType, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Data.Quests.QuestCondition.IWithBadgeType, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Quests.QuestCondition.WithBadgeType;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.QuestCondition.WithBadgeType;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.QuestCondition.WithBadgeType;
+                    public static toObject(message: POGOProtos.Data.Quests.QuestCondition.WithBadgeType, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IWithPlayerLevel {
+                    level?: (number|null);
+                }
+
+                class WithPlayerLevel implements IWithPlayerLevel {
+                    constructor(properties?: POGOProtos.Data.Quests.QuestCondition.IWithPlayerLevel);
+                    public level: number;
+                    public static create(properties?: POGOProtos.Data.Quests.QuestCondition.IWithPlayerLevel): POGOProtos.Data.Quests.QuestCondition.WithPlayerLevel;
+                    public static encode(message: POGOProtos.Data.Quests.QuestCondition.IWithPlayerLevel, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Data.Quests.QuestCondition.IWithPlayerLevel, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Quests.QuestCondition.WithPlayerLevel;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.QuestCondition.WithPlayerLevel;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.QuestCondition.WithPlayerLevel;
+                    public static toObject(message: POGOProtos.Data.Quests.QuestCondition.WithPlayerLevel, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+            }
+
+            interface IQuestDialog {
+                text?: (string|null);
+                expression?: (POGOProtos.Data.Quests.QuestDialog.CharacterExpression|null);
+                image_uri?: (string|null);
+                character?: (POGOProtos.Data.Quests.QuestDialog.Character|null);
+            }
+
+            class QuestDialog implements IQuestDialog {
+                constructor(properties?: POGOProtos.Data.Quests.IQuestDialog);
+                public text: string;
+                public expression: POGOProtos.Data.Quests.QuestDialog.CharacterExpression;
+                public image_uri: string;
+                public character: POGOProtos.Data.Quests.QuestDialog.Character;
+                public static create(properties?: POGOProtos.Data.Quests.IQuestDialog): POGOProtos.Data.Quests.QuestDialog;
+                public static encode(message: POGOProtos.Data.Quests.IQuestDialog, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Quests.IQuestDialog, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Quests.QuestDialog;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.QuestDialog;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.QuestDialog;
+                public static toObject(message: POGOProtos.Data.Quests.QuestDialog, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace QuestDialog {
+
+                enum CharacterExpression {
+                    EXPRESSION_UNSET = 0,
+                    HAPPY = 1,
+                    SYMPATHETIC = 2,
+                    ENERGETIC = 3,
+                    PUSHY = 4,
+                    IMPATIENT = 5,
+                    ADMIRATION = 6
+                }
+
+                enum Character {
+                    CHARACTER_UNSET = 0,
+                    PROFESSOR_WILLOW = 1
+                }
+            }
+
+            interface IQuestDisplay {
+                quest_id?: (string|null);
+                dialog?: (POGOProtos.Data.Quests.IQuestDialog[]|null);
+                description?: (string|null);
+                title?: (string|null);
+                slot?: (number|null);
+                subdisplay?: (POGOProtos.Data.Quests.QuestDisplay.ISubQuestDisplay[]|null);
+                story_ending_quest?: (boolean|null);
+                story_ending_description?: (string|null);
+            }
+
+            class QuestDisplay implements IQuestDisplay {
+                constructor(properties?: POGOProtos.Data.Quests.IQuestDisplay);
+                public quest_id: string;
+                public dialog: POGOProtos.Data.Quests.IQuestDialog[];
+                public description: string;
+                public title: string;
+                public slot: number;
+                public subdisplay: POGOProtos.Data.Quests.QuestDisplay.ISubQuestDisplay[];
+                public story_ending_quest: boolean;
+                public story_ending_description: string;
+                public static create(properties?: POGOProtos.Data.Quests.IQuestDisplay): POGOProtos.Data.Quests.QuestDisplay;
+                public static encode(message: POGOProtos.Data.Quests.IQuestDisplay, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Quests.IQuestDisplay, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Quests.QuestDisplay;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.QuestDisplay;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.QuestDisplay;
+                public static toObject(message: POGOProtos.Data.Quests.QuestDisplay, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace QuestDisplay {
+
+                interface ISubQuestDisplay {
+                    subquest_displays?: (POGOProtos.Data.Quests.IQuestDisplay[]|null);
+                }
+
+                class SubQuestDisplay implements ISubQuestDisplay {
+                    constructor(properties?: POGOProtos.Data.Quests.QuestDisplay.ISubQuestDisplay);
+                    public subquest_displays: POGOProtos.Data.Quests.IQuestDisplay[];
+                    public static create(properties?: POGOProtos.Data.Quests.QuestDisplay.ISubQuestDisplay): POGOProtos.Data.Quests.QuestDisplay.SubQuestDisplay;
+                    public static encode(message: POGOProtos.Data.Quests.QuestDisplay.ISubQuestDisplay, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Data.Quests.QuestDisplay.ISubQuestDisplay, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Quests.QuestDisplay.SubQuestDisplay;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.QuestDisplay.SubQuestDisplay;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.QuestDisplay.SubQuestDisplay;
+                    public static toObject(message: POGOProtos.Data.Quests.QuestDisplay.SubQuestDisplay, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+            }
+
             interface IQuestGoal {
-                option_type?: (POGOProtos.Data.Quests.QuestGoal.OptionType|null);
+                condition?: (POGOProtos.Data.Quests.IQuestCondition[]|null);
                 target?: (number|null);
             }
 
             class QuestGoal implements IQuestGoal {
                 constructor(properties?: POGOProtos.Data.Quests.IQuestGoal);
-                public option_type: POGOProtos.Data.Quests.QuestGoal.OptionType;
+                public condition: POGOProtos.Data.Quests.IQuestCondition[];
                 public target: number;
                 public static create(properties?: POGOProtos.Data.Quests.IQuestGoal): POGOProtos.Data.Quests.QuestGoal;
                 public static encode(message: POGOProtos.Data.Quests.IQuestGoal, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -1621,29 +2227,48 @@ export namespace POGOProtos {
                 public toJSON(): { [k: string]: any };
             }
 
-            namespace QuestGoal {
+            interface IQuestPokemonEncounter {
+                quest_id?: (string|null);
+                pokemon?: (POGOProtos.Enums.PokemonId|null);
+                encounter_type?: (POGOProtos.Enums.EncounterType|null);
+            }
 
-                enum OptionType {
-                    UNSET = 0,
-                    OF_POKEMON_TYPE = 1
-                }
+            class QuestPokemonEncounter implements IQuestPokemonEncounter {
+                constructor(properties?: POGOProtos.Data.Quests.IQuestPokemonEncounter);
+                public quest_id: string;
+                public pokemon: POGOProtos.Enums.PokemonId;
+                public encounter_type: POGOProtos.Enums.EncounterType;
+                public static create(properties?: POGOProtos.Data.Quests.IQuestPokemonEncounter): POGOProtos.Data.Quests.QuestPokemonEncounter;
+                public static encode(message: POGOProtos.Data.Quests.IQuestPokemonEncounter, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Quests.IQuestPokemonEncounter, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Quests.QuestPokemonEncounter;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.QuestPokemonEncounter;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.QuestPokemonEncounter;
+                public static toObject(message: POGOProtos.Data.Quests.QuestPokemonEncounter, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
             }
 
             interface IQuestReward {
                 type?: (POGOProtos.Data.Quests.QuestReward.Type|null);
-                amount?: (number|null);
-                pokemon_index?: (number|null);
-                item_id?: (number|null);
+                exp?: (number|null);
+                item?: (POGOProtos.Data.Quests.QuestReward.IItemReward|null);
+                stardust?: (number|null);
+                candy?: (POGOProtos.Data.Quests.QuestReward.IPokemonCandyReward|null);
+                avatar_template_id?: (string|null);
                 quest_template_id?: (string|null);
+                pokemon_encounter?: (POGOProtos.Data.Quests.QuestReward.IPokemonEncounterReward|null);
             }
 
             class QuestReward implements IQuestReward {
                 constructor(properties?: POGOProtos.Data.Quests.IQuestReward);
                 public type: POGOProtos.Data.Quests.QuestReward.Type;
-                public amount: number;
-                public pokemon_index: number;
-                public item_id: number;
+                public exp: number;
+                public item?: (POGOProtos.Data.Quests.QuestReward.IItemReward|null);
+                public stardust: number;
+                public candy?: (POGOProtos.Data.Quests.QuestReward.IPokemonCandyReward|null);
+                public avatar_template_id: string;
                 public quest_template_id: string;
+                public pokemon_encounter?: (POGOProtos.Data.Quests.QuestReward.IPokemonEncounterReward|null);
                 public static create(properties?: POGOProtos.Data.Quests.IQuestReward): POGOProtos.Data.Quests.QuestReward;
                 public static encode(message: POGOProtos.Data.Quests.IQuestReward, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Data.Quests.IQuestReward, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -1657,14 +2282,148 @@ export namespace POGOProtos {
             namespace QuestReward {
 
                 enum Type {
-                    EXPERIENCE = 0,
-                    ITEM = 1,
-                    POKEMON_ENCOUNTER = 2,
+                    UNSET = 0,
+                    EXPERIENCE = 1,
+                    ITEM = 2,
                     STARDUST = 3,
                     CANDY = 4,
                     AVATAR_CLOTHING = 5,
-                    QUEST = 6
+                    QUEST = 6,
+                    POKEMON_ENCOUNTER = 7
                 }
+
+                interface IItemReward {
+                    item?: (POGOProtos.Inventory.Item.ItemId|null);
+                    amount?: (number|null);
+                }
+
+                class ItemReward implements IItemReward {
+                    constructor(properties?: POGOProtos.Data.Quests.QuestReward.IItemReward);
+                    public item: POGOProtos.Inventory.Item.ItemId;
+                    public amount: number;
+                    public static create(properties?: POGOProtos.Data.Quests.QuestReward.IItemReward): POGOProtos.Data.Quests.QuestReward.ItemReward;
+                    public static encode(message: POGOProtos.Data.Quests.QuestReward.IItemReward, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Data.Quests.QuestReward.IItemReward, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Quests.QuestReward.ItemReward;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.QuestReward.ItemReward;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.QuestReward.ItemReward;
+                    public static toObject(message: POGOProtos.Data.Quests.QuestReward.ItemReward, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IPokemonCandyReward {
+                    pokemon_id?: (POGOProtos.Enums.PokemonId|null);
+                    amount?: (number|null);
+                }
+
+                class PokemonCandyReward implements IPokemonCandyReward {
+                    constructor(properties?: POGOProtos.Data.Quests.QuestReward.IPokemonCandyReward);
+                    public pokemon_id: POGOProtos.Enums.PokemonId;
+                    public amount: number;
+                    public static create(properties?: POGOProtos.Data.Quests.QuestReward.IPokemonCandyReward): POGOProtos.Data.Quests.QuestReward.PokemonCandyReward;
+                    public static encode(message: POGOProtos.Data.Quests.QuestReward.IPokemonCandyReward, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Data.Quests.QuestReward.IPokemonCandyReward, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Quests.QuestReward.PokemonCandyReward;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.QuestReward.PokemonCandyReward;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.QuestReward.PokemonCandyReward;
+                    public static toObject(message: POGOProtos.Data.Quests.QuestReward.PokemonCandyReward, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IPokemonEncounterReward {
+                    pokemon_id?: (POGOProtos.Enums.PokemonId|null);
+                    use_quest_pokemon_encounter_distribuition?: (boolean|null);
+                    pokemon_display?: (POGOProtos.Data.IPokemonDisplay|null);
+                }
+
+                class PokemonEncounterReward implements IPokemonEncounterReward {
+                    constructor(properties?: POGOProtos.Data.Quests.QuestReward.IPokemonEncounterReward);
+                    public pokemon_id: POGOProtos.Enums.PokemonId;
+                    public use_quest_pokemon_encounter_distribuition: boolean;
+                    public pokemon_display?: (POGOProtos.Data.IPokemonDisplay|null);
+                    public static create(properties?: POGOProtos.Data.Quests.QuestReward.IPokemonEncounterReward): POGOProtos.Data.Quests.QuestReward.PokemonEncounterReward;
+                    public static encode(message: POGOProtos.Data.Quests.QuestReward.IPokemonEncounterReward, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Data.Quests.QuestReward.IPokemonEncounterReward, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Quests.QuestReward.PokemonEncounterReward;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.QuestReward.PokemonEncounterReward;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.QuestReward.PokemonEncounterReward;
+                    public static toObject(message: POGOProtos.Data.Quests.QuestReward.PokemonEncounterReward, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+            }
+
+            interface IQuests {
+                quest?: (POGOProtos.Data.Quests.IQuest[]|null);
+                completed_story_quest?: (string[]|null);
+                quest_pokemon_encounter?: (POGOProtos.Data.Quests.IQuestPokemonEncounter[]|null);
+                stamp_card?: (POGOProtos.Data.Quests.IQuestStampCard|null);
+            }
+
+            class Quests implements IQuests {
+                constructor(properties?: POGOProtos.Data.Quests.IQuests);
+                public quest: POGOProtos.Data.Quests.IQuest[];
+                public completed_story_quest: string[];
+                public quest_pokemon_encounter: POGOProtos.Data.Quests.IQuestPokemonEncounter[];
+                public stamp_card?: (POGOProtos.Data.Quests.IQuestStampCard|null);
+                public static create(properties?: POGOProtos.Data.Quests.IQuests): POGOProtos.Data.Quests.Quests;
+                public static encode(message: POGOProtos.Data.Quests.IQuests, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Quests.IQuests, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Quests.Quests;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.Quests;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.Quests;
+                public static toObject(message: POGOProtos.Data.Quests.Quests, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            interface IQuestStamp {
+                context?: (POGOProtos.Data.Quests.QuestStamp.Context|null);
+                timestamp_ms?: (number|Long|null);
+            }
+
+            class QuestStamp implements IQuestStamp {
+                constructor(properties?: POGOProtos.Data.Quests.IQuestStamp);
+                public context: POGOProtos.Data.Quests.QuestStamp.Context;
+                public timestamp_ms: (number|Long);
+                public static create(properties?: POGOProtos.Data.Quests.IQuestStamp): POGOProtos.Data.Quests.QuestStamp;
+                public static encode(message: POGOProtos.Data.Quests.IQuestStamp, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Quests.IQuestStamp, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Quests.QuestStamp;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.QuestStamp;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.QuestStamp;
+                public static toObject(message: POGOProtos.Data.Quests.QuestStamp, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace QuestStamp {
+
+                enum Context {
+                    UNSET = 0,
+                    STORY_QUEST = 1,
+                    CHALLENGE_QUEST = 2
+                }
+            }
+
+            interface IQuestStampCard {
+                stamp?: (POGOProtos.Data.Quests.IQuestStamp[]|null);
+                target?: (number|null);
+                remaining_daily_stamps?: (number|null);
+                id?: (string|null);
+            }
+
+            class QuestStampCard implements IQuestStampCard {
+                constructor(properties?: POGOProtos.Data.Quests.IQuestStampCard);
+                public stamp: POGOProtos.Data.Quests.IQuestStamp[];
+                public target: number;
+                public remaining_daily_stamps: number;
+                public id: string;
+                public static create(properties?: POGOProtos.Data.Quests.IQuestStampCard): POGOProtos.Data.Quests.QuestStampCard;
+                public static encode(message: POGOProtos.Data.Quests.IQuestStampCard, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Quests.IQuestStampCard, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Quests.QuestStampCard;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.QuestStampCard;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.QuestStampCard;
+                public static toObject(message: POGOProtos.Data.Quests.QuestStampCard, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
             }
         }
 
@@ -2054,6 +2813,8 @@ export namespace POGOProtos {
             BADGE_HOURS_DEFENDED = 43,
             BADGE_PLACE_HOLDER = 44,
             BADGE_POKEDEX_ENTRIES_GEN3 = 45,
+            BADGE_CHALLENGE_QUESTS = 46,
+            BADGE_MEW_ENCOUNTER = 47,
             BADGE_EVENT_MIN = 2000,
             BADGE_CHICAGO_FEST_JULY_2017 = 2001,
             BADGE_PIKACHU_OUTBREAK_YOKOHAMA_2017 = 2002,
@@ -2099,7 +2860,10 @@ export namespace POGOProtos {
             SPAWN_POINT = 0,
             INCENSE = 1,
             DISK = 2,
-            POST_RAID = 3
+            POST_RAID = 3,
+            STORY_QUEST = 4,
+            QUEST_STAMP_CARD = 5,
+            CHALLENGE_QUEST = 6
         }
 
         enum Filter {
@@ -3131,11 +3895,19 @@ export namespace POGOProtos {
             QUEST_CATCH_POKEMON = 4,
             QUEST_SPIN_POKESTOP = 5,
             QUEST_HATCH_EGG = 6,
-            QUEST_WALK_BUDDY = 7,
-            QUEST_FEED_POKEMON = 8,
-            QUEST_WIN_GYM_BATTLE = 9,
-            QUEST_COMPLETE_RAID_BATTLE = 10,
-            QUEST_LEVELUP_BADGE = 11
+            QUEST_COMPLETE_GYM_BATTLE = 7,
+            QUEST_COMPLETE_RAID_BATTLE = 8,
+            QUEST_COMPLETE_QUEST = 9,
+            QUEST_TRANSFER_POKEMON = 10,
+            QUEST_FAVORITE_POKEMON = 11,
+            QUEST_AUTOCOMPLETE = 12,
+            QUEST_USE_BERRY_IN_ENCOUNTER = 13,
+            QUEST_UPGRADE_POKEMON = 14,
+            QUEST_EVOLVE_POKEMON = 15,
+            QUEST_LAND_THROW = 16,
+            QUEST_GET_BUDDY_CANDY = 17,
+            QUEST_BADGE_RANK = 18,
+            QUEST_PLAYER_LEVEL = 19
         }
 
         enum RaidLevel {
@@ -3180,7 +3952,8 @@ export namespace POGOProtos {
             USE_ITEM = 6,
             FIRST_TIME_EXPERIENCE_COMPLETE = 7,
             POKESTOP_TUTORIAL = 8,
-            GYM_TUTORIAL = 9
+            GYM_TUTORIAL = 9,
+            CHALLENGE_QUEST_TUTORIAL = 10
         }
 
         enum VariableName {
@@ -3450,6 +4223,7 @@ export namespace POGOProtos {
             quest?: (POGOProtos.Data.Quests.IQuest|null);
             avatar_item?: (POGOProtos.Data.Avatar.IAvatarItem|null);
             raid_tickets?: (POGOProtos.Inventory.IRaidTickets|null);
+            quests?: (POGOProtos.Data.Quests.IQuests|null);
         }
 
         class InventoryItemData implements IInventoryItemData {
@@ -3467,6 +4241,7 @@ export namespace POGOProtos {
             public quest?: (POGOProtos.Data.Quests.IQuest|null);
             public avatar_item?: (POGOProtos.Data.Avatar.IAvatarItem|null);
             public raid_tickets?: (POGOProtos.Inventory.IRaidTickets|null);
+            public quests?: (POGOProtos.Data.Quests.IQuests|null);
             public static create(properties?: POGOProtos.Inventory.IInventoryItemData): POGOProtos.Inventory.InventoryItemData;
             public static encode(message: POGOProtos.Inventory.IInventoryItemData, writer?: $protobuf.Writer): $protobuf.Writer;
             public static encodeDelimited(message: POGOProtos.Inventory.IInventoryItemData, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -3491,6 +4266,7 @@ export namespace POGOProtos {
             quest_type?: (POGOProtos.Enums.QuestType|null);
             avatar_template_id?: (string|null);
             raid_tickets?: (boolean|null);
+            quests?: (boolean|null);
         }
 
         class InventoryKey implements IInventoryKey {
@@ -3508,6 +4284,7 @@ export namespace POGOProtos {
             public quest_type: POGOProtos.Enums.QuestType;
             public avatar_template_id: string;
             public raid_tickets: boolean;
+            public quests: boolean;
             public static create(properties?: POGOProtos.Inventory.IInventoryKey): POGOProtos.Inventory.InventoryKey;
             public static encode(message: POGOProtos.Inventory.IInventoryKey, writer?: $protobuf.Writer): $protobuf.Writer;
             public static encodeDelimited(message: POGOProtos.Inventory.IInventoryKey, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -3701,6 +4478,7 @@ export namespace POGOProtos {
             pokecoin?: (boolean|null);
             pokemon_candy?: (POGOProtos.Enums.PokemonId|null);
             count?: (number|null);
+            experience?: (boolean|null);
         }
 
         class LootItem implements ILootItem {
@@ -3710,6 +4488,7 @@ export namespace POGOProtos {
             public pokecoin: boolean;
             public pokemon_candy: POGOProtos.Enums.PokemonId;
             public count: number;
+            public experience: boolean;
             public static create(properties?: POGOProtos.Inventory.ILootItem): POGOProtos.Inventory.LootItem;
             public static encode(message: POGOProtos.Inventory.ILootItem, writer?: $protobuf.Writer): $protobuf.Writer;
             public static encodeDelimited(message: POGOProtos.Inventory.ILootItem, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -3792,6 +4571,7 @@ export namespace POGOProtos {
                 in_event?: (boolean|null);
                 banner_url?: (string|null);
                 partner_id?: (string|null);
+                challenge_quest_completed?: (boolean|null);
             }
 
             class FortData implements IFortData {
@@ -3824,6 +4604,7 @@ export namespace POGOProtos {
                 public in_event: boolean;
                 public banner_url: string;
                 public partner_id: string;
+                public challenge_quest_completed: boolean;
                 public static create(properties?: POGOProtos.Map.Fort.IFortData): POGOProtos.Map.Fort.FortData;
                 public static encode(message: POGOProtos.Map.Fort.IFortData, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Map.Fort.IFortData, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -5275,6 +6056,40 @@ export namespace POGOProtos {
                     public toJSON(): { [k: string]: any };
                 }
 
+                interface ICompleteQuestMessage {
+                    quest_id?: (string|null);
+                    sub_quest_id?: (string|null);
+                }
+
+                class CompleteQuestMessage implements ICompleteQuestMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.ICompleteQuestMessage);
+                    public quest_id: string;
+                    public sub_quest_id: string;
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.ICompleteQuestMessage): POGOProtos.Networking.Requests.Messages.CompleteQuestMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.ICompleteQuestMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.ICompleteQuestMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.CompleteQuestMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.CompleteQuestMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.CompleteQuestMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.CompleteQuestMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface ICompleteQuestStampCardMessage {
+                }
+
+                class CompleteQuestStampCardMessage implements ICompleteQuestStampCardMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.ICompleteQuestStampCardMessage);
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.ICompleteQuestStampCardMessage): POGOProtos.Networking.Requests.Messages.CompleteQuestStampCardMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.ICompleteQuestStampCardMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.ICompleteQuestStampCardMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.CompleteQuestStampCardMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.CompleteQuestStampCardMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.CompleteQuestStampCardMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.CompleteQuestStampCardMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
                 interface IDiskEncounterMessage {
                     encounter_id?: (number|Long|null);
                     fort_id?: (string|null);
@@ -5809,6 +6624,21 @@ export namespace POGOProtos {
                     public toJSON(): { [k: string]: any };
                 }
 
+                interface IGetNewQuestsMessage {
+                }
+
+                class GetNewQuestsMessage implements IGetNewQuestsMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IGetNewQuestsMessage);
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IGetNewQuestsMessage): POGOProtos.Networking.Requests.Messages.GetNewQuestsMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IGetNewQuestsMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IGetNewQuestsMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.GetNewQuestsMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.GetNewQuestsMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.GetNewQuestsMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.GetNewQuestsMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
                 interface IGetPlayerMessage {
                     player_locale?: (POGOProtos.Networking.Requests.Messages.GetPlayerMessage.IPlayerLocale|null);
                     prevent_creation?: (boolean|null);
@@ -5866,6 +6696,23 @@ export namespace POGOProtos {
                     public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.GetPlayerProfileMessage;
                     public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.GetPlayerProfileMessage;
                     public static toObject(message: POGOProtos.Networking.Requests.Messages.GetPlayerProfileMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IGetQuestDetailsMessage {
+                    quest_id?: (string[]|null);
+                }
+
+                class GetQuestDetailsMessage implements IGetQuestDetailsMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IGetQuestDetailsMessage);
+                    public quest_id: string[];
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IGetQuestDetailsMessage): POGOProtos.Networking.Requests.Messages.GetQuestDetailsMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IGetQuestDetailsMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IGetQuestDetailsMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.GetQuestDetailsMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.GetQuestDetailsMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.GetQuestDetailsMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.GetQuestDetailsMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
                     public toJSON(): { [k: string]: any };
                 }
 
@@ -6208,6 +7055,25 @@ export namespace POGOProtos {
                     public toJSON(): { [k: string]: any };
                 }
 
+                interface IQuestEncounterMessage {
+                    encounter_id?: (number|Long|null);
+                    spawn_point_id?: (string|null);
+                }
+
+                class QuestEncounterMessage implements IQuestEncounterMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IQuestEncounterMessage);
+                    public encounter_id: (number|Long);
+                    public spawn_point_id: string;
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IQuestEncounterMessage): POGOProtos.Networking.Requests.Messages.QuestEncounterMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IQuestEncounterMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IQuestEncounterMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.QuestEncounterMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.QuestEncounterMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.QuestEncounterMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.QuestEncounterMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
                 interface IRecycleInventoryItemMessage {
                     item_id?: (POGOProtos.Inventory.Item.ItemId|null);
                     count?: (number|null);
@@ -6279,6 +7145,23 @@ export namespace POGOProtos {
                     public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.ReleasePokemonMessage;
                     public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.ReleasePokemonMessage;
                     public static toObject(message: POGOProtos.Networking.Requests.Messages.ReleasePokemonMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IRemoveQuestMessage {
+                    quest_id?: (string|null);
+                }
+
+                class RemoveQuestMessage implements IRemoveQuestMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IRemoveQuestMessage);
+                    public quest_id: string;
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IRemoveQuestMessage): POGOProtos.Networking.Requests.Messages.RemoveQuestMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IRemoveQuestMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IRemoveQuestMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.RemoveQuestMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.RemoveQuestMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.RemoveQuestMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.RemoveQuestMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
                     public toJSON(): { [k: string]: any };
                 }
 
@@ -6819,6 +7702,12 @@ export namespace POGOProtos {
                 FETCH_ALL_NEWS = 816,
                 MARK_READ_NEWS_ARTICLE = 817,
                 GET_PLAYER_DISPLAY_INFO = 818,
+                GET_NEW_QUESTS = 900,
+                GET_QUEST_DETAILS = 901,
+                COMPLETE_QUEST = 902,
+                REMOVE_QUEST = 903,
+                QUEST_ENCOUNTER = 904,
+                COMPLETE_QUEST_STAMP_CARD = 905,
                 REGISTER_PUSH_NOTIFICATION = 5000,
                 UNREGISTER_PUSH_NOTIFICATION = 5001,
                 UPDATE_NOTIFICATION_STATUS = 5002,
@@ -7117,6 +8006,72 @@ export namespace POGOProtos {
                 }
             }
 
+            interface ICompleteQuestResponse {
+                status?: (POGOProtos.Networking.Responses.CompleteQuestResponse.Status|null);
+                quest?: (POGOProtos.Data.Quests.IClientQuest|null);
+                stamp?: (POGOProtos.Data.Quests.IQuestStamp[]|null);
+            }
+
+            class CompleteQuestResponse implements ICompleteQuestResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.ICompleteQuestResponse);
+                public status: POGOProtos.Networking.Responses.CompleteQuestResponse.Status;
+                public quest?: (POGOProtos.Data.Quests.IClientQuest|null);
+                public stamp: POGOProtos.Data.Quests.IQuestStamp[];
+                public static create(properties?: POGOProtos.Networking.Responses.ICompleteQuestResponse): POGOProtos.Networking.Responses.CompleteQuestResponse;
+                public static encode(message: POGOProtos.Networking.Responses.ICompleteQuestResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.ICompleteQuestResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.CompleteQuestResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.CompleteQuestResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.CompleteQuestResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.CompleteQuestResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace CompleteQuestResponse {
+
+                enum Status {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_QUEST_NOT_FOUND = 2,
+                    ERROR_QUEST_STILL_IN_PROGRESS = 3,
+                    ERROR_QUEST_ALREADY_COMPLETED = 4,
+                    ERROR_SUBQUEST_NOT_FOUND = 5,
+                    ERROR_SUBQUEST_STILL_IN_PROGRESS = 6,
+                    ERROR_SUBQUEST_ALREADY_COMPLETED = 7,
+                    ERROR_MULTIPART_STILL_IN_PROGRESS = 8,
+                    ERROR_MULTIPART_ALREADY_COMPLETED = 9,
+                    ERROR_REDEEM_COMPLETED_QUEST_STAMP_CARD_FIRST = 10
+                }
+            }
+
+            interface ICompleteQuestStampCardResponse {
+                status?: (POGOProtos.Networking.Responses.CompleteQuestStampCardResponse.Status|null);
+                reward?: (POGOProtos.Data.Quests.IQuestReward[]|null);
+            }
+
+            class CompleteQuestStampCardResponse implements ICompleteQuestStampCardResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.ICompleteQuestStampCardResponse);
+                public status: POGOProtos.Networking.Responses.CompleteQuestStampCardResponse.Status;
+                public reward: POGOProtos.Data.Quests.IQuestReward[];
+                public static create(properties?: POGOProtos.Networking.Responses.ICompleteQuestStampCardResponse): POGOProtos.Networking.Responses.CompleteQuestStampCardResponse;
+                public static encode(message: POGOProtos.Networking.Responses.ICompleteQuestStampCardResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.ICompleteQuestStampCardResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.CompleteQuestStampCardResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.CompleteQuestStampCardResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.CompleteQuestStampCardResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.CompleteQuestStampCardResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace CompleteQuestStampCardResponse {
+
+                enum Status {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_STILL_IN_PROGRESS = 2
+                }
+            }
+
             interface IDiskEncounterResponse {
                 result?: (POGOProtos.Networking.Responses.DiskEncounterResponse.Result|null);
                 pokemon_data?: (POGOProtos.Data.IPokemonData|null);
@@ -7260,6 +8215,7 @@ export namespace POGOProtos {
                     weather_bonus_settings?: (POGOProtos.Settings.Master.IWeatherBonus|null);
                     pokemon_scale_settings?: (POGOProtos.Settings.Master.IPokemonScaleSetting|null);
                     iap_category_display?: (POGOProtos.Settings.Master.IIapItemCategoryDisplay|null);
+                    onboarding_settings?: (POGOProtos.Settings.Master.IOnboardingSettings|null);
                 }
 
                 class ItemTemplate implements IItemTemplate {
@@ -7289,6 +8245,7 @@ export namespace POGOProtos {
                     public weather_bonus_settings?: (POGOProtos.Settings.Master.IWeatherBonus|null);
                     public pokemon_scale_settings?: (POGOProtos.Settings.Master.IPokemonScaleSetting|null);
                     public iap_category_display?: (POGOProtos.Settings.Master.IIapItemCategoryDisplay|null);
+                    public onboarding_settings?: (POGOProtos.Settings.Master.IOnboardingSettings|null);
                     public static create(properties?: POGOProtos.Networking.Responses.DownloadItemTemplatesResponse.IItemTemplate): POGOProtos.Networking.Responses.DownloadItemTemplatesResponse.ItemTemplate;
                     public static encode(message: POGOProtos.Networking.Responses.DownloadItemTemplatesResponse.IItemTemplate, writer?: $protobuf.Writer): $protobuf.Writer;
                     public static encodeDelimited(message: POGOProtos.Networking.Responses.DownloadItemTemplatesResponse.IItemTemplate, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -7680,6 +8637,7 @@ export namespace POGOProtos {
                 raid_tickets?: (number|null);
                 team_bonus_loot?: (POGOProtos.Inventory.ILoot|null);
                 fort_id?: (string|null);
+                challenge_quest?: (POGOProtos.Data.Quests.IClientQuest|null);
             }
 
             class FortSearchResponse implements IFortSearchResponse {
@@ -7697,6 +8655,7 @@ export namespace POGOProtos {
                 public raid_tickets: number;
                 public team_bonus_loot?: (POGOProtos.Inventory.ILoot|null);
                 public fort_id: string;
+                public challenge_quest?: (POGOProtos.Data.Quests.IClientQuest|null);
                 public static create(properties?: POGOProtos.Networking.Responses.IFortSearchResponse): POGOProtos.Networking.Responses.FortSearchResponse;
                 public static encode(message: POGOProtos.Networking.Responses.IFortSearchResponse, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Networking.Responses.IFortSearchResponse, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -8105,6 +9064,34 @@ export namespace POGOProtos {
                 }
             }
 
+            interface IGetNewQuestsResponse {
+                status?: (POGOProtos.Networking.Responses.GetNewQuestsResponse.Status|null);
+                quests?: (POGOProtos.Data.Quests.IClientQuest[]|null);
+            }
+
+            class GetNewQuestsResponse implements IGetNewQuestsResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IGetNewQuestsResponse);
+                public status: POGOProtos.Networking.Responses.GetNewQuestsResponse.Status;
+                public quests: POGOProtos.Data.Quests.IClientQuest[];
+                public static create(properties?: POGOProtos.Networking.Responses.IGetNewQuestsResponse): POGOProtos.Networking.Responses.GetNewQuestsResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IGetNewQuestsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IGetNewQuestsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.GetNewQuestsResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.GetNewQuestsResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.GetNewQuestsResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.GetNewQuestsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace GetNewQuestsResponse {
+
+                enum Status {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_INVALID_DISPLAY = 2
+                }
+            }
+
             interface IGetPlayerProfileResponse {
                 result?: (POGOProtos.Networking.Responses.GetPlayerProfileResponse.Result|null);
                 start_time?: (number|Long|null);
@@ -8178,6 +9165,35 @@ export namespace POGOProtos {
                 public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.GetPlayerResponse;
                 public static toObject(message: POGOProtos.Networking.Responses.GetPlayerResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
                 public toJSON(): { [k: string]: any };
+            }
+
+            interface IGetQuestDetailsResponse {
+                status?: (POGOProtos.Networking.Responses.GetQuestDetailsResponse.Status|null);
+                quests?: (POGOProtos.Data.Quests.IClientQuest[]|null);
+            }
+
+            class GetQuestDetailsResponse implements IGetQuestDetailsResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IGetQuestDetailsResponse);
+                public status: POGOProtos.Networking.Responses.GetQuestDetailsResponse.Status;
+                public quests: POGOProtos.Data.Quests.IClientQuest[];
+                public static create(properties?: POGOProtos.Networking.Responses.IGetQuestDetailsResponse): POGOProtos.Networking.Responses.GetQuestDetailsResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IGetQuestDetailsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IGetQuestDetailsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.GetQuestDetailsResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.GetQuestDetailsResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.GetQuestDetailsResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.GetQuestDetailsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace GetQuestDetailsResponse {
+
+                enum Status {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_QUEST_NOT_FOUND = 2,
+                    ERROR_INVALID_DISPLAY = 3
+                }
             }
 
             interface IGetRaidDetailsResponse {
@@ -8630,6 +9646,40 @@ export namespace POGOProtos {
                 public toJSON(): { [k: string]: any };
             }
 
+            interface IQuestEncounterResponse {
+                result?: (POGOProtos.Networking.Responses.QuestEncounterResponse.Result|null);
+                pokemon?: (POGOProtos.Map.Pokemon.IWildPokemon|null);
+                capture_probability?: (POGOProtos.Data.Capture.ICaptureProbability|null);
+                active_item?: (POGOProtos.Inventory.Item.ItemId|null);
+            }
+
+            class QuestEncounterResponse implements IQuestEncounterResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IQuestEncounterResponse);
+                public result: POGOProtos.Networking.Responses.QuestEncounterResponse.Result;
+                public pokemon?: (POGOProtos.Map.Pokemon.IWildPokemon|null);
+                public capture_probability?: (POGOProtos.Data.Capture.ICaptureProbability|null);
+                public active_item: POGOProtos.Inventory.Item.ItemId;
+                public static create(properties?: POGOProtos.Networking.Responses.IQuestEncounterResponse): POGOProtos.Networking.Responses.QuestEncounterResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IQuestEncounterResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IQuestEncounterResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.QuestEncounterResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.QuestEncounterResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.QuestEncounterResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.QuestEncounterResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace QuestEncounterResponse {
+
+                enum Result {
+                    QUEST_ENCOUNTER_UNKNOWN = 0,
+                    QUEST_ENCOUNTER_SUCCESS = 1,
+                    QUEST_ENCOUNTER_NOT_AVAILABLE = 2,
+                    QUEST_ENCOUNTER_ALREADY_FINISHED = 3,
+                    POKEMON_INVENTORY_FULL = 4
+                }
+            }
+
             interface IRecycleInventoryItemResponse {
                 result?: (POGOProtos.Networking.Responses.RecycleInventoryItemResponse.Result|null);
                 new_count?: (number|null);
@@ -8768,6 +9818,33 @@ export namespace POGOProtos {
                     FAILED = 3,
                     ERROR_POKEMON_IS_EGG = 4,
                     ERROR_POKEMON_IS_BUDDY = 5
+                }
+            }
+
+            interface IRemoveQuestResponse {
+                status?: (POGOProtos.Networking.Responses.RemoveQuestResponse.Status|null);
+            }
+
+            class RemoveQuestResponse implements IRemoveQuestResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IRemoveQuestResponse);
+                public status: POGOProtos.Networking.Responses.RemoveQuestResponse.Status;
+                public static create(properties?: POGOProtos.Networking.Responses.IRemoveQuestResponse): POGOProtos.Networking.Responses.RemoveQuestResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IRemoveQuestResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IRemoveQuestResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.RemoveQuestResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.RemoveQuestResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.RemoveQuestResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.RemoveQuestResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace RemoveQuestResponse {
+
+                enum Status {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_QUEST_NOT_FOUND = 2,
+                    ERROR_STORY_QUEST_NOT_REMOVABLE = 3
                 }
             }
 
@@ -9590,6 +10667,7 @@ export namespace POGOProtos {
             news_global_settings?: (POGOProtos.Settings.INewsGlobalSettings|null);
             metrics_global_settings?: (POGOProtos.Settings.IMetricsGlobalSettings|null);
             login_settings?: (POGOProtos.Settings.ILoginSettings|null);
+            quest_global_settings?: (POGOProtos.Settings.IQuestGlobalSettings|null);
         }
 
         class GlobalSettings implements IGlobalSettings {
@@ -9613,6 +10691,7 @@ export namespace POGOProtos {
             public news_global_settings?: (POGOProtos.Settings.INewsGlobalSettings|null);
             public metrics_global_settings?: (POGOProtos.Settings.IMetricsGlobalSettings|null);
             public login_settings?: (POGOProtos.Settings.ILoginSettings|null);
+            public quest_global_settings?: (POGOProtos.Settings.IQuestGlobalSettings|null);
             public static create(properties?: POGOProtos.Settings.IGlobalSettings): POGOProtos.Settings.GlobalSettings;
             public static encode(message: POGOProtos.Settings.IGlobalSettings, writer?: $protobuf.Writer): $protobuf.Writer;
             public static encodeDelimited(message: POGOProtos.Settings.IGlobalSettings, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -10539,6 +11618,25 @@ export namespace POGOProtos {
                 public toJSON(): { [k: string]: any };
             }
 
+            interface IOnboardingSettings {
+                skip_avatar_customization?: (boolean|null);
+                disable_initial_ar_prompt?: (boolean|null);
+            }
+
+            class OnboardingSettings implements IOnboardingSettings {
+                constructor(properties?: POGOProtos.Settings.Master.IOnboardingSettings);
+                public skip_avatar_customization: boolean;
+                public disable_initial_ar_prompt: boolean;
+                public static create(properties?: POGOProtos.Settings.Master.IOnboardingSettings): POGOProtos.Settings.Master.OnboardingSettings;
+                public static encode(message: POGOProtos.Settings.Master.IOnboardingSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Settings.Master.IOnboardingSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Settings.Master.OnboardingSettings;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.Master.OnboardingSettings;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.Master.OnboardingSettings;
+                public static toObject(message: POGOProtos.Settings.Master.OnboardingSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
             interface IPlayerLevelSettings {
                 rank_num?: (number[]|null);
                 required_experience?: (number[]|null);
@@ -10546,6 +11644,7 @@ export namespace POGOProtos {
                 max_egg_player_level?: (number|null);
                 max_encounter_player_level?: (number|null);
                 max_raid_encounter_player_level?: (number|null);
+                max_quest_encounter_player_level?: (number|null);
             }
 
             class PlayerLevelSettings implements IPlayerLevelSettings {
@@ -10556,6 +11655,7 @@ export namespace POGOProtos {
                 public max_egg_player_level: number;
                 public max_encounter_player_level: number;
                 public max_raid_encounter_player_level: number;
+                public max_quest_encounter_player_level: number;
                 public static create(properties?: POGOProtos.Settings.Master.IPlayerLevelSettings): POGOProtos.Settings.Master.PlayerLevelSettings;
                 public static encode(message: POGOProtos.Settings.Master.IPlayerLevelSettings, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Settings.Master.IPlayerLevelSettings, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -11075,6 +12175,25 @@ export namespace POGOProtos {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.PasscodeSettings;
             public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.PasscodeSettings;
             public static toObject(message: POGOProtos.Settings.PasscodeSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public toJSON(): { [k: string]: any };
+        }
+
+        interface IQuestGlobalSettings {
+            enable_quests?: (boolean|null);
+            max_challenge_quests?: (number|null);
+        }
+
+        class QuestGlobalSettings implements IQuestGlobalSettings {
+            constructor(properties?: POGOProtos.Settings.IQuestGlobalSettings);
+            public enable_quests: boolean;
+            public max_challenge_quests: number;
+            public static create(properties?: POGOProtos.Settings.IQuestGlobalSettings): POGOProtos.Settings.QuestGlobalSettings;
+            public static encode(message: POGOProtos.Settings.IQuestGlobalSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: POGOProtos.Settings.IQuestGlobalSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Settings.QuestGlobalSettings;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.QuestGlobalSettings;
+            public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.QuestGlobalSettings;
+            public static toObject(message: POGOProtos.Settings.QuestGlobalSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
             public toJSON(): { [k: string]: any };
         }
 
