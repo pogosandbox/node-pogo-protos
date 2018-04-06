@@ -61,7 +61,6 @@ import public "Data/Quests/DailyQuest.proto";
 import public "Data/Quests/Quest.proto";
 import public "Data/Quests/QuestCondition.proto";
 import public "Data/Quests/QuestDialog.proto";
-import public "Data/Quests/QuestDisplay.proto";
 import public "Data/Quests/QuestGoal.proto";
 import public "Data/Quests/QuestPokemonEncounter.proto";
 import public "Data/Quests/QuestReward.proto";

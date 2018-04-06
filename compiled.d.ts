@@ -2157,57 +2157,6 @@ export namespace POGOProtos {
                 }
             }
 
-            interface IQuestDisplay {
-                quest_id?: (string|null);
-                dialog?: (POGOProtos.Data.Quests.IQuestDialog[]|null);
-                description?: (string|null);
-                title?: (string|null);
-                slot?: (number|null);
-                subdisplay?: (POGOProtos.Data.Quests.QuestDisplay.ISubQuestDisplay[]|null);
-                story_ending_quest?: (boolean|null);
-                story_ending_description?: (string|null);
-            }
-
-            class QuestDisplay implements IQuestDisplay {
-                constructor(properties?: POGOProtos.Data.Quests.IQuestDisplay);
-                public quest_id: string;
-                public dialog: POGOProtos.Data.Quests.IQuestDialog[];
-                public description: string;
-                public title: string;
-                public slot: number;
-                public subdisplay: POGOProtos.Data.Quests.QuestDisplay.ISubQuestDisplay[];
-                public story_ending_quest: boolean;
-                public story_ending_description: string;
-                public static create(properties?: POGOProtos.Data.Quests.IQuestDisplay): POGOProtos.Data.Quests.QuestDisplay;
-                public static encode(message: POGOProtos.Data.Quests.IQuestDisplay, writer?: $protobuf.Writer): $protobuf.Writer;
-                public static encodeDelimited(message: POGOProtos.Data.Quests.IQuestDisplay, writer?: $protobuf.Writer): $protobuf.Writer;
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Quests.QuestDisplay;
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.QuestDisplay;
-                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.QuestDisplay;
-                public static toObject(message: POGOProtos.Data.Quests.QuestDisplay, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                public toJSON(): { [k: string]: any };
-            }
-
-            namespace QuestDisplay {
-
-                interface ISubQuestDisplay {
-                    subquest_displays?: (POGOProtos.Data.Quests.IQuestDisplay[]|null);
-                }
-
-                class SubQuestDisplay implements ISubQuestDisplay {
-                    constructor(properties?: POGOProtos.Data.Quests.QuestDisplay.ISubQuestDisplay);
-                    public subquest_displays: POGOProtos.Data.Quests.IQuestDisplay[];
-                    public static create(properties?: POGOProtos.Data.Quests.QuestDisplay.ISubQuestDisplay): POGOProtos.Data.Quests.QuestDisplay.SubQuestDisplay;
-                    public static encode(message: POGOProtos.Data.Quests.QuestDisplay.ISubQuestDisplay, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static encodeDelimited(message: POGOProtos.Data.Quests.QuestDisplay.ISubQuestDisplay, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Quests.QuestDisplay.SubQuestDisplay;
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.QuestDisplay.SubQuestDisplay;
-                    public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.QuestDisplay.SubQuestDisplay;
-                    public static toObject(message: POGOProtos.Data.Quests.QuestDisplay.SubQuestDisplay, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                    public toJSON(): { [k: string]: any };
-                }
-            }
-
             interface IQuestGoal {
                 condition?: (POGOProtos.Data.Quests.IQuestCondition[]|null);
                 target?: (number|null);
