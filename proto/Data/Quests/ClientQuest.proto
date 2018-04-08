@@ -2,10 +2,11 @@ syntax = "proto3";
 package POGOProtos.Data.Quests;
 
 import "POGOProtos/Data/Quests/Quest.proto";
+import "POGOProtos/Data/Quests/QuestDialog.proto";
 
 message ClientQuest {
 	.POGOProtos.Data.Quests.Quest quest = 1;
-	QuestDisplay quest_display = 2;
+	.POGOProtos.Data.Quests.ClientQuest.QuestDisplay quest_display = 2;
 
 	message QuestDisplay {
 		string quest_id = 1;
