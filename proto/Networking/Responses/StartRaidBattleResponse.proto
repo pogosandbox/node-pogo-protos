@@ -7,8 +7,7 @@ message StartRaidBattleResponse {
 	Result result = 1;
 	.POGOProtos.Data.Battle.Battle battle = 2;
 
-	enum Result
-	{
+	enum Result {
 		UNSET = 0;
 		SUCCESS = 1;
 		ERROR_GYM_NOT_FOUND = 2;
