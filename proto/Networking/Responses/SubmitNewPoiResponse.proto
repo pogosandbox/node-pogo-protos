@@ -1,0 +1,13 @@
+syntax = "proto3";
+package POGOProtos.Networking.Responses;
+
+message SubmitNewPoiResponse {
+	Status status = 1;
+	string geostore_error_message = 2;
+
+	enum Status {
+		UNSET = 0;
+		SUCCESS = 1;
+		FAILURE = 2;
+	}
+}

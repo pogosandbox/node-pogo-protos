@@ -1,2 +1,0 @@
-const POGOProtos = require('../fs');
-
