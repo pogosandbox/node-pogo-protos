@@ -6,6 +6,7 @@ import "POGOProtos/Data/Quests/ClientQuest.proto";
 message GetNewQuestsResponse {
 	Status status = 1;
 	repeated .POGOProtos.Data.Quests.ClientQuest quests = 2;
+	repeated .POGOProtos.Data.Quests.ClientQuest version_changed_quests = 3;
 
 	enum Status {
 		UNSET = 0;

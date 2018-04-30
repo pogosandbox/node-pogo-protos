@@ -28,6 +28,7 @@ message Quest {
 	bool stamp_count_override_enabled = 113;
 	int32 stamp_count_override = 114;
 	int64 s2_cell_id = 115;
+	int32 story_quest_template_version = 116;
 
 	message MultiPartQuest {
 		repeated .POGOProtos.Data.Quests.Quest sub_quests = 1;

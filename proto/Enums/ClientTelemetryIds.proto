@@ -1,0 +1,8 @@
+syntax = "proto3";
+package POGOProtos.Enums;
+
+enum ClientTelemetryIds {
+	UNDEFINED = 0;
+	BOOT_TIME = 1;
+	FRAME_RATE = 2;
+}
