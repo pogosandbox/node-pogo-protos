@@ -5,10 +5,9 @@ import "POGOProtos/Data/Raid/Lobby.proto";
 
 message JoinLobbyResponse {
 	Result result = 1;
-	Lobby lobby = 2;
+	.POGOProtos.Data.Raid.Lobby lobby = 2;
 
-	enum Result
-	{
+	enum Result {
 		UNSET = 0;
 		SUCCESS = 1;
 		ERROR_NOT_IN_RANGE = 2;

@@ -2,7 +2,7 @@ syntax = "proto3";
 package POGOProtos.Networking.Responses;
 
 message UseItemPotionResponse {
-	.POGOProtos.Networking.Responses.UseItemPotionResponse.Result result = 1;
+	Result result = 1;
 	int32 stamina = 2;
 
 	enum Result {

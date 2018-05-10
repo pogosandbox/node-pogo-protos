@@ -35,7 +35,7 @@ message PokemonSettings {
 	.POGOProtos.Enums.PokemonFamilyId family_id = 21;
 	int32 candy_to_evolve = 22;
 	float km_buddy_distance = 23;
-	.POGOProtos.Settings.Master.PokemonSettings.BuddySize buddy_size = 24;
+	BuddySize buddy_size = 24;
 	float model_height = 25;
 	repeated .POGOProtos.Settings.Master.Pokemon.EvolutionBranch evolution_branch = 26;
 	float model_scale_v2 = 27;

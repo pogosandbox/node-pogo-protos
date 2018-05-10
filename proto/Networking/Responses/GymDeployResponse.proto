@@ -5,7 +5,7 @@ import "POGOProtos/Data/Gym/GymStatusAndDefenders.proto";
 import "POGOProtos/Data/Badge/AwardedGymBadge.proto";
 
 message GymDeployResponse {
-	.POGOProtos.Networking.Responses.GymDeployResponse.Result result = 1;
+	Result result = 1;
 	.POGOProtos.Data.Gym.GymStatusAndDefenders gym_status_and_defenders = 2;
 	.POGOProtos.Data.Badge.AwardedGymBadge awarded_gym_badge = 3;
 	int64 cooldown_complete_timestamp_ms = 4;

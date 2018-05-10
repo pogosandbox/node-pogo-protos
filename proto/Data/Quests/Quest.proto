@@ -10,15 +10,15 @@ import "POGOProtos/Data/Quests/QuestGoal.proto";
 message Quest {
 	.POGOProtos.Enums.QuestType quest_type = 1;
 	.POGOProtos.Data.Quests.DailyQuest daily_quest = 2;
-	.POGOProtos.Data.Quests.Quest.MultiPartQuest multi_part = 3;
+	MultiPartQuest multi_part = 3;
 	.POGOProtos.Data.Quests.CatchPokemonQuest catch_pokemon = 4;
 	string quest_id = 100;
 	int64 quest_seed = 101;
-	.POGOProtos.Data.Quests.Quest.Context quest_context = 102;
+	Context quest_context = 102;
 	string template_id = 103;
 	int32 progress = 104;
 	.POGOProtos.Data.Quests.QuestGoal goal = 105;
-	.POGOProtos.Data.Quests.Quest.Status status = 106;
+	Status status = 106;
 	repeated .POGOProtos.Data.Quests.QuestReward quest_rewards = 107;
 	int64 creation_timestamp_ms = 108;
 	int64 last_update_timestamp_ms = 109;

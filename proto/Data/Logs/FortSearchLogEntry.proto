@@ -6,7 +6,7 @@ import "POGOProtos/Inventory/Item/ItemData.proto";
 import "POGOProtos/Map/Fort/FortType.proto";
 
 message FortSearchLogEntry {
-	.POGOProtos.Data.Logs.FortSearchLogEntry.Result result = 1;
+	Result result = 1;
 	string fort_id = 2;
 	repeated .POGOProtos.Inventory.Item.ItemData items = 3;
 	int32 eggs = 4;

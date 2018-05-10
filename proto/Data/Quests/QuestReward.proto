@@ -6,14 +6,14 @@ import "POGOProtos/Enums/PokemonId.proto";
 import "POGOProtos/Inventory/Item/ItemId.proto";
 
 message QuestReward {
-	.POGOProtos.Data.Quests.QuestReward.Type type = 1;
+	Type type = 1;
 	int32 exp = 2;
-	.POGOProtos.Data.Quests.QuestReward.ItemReward item = 3;
+	ItemReward item = 3;
 	int32 stardust = 4;
-	.POGOProtos.Data.Quests.QuestReward.PokemonCandyReward candy = 5;
+	PokemonCandyReward candy = 5;
 	string avatar_template_id = 6;
 	string quest_template_id = 7;
-	.POGOProtos.Data.Quests.QuestReward.PokemonEncounterReward pokemon_encounter = 8;
+	PokemonEncounterReward pokemon_encounter = 8;
 
 	enum Type {
 		UNSET = 0;

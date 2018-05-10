@@ -4,7 +4,7 @@ package POGOProtos.Networking.Responses;
 import "POGOProtos/Data/PokemonData.proto";
 
 message UpgradePokemonResponse {
-	.POGOProtos.Networking.Responses.UpgradePokemonResponse.Result result = 1;
+	Result result = 1;
 	.POGOProtos.Data.PokemonData upgraded_pokemon = 2;
 
 	enum Result {

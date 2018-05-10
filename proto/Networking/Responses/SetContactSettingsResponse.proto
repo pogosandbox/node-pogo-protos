@@ -4,7 +4,7 @@ package POGOProtos.Networking.Responses;
 import "POGOProtos/Data/PlayerData.proto";
 
 message SetContactSettingsResponse {
-	.POGOProtos.Networking.Responses.SetContactSettingsResponse.Status status = 1;
+	Status status = 1;
 	.POGOProtos.Data.PlayerData player_data = 2;
 
 	enum Status {

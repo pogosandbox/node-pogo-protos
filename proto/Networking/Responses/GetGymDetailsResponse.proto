@@ -8,7 +8,7 @@ message GetGymDetailsResponse {
 	.POGOProtos.Data.Gym.GymState gym_state = 1;
 	string name = 2;
 	repeated string urls = 3;
-	.POGOProtos.Networking.Responses.GetGymDetailsResponse.Result result = 4;
+	Result result = 4;
 	string description = 5;
 	repeated string secondary_url = 6;
 	string checkin_image_url = 7;

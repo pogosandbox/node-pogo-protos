@@ -6,7 +6,7 @@ import "POGOProtos/Data/Player/PlayerPublicProfile.proto";
 
 message GymDefender {
 	.POGOProtos.Map.Pokemon.MotivatedPokemon motivated_pokemon = 1;
-	.POGOProtos.Data.Gym.GymDefender.DeploymentTotals deployment_totals = 2;
+	DeploymentTotals deployment_totals = 2;
 	.POGOProtos.Data.Player.PlayerPublicProfile trainer_public_profile = 3;
 
 	message DeploymentTotals {

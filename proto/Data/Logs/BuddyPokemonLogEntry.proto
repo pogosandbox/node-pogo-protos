@@ -5,7 +5,7 @@ import "POGOProtos/Enums/PokemonId.proto";
 import "POGOProtos/Data/PokemonDisplay.proto";
 
 message BuddyPokemonLogEntry {
-	.POGOProtos.Data.Logs.BuddyPokemonLogEntry.Result result = 1;
+	Result result = 1;
 	.POGOProtos.Enums.PokemonId pokemon_id = 2;
 	int32 amount = 3;
 	.POGOProtos.Data.PokemonDisplay pokemon_display = 4;

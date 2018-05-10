@@ -8,7 +8,7 @@ import "POGOProtos/Inventory/Loot.proto";
 import "POGOProtos/Data/Badge/AwardedGymBadge.proto";
 
 message FortSearchResponse {
-	.POGOProtos.Networking.Responses.FortSearchResponse.Result result = 1;
+	Result result = 1;
 	repeated .POGOProtos.Inventory.Item.ItemAward items_awarded = 2;
 	int32 gems_awarded = 3;
 	.POGOProtos.Data.PokemonData pokemon_data_egg = 4;
