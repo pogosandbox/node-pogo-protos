@@ -8,7 +8,7 @@ message NewsArticle {
 	string subheader_key = 4;
 	string main_text_key = 5;
 	int64 timestamp = 6;
-	.POGOProtos.Data.News.NewsArticle.NewsTemplate template = 7;
+	NewsTemplate template = 7;
 	bool enabled = 8;
 	bool article_read = 9;
 

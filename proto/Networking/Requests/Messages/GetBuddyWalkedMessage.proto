@@ -2,4 +2,5 @@ syntax = "proto3";
 package POGOProtos.Networking.Requests.Messages;
 
 message GetBuddyWalkedMessage {
+	//
 }

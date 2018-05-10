@@ -5,7 +5,7 @@ import "POGOProtos/Data/PokemonData.proto";
 import "POGOProtos/Data/Capture/CaptureAward.proto";
 
 message EncounterTutorialCompleteResponse {
-	.POGOProtos.Networking.Responses.EncounterTutorialCompleteResponse.Result result = 1;
+	Result result = 1;
 	.POGOProtos.Data.PokemonData pokemon_data = 2;
 	.POGOProtos.Data.Capture.CaptureAward capture_award = 3;
 

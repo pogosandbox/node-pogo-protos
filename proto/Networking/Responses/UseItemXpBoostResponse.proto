@@ -4,7 +4,7 @@ package POGOProtos.Networking.Responses;
 import "POGOProtos/Inventory/AppliedItems.proto";
 
 message UseItemXpBoostResponse {
-	.POGOProtos.Networking.Responses.UseItemXpBoostResponse.Result result = 1;
+	Result result = 1;
 	.POGOProtos.Inventory.AppliedItems applied_items = 2;
 
 	enum Result {

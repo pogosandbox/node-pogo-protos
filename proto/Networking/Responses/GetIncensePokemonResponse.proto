@@ -5,7 +5,7 @@ import "POGOProtos/Enums/PokemonId.proto";
 import "POGOProtos/Data/PokemonDisplay.proto";
 
 message GetIncensePokemonResponse {
-	.POGOProtos.Networking.Responses.GetIncensePokemonResponse.Result result = 1;
+	Result result = 1;
 	.POGOProtos.Enums.PokemonId pokemon_id = 2;
 	double latitude = 3;
 	double longitude = 4;

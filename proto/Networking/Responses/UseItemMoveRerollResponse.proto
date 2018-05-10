@@ -4,7 +4,7 @@ package POGOProtos.Networking.Responses;
 import "POGOProtos/Data/PokemonData.proto";
 
 message UseItemMoveRerollResponse {
-	.POGOProtos.Networking.Responses.UseItemMoveRerollResponse.Result result = 1;
+	Result result = 1;
 	.POGOProtos.Data.PokemonData upgraded_pokemon = 2;
 
 	enum Result {

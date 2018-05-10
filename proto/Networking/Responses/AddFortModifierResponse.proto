@@ -4,7 +4,7 @@ package POGOProtos.Networking.Responses;
 import "POGOProtos/Networking/Responses/FortDetailsResponse.proto";
 
 message AddFortModifierResponse {
-	.POGOProtos.Networking.Responses.AddFortModifierResponse.Result result = 1;
+	Result result = 1;
 	.POGOProtos.Networking.Responses.FortDetailsResponse fort_details = 2;
 
 	enum Result {

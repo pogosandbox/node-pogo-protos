@@ -6,7 +6,7 @@ import "POGOProtos/Data/Gym/GymState.proto";
 import "POGOProtos/Networking/Responses/FortDetailsResponse.proto";
 
 message FortDeployPokemonResponse {
-	.POGOProtos.Networking.Responses.FortDeployPokemonResponse.Result result = 1;
+	Result result = 1;
 	.POGOProtos.Networking.Responses.FortDetailsResponse fort_details = 2;
 	.POGOProtos.Data.PokemonData pokemon_data = 3;
 	.POGOProtos.Data.Gym.GymState gym_state = 4;
