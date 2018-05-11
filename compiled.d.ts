@@ -1728,6 +1728,7 @@ export namespace POGOProtos {
                 stamp_count_override_enabled?: (boolean|null);
                 stamp_count_override?: (number|null);
                 s2_cell_id?: (number|Long|null);
+                story_quest_template_version?: (number|null);
             }
 
             class Quest implements IQuest {
@@ -1752,6 +1753,7 @@ export namespace POGOProtos {
                 public stamp_count_override_enabled: boolean;
                 public stamp_count_override: number;
                 public s2_cell_id: (number|Long);
+                public story_quest_template_version: number;
                 public static create(properties?: POGOProtos.Data.Quests.IQuest): POGOProtos.Data.Quests.Quest;
                 public static encode(message: POGOProtos.Data.Quests.IQuest, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Data.Quests.IQuest, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -1811,6 +1813,7 @@ export namespace POGOProtos {
                 with_quest_context?: (POGOProtos.Data.Quests.QuestCondition.IWithQuestContext|null);
                 with_badge_type?: (POGOProtos.Data.Quests.QuestCondition.IWithBadgeType|null);
                 with_player_level?: (POGOProtos.Data.Quests.QuestCondition.IWithPlayerLevel|null);
+                with_win_battle_status?: (POGOProtos.Data.Quests.QuestCondition.IWithWinBattleStatus|null);
             }
 
             class QuestCondition implements IQuestCondition {
@@ -1831,6 +1834,7 @@ export namespace POGOProtos {
                 public with_quest_context?: (POGOProtos.Data.Quests.QuestCondition.IWithQuestContext|null);
                 public with_badge_type?: (POGOProtos.Data.Quests.QuestCondition.IWithBadgeType|null);
                 public with_player_level?: (POGOProtos.Data.Quests.QuestCondition.IWithPlayerLevel|null);
+                public with_win_battle_status?: (POGOProtos.Data.Quests.QuestCondition.IWithWinBattleStatus|null);
                 public static create(properties?: POGOProtos.Data.Quests.IQuestCondition): POGOProtos.Data.Quests.QuestCondition;
                 public static encode(message: POGOProtos.Data.Quests.IQuestCondition, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Data.Quests.IQuestCondition, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -1861,7 +1865,8 @@ export namespace POGOProtos {
                     WITH_THROW_TYPE_IN_A_ROW = 14,
                     WITH_CURVE_BALL = 15,
                     WITH_BADGE_TYPE = 16,
-                    WITH_PLAYER_LEVEL = 17
+                    WITH_PLAYER_LEVEL = 17,
+                    WITH_WIN_BATTLE_STATUS = 18
                 }
 
                 interface IWithPokemonType {
@@ -2134,6 +2139,21 @@ export namespace POGOProtos {
                     public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.QuestCondition.WithPlayerLevel;
                     public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.QuestCondition.WithPlayerLevel;
                     public static toObject(message: POGOProtos.Data.Quests.QuestCondition.WithPlayerLevel, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IWithWinBattleStatus {
+                }
+
+                class WithWinBattleStatus implements IWithWinBattleStatus {
+                    constructor(properties?: POGOProtos.Data.Quests.QuestCondition.IWithWinBattleStatus);
+                    public static create(properties?: POGOProtos.Data.Quests.QuestCondition.IWithWinBattleStatus): POGOProtos.Data.Quests.QuestCondition.WithWinBattleStatus;
+                    public static encode(message: POGOProtos.Data.Quests.QuestCondition.IWithWinBattleStatus, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Data.Quests.QuestCondition.IWithWinBattleStatus, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Quests.QuestCondition.WithWinBattleStatus;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Quests.QuestCondition.WithWinBattleStatus;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Quests.QuestCondition.WithWinBattleStatus;
+                    public static toObject(message: POGOProtos.Data.Quests.QuestCondition.WithWinBattleStatus, options?: $protobuf.IConversionOptions): { [k: string]: any };
                     public toJSON(): { [k: string]: any };
                 }
             }
@@ -2817,6 +2837,12 @@ export namespace POGOProtos {
             CAM_TARGET_SHOULDER_ATTACKER_DEFENDER = 12,
             CAM_TARGET_SHOULDER_ATTACKER_DEFENDER_MIRROR = 13,
             CAM_TARGET_ATTACKER_DEFENDER_WORLD = 14
+        }
+
+        enum ClientTelemetryIds {
+            UNDEFINED = 0,
+            BOOT_TIME = 1,
+            FRAME_RATE = 2
         }
 
         enum Costume {
@@ -3827,7 +3853,8 @@ export namespace POGOProtos {
             WEATHER_BALL_ICE = 293,
             WEATHER_BALL_ROCK = 294,
             WEATHER_BALL_WATER = 295,
-            FRENZY_PLANT = 296
+            FRENZY_PLANT = 296,
+            SMACK_DOWN_FAST = 297
         }
 
         enum PokemonMovementType {
@@ -3888,7 +3915,9 @@ export namespace POGOProtos {
             QUEST_LAND_THROW = 16,
             QUEST_GET_BUDDY_CANDY = 17,
             QUEST_BADGE_RANK = 18,
-            QUEST_PLAYER_LEVEL = 19
+            QUEST_PLAYER_LEVEL = 19,
+            QUEST_JOIN_RAID = 20,
+            QUEST_COMPLETE_BATTLE = 21
         }
 
         enum RaidLevel {
@@ -7451,6 +7480,27 @@ export namespace POGOProtos {
                     public toJSON(): { [k: string]: any };
                 }
 
+                interface ISetLobbyVisibilityMessage {
+                    raid_seed?: (number|Long|null);
+                    gym_id?: (string|null);
+                    lobby_id?: (number[]|null);
+                }
+
+                class SetLobbyVisibilityMessage implements ISetLobbyVisibilityMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.ISetLobbyVisibilityMessage);
+                    public raid_seed: (number|Long);
+                    public gym_id: string;
+                    public lobby_id: number[];
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.ISetLobbyVisibilityMessage): POGOProtos.Networking.Requests.Messages.SetLobbyVisibilityMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.ISetLobbyVisibilityMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.ISetLobbyVisibilityMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.SetLobbyVisibilityMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.SetLobbyVisibilityMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.SetLobbyVisibilityMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.SetLobbyVisibilityMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
                 interface ISetPlayerTeamMessage {
                     team?: (POGOProtos.Enums.TeamColor|null);
                 }
@@ -8359,7 +8409,8 @@ export namespace POGOProtos {
                     ERROR_SUBQUEST_ALREADY_COMPLETED = 7,
                     ERROR_MULTIPART_STILL_IN_PROGRESS = 8,
                     ERROR_MULTIPART_ALREADY_COMPLETED = 9,
-                    ERROR_REDEEM_COMPLETED_QUEST_STAMP_CARD_FIRST = 10
+                    ERROR_REDEEM_COMPLETED_QUEST_STAMP_CARD_FIRST = 10,
+                    ERROR_INVENTORY_FULL = 11
                 }
             }
 
@@ -9386,12 +9437,14 @@ export namespace POGOProtos {
             interface IGetNewQuestsResponse {
                 status?: (POGOProtos.Networking.Responses.GetNewQuestsResponse.Status|null);
                 quests?: (POGOProtos.Data.Quests.IClientQuest[]|null);
+                version_changed_quests?: (POGOProtos.Data.Quests.IClientQuest[]|null);
             }
 
             class GetNewQuestsResponse implements IGetNewQuestsResponse {
                 constructor(properties?: POGOProtos.Networking.Responses.IGetNewQuestsResponse);
                 public status: POGOProtos.Networking.Responses.GetNewQuestsResponse.Status;
                 public quests: POGOProtos.Data.Quests.IClientQuest[];
+                public version_changed_quests: POGOProtos.Data.Quests.IClientQuest[];
                 public static create(properties?: POGOProtos.Networking.Responses.IGetNewQuestsResponse): POGOProtos.Networking.Responses.GetNewQuestsResponse;
                 public static encode(message: POGOProtos.Networking.Responses.IGetNewQuestsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Networking.Responses.IGetNewQuestsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -10476,6 +10529,36 @@ export namespace POGOProtos {
                     ERROR_LOBBY_NOT_FOUND = 2,
                     ERROR_RAID_UNAVAILABLE = 3,
                     ERROR_INVALID_POKEMON = 4
+                }
+            }
+
+            interface ISetLobbyVisibilityResponse {
+                result?: (POGOProtos.Networking.Responses.SetLobbyVisibilityResponse.Result|null);
+                lobby?: (POGOProtos.Data.Raid.ILobby|null);
+            }
+
+            class SetLobbyVisibilityResponse implements ISetLobbyVisibilityResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.ISetLobbyVisibilityResponse);
+                public result: POGOProtos.Networking.Responses.SetLobbyVisibilityResponse.Result;
+                public lobby?: (POGOProtos.Data.Raid.ILobby|null);
+                public static create(properties?: POGOProtos.Networking.Responses.ISetLobbyVisibilityResponse): POGOProtos.Networking.Responses.SetLobbyVisibilityResponse;
+                public static encode(message: POGOProtos.Networking.Responses.ISetLobbyVisibilityResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.ISetLobbyVisibilityResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.SetLobbyVisibilityResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.SetLobbyVisibilityResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.SetLobbyVisibilityResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.SetLobbyVisibilityResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace SetLobbyVisibilityResponse {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_NOT_LOBBY_CREATOR = 2,
+                    ERROR_LOBBY_NOT_FOUND = 3,
+                    ERROR_RAID_UNAVAILABLE = 4
                 }
             }
 
@@ -12174,12 +12257,14 @@ export namespace POGOProtos {
             interface IOnboardingSettings {
                 skip_avatar_customization?: (boolean|null);
                 disable_initial_ar_prompt?: (boolean|null);
+                ar_prompt_player_level?: (number|null);
             }
 
             class OnboardingSettings implements IOnboardingSettings {
                 constructor(properties?: POGOProtos.Settings.Master.IOnboardingSettings);
                 public skip_avatar_customization: boolean;
                 public disable_initial_ar_prompt: boolean;
+                public ar_prompt_player_level: number;
                 public static create(properties?: POGOProtos.Settings.Master.IOnboardingSettings): POGOProtos.Settings.Master.OnboardingSettings;
                 public static encode(message: POGOProtos.Settings.Master.IOnboardingSettings, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Settings.Master.IOnboardingSettings, writer?: $protobuf.Writer): $protobuf.Writer;
