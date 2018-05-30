@@ -3,6 +3,7 @@ package POGOProtos.Inventory;
 
 import "POGOProtos/Inventory/Item/ItemId.proto";
 import "POGOProtos/Enums/PokemonId.proto";
+import "POGOProtos/Data/PokemonData.proto";
 
 message LootItem {
 	.POGOProtos.Inventory.Item.ItemId item = 1;
@@ -11,4 +12,5 @@ message LootItem {
 	.POGOProtos.Enums.PokemonId pokemon_candy = 4;
 	int32 count = 5;
 	bool experience = 6;
+	.POGOProtos.Data.PokemonData pokemon_egg = 7;
 }

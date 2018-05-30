@@ -12,4 +12,5 @@ message Raid {
 	bool received_rewards = 6;
 	bool finished_encounter = 7;
 	bool received_default_rewards = 8;
+	bool incremented_raid_friends = 9;
 }

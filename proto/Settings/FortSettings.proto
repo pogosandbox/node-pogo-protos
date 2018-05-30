@@ -11,4 +11,6 @@ message FortSettings {
 	bool disable_gyms = 7;
 	int32 max_same_pokemon_at_fort = 8;
 	int32 max_player_total_deployed_pokemon = 9;
+	bool enable_hyperlinks_in_poi_descriptions = 10;
+	bool enable_right_to_left_text_display = 11;
 }

@@ -10,4 +10,6 @@ message MapSettings {
 	float get_map_objects_min_distance_meters = 6;
 	string google_maps_api_key = 7;
 	int32 min_nearby_hide_sightings = 8;
+	bool enable_special_weather = 9;
+	float special_weather_probability = 10;
 }

@@ -2,6 +2,7 @@ syntax = "proto3";
 package POGOProtos.Data.Player;
 
 import "POGOProtos/Data/Player/PlayerAvatar.proto";
+import "POGOProtos/Data/Player/PlayerBadge.proto";
 import "POGOProtos/Enums/TeamColor.proto";
 import "POGOProtos/Enums/GymBadgeType.proto";
 
@@ -14,4 +15,6 @@ message PlayerPublicProfile {
 	float km_walked = 6;
 	int32 caught_pokemon = 7;
 	.POGOProtos.Enums.GymBadgeType gym_badge_type = 8;
+	repeated .POGOProtos.Data.Player.PlayerBadge badges = 9;
+	int64 experience = 10;
 }

@@ -204,6 +204,7 @@ export namespace POGOProtos {
                 num_battles_lost?: (number|null);
                 num_berries_fed?: (number|null);
                 num_deploys?: (number|null);
+                gym_battles?: (POGOProtos.Data.Gym.IGymBattle[]|null);
             }
 
             class GymBadgeStats implements IGymBadgeStats {
@@ -213,6 +214,7 @@ export namespace POGOProtos {
                 public num_battles_lost: number;
                 public num_berries_fed: number;
                 public num_deploys: number;
+                public gym_battles: POGOProtos.Data.Gym.IGymBattle[];
                 public static create(properties?: POGOProtos.Data.Badge.IGymBadgeStats): POGOProtos.Data.Badge.GymBadgeStats;
                 public static encode(message: POGOProtos.Data.Badge.IGymBadgeStats, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Data.Badge.IGymBadgeStats, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -595,6 +597,27 @@ export namespace POGOProtos {
         }
 
         namespace Gym {
+
+            interface IGymBattle {
+                battle_id?: (string|null);
+                completed_ms?: (number|Long|null);
+                incremented_gym_battle_friends?: (boolean|null);
+            }
+
+            class GymBattle implements IGymBattle {
+                constructor(properties?: POGOProtos.Data.Gym.IGymBattle);
+                public battle_id: string;
+                public completed_ms: (number|Long);
+                public incremented_gym_battle_friends: boolean;
+                public static create(properties?: POGOProtos.Data.Gym.IGymBattle): POGOProtos.Data.Gym.GymBattle;
+                public static encode(message: POGOProtos.Data.Gym.IGymBattle, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Gym.IGymBattle, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Gym.GymBattle;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Gym.GymBattle;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Gym.GymBattle;
+                public static toObject(message: POGOProtos.Data.Gym.GymBattle, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
 
             interface IGymDefender {
                 motivated_pokemon?: (POGOProtos.Map.Pokemon.IMotivatedPokemon|null);
@@ -1236,6 +1259,31 @@ export namespace POGOProtos {
                 PLAYER_AVATAR_FEMALE = 1
             }
 
+            interface IPlayerBadge {
+                badge_type?: (POGOProtos.Enums.BadgeType|null);
+                rank?: (number|null);
+                start_value?: (number|null);
+                end_value?: (number|null);
+                current_value?: (number|null);
+            }
+
+            class PlayerBadge implements IPlayerBadge {
+                constructor(properties?: POGOProtos.Data.Player.IPlayerBadge);
+                public badge_type: POGOProtos.Enums.BadgeType;
+                public rank: number;
+                public start_value: number;
+                public end_value: number;
+                public current_value: number;
+                public static create(properties?: POGOProtos.Data.Player.IPlayerBadge): POGOProtos.Data.Player.PlayerBadge;
+                public static encode(message: POGOProtos.Data.Player.IPlayerBadge, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Player.IPlayerBadge, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Player.PlayerBadge;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Player.PlayerBadge;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Player.PlayerBadge;
+                public static toObject(message: POGOProtos.Data.Player.PlayerBadge, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
             interface IPlayerCamera {
                 is_default_camera?: (boolean|null);
             }
@@ -1279,6 +1327,8 @@ export namespace POGOProtos {
                 km_walked?: (number|null);
                 caught_pokemon?: (number|null);
                 gym_badge_type?: (POGOProtos.Enums.GymBadgeType|null);
+                badges?: (POGOProtos.Data.Player.IPlayerBadge[]|null);
+                experience?: (number|Long|null);
             }
 
             class PlayerPublicProfile implements IPlayerPublicProfile {
@@ -1291,6 +1341,8 @@ export namespace POGOProtos {
                 public km_walked: number;
                 public caught_pokemon: number;
                 public gym_badge_type: POGOProtos.Enums.GymBadgeType;
+                public badges: POGOProtos.Data.Player.IPlayerBadge[];
+                public experience: (number|Long);
                 public static create(properties?: POGOProtos.Data.Player.IPlayerPublicProfile): POGOProtos.Data.Player.PlayerPublicProfile;
                 public static encode(message: POGOProtos.Data.Player.IPlayerPublicProfile, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Data.Player.IPlayerPublicProfile, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -2541,6 +2593,7 @@ export namespace POGOProtos {
                 received_rewards?: (boolean|null);
                 finished_encounter?: (boolean|null);
                 received_default_rewards?: (boolean|null);
+                incremented_raid_friends?: (boolean|null);
             }
 
             class Raid implements IRaid {
@@ -2553,6 +2606,7 @@ export namespace POGOProtos {
                 public received_rewards: boolean;
                 public finished_encounter: boolean;
                 public received_default_rewards: boolean;
+                public incremented_raid_friends: boolean;
                 public static create(properties?: POGOProtos.Data.Raid.IRaid): POGOProtos.Data.Raid.Raid;
                 public static encode(message: POGOProtos.Data.Raid.IRaid, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Data.Raid.IRaid, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -2814,6 +2868,14 @@ export namespace POGOProtos {
             BADGE_SAFARI_ZONE_EUROPE_2017_10_14 = 2005
         }
 
+        enum BuddySize {
+            BUDDY_MEDIUM = 0,
+            BUDDY_SHOULDER = 1,
+            BUDDY_BIG = 2,
+            BUDDY_FLYING = 3,
+            BUDDY_BABY = 4
+        }
+
         enum CameraInterpolation {
             CAM_INTERP_CUT = 0,
             CAM_INTERP_LINEAR = 1,
@@ -2918,7 +2980,43 @@ export namespace POGOProtos {
             SPINDA_04 = 41,
             SPINDA_05 = 42,
             SPINDA_06 = 43,
-            SPINDA_07 = 44
+            SPINDA_07 = 44,
+            RATTATA_NORMAL = 45,
+            RATTATA_ALOLA = 46,
+            RATICATE_NORMAL = 47,
+            RATICATE_ALOLA = 48,
+            RAICHU_NORMAL = 49,
+            RAICHU_ALOLA = 50,
+            SANDSHREW_NORMAL = 51,
+            SANDSHREW_ALOLA = 52,
+            SANDSLASH_NORMAL = 53,
+            SANDSLASH_ALOLA = 54,
+            VULPIX_NORMAL = 55,
+            VULPIX_ALOLA = 56,
+            NINETALES_NORMAL = 57,
+            NINETALES_ALOLA = 58,
+            DIGLETT_NORMAL = 59,
+            DIGLETT_ALOLA = 60,
+            DUGTRIO_NORMAL = 61,
+            DUGTRIO_ALOLA = 62,
+            MEOWTH_NORMAL = 63,
+            MEOWTH_ALOLA = 64,
+            PERSIAN_NORMAL = 65,
+            PERSIAN_ALOLA = 66,
+            GEODUDE_NORMAL = 67,
+            GEODUDE_ALOLA = 68,
+            GRAVELER_NORMAL = 69,
+            GRAVELER_ALOLA = 70,
+            GOLEM_NORMAL = 71,
+            GOLEM_ALOLA = 72,
+            GRIMER_NORMAL = 73,
+            GRIMER_ALOLA = 74,
+            MUK_NORMAL = 75,
+            MUK_ALOLA = 76,
+            EXEGGUTOR_NORMAL = 77,
+            EXEGGUTOR_ALOLA = 78,
+            MAROWAK_NORMAL = 79,
+            MAROWAK_ALOLA = 80
         }
 
         enum Gender {
@@ -3854,7 +3952,8 @@ export namespace POGOProtos {
             WEATHER_BALL_ROCK = 294,
             WEATHER_BALL_WATER = 295,
             FRENZY_PLANT = 296,
-            SMACK_DOWN_FAST = 297
+            SMACK_DOWN_FAST = 297,
+            BLAST_BURN = 298
         }
 
         enum PokemonMovementType {
@@ -3963,7 +4062,8 @@ export namespace POGOProtos {
             FIRST_TIME_EXPERIENCE_COMPLETE = 7,
             POKESTOP_TUTORIAL = 8,
             GYM_TUTORIAL = 9,
-            CHALLENGE_QUEST_TUTORIAL = 10
+            CHALLENGE_QUEST_TUTORIAL = 10,
+            PRIVACY_POLICY_CONFIRMATION = 11
         }
 
         enum VariableName {
@@ -4489,6 +4589,7 @@ export namespace POGOProtos {
             pokemon_candy?: (POGOProtos.Enums.PokemonId|null);
             count?: (number|null);
             experience?: (boolean|null);
+            pokemon_egg?: (POGOProtos.Data.IPokemonData|null);
         }
 
         class LootItem implements ILootItem {
@@ -4499,6 +4600,7 @@ export namespace POGOProtos {
             public pokemon_candy: POGOProtos.Enums.PokemonId;
             public count: number;
             public experience: boolean;
+            public pokemon_egg?: (POGOProtos.Data.IPokemonData|null);
             public static create(properties?: POGOProtos.Inventory.ILootItem): POGOProtos.Inventory.LootItem;
             public static encode(message: POGOProtos.Inventory.ILootItem, writer?: $protobuf.Writer): $protobuf.Writer;
             public static encodeDelimited(message: POGOProtos.Inventory.ILootItem, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -5031,6 +5133,7 @@ export namespace POGOProtos {
                 snow_level?: (POGOProtos.Map.Weather.DisplayWeather.DisplayLevel|null);
                 fog_level?: (POGOProtos.Map.Weather.DisplayWeather.DisplayLevel|null);
                 wind_direction?: (number|null);
+                special_effect_level?: (POGOProtos.Map.Weather.DisplayWeather.DisplayLevel|null);
             }
 
             class DisplayWeather implements IDisplayWeather {
@@ -5041,6 +5144,7 @@ export namespace POGOProtos {
                 public snow_level: POGOProtos.Map.Weather.DisplayWeather.DisplayLevel;
                 public fog_level: POGOProtos.Map.Weather.DisplayWeather.DisplayLevel;
                 public wind_direction: number;
+                public special_effect_level: POGOProtos.Map.Weather.DisplayWeather.DisplayLevel;
                 public static create(properties?: POGOProtos.Map.Weather.IDisplayWeather): POGOProtos.Map.Weather.DisplayWeather;
                 public static encode(message: POGOProtos.Map.Weather.IDisplayWeather, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Map.Weather.IDisplayWeather, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -7813,12 +7917,14 @@ export namespace POGOProtos {
                 interface IUseItemRareCandyMessage {
                     item_id?: (POGOProtos.Inventory.Item.ItemId|null);
                     pokemon_id?: (POGOProtos.Enums.PokemonId|null);
+                    candy_count?: (number|null);
                 }
 
                 class UseItemRareCandyMessage implements IUseItemRareCandyMessage {
                     constructor(properties?: POGOProtos.Networking.Requests.Messages.IUseItemRareCandyMessage);
                     public item_id: POGOProtos.Inventory.Item.ItemId;
                     public pokemon_id: POGOProtos.Enums.PokemonId;
+                    public candy_count: number;
                     public static create(properties?: POGOProtos.Networking.Requests.Messages.IUseItemRareCandyMessage): POGOProtos.Networking.Requests.Messages.UseItemRareCandyMessage;
                     public static encode(message: POGOProtos.Networking.Requests.Messages.IUseItemRareCandyMessage, writer?: $protobuf.Writer): $protobuf.Writer;
                     public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IUseItemRareCandyMessage, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -8020,7 +8126,15 @@ export namespace POGOProtos {
                 UPDATE_NOTIFICATION_STATUS = 5002,
                 OPT_OUT_PUSH_NOTIFICATION_CATEGORY = 5003,
                 DOWNLOAD_GAME_MASTER_TEMPLATES = 5004,
-                GET_INVENTORY = 5005
+                GET_INVENTORY = 5005,
+                REDEEM_PASSCODE = 5006,
+                PING = 5007,
+                ADD_LOGIN_ACTION = 5008,
+                REMOVE_LOGIN_ACTION = 5009,
+                LIST_LOGIN_ACTION = 5010,
+                ADD_NEW_POI = 5011,
+                PROXY_SOCIAL_ACTION = 5012,
+                CLIENT_TELEMETRY = 5013
             }
         }
 
@@ -10727,13 +10841,11 @@ export namespace POGOProtos {
 
             interface ISubmitNewPoiResponse {
                 status?: (POGOProtos.Networking.Responses.SubmitNewPoiResponse.Status|null);
-                geostore_error_message?: (string|null);
             }
 
             class SubmitNewPoiResponse implements ISubmitNewPoiResponse {
                 constructor(properties?: POGOProtos.Networking.Responses.ISubmitNewPoiResponse);
                 public status: POGOProtos.Networking.Responses.SubmitNewPoiResponse.Status;
-                public geostore_error_message: string;
                 public static create(properties?: POGOProtos.Networking.Responses.ISubmitNewPoiResponse): POGOProtos.Networking.Responses.SubmitNewPoiResponse;
                 public static encode(message: POGOProtos.Networking.Responses.ISubmitNewPoiResponse, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Networking.Responses.ISubmitNewPoiResponse, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -10749,7 +10861,9 @@ export namespace POGOProtos {
                 enum Status {
                     UNSET = 0,
                     SUCCESS = 1,
-                    FAILURE = 2
+                    FAILURE = 2,
+                    INTERNAL_ERROR = 3,
+                    TOO_MANY_RECENT_SUBMISSIONS = 4
                 }
             }
 
@@ -11050,7 +11164,8 @@ export namespace POGOProtos {
                     INVALID_POKEMON_ID = 2,
                     NO_PLAYER = 3,
                     WRONG_ITEM_TYPE = 4,
-                    ITEM_NOT_IN_INVENTORY = 5
+                    ITEM_NOT_IN_INVENTORY = 5,
+                    NOT_ENOUGH_ITEMS = 6
                 }
             }
 
@@ -11260,6 +11375,8 @@ export namespace POGOProtos {
             disable_gyms?: (boolean|null);
             max_same_pokemon_at_fort?: (number|null);
             max_player_total_deployed_pokemon?: (number|null);
+            enable_hyperlinks_in_poi_descriptions?: (boolean|null);
+            enable_right_to_left_text_display?: (boolean|null);
         }
 
         class FortSettings implements IFortSettings {
@@ -11273,6 +11390,8 @@ export namespace POGOProtos {
             public disable_gyms: boolean;
             public max_same_pokemon_at_fort: number;
             public max_player_total_deployed_pokemon: number;
+            public enable_hyperlinks_in_poi_descriptions: boolean;
+            public enable_right_to_left_text_display: boolean;
             public static create(properties?: POGOProtos.Settings.IFortSettings): POGOProtos.Settings.FortSettings;
             public static encode(message: POGOProtos.Settings.IFortSettings, writer?: $protobuf.Writer): $protobuf.Writer;
             public static encodeDelimited(message: POGOProtos.Settings.IFortSettings, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -11301,7 +11420,7 @@ export namespace POGOProtos {
             client_app_blacklist?: (string[]|null);
             client_perf_settings?: (POGOProtos.Settings.IClientPerformanceSettings|null);
             news_global_settings?: (POGOProtos.Settings.INewsGlobalSettings|null);
-            metrics_global_settings?: (POGOProtos.Settings.IMetricsGlobalSettings|null);
+            telemetry_global_settings?: (POGOProtos.Settings.ITelemetryGlobalSettings|null);
             login_settings?: (POGOProtos.Settings.ILoginSettings|null);
             quest_global_settings?: (POGOProtos.Settings.IQuestGlobalSettings|null);
         }
@@ -11325,7 +11444,7 @@ export namespace POGOProtos {
             public client_app_blacklist: string[];
             public client_perf_settings?: (POGOProtos.Settings.IClientPerformanceSettings|null);
             public news_global_settings?: (POGOProtos.Settings.INewsGlobalSettings|null);
-            public metrics_global_settings?: (POGOProtos.Settings.IMetricsGlobalSettings|null);
+            public telemetry_global_settings?: (POGOProtos.Settings.ITelemetryGlobalSettings|null);
             public login_settings?: (POGOProtos.Settings.ILoginSettings|null);
             public quest_global_settings?: (POGOProtos.Settings.IQuestGlobalSettings|null);
             public static create(properties?: POGOProtos.Settings.IGlobalSettings): POGOProtos.Settings.GlobalSettings;
@@ -11431,6 +11550,8 @@ export namespace POGOProtos {
             get_map_objects_min_distance_meters?: (number|null);
             google_maps_api_key?: (string|null);
             min_nearby_hide_sightings?: (number|null);
+            enable_special_weather?: (boolean|null);
+            special_weather_probability?: (number|null);
         }
 
         class MapSettings implements IMapSettings {
@@ -11443,6 +11564,8 @@ export namespace POGOProtos {
             public get_map_objects_min_distance_meters: number;
             public google_maps_api_key: string;
             public min_nearby_hide_sightings: number;
+            public enable_special_weather: boolean;
+            public special_weather_probability: number;
             public static create(properties?: POGOProtos.Settings.IMapSettings): POGOProtos.Settings.MapSettings;
             public static encode(message: POGOProtos.Settings.IMapSettings, writer?: $protobuf.Writer): $protobuf.Writer;
             public static encodeDelimited(message: POGOProtos.Settings.IMapSettings, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -11521,6 +11644,7 @@ export namespace POGOProtos {
                 targets?: (number[]|null);
                 capture_reward?: (POGOProtos.Data.Badge.IBadgeCaptureReward[]|null);
                 event_badge?: (boolean|null);
+                event_badge_settings?: (POGOProtos.Settings.Master.IEventBadgeSettings|null);
             }
 
             class BadgeSettings implements IBadgeSettings {
@@ -11530,6 +11654,7 @@ export namespace POGOProtos {
                 public targets: number[];
                 public capture_reward: POGOProtos.Data.Badge.IBadgeCaptureReward[];
                 public event_badge: boolean;
+                public event_badge_settings?: (POGOProtos.Settings.Master.IEventBadgeSettings|null);
                 public static create(properties?: POGOProtos.Settings.Master.IBadgeSettings): POGOProtos.Settings.Master.BadgeSettings;
                 public static encode(message: POGOProtos.Settings.Master.IBadgeSettings, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Settings.Master.IBadgeSettings, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -11656,6 +11781,27 @@ export namespace POGOProtos {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.Master.EquippedBadgeSettings;
                 public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.Master.EquippedBadgeSettings;
                 public static toObject(message: POGOProtos.Settings.Master.EquippedBadgeSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            interface IEventBadgeSettings {
+                valid_from_ms?: (number|Long|null);
+                valid_to_ms?: (number|Long|null);
+                mutually_exclusive_badges?: (POGOProtos.Enums.BadgeType[]|null);
+            }
+
+            class EventBadgeSettings implements IEventBadgeSettings {
+                constructor(properties?: POGOProtos.Settings.Master.IEventBadgeSettings);
+                public valid_from_ms: (number|Long);
+                public valid_to_ms: (number|Long);
+                public mutually_exclusive_badges: POGOProtos.Enums.BadgeType[];
+                public static create(properties?: POGOProtos.Settings.Master.IEventBadgeSettings): POGOProtos.Settings.Master.EventBadgeSettings;
+                public static encode(message: POGOProtos.Settings.Master.IEventBadgeSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Settings.Master.IEventBadgeSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Settings.Master.EventBadgeSettings;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.Master.EventBadgeSettings;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.Master.EventBadgeSettings;
+                public static toObject(message: POGOProtos.Settings.Master.EventBadgeSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
                 public toJSON(): { [k: string]: any };
             }
 
@@ -12387,6 +12533,7 @@ export namespace POGOProtos {
                     evolution_item_requirement?: (POGOProtos.Inventory.Item.ItemId|null);
                     candy_cost?: (number|null);
                     km_buddy_distance_requirement?: (number|null);
+                    form?: (POGOProtos.Enums.Form|null);
                 }
 
                 class EvolutionBranch implements IEvolutionBranch {
@@ -12395,6 +12542,7 @@ export namespace POGOProtos {
                     public evolution_item_requirement: POGOProtos.Inventory.Item.ItemId;
                     public candy_cost: number;
                     public km_buddy_distance_requirement: number;
+                    public form: POGOProtos.Enums.Form;
                     public static create(properties?: POGOProtos.Settings.Master.Pokemon.IEvolutionBranch): POGOProtos.Settings.Master.Pokemon.EvolutionBranch;
                     public static encode(message: POGOProtos.Settings.Master.Pokemon.IEvolutionBranch, writer?: $protobuf.Writer): $protobuf.Writer;
                     public static encodeDelimited(message: POGOProtos.Settings.Master.Pokemon.IEvolutionBranch, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -12506,7 +12654,7 @@ export namespace POGOProtos {
                 family_id?: (POGOProtos.Enums.PokemonFamilyId|null);
                 candy_to_evolve?: (number|null);
                 km_buddy_distance?: (number|null);
-                buddy_size?: (POGOProtos.Settings.Master.PokemonSettings.BuddySize|null);
+                buddy_size?: (POGOProtos.Enums.BuddySize|null);
                 model_height?: (number|null);
                 evolution_branch?: (POGOProtos.Settings.Master.Pokemon.IEvolutionBranch[]|null);
                 model_scale_v2?: (number|null);
@@ -12516,6 +12664,8 @@ export namespace POGOProtos {
                 buddy_offset_male?: (number[]|null);
                 buddy_offset_female?: (number[]|null);
                 buddy_scale?: (number|null);
+                buddy_portrait_offset?: (number[]|null);
+                parent_form?: (POGOProtos.Enums.Form|null);
             }
 
             class PokemonSettings implements IPokemonSettings {
@@ -12542,7 +12692,7 @@ export namespace POGOProtos {
                 public family_id: POGOProtos.Enums.PokemonFamilyId;
                 public candy_to_evolve: number;
                 public km_buddy_distance: number;
-                public buddy_size: POGOProtos.Settings.Master.PokemonSettings.BuddySize;
+                public buddy_size: POGOProtos.Enums.BuddySize;
                 public model_height: number;
                 public evolution_branch: POGOProtos.Settings.Master.Pokemon.IEvolutionBranch[];
                 public model_scale_v2: number;
@@ -12552,6 +12702,8 @@ export namespace POGOProtos {
                 public buddy_offset_male: number[];
                 public buddy_offset_female: number[];
                 public buddy_scale: number;
+                public buddy_portrait_offset: number[];
+                public parent_form: POGOProtos.Enums.Form;
                 public static create(properties?: POGOProtos.Settings.Master.IPokemonSettings): POGOProtos.Settings.Master.PokemonSettings;
                 public static encode(message: POGOProtos.Settings.Master.IPokemonSettings, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Settings.Master.IPokemonSettings, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -12560,17 +12712,6 @@ export namespace POGOProtos {
                 public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.Master.PokemonSettings;
                 public static toObject(message: POGOProtos.Settings.Master.PokemonSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
                 public toJSON(): { [k: string]: any };
-            }
-
-            namespace PokemonSettings {
-
-                enum BuddySize {
-                    BUDDY_MEDIUM = 0,
-                    BUDDY_SHOULDER = 1,
-                    BUDDY_BIG = 2,
-                    BUDDY_FLYING = 3,
-                    BUDDY_BABY = 4
-                }
             }
 
             interface IPokemonUpgradeSettings {
@@ -12707,23 +12848,6 @@ export namespace POGOProtos {
             }
         }
 
-        interface IMetricsGlobalSettings {
-            enabled?: (boolean|null);
-        }
-
-        class MetricsGlobalSettings implements IMetricsGlobalSettings {
-            constructor(properties?: POGOProtos.Settings.IMetricsGlobalSettings);
-            public enabled: boolean;
-            public static create(properties?: POGOProtos.Settings.IMetricsGlobalSettings): POGOProtos.Settings.MetricsGlobalSettings;
-            public static encode(message: POGOProtos.Settings.IMetricsGlobalSettings, writer?: $protobuf.Writer): $protobuf.Writer;
-            public static encodeDelimited(message: POGOProtos.Settings.IMetricsGlobalSettings, writer?: $protobuf.Writer): $protobuf.Writer;
-            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Settings.MetricsGlobalSettings;
-            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.MetricsGlobalSettings;
-            public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.MetricsGlobalSettings;
-            public static toObject(message: POGOProtos.Settings.MetricsGlobalSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
-            public toJSON(): { [k: string]: any };
-        }
-
         interface INewsGlobalSettings {
             enable_news?: (boolean|null);
         }
@@ -12849,6 +12973,35 @@ export namespace POGOProtos {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.SfidaSettings;
             public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.SfidaSettings;
             public static toObject(message: POGOProtos.Settings.SfidaSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public toJSON(): { [k: string]: any };
+        }
+
+        interface ITelemetryGlobalSettings {
+            enabled?: (boolean|null);
+            session_sampling_fraction?: (number|null);
+            max_buffer_size_kb?: (number|null);
+            batch_size?: (number|null);
+            update_interval_ms?: (number|Long|null);
+            frame_rate_sample_interval_ms?: (number|Long|null);
+            frame_rate_sample_period_ms?: (number|Long|null);
+        }
+
+        class TelemetryGlobalSettings implements ITelemetryGlobalSettings {
+            constructor(properties?: POGOProtos.Settings.ITelemetryGlobalSettings);
+            public enabled: boolean;
+            public session_sampling_fraction: number;
+            public max_buffer_size_kb: number;
+            public batch_size: number;
+            public update_interval_ms: (number|Long);
+            public frame_rate_sample_interval_ms: (number|Long);
+            public frame_rate_sample_period_ms: (number|Long);
+            public static create(properties?: POGOProtos.Settings.ITelemetryGlobalSettings): POGOProtos.Settings.TelemetryGlobalSettings;
+            public static encode(message: POGOProtos.Settings.ITelemetryGlobalSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: POGOProtos.Settings.ITelemetryGlobalSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Settings.TelemetryGlobalSettings;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.TelemetryGlobalSettings;
+            public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.TelemetryGlobalSettings;
+            public static toObject(message: POGOProtos.Settings.TelemetryGlobalSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
             public toJSON(): { [k: string]: any };
         }
 

@@ -10,4 +10,5 @@ message BadgeSettings {
 	repeated int32 targets = 3;
 	repeated .POGOProtos.Data.Badge.BadgeCaptureReward capture_reward = 4;
 	bool event_badge = 5;
+	.POGOProtos.Settings.Master.EventBadgeSettings event_badge_settings = 6;
 }

@@ -7,4 +7,5 @@ import "POGOProtos/Enums/PokemonId.proto";
 message UseItemRareCandyMessage {
 	.POGOProtos.Inventory.Item.ItemId item_id = 1;
 	.POGOProtos.Enums.PokemonId pokemon_id = 2;
+	int32 candy_count = 3;
 }

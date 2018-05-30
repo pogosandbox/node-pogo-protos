@@ -8,6 +8,7 @@ message DisplayWeather {
 	DisplayLevel snow_level = 4;
 	DisplayLevel fog_level = 5;
 	int32 wind_direction = 6;
+	DisplayLevel special_effect_level = 7;
 
 	enum DisplayLevel {
 		LEVEL_0 = 0;
