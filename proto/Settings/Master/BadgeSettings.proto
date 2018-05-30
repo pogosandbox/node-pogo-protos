@@ -3,6 +3,7 @@ package POGOProtos.Settings.Master;
 
 import "POGOProtos/Enums/BadgeType.proto";
 import "POGOProtos/Data/Badge/BadgeCaptureReward.proto";
+import "POGOProtos/Settings/Master/EventBadgeSettings.proto";
 
 message BadgeSettings {
 	.POGOProtos.Enums.BadgeType badge_type = 1;

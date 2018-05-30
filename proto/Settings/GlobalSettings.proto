@@ -15,7 +15,7 @@ import "POGOProtos/Settings/SfidaSettings.proto";
 import "POGOProtos/Settings/TranslationSettings.proto";
 import "POGOProtos/Settings/ClientPerformanceSettings.proto";
 import "POGOProtos/Settings/NewsGlobalSettings.proto";
-import "POGOProtos/Settings/MetricsGlobalSettings.proto";
+import "POGOProtos/Settings/TelemetryGlobalSettings.proto";
 import "POGOProtos/Settings/LoginSettings.proto";
 import "POGOProtos/Settings/QuestGlobalSettings.proto";
 
