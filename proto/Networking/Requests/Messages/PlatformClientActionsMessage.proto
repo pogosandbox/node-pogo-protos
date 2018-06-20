@@ -30,3 +30,15 @@ message UpdateNotificationStatusMessage {
 message OptOutPushNotificationCategoryMessage {
 	repeated string categories = 1;
 }
+
+message RedeemPasscodeMessage {
+	string passcode = 1;
+}
+
+message GetAvailableSubmissionsMessage {
+	string user_id = 1;
+	PlayerReputation player_reputation = 2;
+	string game_unique_id = 3;
+}
+
+

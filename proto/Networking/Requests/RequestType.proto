@@ -103,7 +103,7 @@ enum RequestType {
 	SEND_GIFT = 950;							// Implemented [R & M]
 	OPEN_GIFT = 951;							// Implemented [R & M]
 	GIFT_DETAILS = 952;							// Implemented [R & M]
-	DELETE_GIFT = 953;
+	DELETE_GIFT = 953;							// Implemented [R & M]
 	SAVE_PLAYER_SNAPSHOT = 954;
 	GET_FRIENDSHIP_MILESTONE_REWARDS = 955;
 	CHECK_SEND_GIFT = 956;
@@ -118,7 +118,7 @@ enum RequestType {
 	OPT_OUT_PUSH_NOTIFICATION_CATEGORY = 5003;  // Implemented [R & M]
 	DOWNLOAD_GAME_MASTER_TEMPLATES = 5004;      // Implemented [R & M]
 	GET_INVENTORY = 5005;                       // UnUsed - Implemented [R & M]
-	REDEEM_PASSCODE = 5006;
+	REDEEM_PASSCODE = 5006;						// Implemented [R & M]
 	PING = 5007;
 	ADD_LOGIN_ACTION = 5008;
 	REMOVE_LOGIN_ACTION = 5009;
@@ -126,5 +126,5 @@ enum RequestType {
 	ADD_NEW_POI = 5011;
 	PROXY_SOCIAL_ACTION = 5012;
 	CLIENT_TELEMETRY = 5013;
-	GET_AVAILABLE_SUBMISSIONS = 5014;
+	GET_AVAILABLE_SUBMISSIONS = 5014;			// Implemented [R & M]
 }
