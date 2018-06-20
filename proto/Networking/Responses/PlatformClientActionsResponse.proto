@@ -46,6 +46,20 @@ message RedeemPasscodeResponse {
 	}
 }
 
+message AddNewPoiResponse {
+	Status status = 1;
+	repeated string message = 2;
+
+	enum Status {
+		UNSET = 0;
+		SUCCESS = 1;
+		FAILURE = 2;
+		INTERNAL_ERROR = 3;
+		TOO_MANY_RECENT_SUBMISSIONS = 4;
+		INVALID_INPUT = 5;
+	}
+}
+
 message GetAvailableSubmissionsResponse {
 	int32 submissions_left = 1;
 	int32 min_player_level = 2;
