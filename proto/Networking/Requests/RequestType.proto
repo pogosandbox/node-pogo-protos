@@ -100,6 +100,18 @@ enum RequestType {
 	REMOVE_QUEST = 903;                         // Implemented [R & M]
 	QUEST_ENCOUNTER = 904;                      // Implemented [R & M]
 	COMPLETE_QUEST_STAMP_CARD = 905;            // Implemented [R & M]
+	SEND_GIFT = 950;							// Implemented [R & M]
+	OPEN_GIFT = 951;							// Implemented [R & M]
+	GIFT_DETAILS = 952;							// Implemented [R & M]
+	DELETE_GIFT = 953;
+	SAVE_PLAYER_SNAPSHOT = 954;
+	GET_FRIENDSHIP_MILESTONE_REWARDS = 955;
+	CHECK_SEND_GIFT = 956;
+	OPEN_TRADING = 970;
+	UPDATE_TRADING = 971;
+	CONFIRM_TRADING = 972;
+	CANCEL_TRADING = 973;
+	GET_TRADING = 974;
 	REGISTER_PUSH_NOTIFICATION = 5000;          // Implemented [R & M]
 	UNREGISTER_PUSH_NOTIFICATION = 5001;        // Not yet released.
 	UPDATE_NOTIFICATION_STATUS = 5002;          // Implemented [R & M]
@@ -114,4 +126,5 @@ enum RequestType {
 	ADD_NEW_POI = 5011;
 	PROXY_SOCIAL_ACTION = 5012;
 	CLIENT_TELEMETRY = 5013;
+	GET_AVAILABLE_SUBMISSIONS = 5014;
 }

@@ -4,6 +4,7 @@ package POGOProtos.Data.Battle;
 import "POGOProtos/Data/Battle/BattleResults.proto";
 import "POGOProtos/Data/Battle/BattleActionType.proto";
 import "POGOProtos/Data/Battle/BattleParticipant.proto";
+import "POGOProtos/Data/Friends/LeveledUpFriends.proto";
 
 message BattleAction {
 	.POGOProtos.Data.Battle.BattleActionType type = 1;
@@ -19,4 +20,5 @@ message BattleAction {
 	int64 damage_windows_end_timestamp_ms = 12;
 	.POGOProtos.Data.Battle.BattleParticipant player_left = 13;
 	fixed64 target_pokemon_id = 14;
+	.POGOProtos.Data.Friends.LeveledUpFriends leveled_up_friends = 15;
 }

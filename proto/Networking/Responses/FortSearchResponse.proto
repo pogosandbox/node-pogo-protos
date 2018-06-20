@@ -22,6 +22,7 @@ message FortSearchResponse {
 	.POGOProtos.Inventory.Loot team_bonus_loot = 12;
 	string fort_id = 13;
 	.POGOProtos.Data.Quests.ClientQuest challenge_quest = 14;
+	.POGOProtos.Data.Gift.GiftBox gift_box = 15;
 
 	enum Result {
 		NO_RESULT_SET = 0;
