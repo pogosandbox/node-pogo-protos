@@ -111,7 +111,7 @@ enum RequestType {
 	UPDATE_TRADING = 971;
 	CONFIRM_TRADING = 972;
 	CANCEL_TRADING = 973;
-	GET_TRADING = 974;
+	GET_TRADING = 974;							// Implemented [R & M]
 	REGISTER_PUSH_NOTIFICATION = 5000;          // Implemented [R & M]
 	UNREGISTER_PUSH_NOTIFICATION = 5001;        // Not yet released.
 	UPDATE_NOTIFICATION_STATUS = 5002;          // Implemented [R & M]
@@ -123,7 +123,7 @@ enum RequestType {
 	ADD_LOGIN_ACTION = 5008;
 	REMOVE_LOGIN_ACTION = 5009;
 	LIST_LOGIN_ACTION = 5010;
-	ADD_NEW_POI = 5011;
+	ADD_NEW_POI = 5011;							// Implemented [R & M]
 	PROXY_SOCIAL_ACTION = 5012;
 	CLIENT_TELEMETRY = 5013;
 	GET_AVAILABLE_SUBMISSIONS = 5014;			// Implemented [R & M]

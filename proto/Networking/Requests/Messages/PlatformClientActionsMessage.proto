@@ -56,5 +56,3 @@ message GetAvailableSubmissionsMessage {
 	.POGOProtos.Data.Player.PlayerReputation player_reputation = 2;
 	string game_unique_id = 3;
 }
-
-
