@@ -18,6 +18,8 @@ import "POGOProtos/Settings/NewsGlobalSettings.proto";
 import "POGOProtos/Settings/TelemetryGlobalSettings.proto";
 import "POGOProtos/Settings/LoginSettings.proto";
 import "POGOProtos/Settings/QuestGlobalSettings.proto";
+import "POGOProtos/Settings/SocialClientSettings.proto";
+import "POGOProtos/Settings/TradingGlobalSettings.proto";
 
 message GlobalSettings {
 	.POGOProtos.Settings.FortSettings fort_settings = 2;
@@ -40,4 +42,6 @@ message GlobalSettings {
 	.POGOProtos.Settings.TelemetryGlobalSettings telemetry_global_settings = 21;
 	.POGOProtos.Settings.LoginSettings login_settings = 22;
 	.POGOProtos.Settings.QuestGlobalSettings quest_global_settings = 19;
+	.POGOProtos.Settings.SocialClientSettings social_settings = 23;
+	.POGOProtos.Settings.TradingGlobalSettings trading_global_settings = 24;
 }
