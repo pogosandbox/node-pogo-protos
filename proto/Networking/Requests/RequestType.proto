@@ -93,7 +93,7 @@ enum RequestType {
 	AWARD_FREE_RAID_TICKET = 815;               // Implemented [R & M]
 	FETCH_ALL_NEWS = 816;                       // Implemented [R & M]
 	MARK_READ_NEWS_ARTICLE = 817;               // Implemented [R & M]
-	GET_PLAYER_DISPLAY_INFO = 818;              // ???
+	GET_PLAYER_DISPLAY_INFO = 818;
 	GET_NEW_QUESTS = 900;                       // Implemented [R & M]
 	GET_QUEST_DETAILS = 901;                    // Implemented [R & M]
 	COMPLETE_QUEST = 902;                       // Implemented [R & M]
@@ -104,8 +104,8 @@ enum RequestType {
 	OPEN_GIFT = 951;                            // Implemented [R & M]
 	GIFT_DETAILS = 952;                         // Implemented [R & M]
 	DELETE_GIFT = 953;                          // Implemented [R & M]
-	SAVE_PLAYER_SNAPSHOT = 954;                 // ???
-	GET_FRIENDSHIP_MILESTONE_REWARDS = 955;     // ???
+	SAVE_PLAYER_SNAPSHOT = 954;                 // Implemented [R & M]
+	GET_FRIENDSHIP_MILESTONE_REWARDS = 955;     // Implemented [R & M]
 	CHECK_SEND_GIFT = 956;                      // ???
 	OPEN_TRADING = 970;                         // Implemented [R & M]
 	UPDATE_TRADING = 971;                       // Implemented [R & M]

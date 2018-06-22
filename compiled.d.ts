@@ -7278,6 +7278,23 @@ export namespace POGOProtos {
                     public toJSON(): { [k: string]: any };
                 }
 
+                interface IGetFriendshipMilestoneRewardsMessage {
+                    friend_id?: (string|null);
+                }
+
+                class GetFriendshipMilestoneRewardsMessage implements IGetFriendshipMilestoneRewardsMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IGetFriendshipMilestoneRewardsMessage);
+                    public friend_id: string;
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IGetFriendshipMilestoneRewardsMessage): POGOProtos.Networking.Requests.Messages.GetFriendshipMilestoneRewardsMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IGetFriendshipMilestoneRewardsMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IGetFriendshipMilestoneRewardsMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.GetFriendshipMilestoneRewardsMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.GetFriendshipMilestoneRewardsMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.GetFriendshipMilestoneRewardsMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.GetFriendshipMilestoneRewardsMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
                 interface IGetGymBadgeDetailsMessage {
                     fort_id?: (string|null);
                     latitude?: (number|null);
@@ -10151,6 +10168,39 @@ export namespace POGOProtos {
                 public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.GetDownloadUrlsResponse;
                 public static toObject(message: POGOProtos.Networking.Responses.GetDownloadUrlsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
                 public toJSON(): { [k: string]: any };
+            }
+
+            interface IGetFriendshipMilestoneRewardsResponse {
+                result?: (POGOProtos.Networking.Responses.GetFriendshipMilestoneRewardsResponse.Result|null);
+                xp_reward?: (number|Long|null);
+                friend_id?: (string|null);
+            }
+
+            class GetFriendshipMilestoneRewardsResponse implements IGetFriendshipMilestoneRewardsResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IGetFriendshipMilestoneRewardsResponse);
+                public result: POGOProtos.Networking.Responses.GetFriendshipMilestoneRewardsResponse.Result;
+                public xp_reward: (number|Long);
+                public friend_id: string;
+                public static create(properties?: POGOProtos.Networking.Responses.IGetFriendshipMilestoneRewardsResponse): POGOProtos.Networking.Responses.GetFriendshipMilestoneRewardsResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IGetFriendshipMilestoneRewardsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IGetFriendshipMilestoneRewardsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.GetFriendshipMilestoneRewardsResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.GetFriendshipMilestoneRewardsResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.GetFriendshipMilestoneRewardsResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.GetFriendshipMilestoneRewardsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace GetFriendshipMilestoneRewardsResponse {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_UNKNOWN = 2,
+                    ERROR_NOT_FRIENDS = 3,
+                    ERROR_MILESTONE_ALREADY_AWARDED = 4,
+                    ERROR_FAILED_TO_UPDATE = 5
+                }
             }
 
             interface IGetGymBadgeDetailsResponse {
