@@ -26,6 +26,7 @@ import "POGOProtos/Settings/Master/WeatherBonus.proto";
 import "POGOProtos/Settings/Master/PokemonScaleSetting.proto";
 import "POGOProtos/Settings/Master/IapItemCategoryDisplay.proto";
 import "POGOProtos/Settings/Master/OnboardingSettings.proto";
+import "POGOProtos/Settings/Master/FriendshipLevelMilestoneSettings.proto";
 
 message DownloadItemTemplatesResponse {
 	Result result = 1;

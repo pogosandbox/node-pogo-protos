@@ -4,6 +4,7 @@ package POGOProtos.Data.Logs;
 import "POGOProtos/Data/PokemonData.proto";
 import "POGOProtos/Inventory/Item/ItemData.proto";
 import "POGOProtos/Map/Fort/FortType.proto";
+import "POGOProtos/Data/Gift/GiftBox.proto";
 
 message FortSearchLogEntry {
 	Result result = 1;

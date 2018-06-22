@@ -6,6 +6,7 @@ import "POGOProtos/Data/Quests/ClientQuest.proto";
 import "POGOProtos/Inventory/Item/ItemAward.proto";
 import "POGOProtos/Inventory/Loot.proto";
 import "POGOProtos/Data/Badge/AwardedGymBadge.proto";
+import "POGOProtos/Data/Gift/GiftBox.proto";
 
 message FortSearchResponse {
 	Result result = 1;

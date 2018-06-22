@@ -1,8 +1,6 @@
 syntax = "proto3";
 package POGOProtos.Networking.Requests.Messages;
 
-import "POGOProtos/Inventory/Item/ItemId.proto";
-
 message DeleteGiftMessage {
 	string player_id = 1;
 	fixed64 giftbox_id = 2;
