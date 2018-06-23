@@ -93,7 +93,7 @@ enum RequestType {
 	AWARD_FREE_RAID_TICKET = 815;               // Implemented [R & M]
 	FETCH_ALL_NEWS = 816;                       // Implemented [R & M]
 	MARK_READ_NEWS_ARTICLE = 817;               // Implemented [R & M]
-	GET_PLAYER_DISPLAY_INFO = 818;
+	GET_PLAYER_DISPLAY_INFO = 818;              // ???
 	GET_NEW_QUESTS = 900;                       // Implemented [R & M]
 	GET_QUEST_DETAILS = 901;                    // Implemented [R & M]
 	COMPLETE_QUEST = 902;                       // Implemented [R & M]
