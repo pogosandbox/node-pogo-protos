@@ -456,5 +456,7 @@ import public "Settings/NotificationSettings.proto";
 import public "Settings/PasscodeSettings.proto";
 import public "Settings/QuestGlobalSettings.proto";
 import public "Settings/SfidaSettings.proto";
+import public "Settings/SocialClientSettings.proto";
 import public "Settings/TelemetryGlobalSettings.proto";
+import public "Settings/TradingGlobalSettings.proto";
 import public "Settings/TranslationSettings.proto";

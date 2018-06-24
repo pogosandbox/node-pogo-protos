@@ -11637,6 +11637,34 @@ export namespace POGOProtos {
                 }
             }
 
+            interface ISavePlayerSnapshotResponse {
+                result?: (POGOProtos.Networking.Responses.SavePlayerSnapshotResponse.Result|null);
+            }
+
+            class SavePlayerSnapshotResponse implements ISavePlayerSnapshotResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.ISavePlayerSnapshotResponse);
+                public result: POGOProtos.Networking.Responses.SavePlayerSnapshotResponse.Result;
+                public static create(properties?: POGOProtos.Networking.Responses.ISavePlayerSnapshotResponse): POGOProtos.Networking.Responses.SavePlayerSnapshotResponse;
+                public static encode(message: POGOProtos.Networking.Responses.ISavePlayerSnapshotResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.ISavePlayerSnapshotResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.SavePlayerSnapshotResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.SavePlayerSnapshotResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.SavePlayerSnapshotResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.SavePlayerSnapshotResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace SavePlayerSnapshotResponse {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    TOO_SOON_TO_UPDATE = 2,
+                    ERROR_FAILED_TO_UPDATE = 3,
+                    ERROR_REQUEST_TIMED_OUT = 4
+                }
+            }
+
             interface ISendGiftResponse {
                 result?: (POGOProtos.Networking.Responses.SendGiftResponse.Result|null);
             }
@@ -12626,6 +12654,8 @@ export namespace POGOProtos {
             telemetry_global_settings?: (POGOProtos.Settings.ITelemetryGlobalSettings|null);
             login_settings?: (POGOProtos.Settings.ILoginSettings|null);
             quest_global_settings?: (POGOProtos.Settings.IQuestGlobalSettings|null);
+            social_settings?: (POGOProtos.Settings.ISocialClientSettings|null);
+            trading_global_settings?: (POGOProtos.Settings.ITradingGlobalSettings|null);
         }
 
         class GlobalSettings implements IGlobalSettings {
@@ -12650,6 +12680,8 @@ export namespace POGOProtos {
             public telemetry_global_settings?: (POGOProtos.Settings.ITelemetryGlobalSettings|null);
             public login_settings?: (POGOProtos.Settings.ILoginSettings|null);
             public quest_global_settings?: (POGOProtos.Settings.IQuestGlobalSettings|null);
+            public social_settings?: (POGOProtos.Settings.ISocialClientSettings|null);
+            public trading_global_settings?: (POGOProtos.Settings.ITradingGlobalSettings|null);
             public static create(properties?: POGOProtos.Settings.IGlobalSettings): POGOProtos.Settings.GlobalSettings;
             public static encode(message: POGOProtos.Settings.IGlobalSettings, writer?: $protobuf.Writer): $protobuf.Writer;
             public static encodeDelimited(message: POGOProtos.Settings.IGlobalSettings, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -14206,6 +14238,27 @@ export namespace POGOProtos {
             public toJSON(): { [k: string]: any };
         }
 
+        interface ISocialClientSettings {
+            enable_social?: (boolean|null);
+            max_friend_details?: (number|null);
+            player_level_gate?: (number|null);
+        }
+
+        class SocialClientSettings implements ISocialClientSettings {
+            constructor(properties?: POGOProtos.Settings.ISocialClientSettings);
+            public enable_social: boolean;
+            public max_friend_details: number;
+            public player_level_gate: number;
+            public static create(properties?: POGOProtos.Settings.ISocialClientSettings): POGOProtos.Settings.SocialClientSettings;
+            public static encode(message: POGOProtos.Settings.ISocialClientSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: POGOProtos.Settings.ISocialClientSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Settings.SocialClientSettings;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.SocialClientSettings;
+            public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.SocialClientSettings;
+            public static toObject(message: POGOProtos.Settings.SocialClientSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public toJSON(): { [k: string]: any };
+        }
+
         interface ITelemetryGlobalSettings {
             enabled?: (boolean|null);
             session_sampling_fraction?: (number|null);
@@ -14232,6 +14285,25 @@ export namespace POGOProtos {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.TelemetryGlobalSettings;
             public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.TelemetryGlobalSettings;
             public static toObject(message: POGOProtos.Settings.TelemetryGlobalSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public toJSON(): { [k: string]: any };
+        }
+
+        interface ITradingGlobalSettings {
+            enable_trading?: (boolean|null);
+            min_player_level?: (number|null);
+        }
+
+        class TradingGlobalSettings implements ITradingGlobalSettings {
+            constructor(properties?: POGOProtos.Settings.ITradingGlobalSettings);
+            public enable_trading: boolean;
+            public min_player_level: number;
+            public static create(properties?: POGOProtos.Settings.ITradingGlobalSettings): POGOProtos.Settings.TradingGlobalSettings;
+            public static encode(message: POGOProtos.Settings.ITradingGlobalSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: POGOProtos.Settings.ITradingGlobalSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Settings.TradingGlobalSettings;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.TradingGlobalSettings;
+            public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.TradingGlobalSettings;
+            public static toObject(message: POGOProtos.Settings.TradingGlobalSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
             public toJSON(): { [k: string]: any };
         }
 
