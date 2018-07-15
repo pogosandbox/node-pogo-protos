@@ -1,3 +1,4 @@
+// @ts-check
 let fs = require('mz/fs');
 let path = require('path');
 
@@ -33,5 +34,3 @@ async function build() {
 }
 
 build().then(() => console.log('Done.'));
-
-
