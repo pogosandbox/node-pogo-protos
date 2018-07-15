@@ -39,5 +39,6 @@ message GetInboxResponse {
 		UNSET = 0;
 		SUCCESS = 1;
 		FAILURE = 2;
+		TIMED_OUT = 3;
 	}
 }

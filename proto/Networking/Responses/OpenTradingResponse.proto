@@ -3,7 +3,7 @@ package POGOProtos.Networking.Responses;
 
 import "POGOProtos/Data/Trading/Trading.proto";
 
-message OpenTradingOutProto {
+message OpenTradingResponse {
 	Result result = 1;
 	.POGOProtos.Data.Trading.Trading trading = 2;
 
