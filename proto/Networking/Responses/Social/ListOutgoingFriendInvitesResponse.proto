@@ -1,7 +1,7 @@
 syntax = "proto3";
 package POGOProtos.Networking.Responses.Social;
 
-import "POGOProtos/Data/Friends/PlayerReputation.proto";
+import "POGOProtos/Data/Friends/OutgoingFriendInviteDisplay.proto";
 
 message ListOutgoingFriendInvitesResponse {
 	Result result = 1;

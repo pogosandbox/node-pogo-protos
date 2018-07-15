@@ -32,7 +32,7 @@
   },
   "scripts": {
     "compile": "node proto/compile.js",
-    "minjs": "pbjs --keep-case -t static-module --no-verify --no-beautify --no-comments -o compiled.js ./proto/POGOProtos.proto",
+    "minjs": "pbjs --keep-case -t static-module --es6 --no-verify --no-beautify --no-comments -o compiled.js ./proto/POGOProtos.proto",
     "js": "pbjs --keep-case -t static-module --no-verify -o temp.js ./proto/POGOProtos.proto",
     "ts": "pbts --no-comments -o compiled.d.ts temp.js"
   }

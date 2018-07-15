@@ -10,6 +10,6 @@ message OutgoingFriendInvite {
 		UNSET = 0;
 		PENDING = 1;
 		CANCELLED = 2;
-		CANCELLED = 3;
+		DECLINED = 3;
 	}
 }

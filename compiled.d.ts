@@ -753,6 +753,56 @@ export namespace POGOProtos {
                 public static toObject(message: POGOProtos.Data.Friends.LeveledUpFriends, options?: $protobuf.IConversionOptions): { [k: string]: any };
                 public toJSON(): { [k: string]: any };
             }
+
+            interface IOutgoingFriendInvite {
+                status?: (POGOProtos.Data.Friends.OutgoingFriendInvite.Status|null);
+                player_id?: (string|null);
+                created_ms?: (number|Long|null);
+            }
+
+            class OutgoingFriendInvite implements IOutgoingFriendInvite {
+                constructor(properties?: POGOProtos.Data.Friends.IOutgoingFriendInvite);
+                public status: POGOProtos.Data.Friends.OutgoingFriendInvite.Status;
+                public player_id: string;
+                public created_ms: (number|Long);
+                public static create(properties?: POGOProtos.Data.Friends.IOutgoingFriendInvite): POGOProtos.Data.Friends.OutgoingFriendInvite;
+                public static encode(message: POGOProtos.Data.Friends.IOutgoingFriendInvite, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Friends.IOutgoingFriendInvite, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Friends.OutgoingFriendInvite;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Friends.OutgoingFriendInvite;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Friends.OutgoingFriendInvite;
+                public static toObject(message: POGOProtos.Data.Friends.OutgoingFriendInvite, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace OutgoingFriendInvite {
+
+                enum Status {
+                    UNSET = 0,
+                    PENDING = 1,
+                    CANCELLED = 2,
+                    DECLINED = 3
+                }
+            }
+
+            interface IOutgoingFriendInviteDisplay {
+                invite?: (POGOProtos.Data.Friends.IOutgoingFriendInvite|null);
+                player?: (POGOProtos.Data.Player.IPlayerSummary|null);
+            }
+
+            class OutgoingFriendInviteDisplay implements IOutgoingFriendInviteDisplay {
+                constructor(properties?: POGOProtos.Data.Friends.IOutgoingFriendInviteDisplay);
+                public invite?: (POGOProtos.Data.Friends.IOutgoingFriendInvite|null);
+                public player?: (POGOProtos.Data.Player.IPlayerSummary|null);
+                public static create(properties?: POGOProtos.Data.Friends.IOutgoingFriendInviteDisplay): POGOProtos.Data.Friends.OutgoingFriendInviteDisplay;
+                public static encode(message: POGOProtos.Data.Friends.IOutgoingFriendInviteDisplay, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Friends.IOutgoingFriendInviteDisplay, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Friends.OutgoingFriendInviteDisplay;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Friends.OutgoingFriendInviteDisplay;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Friends.OutgoingFriendInviteDisplay;
+                public static toObject(message: POGOProtos.Data.Friends.OutgoingFriendInviteDisplay, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
         }
 
         namespace Gift {
@@ -9083,6 +9133,57 @@ export namespace POGOProtos {
 
             namespace Social {
 
+                interface IAcceptFriendInviteMessage {
+                    player_id?: (string|null);
+                }
+
+                class AcceptFriendInviteMessage implements IAcceptFriendInviteMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Social.IAcceptFriendInviteMessage);
+                    public player_id: string;
+                    public static create(properties?: POGOProtos.Networking.Requests.Social.IAcceptFriendInviteMessage): POGOProtos.Networking.Requests.Social.AcceptFriendInviteMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Social.IAcceptFriendInviteMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Social.IAcceptFriendInviteMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Social.AcceptFriendInviteMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Social.AcceptFriendInviteMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Social.AcceptFriendInviteMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Social.AcceptFriendInviteMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface ICancelFriendInviteMessage {
+                    player_id?: (string|null);
+                }
+
+                class CancelFriendInviteMessage implements ICancelFriendInviteMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Social.ICancelFriendInviteMessage);
+                    public player_id: string;
+                    public static create(properties?: POGOProtos.Networking.Requests.Social.ICancelFriendInviteMessage): POGOProtos.Networking.Requests.Social.CancelFriendInviteMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Social.ICancelFriendInviteMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Social.ICancelFriendInviteMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Social.CancelFriendInviteMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Social.CancelFriendInviteMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Social.CancelFriendInviteMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Social.CancelFriendInviteMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IDeclineFriendInviteMessage {
+                    player_id?: (string|null);
+                }
+
+                class DeclineFriendInviteMessage implements IDeclineFriendInviteMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Social.IDeclineFriendInviteMessage);
+                    public player_id: string;
+                    public static create(properties?: POGOProtos.Networking.Requests.Social.IDeclineFriendInviteMessage): POGOProtos.Networking.Requests.Social.DeclineFriendInviteMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Social.IDeclineFriendInviteMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Social.IDeclineFriendInviteMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Social.DeclineFriendInviteMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Social.DeclineFriendInviteMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Social.DeclineFriendInviteMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Social.DeclineFriendInviteMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
                 interface IListFriendsMessage {
                 }
 
@@ -9110,6 +9211,74 @@ export namespace POGOProtos {
                     public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Social.ListIncomingFriendInvitesMessage;
                     public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Social.ListIncomingFriendInvitesMessage;
                     public static toObject(message: POGOProtos.Networking.Requests.Social.ListIncomingFriendInvitesMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IListOutgoingFriendInvitesMessage {
+                }
+
+                class ListOutgoingFriendInvitesMessage implements IListOutgoingFriendInvitesMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Social.IListOutgoingFriendInvitesMessage);
+                    public static create(properties?: POGOProtos.Networking.Requests.Social.IListOutgoingFriendInvitesMessage): POGOProtos.Networking.Requests.Social.ListOutgoingFriendInvitesMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Social.IListOutgoingFriendInvitesMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Social.IListOutgoingFriendInvitesMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Social.ListOutgoingFriendInvitesMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Social.ListOutgoingFriendInvitesMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Social.ListOutgoingFriendInvitesMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Social.ListOutgoingFriendInvitesMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IRemoveFriendMessage {
+                    friend_code?: (string|null);
+                }
+
+                class RemoveFriendMessage implements IRemoveFriendMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Social.IRemoveFriendMessage);
+                    public friend_code: string;
+                    public static create(properties?: POGOProtos.Networking.Requests.Social.IRemoveFriendMessage): POGOProtos.Networking.Requests.Social.RemoveFriendMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Social.IRemoveFriendMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Social.IRemoveFriendMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Social.RemoveFriendMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Social.RemoveFriendMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Social.RemoveFriendMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Social.RemoveFriendMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface ISearchPlayerMessage {
+                    friend_code?: (string|null);
+                }
+
+                class SearchPlayerMessage implements ISearchPlayerMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Social.ISearchPlayerMessage);
+                    public friend_code: string;
+                    public static create(properties?: POGOProtos.Networking.Requests.Social.ISearchPlayerMessage): POGOProtos.Networking.Requests.Social.SearchPlayerMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Social.ISearchPlayerMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Social.ISearchPlayerMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Social.SearchPlayerMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Social.SearchPlayerMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Social.SearchPlayerMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Social.SearchPlayerMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface ISendFriendInviteMessage {
+                    player_id?: (string|null);
+                    friend_code?: (string|null);
+                }
+
+                class SendFriendInviteMessage implements ISendFriendInviteMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Social.ISendFriendInviteMessage);
+                    public player_id: string;
+                    public friend_code: string;
+                    public static create(properties?: POGOProtos.Networking.Requests.Social.ISendFriendInviteMessage): POGOProtos.Networking.Requests.Social.SendFriendInviteMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Social.ISendFriendInviteMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Social.ISendFriendInviteMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Social.SendFriendInviteMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Social.SendFriendInviteMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Social.SendFriendInviteMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Social.SendFriendInviteMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
                     public toJSON(): { [k: string]: any };
                 }
             }
@@ -10600,7 +10769,8 @@ export namespace POGOProtos {
                 enum Result {
                     UNSET = 0,
                     SUCCESS = 1,
-                    FAILURE = 2
+                    FAILURE = 2,
+                    TIMED_OUT = 3
                 }
             }
 
@@ -11451,26 +11621,26 @@ export namespace POGOProtos {
                 }
             }
 
-            interface IOpenTradingOutProto {
-                result?: (POGOProtos.Networking.Responses.OpenTradingOutProto.Result|null);
+            interface IOpenTradingResponse {
+                result?: (POGOProtos.Networking.Responses.OpenTradingResponse.Result|null);
                 trading?: (POGOProtos.Data.Trading.ITrading|null);
             }
 
-            class OpenTradingOutProto implements IOpenTradingOutProto {
-                constructor(properties?: POGOProtos.Networking.Responses.IOpenTradingOutProto);
-                public result: POGOProtos.Networking.Responses.OpenTradingOutProto.Result;
+            class OpenTradingResponse implements IOpenTradingResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IOpenTradingResponse);
+                public result: POGOProtos.Networking.Responses.OpenTradingResponse.Result;
                 public trading?: (POGOProtos.Data.Trading.ITrading|null);
-                public static create(properties?: POGOProtos.Networking.Responses.IOpenTradingOutProto): POGOProtos.Networking.Responses.OpenTradingOutProto;
-                public static encode(message: POGOProtos.Networking.Responses.IOpenTradingOutProto, writer?: $protobuf.Writer): $protobuf.Writer;
-                public static encodeDelimited(message: POGOProtos.Networking.Responses.IOpenTradingOutProto, writer?: $protobuf.Writer): $protobuf.Writer;
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.OpenTradingOutProto;
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.OpenTradingOutProto;
-                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.OpenTradingOutProto;
-                public static toObject(message: POGOProtos.Networking.Responses.OpenTradingOutProto, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public static create(properties?: POGOProtos.Networking.Responses.IOpenTradingResponse): POGOProtos.Networking.Responses.OpenTradingResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IOpenTradingResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IOpenTradingResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.OpenTradingResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.OpenTradingResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.OpenTradingResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.OpenTradingResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
                 public toJSON(): { [k: string]: any };
             }
 
-            namespace OpenTradingOutProto {
+            namespace OpenTradingResponse {
 
                 enum Result {
                     UNSET = 0,
@@ -12190,6 +12360,67 @@ export namespace POGOProtos {
 
             namespace Social {
 
+                interface ICancelFriendInviteResponse {
+                    result?: (POGOProtos.Networking.Responses.Social.CancelFriendInviteResponse.Result|null);
+                    friend?: (POGOProtos.Data.Player.IPlayerSummary|null);
+                }
+
+                class CancelFriendInviteResponse implements ICancelFriendInviteResponse {
+                    constructor(properties?: POGOProtos.Networking.Responses.Social.ICancelFriendInviteResponse);
+                    public result: POGOProtos.Networking.Responses.Social.CancelFriendInviteResponse.Result;
+                    public friend?: (POGOProtos.Data.Player.IPlayerSummary|null);
+                    public static create(properties?: POGOProtos.Networking.Responses.Social.ICancelFriendInviteResponse): POGOProtos.Networking.Responses.Social.CancelFriendInviteResponse;
+                    public static encode(message: POGOProtos.Networking.Responses.Social.ICancelFriendInviteResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Responses.Social.ICancelFriendInviteResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.Social.CancelFriendInviteResponse;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.Social.CancelFriendInviteResponse;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.Social.CancelFriendInviteResponse;
+                    public static toObject(message: POGOProtos.Networking.Responses.Social.CancelFriendInviteResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                namespace CancelFriendInviteResponse {
+
+                    enum Result {
+                        UNSET = 0,
+                        SUCCESS = 1,
+                        ERROR_UNKNOWN = 2,
+                        ERROR_INVITE_DOES_NOT_EXIST = 3,
+                        ERROR_MAX_FRIENDS_LIMIT_REACHED_DELETED = 4,
+                        ERROR_INVITE_HAS_BEEN_CANCELLED = 5,
+                        ERROR_SENDER_HAS_MAX_FRIENDS = 6,
+                        ERROR_RECEIVER_HAS_MAX_FRIENDS = 7
+                    }
+                }
+
+                interface IDeclineFriendInviteResponse {
+                    result?: (POGOProtos.Networking.Responses.Social.DeclineFriendInviteResponse.Result|null);
+                }
+
+                class DeclineFriendInviteResponse implements IDeclineFriendInviteResponse {
+                    constructor(properties?: POGOProtos.Networking.Responses.Social.IDeclineFriendInviteResponse);
+                    public result: POGOProtos.Networking.Responses.Social.DeclineFriendInviteResponse.Result;
+                    public static create(properties?: POGOProtos.Networking.Responses.Social.IDeclineFriendInviteResponse): POGOProtos.Networking.Responses.Social.DeclineFriendInviteResponse;
+                    public static encode(message: POGOProtos.Networking.Responses.Social.IDeclineFriendInviteResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Responses.Social.IDeclineFriendInviteResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.Social.DeclineFriendInviteResponse;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.Social.DeclineFriendInviteResponse;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.Social.DeclineFriendInviteResponse;
+                    public static toObject(message: POGOProtos.Networking.Responses.Social.DeclineFriendInviteResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                namespace DeclineFriendInviteResponse {
+
+                    enum Result {
+                        UNSET = 0,
+                        SUCCESS = 1,
+                        ERROR_UNKNOWN = 2,
+                        ERROR_INVITE_DOES_NOT_EXIST = 3,
+                        ERROR_INVITE_ALREADY_DECLINED = 4
+                    }
+                }
+
                 interface IListFriendsResponse {
                     result?: (POGOProtos.Networking.Responses.Social.ListFriendsResponse.Result|null);
                     friend?: (POGOProtos.Data.Friends.IFriend[]|null);
@@ -12243,6 +12474,125 @@ export namespace POGOProtos {
                         UNSET = 0,
                         SUCCESS = 1,
                         ERROR_UNKNOWN = 2
+                    }
+                }
+
+                interface IListOutgoingFriendInvitesResponse {
+                    result?: (POGOProtos.Networking.Responses.Social.ListOutgoingFriendInvitesResponse.Result|null);
+                    invites?: (POGOProtos.Data.Friends.IOutgoingFriendInviteDisplay[]|null);
+                }
+
+                class ListOutgoingFriendInvitesResponse implements IListOutgoingFriendInvitesResponse {
+                    constructor(properties?: POGOProtos.Networking.Responses.Social.IListOutgoingFriendInvitesResponse);
+                    public result: POGOProtos.Networking.Responses.Social.ListOutgoingFriendInvitesResponse.Result;
+                    public invites: POGOProtos.Data.Friends.IOutgoingFriendInviteDisplay[];
+                    public static create(properties?: POGOProtos.Networking.Responses.Social.IListOutgoingFriendInvitesResponse): POGOProtos.Networking.Responses.Social.ListOutgoingFriendInvitesResponse;
+                    public static encode(message: POGOProtos.Networking.Responses.Social.IListOutgoingFriendInvitesResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Responses.Social.IListOutgoingFriendInvitesResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.Social.ListOutgoingFriendInvitesResponse;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.Social.ListOutgoingFriendInvitesResponse;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.Social.ListOutgoingFriendInvitesResponse;
+                    public static toObject(message: POGOProtos.Networking.Responses.Social.ListOutgoingFriendInvitesResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                namespace ListOutgoingFriendInvitesResponse {
+
+                    enum Result {
+                        UNSET = 0,
+                        SUCCESS = 1,
+                        ERROR_UNKNOWN = 2
+                    }
+                }
+
+                interface IRemoveFriendResponse {
+                    result?: (POGOProtos.Networking.Responses.Social.RemoveFriendResponse.Result|null);
+                }
+
+                class RemoveFriendResponse implements IRemoveFriendResponse {
+                    constructor(properties?: POGOProtos.Networking.Responses.Social.IRemoveFriendResponse);
+                    public result: POGOProtos.Networking.Responses.Social.RemoveFriendResponse.Result;
+                    public static create(properties?: POGOProtos.Networking.Responses.Social.IRemoveFriendResponse): POGOProtos.Networking.Responses.Social.RemoveFriendResponse;
+                    public static encode(message: POGOProtos.Networking.Responses.Social.IRemoveFriendResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Responses.Social.IRemoveFriendResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.Social.RemoveFriendResponse;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.Social.RemoveFriendResponse;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.Social.RemoveFriendResponse;
+                    public static toObject(message: POGOProtos.Networking.Responses.Social.RemoveFriendResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                namespace RemoveFriendResponse {
+
+                    enum Result {
+                        UNSET = 0,
+                        SUCCESS = 1,
+                        ERROR_PLAYER_DOES_NOT_EXIST_DELETED = 2,
+                        ERROR_PLAYER_NOT_A_FRIEND = 3
+                    }
+                }
+
+                interface ISearchPlayerResponse {
+                    result?: (POGOProtos.Networking.Responses.Social.SearchPlayerResponse.Result|null);
+                    player?: (POGOProtos.Data.Player.IPlayerSummary|null);
+                }
+
+                class SearchPlayerResponse implements ISearchPlayerResponse {
+                    constructor(properties?: POGOProtos.Networking.Responses.Social.ISearchPlayerResponse);
+                    public result: POGOProtos.Networking.Responses.Social.SearchPlayerResponse.Result;
+                    public player?: (POGOProtos.Data.Player.IPlayerSummary|null);
+                    public static create(properties?: POGOProtos.Networking.Responses.Social.ISearchPlayerResponse): POGOProtos.Networking.Responses.Social.SearchPlayerResponse;
+                    public static encode(message: POGOProtos.Networking.Responses.Social.ISearchPlayerResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Responses.Social.ISearchPlayerResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.Social.SearchPlayerResponse;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.Social.SearchPlayerResponse;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.Social.SearchPlayerResponse;
+                    public static toObject(message: POGOProtos.Networking.Responses.Social.SearchPlayerResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                namespace SearchPlayerResponse {
+
+                    enum Result {
+                        UNSET = 0,
+                        SUCCESS = 1,
+                        ERROR_UNKNOWN = 2,
+                        ERROR_PLAYER_NOT_FOUND = 3
+                    }
+                }
+
+                interface ISendFriendInviteResponse {
+                    result?: (POGOProtos.Networking.Responses.Social.SendFriendInviteResponse.Result|null);
+                }
+
+                class SendFriendInviteResponse implements ISendFriendInviteResponse {
+                    constructor(properties?: POGOProtos.Networking.Responses.Social.ISendFriendInviteResponse);
+                    public result: POGOProtos.Networking.Responses.Social.SendFriendInviteResponse.Result;
+                    public static create(properties?: POGOProtos.Networking.Responses.Social.ISendFriendInviteResponse): POGOProtos.Networking.Responses.Social.SendFriendInviteResponse;
+                    public static encode(message: POGOProtos.Networking.Responses.Social.ISendFriendInviteResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Responses.Social.ISendFriendInviteResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.Social.SendFriendInviteResponse;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.Social.SendFriendInviteResponse;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.Social.SendFriendInviteResponse;
+                    public static toObject(message: POGOProtos.Networking.Responses.Social.SendFriendInviteResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                namespace SendFriendInviteResponse {
+
+                    enum Result {
+                        UNSET = 0,
+                        SUCCESS = 1,
+                        ERROR_UNKNOWN = 2,
+                        ERROR_ALREADY_A_FRIEND = 3,
+                        ERROR_PLAYER_DOES_NOT_EXIST_DELETED = 4,
+                        ERROR_PLAYER_INBOX_FULL = 5,
+                        ERROR_PLAYER_OUTBOX_FULL = 6,
+                        ERROR_SENDER_HAS_MAX_FRIENDS = 7,
+                        ERROR_INVITE_ALREADY_SENT = 8,
+                        ERROR_CANNOT_SEND_INVITES_TO_YOURSELF = 9,
+                        ERROR_INVITE_ALREADY_RECEIVED = 10,
+                        ERROR_RECEIVER_HAS_MAX_FRIENDS = 11
                     }
                 }
             }
