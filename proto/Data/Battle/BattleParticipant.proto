@@ -4,6 +4,7 @@ package POGOProtos.Data.Battle;
 import "POGOProtos/Data/Battle/BattlePokemonInfo.proto";
 import "POGOProtos/Data/Player/PlayerPublicProfile.proto";
 import "POGOProtos/Map/Pokemon/LobbyPokemon.proto";
+import "POGOProtos/Enums/FriendshipLevelMilestone.proto";
 
 message BattleParticipant {
 	.POGOProtos.Data.Battle.BattlePokemonInfo active_pokemon = 1;
@@ -14,4 +15,6 @@ message BattleParticipant {
 	int32 damage_dealt = 6;
 	bool super_effective_charge_move = 7;
 	bool weather_boosted = 8;
+	.POGOProtos.Enums.FriendshipLevelMilestone highest_friendship_milestone = 9;
+	repeated string friend_codename = 10;
 }

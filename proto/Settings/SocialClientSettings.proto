@@ -1,0 +1,8 @@
+syntax = "proto3";
+package POGOProtos.Settings;
+
+message SocialClientSettings {
+	bool enable_social = 1;
+	int32 max_friend_details = 2;
+	int32 player_level_gate = 3;
+}

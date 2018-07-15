@@ -38,4 +38,7 @@ message PlayerStats {
 	repeated .POGOProtos.Enums.GymBadgeType event_badges = 32;
 	float km_walked_past_active_day = 33;
 	int32 num_challenge_quests_completed = 34;
+	int32 num_trades = 35;
+	int32 num_max_level_friends = 36;
+	int64 trade_accumulated_distance_km = 37;
 }

@@ -25,3 +25,61 @@ message UpdateNotificationStatusResponse {
 message OptOutPushNotificationCategoryResponse {
 	//
 }
+
+message RedeemPasscodeResponse {
+	Result result = 1;
+	repeated AcquiredItem acquired_item = 2;
+	bytes acquired_items_proto = 3;
+	string passcode = 4;
+
+	message AcquiredItem {
+		string item = 1;
+		int64 count = 2;
+	}
+
+	enum Result {
+		UNSET = 0;
+		SUCCESS = 1;
+		NOT_AVAILABLE = 2;
+		OVER_INVENTORY_LIMIT = 3;
+		ALREADY_REDEEMED = 4;
+	}
+}
+
+message AddNewPoiResponse {
+	Status status = 1;
+	repeated string message = 2;
+
+	enum Status {
+		UNSET = 0;
+		SUCCESS = 1;
+		FAILURE = 2;
+		INTERNAL_ERROR = 3;
+		TOO_MANY_RECENT_SUBMISSIONS = 4;
+		INVALID_INPUT = 5;
+	}
+}
+
+message ProxySocialActionResponse {
+    Status status = 1;
+    string assigned_host = 2;
+    bytes payload = 3;
+
+    enum Status {
+        UNSET = 0;
+        COMPLETED = 1;
+        COMPLETED_AND_REASSIGNED = 2;
+        ACTION_NOT_FOUND = 3;
+        ASSIGNMENT_ERROR = 4;
+        PROXY_UNAUTHORIZED_ERROR = 5;
+        INTERNAL_ERROR = 6;
+        BAD_REQUEST = 7;
+        ACCESS_DENIED = 8;
+        TIMEOUT_ERROR = 9;
+    }
+}
+
+message GetAvailableSubmissionsResponse {
+	int32 submissions_left = 1;
+	int32 min_player_level = 2;
+}

@@ -9,6 +9,9 @@ import "POGOProtos/Data/Logs/PasscodeRewardsLogEntry.proto";
 import "POGOProtos/Data/Logs/CompleteQuestLogEntry.proto";
 import "POGOProtos/Data/Logs/CompleteQuestStampCardLogEntry.proto";
 import "POGOProtos/Data/Logs/CompleteQuestPokemonEncounterLogEntry.proto";
+import "POGOProtos/Data/Logs/OpenGiftLogEntry.proto";
+import "POGOProtos/Data/Logs/SendGiftLogEntry.proto";
+import "POGOProtos/Data/Logs/TradingLogEntry.proto";
 
 message ActionLogEntry {
 	int64 timestamp_ms = 1;
@@ -23,5 +26,8 @@ message ActionLogEntry {
 		.POGOProtos.Data.Logs.CompleteQuestLogEntry complete_quest = 8;
 		.POGOProtos.Data.Logs.CompleteQuestStampCardLogEntry complete_quest_stamp_card = 9;
 		.POGOProtos.Data.Logs.CompleteQuestPokemonEncounterLogEntry complete_quest_pokemon_encounter = 10;
+		.POGOProtos.Data.Logs.OpenGiftLogEntry open_gift = 12;
+		.POGOProtos.Data.Logs.SendGiftLogEntry send_gift = 13;
+		.POGOProtos.Data.Logs.TradingLogEntry trading = 14;
 	}
 }

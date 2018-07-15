@@ -22,4 +22,5 @@ message InventoryKey {
 	string avatar_template_id = 12;
 	bool raid_tickets = 13;
 	bool quests = 14;
+	bool gift_boxes = 15;
 }
