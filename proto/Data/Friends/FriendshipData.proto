@@ -8,4 +8,5 @@ message FriendshipData {
 	.POGOProtos.Data.Friends.FriendshipLevelData friendship_level_data = 1;
 	repeated .POGOProtos.Data.Gift.GiftBoxDetails giftbox_details = 2;
 	string codename = 3;
+	string nickname = 4;
 }

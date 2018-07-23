@@ -15,4 +15,5 @@ message GiftBoxDetails {
 	int64 creation_timestamp = 11;
 	int64 sent_timestamp = 12;
 	fixed64 delivery_pokemon_id = 13;
+	bool is_sponsored = 14;
 }

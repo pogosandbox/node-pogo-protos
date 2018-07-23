@@ -62,6 +62,7 @@ message DownloadItemTemplatesResponse {
 		.POGOProtos.Settings.Master.IapItemCategoryDisplay iap_category_display = 28;
 		.POGOProtos.Settings.Master.OnboardingSettings onboarding_settings = 30;
 		.POGOProtos.Settings.Master.FriendshipLevelMilestoneSettings friendship_milestone_settings = 31;
+		.POGOProtos.Settings.Master.LuckyPokemonSettings lucky_pokemon_settings = 32;
 	}
 
 	enum Result {

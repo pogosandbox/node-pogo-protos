@@ -7,6 +7,7 @@ import "POGOProtos/Data/Player/DailyBonus.proto";
 import "POGOProtos/Data/Player/EquippedBadge.proto";
 import "POGOProtos/Data/Player/ContactSettings.proto";
 import "POGOProtos/Data/Player/Currency.proto";
+import "POGOProtos/Data/Player/SocialPlayerSettings.proto";
 import "POGOProtos/Data/BuddyPokemon.proto";
 import "POGOProtos/Enums/TeamColor.proto";
 
@@ -27,4 +28,5 @@ message PlayerData {
 	int64 battle_lockout_end_ms = 17;
 	.POGOProtos.Data.Player.PlayerAvatar secondary_player_avatar = 18;
 	bool name_is_blacklisted = 19;
+	.POGOProtos.Data.Player.SocialPlayerSettings social_player_settings = 20;
 }

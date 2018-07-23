@@ -13,6 +13,7 @@ message Trading {
 	string transaction_log = 6;
 	.POGOProtos.Data.Friends.FriendshipLevelData friendship_level_data = 7;
 	bool is_special_trading = 8;
+	.POGOProtos.Data.Friends.FriendshipLevelData pre_trading_friendship_level = 9;
 
 	enum TradingState {
 		UNSET = 0;

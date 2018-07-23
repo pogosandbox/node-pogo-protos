@@ -47,6 +47,7 @@ message QuestCondition {
 		WITH_BADGE_TYPE = 16;
 		WITH_PLAYER_LEVEL = 17;
 		WITH_WIN_BATTLE_STATUS = 18;
+		WITH_NEW_FRIEND = 19;
 	}
 
 	message WithPokemonType {

@@ -5,4 +5,6 @@ message SocialClientSettings {
 	bool enable_social = 1;
 	int32 max_friend_details = 2;
 	int32 player_level_gate = 3;
+	int32 max_friend_nickname_length = 4;
+	bool enable_add_friend_via_qr_code = 5;
 }

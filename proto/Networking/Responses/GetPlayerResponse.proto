@@ -9,4 +9,5 @@ message GetPlayerResponse {
 	bool banned = 3;
 	bool warn = 4;
 	bool was_created = 5;
+	bool has_valid_email = 6;
 }

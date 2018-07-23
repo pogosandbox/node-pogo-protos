@@ -12,6 +12,8 @@ message Quest {
 	.POGOProtos.Data.Quests.DailyQuest daily_quest = 2;
 	MultiPartQuest multi_part = 3;
 	.POGOProtos.Data.Quests.CatchPokemonQuest catch_pokemon = 4;
+	AddFriendQuest add_friend = 5;
+	TradePokemonQuest trade_pokemon = 6;
 	string quest_id = 100;
 	int64 quest_seed = 101;
 	Context quest_context = 102;
@@ -32,6 +34,14 @@ message Quest {
 
 	message MultiPartQuest {
 		repeated .POGOProtos.Data.Quests.Quest sub_quests = 1;
+	}
+
+	message AddFriendQuest {
+		repeated string added_friend_ids = 1;
+	}
+
+	message TradePokemonQuest {
+		repeated string friend_id = 1;
 	}
 
 	enum Context {

@@ -10,5 +10,6 @@ message NicknamePokemonResponse {
 		ERROR_INVALID_NICKNAME = 2;
 		ERROR_POKEMON_NOT_FOUND = 3;
 		ERROR_POKEMON_IS_EGG = 4;
+		ERROR_FILTERED_NICKNAME = 5;
 	}
 }
