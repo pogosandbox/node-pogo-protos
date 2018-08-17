@@ -9,4 +9,5 @@ message FriendshipData {
 	repeated .POGOProtos.Data.Gift.GiftBoxDetails giftbox_details = 2;
 	string codename = 3;
 	string nickname = 4;
+	int64 open_trade_expire_ms = 5;
 }

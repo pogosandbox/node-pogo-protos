@@ -8,4 +8,5 @@ message QuestStampCard {
 	int32 target = 2;
 	int32 remaining_daily_stamps = 3;
 	string id = 4;
+	string icon_url = 5;
 }

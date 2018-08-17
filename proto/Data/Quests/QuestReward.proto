@@ -40,5 +40,7 @@ message QuestReward {
 		.POGOProtos.Enums.PokemonId pokemon_id = 1;
 		bool use_quest_pokemon_encounter_distribuition = 2;
 		.POGOProtos.Data.PokemonDisplay pokemon_display = 3;
+		bool is_hidden_ditto = 4;
+		.POGOProtos.Data.PokemonDisplay ditto_display = 5;
 	}
 }

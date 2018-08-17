@@ -40,15 +40,10 @@ message RedeemPasscodeMessage {
 message AddNewPoiMessage {
 	string title = 1;
 	string long_description = 2;
-	string image_gs_file_path = 3;
 	int32 lat_e6 = 4;
 	int32 lng_e6 = 5;
-	string image_serving_url = 6;
-	string user_id = 7;
-	string player_language = 8;
-	string game_unique_id = 9;
-	string app_id = 10;
-	.POGOProtos.Data.Player.PlayerReputation player_reputation = 11;
+	string supporting_statement = 14;
+	bool has_supporting_image = 15;
 }
 
 message ProxySocialActionMessage {
@@ -58,7 +53,4 @@ message ProxySocialActionMessage {
 }
 
 message GetAvailableSubmissionsMessage {
-	string user_id = 1;
-	.POGOProtos.Data.Player.PlayerReputation player_reputation = 2;
-	string game_unique_id = 3;
 }

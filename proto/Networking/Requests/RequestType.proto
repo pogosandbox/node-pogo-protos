@@ -1,9 +1,6 @@
 syntax = "proto3";
 package POGOProtos.Networking.Requests;
 
-// R = Response
-// M = Message
-
 enum RequestType {
 	METHOD_UNSET = 0;                           // No implementation required
 	GET_PLAYER = 2;                             // Implemented
@@ -12,6 +9,7 @@ enum RequestType {
 	DOWNLOAD_ITEM_TEMPLATES = 6;                // Implemented
 	DOWNLOAD_REMOTE_CONFIG_VERSION = 7;         // Implemented
 	REGISTER_BACKGROUND_DEVICE = 8;             // Implemented
+	GET_PLAYER_DAY = 9;							// Implemented
 	FORT_SEARCH = 101;                          // Implemented
 	ENCOUNTER = 102;                            // Implemented
 	CATCH_POKEMON = 103;                        // Implemented
@@ -110,24 +108,29 @@ enum RequestType {
 	SET_FRIEND_NICKNAME = 957;					// Implemented
 	DELETE_GIFT_FROM_INVENTORY = 958;			// Implemented
 	SAVE_SOCIAL_PLAYER_SETTINGS = 959;
+	SHARE_EX_RAID_PASS = 960;
+	ACCEPT_SHARED_EX_RAID_PASS = 961;
+	DECLINE_SHARED_EX_RAID_PASS = 962;
 	OPEN_TRADING = 970;                         // Implemented
 	UPDATE_TRADING = 971;                       // Implemented
 	CONFIRM_TRADING = 972;                      // Implemented
 	CANCEL_TRADING = 973;                       // Implemented
 	GET_TRADING = 974;                          // Implemented
 	REGISTER_PUSH_NOTIFICATION = 5000;          // Implemented
-	UNREGISTER_PUSH_NOTIFICATION = 5001;        // ???
+	UNREGISTER_PUSH_NOTIFICATION = 5001;        // 
 	UPDATE_NOTIFICATION_STATUS = 5002;          // Implemented
 	OPT_OUT_PUSH_NOTIFICATION_CATEGORY = 5003;  // Implemented
 	DOWNLOAD_GAME_MASTER_TEMPLATES = 5004;      // Implemented
 	GET_INVENTORY = 5005;                       // UnUsed - Implemented
 	REDEEM_PASSCODE = 5006;                     // Implemented
-	PING = 5007;                                // ???
-	ADD_LOGIN_ACTION = 5008;                    // ???
-	REMOVE_LOGIN_ACTION = 5009;                 // ???
-	LIST_LOGIN_ACTION = 5010;                   // ???
+	PING = 5007;                                // 
+	ADD_LOGIN_ACTION = 5008;                    // 
+	REMOVE_LOGIN_ACTION = 5009;                 // 
+	LIST_LOGIN_ACTION = 5010;                   // 
 	ADD_NEW_POI = 5011;                         // Implemented
-	PROXY_SOCIAL_ACTION = 5012;                 // ???
-	CLIENT_TELEMETRY = 5013;                    // ???
+	PROXY_SOCIAL_ACTION = 5012;                 // 
+	CLIENT_TELEMETRY = 5013;                    // 
 	GET_AVAILABLE_SUBMISSIONS = 5014;           // Implemented
+	GET_SIGNED_URL_FOR_PHOTO_UPLOAD = 5015;
+	REPLACE_LOGIN_ACTION = 5016;
 }

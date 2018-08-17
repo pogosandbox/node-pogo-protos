@@ -10,4 +10,5 @@ message GiftBox {
 	double fort_lng = 6;
 	int64 creation_timestamp = 7;
 	int64 sent_timestamp = 8;
+	int64 sent_bucket = 9;
 }

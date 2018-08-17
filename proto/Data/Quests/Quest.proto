@@ -31,6 +31,8 @@ message Quest {
 	int32 stamp_count_override = 114;
 	int64 s2_cell_id = 115;
 	int32 story_quest_template_version = 116;
+	DailyCounter daily_counter = 117;
+	string reward_pokemon_icon_url = 118;
 
 	message MultiPartQuest {
 		repeated .POGOProtos.Data.Quests.Quest sub_quests = 1;
@@ -48,6 +50,11 @@ message Quest {
 		UNSET = 0;
 		STORY_QUEST = 1;
 		CHALLENGE_QUEST = 2;
+	}
+
+	message DailyCounter {
+		int64 window = 1;
+		int32 count = 2;
 	}
 
 	enum Status {

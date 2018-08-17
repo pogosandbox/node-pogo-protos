@@ -57,6 +57,7 @@ message AddNewPoiResponse {
 		INTERNAL_ERROR = 3;
 		TOO_MANY_RECENT_SUBMISSIONS = 4;
 		INVALID_INPUT = 5;
+		MINOR = 6;
 	}
 }
 
@@ -82,4 +83,5 @@ message ProxySocialActionResponse {
 message GetAvailableSubmissionsResponse {
 	int32 submissions_left = 1;
 	int32 min_player_level = 2;
+	bool has_valid_email = 3;
 }

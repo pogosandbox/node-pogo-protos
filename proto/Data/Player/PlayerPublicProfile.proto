@@ -17,4 +17,5 @@ message PlayerPublicProfile {
 	.POGOProtos.Enums.GymBadgeType gym_badge_type = 8;
 	repeated .POGOProtos.Data.Player.PlayerBadge badges = 9;
 	int64 experience = 10;
+	bool has_shared_ex_pass = 11;
 }

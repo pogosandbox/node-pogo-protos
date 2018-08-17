@@ -1,6 +1,7 @@
 syntax = "proto3";
 package POGOProtos.Settings;
 
+import "POGOProtos/Enums/PokemonId.proto";
 import "POGOProtos/Settings/EventSettings.proto";
 import "POGOProtos/Settings/FestivalSettings.proto";
 import "POGOProtos/Settings/FortSettings.proto";
@@ -44,4 +45,5 @@ message GlobalSettings {
 	.POGOProtos.Settings.QuestGlobalSettings quest_global_settings = 19;
 	.POGOProtos.Settings.SocialClientSettings social_settings = 23;
 	.POGOProtos.Settings.TradingGlobalSettings trading_global_settings = 24;
+	repeated .POGOProtos.Enums.PokemonId additional_allowed_pokemon_ids = 25;
 }

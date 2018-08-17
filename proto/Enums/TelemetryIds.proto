@@ -33,6 +33,9 @@ enum ClientTelemetryIds {
 	POKEMON_INVENTORY = 28;
 	SOCIAL = 29;
 	CHECK_ENCOUNTER_TRAY_INFO = 30;
+	POKEMON_GO_PLUS = 31;
+	RPC_TIMING = 32;
+	SOCIAL_GIFT_COUNT = 33;
 }
 
 enum AvatarCustomizationTelemetryIds {

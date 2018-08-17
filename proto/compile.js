@@ -1,8 +1,8 @@
 // @ts-check
-let fs = require('mz/fs');
+let fs = require('fs').promises;
 let path = require('path');
 
-async function parseDir(directory, rel) {
+async function parseDir(directory, rel) {;
     let content = '';
     for (let child of await fs.readdir(directory)) {
         let sub = path.join(directory, child);
