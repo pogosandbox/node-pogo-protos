@@ -4,8 +4,10 @@ Uses [protobuf.js](https://github.com/dcodeIO/protobuf.js) to compile the Protob
 
 [![npm version](https://badge.fury.io/js/node-pogo-protos.svg)](https://badge.fury.io/js/node-pogo-protos-vnext)
 ![npm downloads](https://img.shields.io/npm/dt/node-pogo-protos-vnext.svg)
-![dependencies](https://david-dm.org/cyraxx/node-pogo-protos-vnext.svg)
+![dependencies](https://david-dm.org/pogosandbox/node-pogo-protos.svg)
 ![license](https://img.shields.io/npm/l/node-pogo-protos-vnext.svg)
+![build](https://travis-ci.org/pogosandbox/node-pogo-protos.svg?branch=master)
+
 
 ## How to use
 ```javascript
