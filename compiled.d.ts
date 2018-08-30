@@ -1,4 +1,5 @@
 import * as $protobuf from "protobufjs";
+
 export namespace POGOProtos {
 
     namespace Data {
@@ -3649,6 +3650,7 @@ export namespace POGOProtos {
                 individual_defense?: (number|null);
                 individual_stamina?: (number|null);
                 nickname?: (string|null);
+                favorite?: (boolean|null);
             }
 
             class TradingPokemon implements ITradingPokemon {
@@ -3672,6 +3674,7 @@ export namespace POGOProtos {
                 public individual_defense: number;
                 public individual_stamina: number;
                 public nickname: string;
+                public favorite: boolean;
                 public static create(properties?: POGOProtos.Data.Trading.ITradingPokemon): POGOProtos.Data.Trading.TradingPokemon;
                 public static encode(message: POGOProtos.Data.Trading.ITradingPokemon, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Data.Trading.ITradingPokemon, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -3727,7 +3730,12 @@ export namespace POGOProtos {
             ACTIVITY_FRIENDSHIP_LEVEL_UP_3 = 38,
             ACTIVITY_FRIENDSHIP_LEVEL_UP_4 = 39,
             ACTIVITY_SEND_GIFT = 40,
-            ACTIVITY_SHARE_EX_RAID_PASS = 41
+            ACTIVITY_SHARE_EX_RAID_PASS = 41,
+            ACTIVITY_RAID_LEVEL_1_ADDITIONAL_XP = 42,
+            ACTIVITY_RAID_LEVEL_2_ADDITIONAL_XP = 43,
+            ACTIVITY_RAID_LEVEL_3_ADDITIONAL_XP = 44,
+            ACTIVITY_RAID_LEVEL_4_ADDITIONAL_XP = 45,
+            ACTIVITY_RAID_LEVEL_5_ADDITIONAL_XP = 46
         }
 
         enum BadgeType {
@@ -9570,6 +9578,7 @@ export namespace POGOProtos {
                 DOWNLOAD_REMOTE_CONFIG_VERSION = 7,
                 REGISTER_BACKGROUND_DEVICE = 8,
                 GET_PLAYER_DAY = 9,
+                ACKNOWLEDGE_PUNISHMENT = 10,
                 FORT_SEARCH = 101,
                 ENCOUNTER = 102,
                 CATCH_POKEMON = 103,
@@ -9668,9 +9677,6 @@ export namespace POGOProtos {
                 SET_FRIEND_NICKNAME = 957,
                 DELETE_GIFT_FROM_INVENTORY = 958,
                 SAVE_SOCIAL_PLAYER_SETTINGS = 959,
-                SHARE_EX_RAID_PASS = 960,
-                ACCEPT_SHARED_EX_RAID_PASS = 961,
-                DECLINE_SHARED_EX_RAID_PASS = 962,
                 OPEN_TRADING = 970,
                 UPDATE_TRADING = 971,
                 CONFIRM_TRADING = 972,
@@ -14048,12 +14054,13 @@ export namespace POGOProtos {
             client_app_blacklist?: (string[]|null);
             client_perf_settings?: (POGOProtos.Settings.IClientPerformanceSettings|null);
             news_global_settings?: (POGOProtos.Settings.INewsGlobalSettings|null);
+            quest_global_settings?: (POGOProtos.Settings.IQuestGlobalSettings|null);
             telemetry_global_settings?: (POGOProtos.Settings.ITelemetryGlobalSettings|null);
             login_settings?: (POGOProtos.Settings.ILoginSettings|null);
-            quest_global_settings?: (POGOProtos.Settings.IQuestGlobalSettings|null);
             social_settings?: (POGOProtos.Settings.ISocialClientSettings|null);
             trading_global_settings?: (POGOProtos.Settings.ITradingGlobalSettings|null);
             additional_allowed_pokemon_ids?: (POGOProtos.Enums.PokemonId[]|null);
+            upsight_logging_settings?: (POGOProtos.Settings.IUpsightLoggingSettings|null);
         }
 
         class GlobalSettings implements IGlobalSettings {
@@ -14075,12 +14082,13 @@ export namespace POGOProtos {
             public client_app_blacklist: string[];
             public client_perf_settings?: (POGOProtos.Settings.IClientPerformanceSettings|null);
             public news_global_settings?: (POGOProtos.Settings.INewsGlobalSettings|null);
+            public quest_global_settings?: (POGOProtos.Settings.IQuestGlobalSettings|null);
             public telemetry_global_settings?: (POGOProtos.Settings.ITelemetryGlobalSettings|null);
             public login_settings?: (POGOProtos.Settings.ILoginSettings|null);
-            public quest_global_settings?: (POGOProtos.Settings.IQuestGlobalSettings|null);
             public social_settings?: (POGOProtos.Settings.ISocialClientSettings|null);
             public trading_global_settings?: (POGOProtos.Settings.ITradingGlobalSettings|null);
             public additional_allowed_pokemon_ids: POGOProtos.Enums.PokemonId[];
+            public upsight_logging_settings?: (POGOProtos.Settings.IUpsightLoggingSettings|null);
             public static create(properties?: POGOProtos.Settings.IGlobalSettings): POGOProtos.Settings.GlobalSettings;
             public static encode(message: POGOProtos.Settings.IGlobalSettings, writer?: $protobuf.Writer): $protobuf.Writer;
             public static encodeDelimited(message: POGOProtos.Settings.IGlobalSettings, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -15741,6 +15749,27 @@ export namespace POGOProtos {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.TranslationSettings;
             public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.TranslationSettings;
             public static toObject(message: POGOProtos.Settings.TranslationSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public toJSON(): { [k: string]: any };
+        }
+
+        interface IUpsightLoggingSettings {
+            use_verbose_logging?: (boolean|null);
+            logging_percentage?: (number|null);
+            disable_logging?: (boolean|null);
+        }
+
+        class UpsightLoggingSettings implements IUpsightLoggingSettings {
+            constructor(properties?: POGOProtos.Settings.IUpsightLoggingSettings);
+            public use_verbose_logging: boolean;
+            public logging_percentage: number;
+            public disable_logging: boolean;
+            public static create(properties?: POGOProtos.Settings.IUpsightLoggingSettings): POGOProtos.Settings.UpsightLoggingSettings;
+            public static encode(message: POGOProtos.Settings.IUpsightLoggingSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: POGOProtos.Settings.IUpsightLoggingSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Settings.UpsightLoggingSettings;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.UpsightLoggingSettings;
+            public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.UpsightLoggingSettings;
+            public static toObject(message: POGOProtos.Settings.UpsightLoggingSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
             public toJSON(): { [k: string]: any };
         }
     }

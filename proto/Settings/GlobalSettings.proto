@@ -40,10 +40,11 @@ message GlobalSettings {
 	repeated string client_app_blacklist = 16;
 	.POGOProtos.Settings.ClientPerformanceSettings client_perf_settings = 17;
 	.POGOProtos.Settings.NewsGlobalSettings news_global_settings = 18;
+	.POGOProtos.Settings.QuestGlobalSettings quest_global_settings = 19;
 	.POGOProtos.Settings.TelemetryGlobalSettings telemetry_global_settings = 21;
 	.POGOProtos.Settings.LoginSettings login_settings = 22;
-	.POGOProtos.Settings.QuestGlobalSettings quest_global_settings = 19;
 	.POGOProtos.Settings.SocialClientSettings social_settings = 23;
 	.POGOProtos.Settings.TradingGlobalSettings trading_global_settings = 24;
 	repeated .POGOProtos.Enums.PokemonId additional_allowed_pokemon_ids = 25;
+	.POGOProtos.Settings.UpsightLoggingSettings upsight_logging_settings = 26;
 }
