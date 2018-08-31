@@ -3,7 +3,7 @@ package POGOProtos.Networking.Responses.Social;
 
 import "POGOProtos/Data/Player/PlayerSummary.proto";
 
-message CancelFriendInviteResponse {
+message AcceptFriendInviteResponse {
 	Result result = 1;
 	.POGOProtos.Data.Player.PlayerSummary friend = 2;
 

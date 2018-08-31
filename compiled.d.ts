@@ -13020,15 +13020,46 @@ export namespace POGOProtos {
 
             namespace Social {
 
+                interface IAcceptFriendInviteResponse {
+                    result?: (POGOProtos.Networking.Responses.Social.AcceptFriendInviteResponse.Result|null);
+                    friend?: (POGOProtos.Data.Player.IPlayerSummary|null);
+                }
+
+                class AcceptFriendInviteResponse implements IAcceptFriendInviteResponse {
+                    constructor(properties?: POGOProtos.Networking.Responses.Social.IAcceptFriendInviteResponse);
+                    public result: POGOProtos.Networking.Responses.Social.AcceptFriendInviteResponse.Result;
+                    public friend?: (POGOProtos.Data.Player.IPlayerSummary|null);
+                    public static create(properties?: POGOProtos.Networking.Responses.Social.IAcceptFriendInviteResponse): POGOProtos.Networking.Responses.Social.AcceptFriendInviteResponse;
+                    public static encode(message: POGOProtos.Networking.Responses.Social.IAcceptFriendInviteResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Responses.Social.IAcceptFriendInviteResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.Social.AcceptFriendInviteResponse;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.Social.AcceptFriendInviteResponse;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.Social.AcceptFriendInviteResponse;
+                    public static toObject(message: POGOProtos.Networking.Responses.Social.AcceptFriendInviteResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                namespace AcceptFriendInviteResponse {
+
+                    enum Result {
+                        UNSET = 0,
+                        SUCCESS = 1,
+                        ERROR_UNKNOWN = 2,
+                        ERROR_INVITE_DOES_NOT_EXIST = 3,
+                        ERROR_MAX_FRIENDS_LIMIT_REACHED_DELETED = 4,
+                        ERROR_INVITE_HAS_BEEN_CANCELLED = 5,
+                        ERROR_SENDER_HAS_MAX_FRIENDS = 6,
+                        ERROR_RECEIVER_HAS_MAX_FRIENDS = 7
+                    }
+                }
+
                 interface ICancelFriendInviteResponse {
                     result?: (POGOProtos.Networking.Responses.Social.CancelFriendInviteResponse.Result|null);
-                    friend?: (POGOProtos.Data.Player.IPlayerSummary|null);
                 }
 
                 class CancelFriendInviteResponse implements ICancelFriendInviteResponse {
                     constructor(properties?: POGOProtos.Networking.Responses.Social.ICancelFriendInviteResponse);
                     public result: POGOProtos.Networking.Responses.Social.CancelFriendInviteResponse.Result;
-                    public friend?: (POGOProtos.Data.Player.IPlayerSummary|null);
                     public static create(properties?: POGOProtos.Networking.Responses.Social.ICancelFriendInviteResponse): POGOProtos.Networking.Responses.Social.CancelFriendInviteResponse;
                     public static encode(message: POGOProtos.Networking.Responses.Social.ICancelFriendInviteResponse, writer?: $protobuf.Writer): $protobuf.Writer;
                     public static encodeDelimited(message: POGOProtos.Networking.Responses.Social.ICancelFriendInviteResponse, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -13046,10 +13077,7 @@ export namespace POGOProtos {
                         SUCCESS = 1,
                         ERROR_UNKNOWN = 2,
                         ERROR_INVITE_DOES_NOT_EXIST = 3,
-                        ERROR_MAX_FRIENDS_LIMIT_REACHED_DELETED = 4,
-                        ERROR_INVITE_HAS_BEEN_CANCELLED = 5,
-                        ERROR_SENDER_HAS_MAX_FRIENDS = 6,
-                        ERROR_RECEIVER_HAS_MAX_FRIENDS = 7
+                        ERROR_ALREADY_CANCELLED = 4
                     }
                 }
 

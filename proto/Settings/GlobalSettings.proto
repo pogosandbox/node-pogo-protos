@@ -21,6 +21,7 @@ import "POGOProtos/Settings/LoginSettings.proto";
 import "POGOProtos/Settings/QuestGlobalSettings.proto";
 import "POGOProtos/Settings/SocialClientSettings.proto";
 import "POGOProtos/Settings/TradingGlobalSettings.proto";
+import "POGOProtos/Settings/UpsightLoggingSettings.proto";
 
 message GlobalSettings {
 	.POGOProtos.Settings.FortSettings fort_settings = 2;
