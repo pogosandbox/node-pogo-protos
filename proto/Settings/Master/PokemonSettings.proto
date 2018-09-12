@@ -48,4 +48,6 @@ message PokemonSettings {
 	float buddy_scale = 33;
 	repeated float buddy_portrait_offset = 34;
 	.POGOProtos.Enums.Form parent_form = 35;
+	bool is_transferable = 37;
+	bool is_deployable = 38;
 }

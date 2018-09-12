@@ -42,4 +42,5 @@ message FortData {
 	string banner_url = 27;
 	string partner_id = 28;
 	bool challenge_quest_completed = 30;
+	bool is_ex_raid_eligible = 31;
 }

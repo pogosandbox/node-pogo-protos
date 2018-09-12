@@ -109,6 +109,9 @@ enum RequestType {
 	SET_FRIEND_NICKNAME = 957;					// Implemented
 	DELETE_GIFT_FROM_INVENTORY = 958;			// Implemented
 	SAVE_SOCIAL_PLAYER_SETTINGS = 959;
+	SHARE_EX_RAID_PASS = 960;					// Implemented
+	CHECK_SHARE_EX_RAID_PASS = 961;				// Implemented
+	DECLINE_SHARED_EX_RAID_PASS = 962;			// Implemented
 	OPEN_TRADING = 970;                         // Implemented
 	UPDATE_TRADING = 971;                       // Implemented
 	CONFIRM_TRADING = 972;                      // Implemented
@@ -131,4 +134,5 @@ enum RequestType {
 	GET_AVAILABLE_SUBMISSIONS = 5014;           // Implemented
 	GET_SIGNED_URL_FOR_PHOTO_UPLOAD = 5015;
 	REPLACE_LOGIN_ACTION = 5016;
+	PROXY_SOCIAL_SIDE_CHANNEL_ACTION = 5017;
 }

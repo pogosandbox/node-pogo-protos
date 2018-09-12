@@ -1236,6 +1236,8 @@ export namespace POGOProtos {
                 open_gift?: (POGOProtos.Data.Logs.IOpenGiftLogEntry|null);
                 send_gift?: (POGOProtos.Data.Logs.ISendGiftLogEntry|null);
                 trading?: (POGOProtos.Data.Logs.ITradingLogEntry|null);
+                share_ex_raid_pass?: (POGOProtos.Data.Logs.IShareExRaidPassLogEntry|null);
+                decline_ex_raid_pass?: (POGOProtos.Data.Logs.IDeclineExRaidPassLogEntry|null);
             }
 
             class ActionLogEntry implements IActionLogEntry {
@@ -1253,7 +1255,9 @@ export namespace POGOProtos {
                 public open_gift?: (POGOProtos.Data.Logs.IOpenGiftLogEntry|null);
                 public send_gift?: (POGOProtos.Data.Logs.ISendGiftLogEntry|null);
                 public trading?: (POGOProtos.Data.Logs.ITradingLogEntry|null);
-                public Action?: ("catch_pokemon"|"fort_search"|"buddy_pokemon"|"raid_rewards"|"passcode_rewards"|"complete_quest"|"complete_quest_stamp_card"|"complete_quest_pokemon_encounter"|"open_gift"|"send_gift"|"trading");
+                public share_ex_raid_pass?: (POGOProtos.Data.Logs.IShareExRaidPassLogEntry|null);
+                public decline_ex_raid_pass?: (POGOProtos.Data.Logs.IDeclineExRaidPassLogEntry|null);
+                public Action?: ("catch_pokemon"|"fort_search"|"buddy_pokemon"|"raid_rewards"|"passcode_rewards"|"complete_quest"|"complete_quest_stamp_card"|"complete_quest_pokemon_encounter"|"open_gift"|"send_gift"|"trading"|"share_ex_raid_pass"|"decline_ex_raid_pass");
                 public static create(properties?: POGOProtos.Data.Logs.IActionLogEntry): POGOProtos.Data.Logs.ActionLogEntry;
                 public static encode(message: POGOProtos.Data.Logs.IActionLogEntry, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Data.Logs.IActionLogEntry, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -1424,6 +1428,33 @@ export namespace POGOProtos {
                 }
             }
 
+            interface IDeclineExRaidPassLogEntry {
+                result?: (POGOProtos.Data.Logs.DeclineExRaidPassLogEntry.Result|null);
+                friend_codename?: (string|null);
+            }
+
+            class DeclineExRaidPassLogEntry implements IDeclineExRaidPassLogEntry {
+                constructor(properties?: POGOProtos.Data.Logs.IDeclineExRaidPassLogEntry);
+                public result: POGOProtos.Data.Logs.DeclineExRaidPassLogEntry.Result;
+                public friend_codename: string;
+                public static create(properties?: POGOProtos.Data.Logs.IDeclineExRaidPassLogEntry): POGOProtos.Data.Logs.DeclineExRaidPassLogEntry;
+                public static encode(message: POGOProtos.Data.Logs.IDeclineExRaidPassLogEntry, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Logs.IDeclineExRaidPassLogEntry, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Logs.DeclineExRaidPassLogEntry;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Logs.DeclineExRaidPassLogEntry;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Logs.DeclineExRaidPassLogEntry;
+                public static toObject(message: POGOProtos.Data.Logs.DeclineExRaidPassLogEntry, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace DeclineExRaidPassLogEntry {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1
+                }
+            }
+
             interface IFortSearchLogEntry {
                 result?: (POGOProtos.Data.Logs.FortSearchLogEntry.Result|null);
                 fort_id?: (string|null);
@@ -1580,6 +1611,33 @@ export namespace POGOProtos {
             }
 
             namespace SendGiftLogEntry {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1
+                }
+            }
+
+            interface IShareExRaidPassLogEntry {
+                result?: (POGOProtos.Data.Logs.ShareExRaidPassLogEntry.Result|null);
+                friend_codename?: (string|null);
+            }
+
+            class ShareExRaidPassLogEntry implements IShareExRaidPassLogEntry {
+                constructor(properties?: POGOProtos.Data.Logs.IShareExRaidPassLogEntry);
+                public result: POGOProtos.Data.Logs.ShareExRaidPassLogEntry.Result;
+                public friend_codename: string;
+                public static create(properties?: POGOProtos.Data.Logs.IShareExRaidPassLogEntry): POGOProtos.Data.Logs.ShareExRaidPassLogEntry;
+                public static encode(message: POGOProtos.Data.Logs.IShareExRaidPassLogEntry, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Logs.IShareExRaidPassLogEntry, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Logs.ShareExRaidPassLogEntry;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Logs.ShareExRaidPassLogEntry;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Logs.ShareExRaidPassLogEntry;
+                public static toObject(message: POGOProtos.Data.Logs.ShareExRaidPassLogEntry, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace ShareExRaidPassLogEntry {
 
                 enum Result {
                     UNSET = 0,
@@ -3420,6 +3478,25 @@ export namespace POGOProtos {
                 public static toObject(message: POGOProtos.Data.Raid.RaidInfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
                 public toJSON(): { [k: string]: any };
             }
+
+            interface ISharedExclusiveTicketTrainerInfo {
+                codename?: (string|null);
+                player_id?: (string|null);
+            }
+
+            class SharedExclusiveTicketTrainerInfo implements ISharedExclusiveTicketTrainerInfo {
+                constructor(properties?: POGOProtos.Data.Raid.ISharedExclusiveTicketTrainerInfo);
+                public codename: string;
+                public player_id: string;
+                public static create(properties?: POGOProtos.Data.Raid.ISharedExclusiveTicketTrainerInfo): POGOProtos.Data.Raid.SharedExclusiveTicketTrainerInfo;
+                public static encode(message: POGOProtos.Data.Raid.ISharedExclusiveTicketTrainerInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Raid.ISharedExclusiveTicketTrainerInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Raid.SharedExclusiveTicketTrainerInfo;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Raid.SharedExclusiveTicketTrainerInfo;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Raid.SharedExclusiveTicketTrainerInfo;
+                public static toObject(message: POGOProtos.Data.Raid.SharedExclusiveTicketTrainerInfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
         }
 
         namespace Redeem {
@@ -4069,7 +4146,8 @@ export namespace POGOProtos {
             GIFTBOX_INCOMING = 6,
             GIFTBOX_DELIVERED = 7,
             FRIENDSHIP_MILESTONE_REWARD = 8,
-            GYM_BATTLE_FRIENDSHIP_INCREMENT = 9
+            GYM_BATTLE_FRIENDSHIP_INCREMENT = 9,
+            SHARED_EXCLUSIVE_RAID_INVITE = 10
         }
 
         enum NotificationState {
@@ -5033,6 +5111,20 @@ export namespace POGOProtos {
             RAID_LEVEL_5 = 5
         }
 
+        enum ShareExRaidPassResult {
+            SHARE_EX_RAID_PASS_UNSET = 0,
+            SHARE_EX_RAID_PASS_SUCCESS = 1,
+            ERROR_FRIEND_ALREADY_INVITED_TO_SAME_RAID = 2,
+            ERROR_EX_RAID_PASS_ALREADY_SHARED = 3,
+            ERROR_FRIEND_ALREADY_HAS_SHARED_EX_PASS_IN_INVENTORY = 4,
+            ERROR_TOO_LOW_FRIENDSHIP_LEVEL = 5,
+            ERROR_FRIEND_NOT_FOUND = 6,
+            ERROR_EX_RAID_ALREADY_STARTED = 7,
+            ERROR_EX_RAID_INVALID = 8,
+            ERROR_EX_RAID_PASS_NOT_FOUND = 9,
+            ERROR_UNKNOWN = 10
+        }
+
         enum Slot {
             UNSET_SLOT = 0,
             HAIR = 1,
@@ -5452,6 +5544,8 @@ export namespace POGOProtos {
             spawn_time_ms?: (number|Long|null);
             is_cancelled?: (boolean|null);
             raid_pokemon?: (POGOProtos.Data.IPokemonData|null);
+            inviter?: (POGOProtos.Data.Raid.ISharedExclusiveTicketTrainerInfo|null);
+            invitee?: (POGOProtos.Data.Raid.ISharedExclusiveTicketTrainerInfo|null);
         }
 
         class ExclusiveTicketInfo implements IExclusiveTicketInfo {
@@ -5467,6 +5561,8 @@ export namespace POGOProtos {
             public spawn_time_ms: (number|Long);
             public is_cancelled: boolean;
             public raid_pokemon?: (POGOProtos.Data.IPokemonData|null);
+            public inviter?: (POGOProtos.Data.Raid.ISharedExclusiveTicketTrainerInfo|null);
+            public invitee?: (POGOProtos.Data.Raid.ISharedExclusiveTicketTrainerInfo|null);
             public static create(properties?: POGOProtos.Inventory.IExclusiveTicketInfo): POGOProtos.Inventory.ExclusiveTicketInfo;
             public static encode(message: POGOProtos.Inventory.IExclusiveTicketInfo, writer?: $protobuf.Writer): $protobuf.Writer;
             public static encodeDelimited(message: POGOProtos.Inventory.IExclusiveTicketInfo, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -5910,6 +6006,7 @@ export namespace POGOProtos {
                 banner_url?: (string|null);
                 partner_id?: (string|null);
                 challenge_quest_completed?: (boolean|null);
+                is_ex_raid_eligible?: (boolean|null);
             }
 
             class FortData implements IFortData {
@@ -5943,6 +6040,7 @@ export namespace POGOProtos {
                 public banner_url: string;
                 public partner_id: string;
                 public challenge_quest_completed: boolean;
+                public is_ex_raid_eligible: boolean;
                 public static create(properties?: POGOProtos.Map.Fort.IFortData): POGOProtos.Map.Fort.FortData;
                 public static encode(message: POGOProtos.Map.Fort.IFortData, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Map.Fort.IFortData, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -7468,6 +7566,27 @@ export namespace POGOProtos {
                     public toJSON(): { [k: string]: any };
                 }
 
+                interface ICheckShareExRaidPassMessage {
+                    friend_id?: (string|null);
+                    fort_id?: (string|null);
+                    raid_seed?: (number|Long|null);
+                }
+
+                class CheckShareExRaidPassMessage implements ICheckShareExRaidPassMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.ICheckShareExRaidPassMessage);
+                    public friend_id: string;
+                    public fort_id: string;
+                    public raid_seed: (number|Long);
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.ICheckShareExRaidPassMessage): POGOProtos.Networking.Requests.Messages.CheckShareExRaidPassMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.ICheckShareExRaidPassMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.ICheckShareExRaidPassMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.CheckShareExRaidPassMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.CheckShareExRaidPassMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.CheckShareExRaidPassMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.CheckShareExRaidPassMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
                 interface IClaimCodenameMessage {
                     codename?: (string|null);
                     force?: (boolean|null);
@@ -7569,6 +7688,25 @@ export namespace POGOProtos {
                     public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.ConfirmTradingMessage;
                     public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.ConfirmTradingMessage;
                     public static toObject(message: POGOProtos.Networking.Requests.Messages.ConfirmTradingMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IDeclineSharedExRaidPassMessage {
+                    fort_id?: (string|null);
+                    raid_seed?: (number|Long|null);
+                }
+
+                class DeclineSharedExRaidPassMessage implements IDeclineSharedExRaidPassMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IDeclineSharedExRaidPassMessage);
+                    public fort_id: string;
+                    public raid_seed: (number|Long);
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IDeclineSharedExRaidPassMessage): POGOProtos.Networking.Requests.Messages.DeclineSharedExRaidPassMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IDeclineSharedExRaidPassMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IDeclineSharedExRaidPassMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.DeclineSharedExRaidPassMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.DeclineSharedExRaidPassMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.DeclineSharedExRaidPassMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.DeclineSharedExRaidPassMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
                     public toJSON(): { [k: string]: any };
                 }
 
@@ -8806,7 +8944,6 @@ export namespace POGOProtos {
                     lat_e6?: (number|null);
                     lng_e6?: (number|null);
                     supporting_statement?: (string|null);
-                    has_supporting_image?: (boolean|null);
                 }
 
                 class AddNewPoiMessage implements IAddNewPoiMessage {
@@ -8816,7 +8953,6 @@ export namespace POGOProtos {
                     public lat_e6: number;
                     public lng_e6: number;
                     public supporting_statement: string;
-                    public has_supporting_image: boolean;
                     public static create(properties?: POGOProtos.Networking.Requests.Messages.IAddNewPoiMessage): POGOProtos.Networking.Requests.Messages.AddNewPoiMessage;
                     public static encode(message: POGOProtos.Networking.Requests.Messages.IAddNewPoiMessage, writer?: $protobuf.Writer): $protobuf.Writer;
                     public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IAddNewPoiMessage, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -9203,6 +9339,27 @@ export namespace POGOProtos {
                     public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.SfidaRegistrationMessage;
                     public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.SfidaRegistrationMessage;
                     public static toObject(message: POGOProtos.Networking.Requests.Messages.SfidaRegistrationMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IShareExRaidPassMessage {
+                    friend_id?: (string|null);
+                    fort_id?: (string|null);
+                    raid_seed?: (number|Long|null);
+                }
+
+                class ShareExRaidPassMessage implements IShareExRaidPassMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IShareExRaidPassMessage);
+                    public friend_id: string;
+                    public fort_id: string;
+                    public raid_seed: (number|Long);
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IShareExRaidPassMessage): POGOProtos.Networking.Requests.Messages.ShareExRaidPassMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IShareExRaidPassMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IShareExRaidPassMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.ShareExRaidPassMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.ShareExRaidPassMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.ShareExRaidPassMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.ShareExRaidPassMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
                     public toJSON(): { [k: string]: any };
                 }
 
@@ -9677,6 +9834,9 @@ export namespace POGOProtos {
                 SET_FRIEND_NICKNAME = 957,
                 DELETE_GIFT_FROM_INVENTORY = 958,
                 SAVE_SOCIAL_PLAYER_SETTINGS = 959,
+                SHARE_EX_RAID_PASS = 960,
+                CHECK_SHARE_EX_RAID_PASS = 961,
+                DECLINE_SHARED_EX_RAID_PASS = 962,
                 OPEN_TRADING = 970,
                 UPDATE_TRADING = 971,
                 CONFIRM_TRADING = 972,
@@ -9698,7 +9858,8 @@ export namespace POGOProtos {
                 CLIENT_TELEMETRY = 5013,
                 GET_AVAILABLE_SUBMISSIONS = 5014,
                 GET_SIGNED_URL_FOR_PHOTO_UPLOAD = 5015,
-                REPLACE_LOGIN_ACTION = 5016
+                REPLACE_LOGIN_ACTION = 5016,
+                PROXY_SOCIAL_SIDE_CHANNEL_ACTION = 5017
             }
 
             namespace Social {
@@ -10222,6 +10383,23 @@ export namespace POGOProtos {
                 }
             }
 
+            interface ICheckShareExRaidPassResponse {
+                result?: (POGOProtos.Enums.ShareExRaidPassResult|null);
+            }
+
+            class CheckShareExRaidPassResponse implements ICheckShareExRaidPassResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.ICheckShareExRaidPassResponse);
+                public result: POGOProtos.Enums.ShareExRaidPassResult;
+                public static create(properties?: POGOProtos.Networking.Responses.ICheckShareExRaidPassResponse): POGOProtos.Networking.Responses.CheckShareExRaidPassResponse;
+                public static encode(message: POGOProtos.Networking.Responses.ICheckShareExRaidPassResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.ICheckShareExRaidPassResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.CheckShareExRaidPassResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.CheckShareExRaidPassResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.CheckShareExRaidPassResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.CheckShareExRaidPassResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
             interface IClaimCodenameResponse {
                 codename?: (string|null);
                 user_message?: (string|null);
@@ -10430,6 +10608,33 @@ export namespace POGOProtos {
                 }
             }
 
+            interface IDeclineSharedExRaidPassResponse {
+                result?: (POGOProtos.Networking.Responses.DeclineSharedExRaidPassResponse.Result|null);
+            }
+
+            class DeclineSharedExRaidPassResponse implements IDeclineSharedExRaidPassResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IDeclineSharedExRaidPassResponse);
+                public result: POGOProtos.Networking.Responses.DeclineSharedExRaidPassResponse.Result;
+                public static create(properties?: POGOProtos.Networking.Responses.IDeclineSharedExRaidPassResponse): POGOProtos.Networking.Responses.DeclineSharedExRaidPassResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IDeclineSharedExRaidPassResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IDeclineSharedExRaidPassResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.DeclineSharedExRaidPassResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.DeclineSharedExRaidPassResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.DeclineSharedExRaidPassResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.DeclineSharedExRaidPassResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace DeclineSharedExRaidPassResponse {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_EX_RAID_PASS_NOT_FOUND = 2,
+                    ERROR_UNKNOWN = 3
+                }
+            }
+
             interface IDeleteGiftFromInventoryResponse {
                 result?: (POGOProtos.Networking.Responses.DeleteGiftFromInventoryResponse.Result|null);
             }
@@ -10633,6 +10838,7 @@ export namespace POGOProtos {
                     onboarding_settings?: (POGOProtos.Settings.Master.IOnboardingSettings|null);
                     friendship_milestone_settings?: (POGOProtos.Settings.Master.IFriendshipLevelMilestoneSettings|null);
                     lucky_pokemon_settings?: (POGOProtos.Settings.Master.ILuckyPokemonSettings|null);
+                    ex_raid_settings?: (POGOProtos.Settings.Master.IExRaidSettings|null);
                 }
 
                 class ItemTemplate implements IItemTemplate {
@@ -10665,6 +10871,7 @@ export namespace POGOProtos {
                     public onboarding_settings?: (POGOProtos.Settings.Master.IOnboardingSettings|null);
                     public friendship_milestone_settings?: (POGOProtos.Settings.Master.IFriendshipLevelMilestoneSettings|null);
                     public lucky_pokemon_settings?: (POGOProtos.Settings.Master.ILuckyPokemonSettings|null);
+                    public ex_raid_settings?: (POGOProtos.Settings.Master.IExRaidSettings|null);
                     public static create(properties?: POGOProtos.Networking.Responses.DownloadItemTemplatesResponse.IItemTemplate): POGOProtos.Networking.Responses.DownloadItemTemplatesResponse.ItemTemplate;
                     public static encode(message: POGOProtos.Networking.Responses.DownloadItemTemplatesResponse.IItemTemplate, writer?: $protobuf.Writer): $protobuf.Writer;
                     public static encodeDelimited(message: POGOProtos.Networking.Responses.DownloadItemTemplatesResponse.IItemTemplate, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -12386,13 +12593,11 @@ export namespace POGOProtos {
 
             interface IAddNewPoiResponse {
                 status?: (POGOProtos.Networking.Responses.AddNewPoiResponse.Status|null);
-                message?: (string[]|null);
             }
 
             class AddNewPoiResponse implements IAddNewPoiResponse {
                 constructor(properties?: POGOProtos.Networking.Responses.IAddNewPoiResponse);
                 public status: POGOProtos.Networking.Responses.AddNewPoiResponse.Status;
-                public message: string[];
                 public static create(properties?: POGOProtos.Networking.Responses.IAddNewPoiResponse): POGOProtos.Networking.Responses.AddNewPoiResponse;
                 public static encode(message: POGOProtos.Networking.Responses.IAddNewPoiResponse, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Networking.Responses.IAddNewPoiResponse, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -12449,7 +12654,8 @@ export namespace POGOProtos {
                     INTERNAL_ERROR = 6,
                     BAD_REQUEST = 7,
                     ACCESS_DENIED = 8,
-                    TIMEOUT_ERROR = 9
+                    TIMEOUT_ERROR = 9,
+                    RATE_LIMITED = 10
                 }
             }
 
@@ -12457,6 +12663,8 @@ export namespace POGOProtos {
                 submissions_left?: (number|null);
                 min_player_level?: (number|null);
                 has_valid_email?: (boolean|null);
+                is_feature_enabled?: (boolean|null);
+                time_window_for_submissions_limit_ms?: (number|null);
             }
 
             class GetAvailableSubmissionsResponse implements IGetAvailableSubmissionsResponse {
@@ -12464,6 +12672,8 @@ export namespace POGOProtos {
                 public submissions_left: number;
                 public min_player_level: number;
                 public has_valid_email: boolean;
+                public is_feature_enabled: boolean;
+                public time_window_for_submissions_limit_ms: number;
                 public static create(properties?: POGOProtos.Networking.Responses.IGetAvailableSubmissionsResponse): POGOProtos.Networking.Responses.GetAvailableSubmissionsResponse;
                 public static encode(message: POGOProtos.Networking.Responses.IGetAvailableSubmissionsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Networking.Responses.IGetAvailableSubmissionsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -13015,6 +13225,27 @@ export namespace POGOProtos {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.SfidaRegistrationResponse;
                 public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.SfidaRegistrationResponse;
                 public static toObject(message: POGOProtos.Networking.Responses.SfidaRegistrationResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            interface IShareExRaidPassResponse {
+                result?: (POGOProtos.Enums.ShareExRaidPassResult|null);
+                updated_friendship_data?: (POGOProtos.Data.Friends.IFriendshipLevelData|null);
+                friend_profile?: (POGOProtos.Data.Player.IPlayerPublicProfile|null);
+            }
+
+            class ShareExRaidPassResponse implements IShareExRaidPassResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IShareExRaidPassResponse);
+                public result: POGOProtos.Enums.ShareExRaidPassResult;
+                public updated_friendship_data?: (POGOProtos.Data.Friends.IFriendshipLevelData|null);
+                public friend_profile?: (POGOProtos.Data.Player.IPlayerPublicProfile|null);
+                public static create(properties?: POGOProtos.Networking.Responses.IShareExRaidPassResponse): POGOProtos.Networking.Responses.ShareExRaidPassResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IShareExRaidPassResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IShareExRaidPassResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.ShareExRaidPassResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.ShareExRaidPassResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.ShareExRaidPassResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.ShareExRaidPassResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
                 public toJSON(): { [k: string]: any };
             }
 
@@ -14475,6 +14706,23 @@ export namespace POGOProtos {
                 public toJSON(): { [k: string]: any };
             }
 
+            interface IExRaidSettings {
+                minimum_ex_raid_share_level?: (POGOProtos.Enums.FriendshipLevelMilestone|null);
+            }
+
+            class ExRaidSettings implements IExRaidSettings {
+                constructor(properties?: POGOProtos.Settings.Master.IExRaidSettings);
+                public minimum_ex_raid_share_level: POGOProtos.Enums.FriendshipLevelMilestone;
+                public static create(properties?: POGOProtos.Settings.Master.IExRaidSettings): POGOProtos.Settings.Master.ExRaidSettings;
+                public static encode(message: POGOProtos.Settings.Master.IExRaidSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Settings.Master.IExRaidSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Settings.Master.ExRaidSettings;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.Master.ExRaidSettings;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.Master.ExRaidSettings;
+                public static toObject(message: POGOProtos.Settings.Master.ExRaidSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
             interface IFormSettings {
                 pokemon?: (POGOProtos.Enums.PokemonId|null);
                 forms?: (POGOProtos.Settings.Master.FormSettings.IForm[]|null);
@@ -15380,6 +15628,8 @@ export namespace POGOProtos {
                 buddy_scale?: (number|null);
                 buddy_portrait_offset?: (number[]|null);
                 parent_form?: (POGOProtos.Enums.Form|null);
+                is_transferable?: (boolean|null);
+                is_deployable?: (boolean|null);
             }
 
             class PokemonSettings implements IPokemonSettings {
@@ -15418,6 +15668,8 @@ export namespace POGOProtos {
                 public buddy_scale: number;
                 public buddy_portrait_offset: number[];
                 public parent_form: POGOProtos.Enums.Form;
+                public is_transferable: boolean;
+                public is_deployable: boolean;
                 public static create(properties?: POGOProtos.Settings.Master.IPokemonSettings): POGOProtos.Settings.Master.PokemonSettings;
                 public static encode(message: POGOProtos.Settings.Master.IPokemonSettings, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Settings.Master.IPokemonSettings, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -15696,6 +15948,7 @@ export namespace POGOProtos {
             player_level_gate?: (number|null);
             max_friend_nickname_length?: (number|null);
             enable_add_friend_via_qr_code?: (boolean|null);
+            enable_share_ex_pass?: (boolean|null);
         }
 
         class SocialClientSettings implements ISocialClientSettings {
@@ -15705,6 +15958,7 @@ export namespace POGOProtos {
             public player_level_gate: number;
             public max_friend_nickname_length: number;
             public enable_add_friend_via_qr_code: boolean;
+            public enable_share_ex_pass: boolean;
             public static create(properties?: POGOProtos.Settings.ISocialClientSettings): POGOProtos.Settings.SocialClientSettings;
             public static encode(message: POGOProtos.Settings.ISocialClientSettings, writer?: $protobuf.Writer): $protobuf.Writer;
             public static encodeDelimited(message: POGOProtos.Settings.ISocialClientSettings, writer?: $protobuf.Writer): $protobuf.Writer;

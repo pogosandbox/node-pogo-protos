@@ -43,7 +43,6 @@ message AddNewPoiMessage {
 	int32 lat_e6 = 4;
 	int32 lng_e6 = 5;
 	string supporting_statement = 14;
-	bool has_supporting_image = 15;
 }
 
 message ProxySocialActionMessage {

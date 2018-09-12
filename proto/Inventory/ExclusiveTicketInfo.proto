@@ -2,6 +2,7 @@ syntax = "proto3";
 package POGOProtos.Inventory;
 
 import "POGOProtos/Data/PokemonData.proto";
+import "POGOProtos/Data/Raid/SharedExclusiveTicketTrainerInfo.proto";
 
 message ExclusiveTicketInfo {
 	int64 raid_seed = 1;
@@ -15,4 +16,6 @@ message ExclusiveTicketInfo {
 	int64 spawn_time_ms = 10;
 	bool is_cancelled = 11;
 	.POGOProtos.Data.PokemonData raid_pokemon = 12;
+	.POGOProtos.Data.Raid.SharedExclusiveTicketTrainerInfo inviter = 13;
+	.POGOProtos.Data.Raid.SharedExclusiveTicketTrainerInfo invitee = 14;
 }
