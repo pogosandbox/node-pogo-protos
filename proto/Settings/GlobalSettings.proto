@@ -48,4 +48,6 @@ message GlobalSettings {
 	.POGOProtos.Settings.TradingGlobalSettings trading_global_settings = 24;
 	repeated .POGOProtos.Enums.PokemonId additional_allowed_pokemon_ids = 25;
 	.POGOProtos.Settings.UpsightLoggingSettings upsight_logging_settings = 26;
+	.POGOProtos.Settings.BackgroundModeGlobalSettings bgmode_global_settings = 30;
+	.POGOProtos.Settings.ProbeSettings probe_settings = 31;
 }

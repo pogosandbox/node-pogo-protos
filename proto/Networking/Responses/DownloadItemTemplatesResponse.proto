@@ -28,6 +28,8 @@ import "POGOProtos/Settings/Master/IapItemCategoryDisplay.proto";
 import "POGOProtos/Settings/Master/OnboardingSettings.proto";
 import "POGOProtos/Settings/Master/FriendshipLevelMilestoneSettings.proto";
 import "POGOProtos/Settings/Master/LuckyPokemonSettings.proto";
+import "POGOProtos/Settings/Master/ExRaidSettings.proto";
+import "POGOProtos/Settings/Master/BackgroundModeSettings.proto";
 
 message DownloadItemTemplatesResponse {
 	Result result = 1;
@@ -65,6 +67,7 @@ message DownloadItemTemplatesResponse {
 		.POGOProtos.Settings.Master.FriendshipLevelMilestoneSettings friendship_milestone_settings = 31;
 		.POGOProtos.Settings.Master.LuckyPokemonSettings lucky_pokemon_settings = 32;
 		.POGOProtos.Settings.Master.ExRaidSettings ex_raid_settings = 36;
+		.POGOProtos.Settings.Master.BackgroundModeSettings background_mode_settings = 38;
 	}
 
 	enum Result {

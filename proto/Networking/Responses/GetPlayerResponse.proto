@@ -9,4 +9,8 @@ message GetPlayerResponse {
 	bool banned = 3;
 	bool warn = 4;
 	bool was_created = 5;
+	bool warn_message_acknowledged = 6;
+	bool was_suspended = 7;
+	bool suspended_message_acknowledged = 8;
+	int64 warn_expire_ms = 9;
 }

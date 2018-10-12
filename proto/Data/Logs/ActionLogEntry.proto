@@ -12,6 +12,9 @@ import "POGOProtos/Data/Logs/CompleteQuestPokemonEncounterLogEntry.proto";
 import "POGOProtos/Data/Logs/OpenGiftLogEntry.proto";
 import "POGOProtos/Data/Logs/SendGiftLogEntry.proto";
 import "POGOProtos/Data/Logs/TradingLogEntry.proto";
+import "POGOProtos/Data/Logs/ShareExRaidPassLogEntry.proto";
+import "POGOProtos/Data/Logs/DeclineExRaidPassLogEntry.proto";
+import "POGOProtos/Data/Logs/FitnessRewardsLogEntry.proto";
 
 message ActionLogEntry {
 	int64 timestamp_ms = 1;
@@ -31,5 +34,6 @@ message ActionLogEntry {
 		.POGOProtos.Data.Logs.TradingLogEntry trading = 14;
 		.POGOProtos.Data.Logs.ShareExRaidPassLogEntry share_ex_raid_pass = 15;
 		.POGOProtos.Data.Logs.DeclineExRaidPassLogEntry decline_ex_raid_pass = 16;
+		.POGOProtos.Data.Logs.FitnessRewardsLogEntry fitness_rewards = 17;
 	}
 }
