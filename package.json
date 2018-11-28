@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/pogosandbox/node-pogo-protos#readme",
   "dependencies": {
-    "protobufjs": "^6.8.8"
+    "protobufjs": "github:niicojs/protobuf.js#nico"
   },
   "typings": "./pogo-protos.d.ts",
   "scripts": {
