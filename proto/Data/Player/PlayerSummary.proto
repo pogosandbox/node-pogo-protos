@@ -6,4 +6,5 @@ message PlayerSummary {
 	string codename = 2;
 	bytes public_data = 3;
 	string team = 4;
+	string fb_user_id = 5;
 }

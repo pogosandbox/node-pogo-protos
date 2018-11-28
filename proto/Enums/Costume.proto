@@ -9,4 +9,6 @@ enum Costume {
 	HALLOWEEN_2017 = 4;
 	SUMMER_2018 = 5;
 	FALL_2018 = 6;
+	NOVEMBER_2018 = 7;
+	WINTER_2018 = 8;
 }

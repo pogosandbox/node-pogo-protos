@@ -9,4 +9,6 @@ message Friend {
 	bytes data_with_me = 5;
 	int64 version = 6;
 	int64 created_ms = 7;
+	string fb_user_id = 8;
+	bool is_facebook_friendship = 9;
 }

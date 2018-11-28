@@ -1,4 +1,5 @@
 import * as $protobuf from "protobufjs";
+
 export namespace POGOProtos {
 
     namespace Data {
@@ -476,6 +477,106 @@ export namespace POGOProtos {
             }
         }
 
+        namespace Beluga {
+
+            interface IBelugaIncenseBox {
+                is_usable?: (boolean|null);
+                cool_down_finished_timestamp_ms?: (number|Long|null);
+            }
+
+            class BelugaIncenseBox implements IBelugaIncenseBox {
+                constructor(properties?: POGOProtos.Data.Beluga.IBelugaIncenseBox);
+                public is_usable: boolean;
+                public cool_down_finished_timestamp_ms: (number|Long);
+                public static create(properties?: POGOProtos.Data.Beluga.IBelugaIncenseBox): POGOProtos.Data.Beluga.BelugaIncenseBox;
+                public static encode(message: POGOProtos.Data.Beluga.IBelugaIncenseBox, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Beluga.IBelugaIncenseBox, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Beluga.BelugaIncenseBox;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Beluga.BelugaIncenseBox;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Beluga.BelugaIncenseBox;
+                public static toObject(message: POGOProtos.Data.Beluga.BelugaIncenseBox, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            interface IBelugaPokemon {
+                trainer_name?: (string|null);
+                trainer_gender?: (POGOProtos.Data.Beluga.BelugaPokemon.TrainerGender|null);
+                trainer_team?: (POGOProtos.Enums.TeamColor|null);
+                trainer_level?: (number|null);
+                pokedex_id?: (number|null);
+                cp?: (number|null);
+                pokemon_level?: (number|null);
+                max_hp?: (number|null);
+                origin_lat?: (number|null);
+                origin_lng?: (number|null);
+                height?: (number|null);
+                weight?: (number|null);
+                individual_attack?: (number|null);
+                individual_defense?: (number|null);
+                individual_stamina?: (number|null);
+                creation_day?: (number|null);
+                creation_month?: (number|null);
+                creation_year?: (number|null);
+                nickname?: (string|null);
+                gender?: (POGOProtos.Enums.Gender|null);
+                costume?: (POGOProtos.Enums.Costume|null);
+                form?: (POGOProtos.Data.Beluga.BelugaPokemon.BelugaForm|null);
+                shiny?: (boolean|null);
+                move1?: (number|null);
+                move2?: (number|null);
+            }
+
+            class BelugaPokemon implements IBelugaPokemon {
+                constructor(properties?: POGOProtos.Data.Beluga.IBelugaPokemon);
+                public trainer_name: string;
+                public trainer_gender: POGOProtos.Data.Beluga.BelugaPokemon.TrainerGender;
+                public trainer_team: POGOProtos.Enums.TeamColor;
+                public trainer_level: number;
+                public pokedex_id: number;
+                public cp: number;
+                public pokemon_level: number;
+                public max_hp: number;
+                public origin_lat: number;
+                public origin_lng: number;
+                public height: number;
+                public weight: number;
+                public individual_attack: number;
+                public individual_defense: number;
+                public individual_stamina: number;
+                public creation_day: number;
+                public creation_month: number;
+                public creation_year: number;
+                public nickname: string;
+                public gender: POGOProtos.Enums.Gender;
+                public costume: POGOProtos.Enums.Costume;
+                public form: POGOProtos.Data.Beluga.BelugaPokemon.BelugaForm;
+                public shiny: boolean;
+                public move1: number;
+                public move2: number;
+                public static create(properties?: POGOProtos.Data.Beluga.IBelugaPokemon): POGOProtos.Data.Beluga.BelugaPokemon;
+                public static encode(message: POGOProtos.Data.Beluga.IBelugaPokemon, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Beluga.IBelugaPokemon, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Beluga.BelugaPokemon;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Beluga.BelugaPokemon;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Beluga.BelugaPokemon;
+                public static toObject(message: POGOProtos.Data.Beluga.BelugaPokemon, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace BelugaPokemon {
+
+                enum TrainerGender {
+                    TRAINER_MALE = 0,
+                    TRAINER_FEMALE = 1
+                }
+
+                enum BelugaForm {
+                    FORM_UNSET = 0,
+                    ALOLA = 1
+                }
+            }
+        }
+
         interface IBuddyPokemon {
             id?: (number|Long|null);
             start_km_walked?: (number|null);
@@ -633,6 +734,59 @@ export namespace POGOProtos {
             public toJSON(): { [k: string]: any };
         }
 
+        namespace Fitness {
+
+            interface IFitnessMetrics {
+                distance_walked_meters?: (number|null);
+                step_count?: (number|null);
+                calories_burned_kcals?: (number|null);
+                exercise_duration_mi?: (number|Long|null);
+                wheelchair_distance_meters?: (number|null);
+                wheelchair_push_count?: (number|null);
+            }
+
+            class FitnessMetrics implements IFitnessMetrics {
+                constructor(properties?: POGOProtos.Data.Fitness.IFitnessMetrics);
+                public distance_walked_meters: number;
+                public step_count: number;
+                public calories_burned_kcals: number;
+                public exercise_duration_mi: (number|Long);
+                public wheelchair_distance_meters: number;
+                public wheelchair_push_count: number;
+                public static create(properties?: POGOProtos.Data.Fitness.IFitnessMetrics): POGOProtos.Data.Fitness.FitnessMetrics;
+                public static encode(message: POGOProtos.Data.Fitness.IFitnessMetrics, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Fitness.IFitnessMetrics, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Fitness.FitnessMetrics;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Fitness.FitnessMetrics;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Fitness.FitnessMetrics;
+                public static toObject(message: POGOProtos.Data.Fitness.FitnessMetrics, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            interface IFitnessReport {
+                day_offset_from_now?: (number|null);
+                week_offset_from_now?: (number|null);
+                metrics?: (POGOProtos.Data.Fitness.IFitnessMetrics|null);
+                game_data?: (Uint8Array|null);
+            }
+
+            class FitnessReport implements IFitnessReport {
+                constructor(properties?: POGOProtos.Data.Fitness.IFitnessReport);
+                public day_offset_from_now: number;
+                public week_offset_from_now: number;
+                public metrics?: (POGOProtos.Data.Fitness.IFitnessMetrics|null);
+                public game_data: Uint8Array;
+                public static create(properties?: POGOProtos.Data.Fitness.IFitnessReport): POGOProtos.Data.Fitness.FitnessReport;
+                public static encode(message: POGOProtos.Data.Fitness.IFitnessReport, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Fitness.IFitnessReport, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Fitness.FitnessReport;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Fitness.FitnessReport;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Fitness.FitnessReport;
+                public static toObject(message: POGOProtos.Data.Fitness.FitnessReport, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+        }
+
         interface IFoodValue {
             motivation_increase?: (number|null);
             cp_increase?: (number|null);
@@ -656,6 +810,25 @@ export namespace POGOProtos {
 
         namespace Friends {
 
+            interface IFacebookFriend {
+                player?: (POGOProtos.Data.Player.IPlayerSummary|null);
+                full_name?: (string|null);
+            }
+
+            class FacebookFriend implements IFacebookFriend {
+                constructor(properties?: POGOProtos.Data.Friends.IFacebookFriend);
+                public player?: (POGOProtos.Data.Player.IPlayerSummary|null);
+                public full_name: string;
+                public static create(properties?: POGOProtos.Data.Friends.IFacebookFriend): POGOProtos.Data.Friends.FacebookFriend;
+                public static encode(message: POGOProtos.Data.Friends.IFacebookFriend, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Friends.IFacebookFriend, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Friends.FacebookFriend;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Friends.FacebookFriend;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Friends.FacebookFriend;
+                public static toObject(message: POGOProtos.Data.Friends.FacebookFriend, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
             interface IFriend {
                 player_id?: (string|null);
                 codename?: (string|null);
@@ -664,6 +837,8 @@ export namespace POGOProtos {
                 data_with_me?: (Uint8Array|null);
                 version?: (number|Long|null);
                 created_ms?: (number|Long|null);
+                fb_user_id?: (string|null);
+                is_facebook_friendship?: (boolean|null);
             }
 
             class Friend implements IFriend {
@@ -675,6 +850,8 @@ export namespace POGOProtos {
                 public data_with_me: Uint8Array;
                 public version: (number|Long);
                 public created_ms: (number|Long);
+                public fb_user_id: string;
+                public is_facebook_friendship: boolean;
                 public static create(properties?: POGOProtos.Data.Friends.IFriend): POGOProtos.Data.Friends.Friend;
                 public static encode(message: POGOProtos.Data.Friends.IFriend, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Data.Friends.IFriend, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -764,6 +941,8 @@ export namespace POGOProtos {
                 status?: (POGOProtos.Data.Friends.IncomingFriendInvite.Status|null);
                 player_id?: (string|null);
                 created_ms?: (number|Long|null);
+                invitation_type?: (POGOProtos.Enums.InvitationType|null);
+                full_name?: (string|null);
             }
 
             class IncomingFriendInvite implements IIncomingFriendInvite {
@@ -771,6 +950,8 @@ export namespace POGOProtos {
                 public status: POGOProtos.Data.Friends.IncomingFriendInvite.Status;
                 public player_id: string;
                 public created_ms: (number|Long);
+                public invitation_type: POGOProtos.Enums.InvitationType;
+                public full_name: string;
                 public static create(properties?: POGOProtos.Data.Friends.IIncomingFriendInvite): POGOProtos.Data.Friends.IncomingFriendInvite;
                 public static encode(message: POGOProtos.Data.Friends.IIncomingFriendInvite, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Data.Friends.IIncomingFriendInvite, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -833,6 +1014,8 @@ export namespace POGOProtos {
                 status?: (POGOProtos.Data.Friends.OutgoingFriendInvite.Status|null);
                 player_id?: (string|null);
                 created_ms?: (number|Long|null);
+                invitation_type?: (POGOProtos.Enums.InvitationType|null);
+                full_name?: (string|null);
             }
 
             class OutgoingFriendInvite implements IOutgoingFriendInvite {
@@ -840,6 +1023,8 @@ export namespace POGOProtos {
                 public status: POGOProtos.Data.Friends.OutgoingFriendInvite.Status;
                 public player_id: string;
                 public created_ms: (number|Long);
+                public invitation_type: POGOProtos.Enums.InvitationType;
+                public full_name: string;
                 public static create(properties?: POGOProtos.Data.Friends.IOutgoingFriendInvite): POGOProtos.Data.Friends.OutgoingFriendInvite;
                 public static encode(message: POGOProtos.Data.Friends.IOutgoingFriendInvite, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Data.Friends.IOutgoingFriendInvite, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -876,6 +1061,40 @@ export namespace POGOProtos {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Friends.OutgoingFriendInviteDisplay;
                 public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Friends.OutgoingFriendInviteDisplay;
                 public static toObject(message: POGOProtos.Data.Friends.OutgoingFriendInviteDisplay, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+        }
+
+        namespace Geofence {
+
+            interface IGeofenceMetadata {
+                latitude_deg?: (number|null);
+                longitude_deg?: (number|null);
+                radius?: (number|null);
+                identifier?: (string|null);
+                expiration_ms?: (number|Long|null);
+                dwell_time_ms?: (number|Long|null);
+                fire_on_entrance?: (boolean|null);
+                fire_on_exit?: (boolean|null);
+            }
+
+            class GeofenceMetadata implements IGeofenceMetadata {
+                constructor(properties?: POGOProtos.Data.Geofence.IGeofenceMetadata);
+                public latitude_deg: number;
+                public longitude_deg: number;
+                public radius: number;
+                public identifier: string;
+                public expiration_ms: (number|Long);
+                public dwell_time_ms: (number|Long);
+                public fire_on_entrance: boolean;
+                public fire_on_exit: boolean;
+                public static create(properties?: POGOProtos.Data.Geofence.IGeofenceMetadata): POGOProtos.Data.Geofence.GeofenceMetadata;
+                public static encode(message: POGOProtos.Data.Geofence.IGeofenceMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Geofence.IGeofenceMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Geofence.GeofenceMetadata;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Geofence.GeofenceMetadata;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Geofence.GeofenceMetadata;
+                public static toObject(message: POGOProtos.Data.Geofence.GeofenceMetadata, options?: $protobuf.IConversionOptions): { [k: string]: any };
                 public toJSON(): { [k: string]: any };
             }
         }
@@ -1232,6 +1451,7 @@ export namespace POGOProtos {
                 complete_quest?: (POGOProtos.Data.Logs.ICompleteQuestLogEntry|null);
                 complete_quest_stamp_card?: (POGOProtos.Data.Logs.ICompleteQuestStampCardLogEntry|null);
                 complete_quest_pokemon_encounter?: (POGOProtos.Data.Logs.ICompleteQuestPokemonEncounterLogEntry|null);
+                beluga_transfer?: (POGOProtos.Data.Logs.IBelugaDailyTransferLogEntry|null);
                 open_gift?: (POGOProtos.Data.Logs.IOpenGiftLogEntry|null);
                 send_gift?: (POGOProtos.Data.Logs.ISendGiftLogEntry|null);
                 trading?: (POGOProtos.Data.Logs.ITradingLogEntry|null);
@@ -1252,13 +1472,14 @@ export namespace POGOProtos {
                 public complete_quest?: (POGOProtos.Data.Logs.ICompleteQuestLogEntry|null);
                 public complete_quest_stamp_card?: (POGOProtos.Data.Logs.ICompleteQuestStampCardLogEntry|null);
                 public complete_quest_pokemon_encounter?: (POGOProtos.Data.Logs.ICompleteQuestPokemonEncounterLogEntry|null);
+                public beluga_transfer?: (POGOProtos.Data.Logs.IBelugaDailyTransferLogEntry|null);
                 public open_gift?: (POGOProtos.Data.Logs.IOpenGiftLogEntry|null);
                 public send_gift?: (POGOProtos.Data.Logs.ISendGiftLogEntry|null);
                 public trading?: (POGOProtos.Data.Logs.ITradingLogEntry|null);
                 public share_ex_raid_pass?: (POGOProtos.Data.Logs.IShareExRaidPassLogEntry|null);
                 public decline_ex_raid_pass?: (POGOProtos.Data.Logs.IDeclineExRaidPassLogEntry|null);
                 public fitness_rewards?: (POGOProtos.Data.Logs.IFitnessRewardsLogEntry|null);
-                public Action?: ("catch_pokemon"|"fort_search"|"buddy_pokemon"|"raid_rewards"|"passcode_rewards"|"complete_quest"|"complete_quest_stamp_card"|"complete_quest_pokemon_encounter"|"open_gift"|"send_gift"|"trading"|"share_ex_raid_pass"|"decline_ex_raid_pass"|"fitness_rewards");
+                public Action?: ("catch_pokemon"|"fort_search"|"buddy_pokemon"|"raid_rewards"|"passcode_rewards"|"complete_quest"|"complete_quest_stamp_card"|"complete_quest_pokemon_encounter"|"beluga_transfer"|"open_gift"|"send_gift"|"trading"|"share_ex_raid_pass"|"decline_ex_raid_pass"|"fitness_rewards");
                 public static create(properties?: POGOProtos.Data.Logs.IActionLogEntry): POGOProtos.Data.Logs.ActionLogEntry;
                 public static encode(message: POGOProtos.Data.Logs.IActionLogEntry, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Data.Logs.IActionLogEntry, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -1267,6 +1488,35 @@ export namespace POGOProtos {
                 public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Logs.ActionLogEntry;
                 public static toObject(message: POGOProtos.Data.Logs.ActionLogEntry, options?: $protobuf.IConversionOptions): { [k: string]: any };
                 public toJSON(): { [k: string]: any };
+            }
+
+            interface IBelugaDailyTransferLogEntry {
+                result?: (POGOProtos.Data.Logs.BelugaDailyTransferLogEntry.Result|null);
+                includes_weekly_bonus?: (boolean|null);
+                items_awarded?: (POGOProtos.Inventory.ILoot|null);
+            }
+
+            class BelugaDailyTransferLogEntry implements IBelugaDailyTransferLogEntry {
+                constructor(properties?: POGOProtos.Data.Logs.IBelugaDailyTransferLogEntry);
+                public result: POGOProtos.Data.Logs.BelugaDailyTransferLogEntry.Result;
+                public includes_weekly_bonus: boolean;
+                public items_awarded?: (POGOProtos.Inventory.ILoot|null);
+                public static create(properties?: POGOProtos.Data.Logs.IBelugaDailyTransferLogEntry): POGOProtos.Data.Logs.BelugaDailyTransferLogEntry;
+                public static encode(message: POGOProtos.Data.Logs.IBelugaDailyTransferLogEntry, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Logs.IBelugaDailyTransferLogEntry, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Logs.BelugaDailyTransferLogEntry;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Logs.BelugaDailyTransferLogEntry;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Logs.BelugaDailyTransferLogEntry;
+                public static toObject(message: POGOProtos.Data.Logs.BelugaDailyTransferLogEntry, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace BelugaDailyTransferLogEntry {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1
+                }
             }
 
             interface IBuddyPokemonLogEntry {
@@ -2148,6 +2398,7 @@ export namespace POGOProtos {
                 codename?: (string|null);
                 public_data?: (Uint8Array|null);
                 team?: (string|null);
+                fb_user_id?: (string|null);
             }
 
             class PlayerSummary implements IPlayerSummary {
@@ -2156,6 +2407,7 @@ export namespace POGOProtos {
                 public codename: string;
                 public public_data: Uint8Array;
                 public team: string;
+                public fb_user_id: string;
                 public static create(properties?: POGOProtos.Data.Player.IPlayerSummary): POGOProtos.Data.Player.PlayerSummary;
                 public static encode(message: POGOProtos.Data.Player.IPlayerSummary, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Data.Player.IPlayerSummary, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -2227,6 +2479,7 @@ export namespace POGOProtos {
             secondary_player_avatar?: (POGOProtos.Data.Player.IPlayerAvatar|null);
             name_is_blacklisted?: (boolean|null);
             social_player_settings?: (POGOProtos.Data.Player.ISocialPlayerSettings|null);
+            player_support_id?: (string|null);
         }
 
         class PlayerData implements IPlayerData {
@@ -2248,6 +2501,7 @@ export namespace POGOProtos {
             public secondary_player_avatar?: (POGOProtos.Data.Player.IPlayerAvatar|null);
             public name_is_blacklisted: boolean;
             public social_player_settings?: (POGOProtos.Data.Player.ISocialPlayerSettings|null);
+            public player_support_id: string;
             public static create(properties?: POGOProtos.Data.IPlayerData): POGOProtos.Data.PlayerData;
             public static encode(message: POGOProtos.Data.IPlayerData, writer?: $protobuf.Writer): $protobuf.Writer;
             public static encodeDelimited(message: POGOProtos.Data.IPlayerData, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -3766,6 +4020,7 @@ export namespace POGOProtos {
                 individual_stamina?: (number|null);
                 nickname?: (string|null);
                 favorite?: (boolean|null);
+                creation_time_ms?: (number|Long|null);
             }
 
             class TradingPokemon implements ITradingPokemon {
@@ -3790,6 +4045,7 @@ export namespace POGOProtos {
                 public individual_stamina: number;
                 public nickname: string;
                 public favorite: boolean;
+                public creation_time_ms: (number|Long);
                 public static create(properties?: POGOProtos.Data.Trading.ITradingPokemon): POGOProtos.Data.Trading.TradingPokemon;
                 public static encode(message: POGOProtos.Data.Trading.ITradingPokemon, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Data.Trading.ITradingPokemon, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -3982,7 +4238,9 @@ export namespace POGOProtos {
             ONE_YEAR_ANNIVERSARY = 3,
             HALLOWEEN_2017 = 4,
             SUMMER_2018 = 5,
-            FALL_2018 = 6
+            FALL_2018 = 6,
+            NOVEMBER_2018 = 7,
+            WINTER_2018 = 8
         }
 
         enum EncounterType {
@@ -4123,7 +4381,10 @@ export namespace POGOProtos {
             ARCEUS_ICE = 114,
             ARCEUS_DRAGON = 115,
             ARCEUS_DARK = 116,
-            ARCEUS_FAIRY = 117
+            ARCEUS_FAIRY = 117,
+            BURMY_PLANT = 118,
+            BURMY_SANDY = 119,
+            BURMY_TRASH = 120
         }
 
         enum FriendshipLevelMilestone {
@@ -4169,6 +4430,13 @@ export namespace POGOProtos {
             INTERNAL = 5,
             SFIDA = 6,
             SUPER_AWESOME = 7
+        }
+
+        enum InvitationType {
+            INVITATION_TYPE_UNSET = 0,
+            INVITATION_TYPE_CODE = 1,
+            INVITATION_TYPE_FACEBOOK = 2,
+            INVITATION_TYPE_SERVER_REQUEST = 3
         }
 
         enum ItemCategory {
@@ -4226,12 +4494,45 @@ export namespace POGOProtos {
             SHARED_EXCLUSIVE_RAID_INVITE = 10,
             BGMODE_EGG_HATCH = 11,
             BGMODE_BUDDY_CANDY = 12,
-            BGMODE_WEEKLY_FITNESS_REPORT = 13
+            BGMODE_WEEKLY_FITNESS_REPORT = 13,
+            BGMODE_OFF_SESSION_DISTANCE = 15
         }
 
         enum NotificationState {
             UNSET_STATE = 0,
             VIEWED = 1
+        }
+
+        enum OnboardingEventIds {
+            TOS_ACCEPTED = 0,
+            PRIVACY_ACCEPTED = 1,
+            CONVERSATION = 2,
+            ENCOUNTER_ENTER = 3,
+            ENCOUNTER_LEAVE = 4,
+            AVATAR_SELECTION = 5,
+            AVATAR_GENDER = 6,
+            AVATAR_GENDER_CHOSEN = 7,
+            AVATAR_HEAD_CHOSEN = 8,
+            AVATAR_BODY_CHOSEN = 9,
+            AVATAR_TRY_AGAIN = 10,
+            AVATAR_ACCEPTED = 11,
+            NAME_ENTRY = 12,
+            NAME_UNAVAILABLE = 13,
+            NAME_ACCEPTED = 14,
+            POKEDEX_TUTORIAL_STARTED = 15,
+            POKEDEX_TUTORIAL_INFO_PANEL_EXIT_PRESSED = 16,
+            POKEDEX_EXIT_PRESSED = 17,
+            EGG_TUTORIAL_STARTED = 18,
+            EGG_TUTORIAL_PRESS = 19,
+            EGG_TUTORIAL_FINISHED = 20,
+            POKESTOP_LETSGO = 21,
+            WILD_POKEMON_ENCOUNTER_ENTERED = 22,
+            WILD_POKEMON_CAUGHT = 23
+        }
+
+        enum OnboardingPathIds {
+            V1 = 0,
+            V2 = 1
         }
 
         enum Platform {
@@ -4494,7 +4795,8 @@ export namespace POGOProtos {
             FAMILY_MANAPHY = 490,
             FAMILY_DARKRAI = 491,
             FAMILY_SHAYMIN = 492,
-            FAMILY_ARCEUS = 493
+            FAMILY_ARCEUS = 493,
+            FAMILY_MELTAN = 808
         }
 
         enum PokemonGoPlusIds {
@@ -5010,7 +5312,9 @@ export namespace POGOProtos {
             MANAPHY = 490,
             DARKRAI = 491,
             SHAYMIN = 492,
-            ARCEUS = 493
+            ARCEUS = 493,
+            MELTAN = 808,
+            MELMETAL = 809
         }
 
         enum PokemonMove {
@@ -5270,7 +5574,8 @@ export namespace POGOProtos {
             SHADOW_BONE = 315,
             MUDDY_WATER = 316,
             BLAZE_KICK = 317,
-            RAZOR_SHELL = 318
+            RAZOR_SHELL = 318,
+            POWER_UP_PUNCH = 319
         }
 
         enum PokemonMovementType {
@@ -5402,8 +5707,10 @@ export namespace POGOProtos {
             LIST_INCOMING_FRIEND_INVITES = 10008,
             REMOVE_FRIEND = 10009,
             LIST_FRIEND_STATUS = 10010,
-            INVITE_FACEBOOK_FRIEND = 10011,
+            SEND_FACEBOOK_FRIEND_INVITE = 10011,
             IS_MY_FRIEND = 10012,
+            GET_FACEBOOK_FRIEND_LIST = 10014,
+            UPDATE_FACEBOOK_STATUS = 10015,
             CREATE_INVITE_CODE = 10013,
             REGISTER_PUSH_NOTIFICATION = 10101,
             UNREGISTER_PUSH_NOTIFICATION = 10102,
@@ -5458,7 +5765,10 @@ export namespace POGOProtos {
             ASSET_POI_DOWNLOAD = 35,
             ASSET_STREAM_DOWNLOAD = 36,
             ASSET_STREAM_CACHE_CULLED = 37,
-            RPC_SOCKET_TIMING = 38
+            RPC_SOCKET_TIMING = 38,
+            PERMISSIONS_FLOW = 39,
+            DEVICE_SERVICE_TOGGLE = 40,
+            BOOT_TELEMETRY = 41
         }
 
         enum AvatarCustomizationTelemetryIds {
@@ -5660,7 +5970,8 @@ export namespace POGOProtos {
             GIFT_EGG = 1024,
             FRIENDSHIP_MILESTONE_REWARD_DETAILS = 1025,
             FRIENDSHIP_LEVEL_DISPLAY = 1026,
-            BGMODE_BUDDY_POKEMON_NICKNAME = 1027
+            BGMODE_BUDDY_POKEMON_NICKNAME = 1027,
+            BGMODE_OFF_SESSION_DISTANCE_KM = 1030
         }
 
         enum WeatherCondition {
@@ -5906,6 +6217,7 @@ export namespace POGOProtos {
             raid_tickets?: (POGOProtos.Inventory.IRaidTickets|null);
             quests?: (POGOProtos.Data.Quests.IQuests|null);
             gift_boxes?: (POGOProtos.Data.Gift.IGiftBoxes|null);
+            beluga_incense?: (POGOProtos.Data.Beluga.IBelugaIncenseBox|null);
         }
 
         class InventoryItemData implements IInventoryItemData {
@@ -5925,6 +6237,7 @@ export namespace POGOProtos {
             public raid_tickets?: (POGOProtos.Inventory.IRaidTickets|null);
             public quests?: (POGOProtos.Data.Quests.IQuests|null);
             public gift_boxes?: (POGOProtos.Data.Gift.IGiftBoxes|null);
+            public beluga_incense?: (POGOProtos.Data.Beluga.IBelugaIncenseBox|null);
             public static create(properties?: POGOProtos.Inventory.IInventoryItemData): POGOProtos.Inventory.InventoryItemData;
             public static encode(message: POGOProtos.Inventory.IInventoryItemData, writer?: $protobuf.Writer): $protobuf.Writer;
             public static encodeDelimited(message: POGOProtos.Inventory.IInventoryItemData, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -5951,6 +6264,7 @@ export namespace POGOProtos {
             raid_tickets?: (boolean|null);
             quests?: (boolean|null);
             gift_boxes?: (boolean|null);
+            beluga_incense_box?: (boolean|null);
         }
 
         class InventoryKey implements IInventoryKey {
@@ -5970,6 +6284,7 @@ export namespace POGOProtos {
             public raid_tickets: boolean;
             public quests: boolean;
             public gift_boxes: boolean;
+            public beluga_incense_box: boolean;
             public static create(properties?: POGOProtos.Inventory.IInventoryKey): POGOProtos.Inventory.InventoryKey;
             public static encode(message: POGOProtos.Inventory.IInventoryKey, writer?: $protobuf.Writer): $protobuf.Writer;
             public static encodeDelimited(message: POGOProtos.Inventory.IInventoryKey, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -6086,6 +6401,7 @@ export namespace POGOProtos {
                 ITEM_INCENSE_SPICY = 402,
                 ITEM_INCENSE_COOL = 403,
                 ITEM_INCENSE_FLORAL = 404,
+                ITEM_INCENSE_BELUGA_BOX = 405,
                 ITEM_TROY_DISK = 501,
                 ITEM_X_ATTACK = 602,
                 ITEM_X_DEFENSE = 603,
@@ -6109,6 +6425,7 @@ export namespace POGOProtos {
                 ITEM_METAL_COAT = 1103,
                 ITEM_DRAGON_SCALE = 1104,
                 ITEM_UP_GRADE = 1105,
+                ITEM_GEN4_EVOLUTION_STONE = 1106,
                 ITEM_MOVE_REROLL_FAST_ATTACK = 1201,
                 ITEM_MOVE_REROLL_SPECIAL_ATTACK = 1202,
                 ITEM_RARE_CANDY = 1301,
@@ -6807,804 +7124,6 @@ export namespace POGOProtos {
 
     namespace Networking {
 
-        namespace Envelopes {
-
-            interface IAuthTicket {
-                start?: (Uint8Array|null);
-                expire_timestamp_ms?: (number|Long|null);
-                end?: (Uint8Array|null);
-            }
-
-            class AuthTicket implements IAuthTicket {
-                constructor(properties?: POGOProtos.Networking.Envelopes.IAuthTicket);
-                public start: Uint8Array;
-                public expire_timestamp_ms: (number|Long);
-                public end: Uint8Array;
-                public static create(properties?: POGOProtos.Networking.Envelopes.IAuthTicket): POGOProtos.Networking.Envelopes.AuthTicket;
-                public static encode(message: POGOProtos.Networking.Envelopes.IAuthTicket, writer?: $protobuf.Writer): $protobuf.Writer;
-                public static encodeDelimited(message: POGOProtos.Networking.Envelopes.IAuthTicket, writer?: $protobuf.Writer): $protobuf.Writer;
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Envelopes.AuthTicket;
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Envelopes.AuthTicket;
-                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Envelopes.AuthTicket;
-                public static toObject(message: POGOProtos.Networking.Envelopes.AuthTicket, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                public toJSON(): { [k: string]: any };
-            }
-
-            interface IRequestEnvelope {
-                status_code?: (number|null);
-                request_id?: (number|Long|null);
-                requests?: (POGOProtos.Networking.Requests.IRequest[]|null);
-                platform_requests?: (POGOProtos.Networking.Envelopes.RequestEnvelope.IPlatformRequest[]|null);
-                latitude?: (number|null);
-                longitude?: (number|null);
-                accuracy?: (number|null);
-                auth_info?: (POGOProtos.Networking.Envelopes.RequestEnvelope.IAuthInfo|null);
-                auth_ticket?: (POGOProtos.Networking.Envelopes.IAuthTicket|null);
-                ms_since_last_locationfix?: (number|Long|null);
-            }
-
-            class RequestEnvelope implements IRequestEnvelope {
-                constructor(properties?: POGOProtos.Networking.Envelopes.IRequestEnvelope);
-                public status_code: number;
-                public request_id: (number|Long);
-                public requests: POGOProtos.Networking.Requests.IRequest[];
-                public platform_requests: POGOProtos.Networking.Envelopes.RequestEnvelope.IPlatformRequest[];
-                public latitude: number;
-                public longitude: number;
-                public accuracy: number;
-                public auth_info?: (POGOProtos.Networking.Envelopes.RequestEnvelope.IAuthInfo|null);
-                public auth_ticket?: (POGOProtos.Networking.Envelopes.IAuthTicket|null);
-                public ms_since_last_locationfix: (number|Long);
-                public static create(properties?: POGOProtos.Networking.Envelopes.IRequestEnvelope): POGOProtos.Networking.Envelopes.RequestEnvelope;
-                public static encode(message: POGOProtos.Networking.Envelopes.IRequestEnvelope, writer?: $protobuf.Writer): $protobuf.Writer;
-                public static encodeDelimited(message: POGOProtos.Networking.Envelopes.IRequestEnvelope, writer?: $protobuf.Writer): $protobuf.Writer;
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Envelopes.RequestEnvelope;
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Envelopes.RequestEnvelope;
-                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Envelopes.RequestEnvelope;
-                public static toObject(message: POGOProtos.Networking.Envelopes.RequestEnvelope, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                public toJSON(): { [k: string]: any };
-            }
-
-            namespace RequestEnvelope {
-
-                interface IAuthInfo {
-                    provider?: (string|null);
-                    token?: (POGOProtos.Networking.Envelopes.RequestEnvelope.AuthInfo.IJWT|null);
-                }
-
-                class AuthInfo implements IAuthInfo {
-                    constructor(properties?: POGOProtos.Networking.Envelopes.RequestEnvelope.IAuthInfo);
-                    public provider: string;
-                    public token?: (POGOProtos.Networking.Envelopes.RequestEnvelope.AuthInfo.IJWT|null);
-                    public static create(properties?: POGOProtos.Networking.Envelopes.RequestEnvelope.IAuthInfo): POGOProtos.Networking.Envelopes.RequestEnvelope.AuthInfo;
-                    public static encode(message: POGOProtos.Networking.Envelopes.RequestEnvelope.IAuthInfo, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static encodeDelimited(message: POGOProtos.Networking.Envelopes.RequestEnvelope.IAuthInfo, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Envelopes.RequestEnvelope.AuthInfo;
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Envelopes.RequestEnvelope.AuthInfo;
-                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Envelopes.RequestEnvelope.AuthInfo;
-                    public static toObject(message: POGOProtos.Networking.Envelopes.RequestEnvelope.AuthInfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                    public toJSON(): { [k: string]: any };
-                }
-
-                namespace AuthInfo {
-
-                    interface IJWT {
-                        contents?: (string|null);
-                        unknown2?: (number|null);
-                    }
-
-                    class JWT implements IJWT {
-                        constructor(properties?: POGOProtos.Networking.Envelopes.RequestEnvelope.AuthInfo.IJWT);
-                        public contents: string;
-                        public unknown2: number;
-                        public static create(properties?: POGOProtos.Networking.Envelopes.RequestEnvelope.AuthInfo.IJWT): POGOProtos.Networking.Envelopes.RequestEnvelope.AuthInfo.JWT;
-                        public static encode(message: POGOProtos.Networking.Envelopes.RequestEnvelope.AuthInfo.IJWT, writer?: $protobuf.Writer): $protobuf.Writer;
-                        public static encodeDelimited(message: POGOProtos.Networking.Envelopes.RequestEnvelope.AuthInfo.IJWT, writer?: $protobuf.Writer): $protobuf.Writer;
-                        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Envelopes.RequestEnvelope.AuthInfo.JWT;
-                        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Envelopes.RequestEnvelope.AuthInfo.JWT;
-                        public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Envelopes.RequestEnvelope.AuthInfo.JWT;
-                        public static toObject(message: POGOProtos.Networking.Envelopes.RequestEnvelope.AuthInfo.JWT, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                        public toJSON(): { [k: string]: any };
-                    }
-                }
-
-                interface IPlatformRequest {
-                    type?: (POGOProtos.Networking.Platform.PlatformRequestType|null);
-                    request_message?: (Uint8Array|null);
-                }
-
-                class PlatformRequest implements IPlatformRequest {
-                    constructor(properties?: POGOProtos.Networking.Envelopes.RequestEnvelope.IPlatformRequest);
-                    public type: POGOProtos.Networking.Platform.PlatformRequestType;
-                    public request_message: Uint8Array;
-                    public static create(properties?: POGOProtos.Networking.Envelopes.RequestEnvelope.IPlatformRequest): POGOProtos.Networking.Envelopes.RequestEnvelope.PlatformRequest;
-                    public static encode(message: POGOProtos.Networking.Envelopes.RequestEnvelope.IPlatformRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static encodeDelimited(message: POGOProtos.Networking.Envelopes.RequestEnvelope.IPlatformRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Envelopes.RequestEnvelope.PlatformRequest;
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Envelopes.RequestEnvelope.PlatformRequest;
-                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Envelopes.RequestEnvelope.PlatformRequest;
-                    public static toObject(message: POGOProtos.Networking.Envelopes.RequestEnvelope.PlatformRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                    public toJSON(): { [k: string]: any };
-                }
-            }
-
-            interface IResponseEnvelope {
-                status_code?: (POGOProtos.Networking.Envelopes.ResponseEnvelope.StatusCode|null);
-                request_id?: (number|Long|null);
-                api_url?: (string|null);
-                platform_returns?: (POGOProtos.Networking.Envelopes.ResponseEnvelope.IPlatformResponse[]|null);
-                auth_ticket?: (POGOProtos.Networking.Envelopes.IAuthTicket|null);
-                returns?: (Uint8Array[]|null);
-                error?: (string|null);
-            }
-
-            class ResponseEnvelope implements IResponseEnvelope {
-                constructor(properties?: POGOProtos.Networking.Envelopes.IResponseEnvelope);
-                public status_code: POGOProtos.Networking.Envelopes.ResponseEnvelope.StatusCode;
-                public request_id: (number|Long);
-                public api_url: string;
-                public platform_returns: POGOProtos.Networking.Envelopes.ResponseEnvelope.IPlatformResponse[];
-                public auth_ticket?: (POGOProtos.Networking.Envelopes.IAuthTicket|null);
-                public returns: Uint8Array[];
-                public error: string;
-                public static create(properties?: POGOProtos.Networking.Envelopes.IResponseEnvelope): POGOProtos.Networking.Envelopes.ResponseEnvelope;
-                public static encode(message: POGOProtos.Networking.Envelopes.IResponseEnvelope, writer?: $protobuf.Writer): $protobuf.Writer;
-                public static encodeDelimited(message: POGOProtos.Networking.Envelopes.IResponseEnvelope, writer?: $protobuf.Writer): $protobuf.Writer;
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Envelopes.ResponseEnvelope;
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Envelopes.ResponseEnvelope;
-                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Envelopes.ResponseEnvelope;
-                public static toObject(message: POGOProtos.Networking.Envelopes.ResponseEnvelope, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                public toJSON(): { [k: string]: any };
-            }
-
-            namespace ResponseEnvelope {
-
-                interface IPlatformResponse {
-                    type?: (POGOProtos.Networking.Platform.PlatformRequestType|null);
-                    response?: (Uint8Array|null);
-                }
-
-                class PlatformResponse implements IPlatformResponse {
-                    constructor(properties?: POGOProtos.Networking.Envelopes.ResponseEnvelope.IPlatformResponse);
-                    public type: POGOProtos.Networking.Platform.PlatformRequestType;
-                    public response: Uint8Array;
-                    public static create(properties?: POGOProtos.Networking.Envelopes.ResponseEnvelope.IPlatformResponse): POGOProtos.Networking.Envelopes.ResponseEnvelope.PlatformResponse;
-                    public static encode(message: POGOProtos.Networking.Envelopes.ResponseEnvelope.IPlatformResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static encodeDelimited(message: POGOProtos.Networking.Envelopes.ResponseEnvelope.IPlatformResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Envelopes.ResponseEnvelope.PlatformResponse;
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Envelopes.ResponseEnvelope.PlatformResponse;
-                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Envelopes.ResponseEnvelope.PlatformResponse;
-                    public static toObject(message: POGOProtos.Networking.Envelopes.ResponseEnvelope.PlatformResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                    public toJSON(): { [k: string]: any };
-                }
-
-                enum StatusCode {
-                    UNKNOWN = 0,
-                    OK = 1,
-                    OK_RPC_URL_IN_RESPONSE = 2,
-                    BAD_REQUEST = 3,
-                    INVALID_REQUEST = 51,
-                    INVALID_PLATFORM_REQUEST = 52,
-                    REDIRECT = 53,
-                    SESSION_INVALIDATED = 100,
-                    INVALID_AUTH_TOKEN = 102
-                }
-            }
-
-            interface ISignature {
-                field1?: (POGOProtos.Networking.Envelopes.IUnknownMessage[]|null);
-                timestamp_since_start?: (number|Long|null);
-                field3?: (string|null);
-                location_fix?: (POGOProtos.Networking.Envelopes.Signature.ILocationFix[]|null);
-                gps_info?: (POGOProtos.Networking.Envelopes.Signature.IAndroidGpsInfo[]|null);
-                field6?: (POGOProtos.Networking.Envelopes.IUnknownMessage[]|null);
-                sensor_info?: (POGOProtos.Networking.Envelopes.Signature.ISensorInfo[]|null);
-                device_info?: (POGOProtos.Networking.Envelopes.Signature.IDeviceInfo|null);
-                activity_status?: (POGOProtos.Networking.Envelopes.Signature.IActivityStatus|null);
-                location_hash1?: (number|null);
-                field11?: (boolean|null);
-                field12?: (boolean|null);
-                field13?: (number|null);
-                field14?: (number|null);
-                field15?: (string|null);
-                field16?: (number|null);
-                field17?: (string|null);
-                field18?: (string|null);
-                field19?: (boolean|null);
-                location_hash2?: (number|null);
-                field21?: (boolean|null);
-                session_hash?: (Uint8Array|null);
-                timestamp?: (number|Long|null);
-                request_hash?: ((number|Long)[]|null);
-                unknown25?: (number|Long|null);
-                unknown27?: (number|null);
-            }
-
-            class Signature implements ISignature {
-                constructor(properties?: POGOProtos.Networking.Envelopes.ISignature);
-                public field1: POGOProtos.Networking.Envelopes.IUnknownMessage[];
-                public timestamp_since_start: (number|Long);
-                public field3: string;
-                public location_fix: POGOProtos.Networking.Envelopes.Signature.ILocationFix[];
-                public gps_info: POGOProtos.Networking.Envelopes.Signature.IAndroidGpsInfo[];
-                public field6: POGOProtos.Networking.Envelopes.IUnknownMessage[];
-                public sensor_info: POGOProtos.Networking.Envelopes.Signature.ISensorInfo[];
-                public device_info?: (POGOProtos.Networking.Envelopes.Signature.IDeviceInfo|null);
-                public activity_status?: (POGOProtos.Networking.Envelopes.Signature.IActivityStatus|null);
-                public location_hash1: number;
-                public field11: boolean;
-                public field12: boolean;
-                public field13: number;
-                public field14: number;
-                public field15: string;
-                public field16: number;
-                public field17: string;
-                public field18: string;
-                public field19: boolean;
-                public location_hash2: number;
-                public field21: boolean;
-                public session_hash: Uint8Array;
-                public timestamp: (number|Long);
-                public request_hash: (number|Long)[];
-                public unknown25: (number|Long);
-                public unknown27: number;
-                public static create(properties?: POGOProtos.Networking.Envelopes.ISignature): POGOProtos.Networking.Envelopes.Signature;
-                public static encode(message: POGOProtos.Networking.Envelopes.ISignature, writer?: $protobuf.Writer): $protobuf.Writer;
-                public static encodeDelimited(message: POGOProtos.Networking.Envelopes.ISignature, writer?: $protobuf.Writer): $protobuf.Writer;
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Envelopes.Signature;
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Envelopes.Signature;
-                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Envelopes.Signature;
-                public static toObject(message: POGOProtos.Networking.Envelopes.Signature, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                public toJSON(): { [k: string]: any };
-            }
-
-            namespace Signature {
-
-                interface ILocationFix {
-                    provider?: (string|null);
-                    timestamp_snapshot?: (number|Long|null);
-                    altitude?: (number|null);
-                    latitude?: (number|null);
-                    longitude?: (number|null);
-                    speed?: (number|null);
-                    course?: (number|null);
-                    horizontal_accuracy?: (number|null);
-                    vertical_accuracy?: (number|null);
-                    provider_status?: (number|Long|null);
-                    floor?: (number|null);
-                    location_type?: (number|Long|null);
-                }
-
-                class LocationFix implements ILocationFix {
-                    constructor(properties?: POGOProtos.Networking.Envelopes.Signature.ILocationFix);
-                    public provider: string;
-                    public timestamp_snapshot: (number|Long);
-                    public altitude: number;
-                    public latitude: number;
-                    public longitude: number;
-                    public speed: number;
-                    public course: number;
-                    public horizontal_accuracy: number;
-                    public vertical_accuracy: number;
-                    public provider_status: (number|Long);
-                    public floor: number;
-                    public location_type: (number|Long);
-                    public static create(properties?: POGOProtos.Networking.Envelopes.Signature.ILocationFix): POGOProtos.Networking.Envelopes.Signature.LocationFix;
-                    public static encode(message: POGOProtos.Networking.Envelopes.Signature.ILocationFix, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static encodeDelimited(message: POGOProtos.Networking.Envelopes.Signature.ILocationFix, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Envelopes.Signature.LocationFix;
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Envelopes.Signature.LocationFix;
-                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Envelopes.Signature.LocationFix;
-                    public static toObject(message: POGOProtos.Networking.Envelopes.Signature.LocationFix, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                    public toJSON(): { [k: string]: any };
-                }
-
-                interface IAndroidGpsInfo {
-                    time_to_fix?: (number|Long|null);
-                    satellites_prn?: (number[]|null);
-                    azimuth?: (number[]|null);
-                    elevation?: (number[]|null);
-                    snr?: (number[]|null);
-                    has_almanac?: (boolean[]|null);
-                    has_ephemeris?: (boolean[]|null);
-                    used_in_fix?: (boolean[]|null);
-                }
-
-                class AndroidGpsInfo implements IAndroidGpsInfo {
-                    constructor(properties?: POGOProtos.Networking.Envelopes.Signature.IAndroidGpsInfo);
-                    public time_to_fix: (number|Long);
-                    public satellites_prn: number[];
-                    public azimuth: number[];
-                    public elevation: number[];
-                    public snr: number[];
-                    public has_almanac: boolean[];
-                    public has_ephemeris: boolean[];
-                    public used_in_fix: boolean[];
-                    public static create(properties?: POGOProtos.Networking.Envelopes.Signature.IAndroidGpsInfo): POGOProtos.Networking.Envelopes.Signature.AndroidGpsInfo;
-                    public static encode(message: POGOProtos.Networking.Envelopes.Signature.IAndroidGpsInfo, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static encodeDelimited(message: POGOProtos.Networking.Envelopes.Signature.IAndroidGpsInfo, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Envelopes.Signature.AndroidGpsInfo;
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Envelopes.Signature.AndroidGpsInfo;
-                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Envelopes.Signature.AndroidGpsInfo;
-                    public static toObject(message: POGOProtos.Networking.Envelopes.Signature.AndroidGpsInfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                    public toJSON(): { [k: string]: any };
-                }
-
-                interface ISensorInfo {
-                    timestamp_snapshot?: (number|Long|null);
-                    linear_acceleration_x?: (number|null);
-                    linear_acceleration_y?: (number|null);
-                    linear_acceleration_z?: (number|null);
-                    magnetic_field_x?: (number|null);
-                    magnetic_field_y?: (number|null);
-                    magnetic_field_z?: (number|null);
-                    magnetic_field_accuracy?: (number|null);
-                    attitude_pitch?: (number|null);
-                    attitude_yaw?: (number|null);
-                    attitude_roll?: (number|null);
-                    rotation_rate_x?: (number|null);
-                    rotation_rate_y?: (number|null);
-                    rotation_rate_z?: (number|null);
-                    gravity_x?: (number|null);
-                    gravity_y?: (number|null);
-                    gravity_z?: (number|null);
-                    status?: (number|null);
-                }
-
-                class SensorInfo implements ISensorInfo {
-                    constructor(properties?: POGOProtos.Networking.Envelopes.Signature.ISensorInfo);
-                    public timestamp_snapshot: (number|Long);
-                    public linear_acceleration_x: number;
-                    public linear_acceleration_y: number;
-                    public linear_acceleration_z: number;
-                    public magnetic_field_x: number;
-                    public magnetic_field_y: number;
-                    public magnetic_field_z: number;
-                    public magnetic_field_accuracy: number;
-                    public attitude_pitch: number;
-                    public attitude_yaw: number;
-                    public attitude_roll: number;
-                    public rotation_rate_x: number;
-                    public rotation_rate_y: number;
-                    public rotation_rate_z: number;
-                    public gravity_x: number;
-                    public gravity_y: number;
-                    public gravity_z: number;
-                    public status: number;
-                    public static create(properties?: POGOProtos.Networking.Envelopes.Signature.ISensorInfo): POGOProtos.Networking.Envelopes.Signature.SensorInfo;
-                    public static encode(message: POGOProtos.Networking.Envelopes.Signature.ISensorInfo, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static encodeDelimited(message: POGOProtos.Networking.Envelopes.Signature.ISensorInfo, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Envelopes.Signature.SensorInfo;
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Envelopes.Signature.SensorInfo;
-                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Envelopes.Signature.SensorInfo;
-                    public static toObject(message: POGOProtos.Networking.Envelopes.Signature.SensorInfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                    public toJSON(): { [k: string]: any };
-                }
-
-                interface IDeviceInfo {
-                    device_id?: (string|null);
-                    android_board_name?: (string|null);
-                    android_bootloader?: (string|null);
-                    device_brand?: (string|null);
-                    device_model?: (string|null);
-                    device_model_identifier?: (string|null);
-                    device_model_boot?: (string|null);
-                    hardware_manufacturer?: (string|null);
-                    hardware_model?: (string|null);
-                    firmware_brand?: (string|null);
-                    firmware_tags?: (string|null);
-                    firmware_type?: (string|null);
-                    firmware_fingerprint?: (string|null);
-                }
-
-                class DeviceInfo implements IDeviceInfo {
-                    constructor(properties?: POGOProtos.Networking.Envelopes.Signature.IDeviceInfo);
-                    public device_id: string;
-                    public android_board_name: string;
-                    public android_bootloader: string;
-                    public device_brand: string;
-                    public device_model: string;
-                    public device_model_identifier: string;
-                    public device_model_boot: string;
-                    public hardware_manufacturer: string;
-                    public hardware_model: string;
-                    public firmware_brand: string;
-                    public firmware_tags: string;
-                    public firmware_type: string;
-                    public firmware_fingerprint: string;
-                    public static create(properties?: POGOProtos.Networking.Envelopes.Signature.IDeviceInfo): POGOProtos.Networking.Envelopes.Signature.DeviceInfo;
-                    public static encode(message: POGOProtos.Networking.Envelopes.Signature.IDeviceInfo, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static encodeDelimited(message: POGOProtos.Networking.Envelopes.Signature.IDeviceInfo, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Envelopes.Signature.DeviceInfo;
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Envelopes.Signature.DeviceInfo;
-                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Envelopes.Signature.DeviceInfo;
-                    public static toObject(message: POGOProtos.Networking.Envelopes.Signature.DeviceInfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                    public toJSON(): { [k: string]: any };
-                }
-
-                interface IActivityStatus {
-                    start_time_ms?: (number|Long|null);
-                    unknown_status?: (boolean|null);
-                    walking?: (boolean|null);
-                    running?: (boolean|null);
-                    stationary?: (boolean|null);
-                    automotive?: (boolean|null);
-                    tilting?: (boolean|null);
-                    cycling?: (boolean|null);
-                    status?: (Uint8Array|null);
-                }
-
-                class ActivityStatus implements IActivityStatus {
-                    constructor(properties?: POGOProtos.Networking.Envelopes.Signature.IActivityStatus);
-                    public start_time_ms: (number|Long);
-                    public unknown_status: boolean;
-                    public walking: boolean;
-                    public running: boolean;
-                    public stationary: boolean;
-                    public automotive: boolean;
-                    public tilting: boolean;
-                    public cycling: boolean;
-                    public status: Uint8Array;
-                    public static create(properties?: POGOProtos.Networking.Envelopes.Signature.IActivityStatus): POGOProtos.Networking.Envelopes.Signature.ActivityStatus;
-                    public static encode(message: POGOProtos.Networking.Envelopes.Signature.IActivityStatus, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static encodeDelimited(message: POGOProtos.Networking.Envelopes.Signature.IActivityStatus, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Envelopes.Signature.ActivityStatus;
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Envelopes.Signature.ActivityStatus;
-                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Envelopes.Signature.ActivityStatus;
-                    public static toObject(message: POGOProtos.Networking.Envelopes.Signature.ActivityStatus, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                    public toJSON(): { [k: string]: any };
-                }
-            }
-
-            interface IUnknownMessage {
-            }
-
-            class UnknownMessage implements IUnknownMessage {
-                constructor(properties?: POGOProtos.Networking.Envelopes.IUnknownMessage);
-                public static create(properties?: POGOProtos.Networking.Envelopes.IUnknownMessage): POGOProtos.Networking.Envelopes.UnknownMessage;
-                public static encode(message: POGOProtos.Networking.Envelopes.IUnknownMessage, writer?: $protobuf.Writer): $protobuf.Writer;
-                public static encodeDelimited(message: POGOProtos.Networking.Envelopes.IUnknownMessage, writer?: $protobuf.Writer): $protobuf.Writer;
-                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Envelopes.UnknownMessage;
-                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Envelopes.UnknownMessage;
-                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Envelopes.UnknownMessage;
-                public static toObject(message: POGOProtos.Networking.Envelopes.UnknownMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                public toJSON(): { [k: string]: any };
-            }
-        }
-
-        namespace Platform {
-
-            enum PlatformRequestType {
-                METHOD_UNSET = 0,
-                BUY_ITEM_POKECOINS = 2,
-                BUY_ITEM_ANDROID = 3,
-                BUY_ITEM_IOS = 4,
-                GET_STORE_ITEMS = 5,
-                SEND_ENCRYPTED_SIGNATURE = 6,
-                UNKNOWN_PTR_8 = 8,
-                JOIN_EVENT = 9
-            }
-
-            namespace Requests {
-
-                interface IBuyItemAndroidRequest {
-                    buy_item_intent?: (string|null);
-                }
-
-                class BuyItemAndroidRequest implements IBuyItemAndroidRequest {
-                    constructor(properties?: POGOProtos.Networking.Platform.Requests.IBuyItemAndroidRequest);
-                    public buy_item_intent: string;
-                    public static create(properties?: POGOProtos.Networking.Platform.Requests.IBuyItemAndroidRequest): POGOProtos.Networking.Platform.Requests.BuyItemAndroidRequest;
-                    public static encode(message: POGOProtos.Networking.Platform.Requests.IBuyItemAndroidRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static encodeDelimited(message: POGOProtos.Networking.Platform.Requests.IBuyItemAndroidRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Platform.Requests.BuyItemAndroidRequest;
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Platform.Requests.BuyItemAndroidRequest;
-                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Platform.Requests.BuyItemAndroidRequest;
-                    public static toObject(message: POGOProtos.Networking.Platform.Requests.BuyItemAndroidRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                    public toJSON(): { [k: string]: any };
-                }
-
-                interface IBuyItemPokeCoinsRequest {
-                    item_id?: (string|null);
-                }
-
-                class BuyItemPokeCoinsRequest implements IBuyItemPokeCoinsRequest {
-                    constructor(properties?: POGOProtos.Networking.Platform.Requests.IBuyItemPokeCoinsRequest);
-                    public item_id: string;
-                    public static create(properties?: POGOProtos.Networking.Platform.Requests.IBuyItemPokeCoinsRequest): POGOProtos.Networking.Platform.Requests.BuyItemPokeCoinsRequest;
-                    public static encode(message: POGOProtos.Networking.Platform.Requests.IBuyItemPokeCoinsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static encodeDelimited(message: POGOProtos.Networking.Platform.Requests.IBuyItemPokeCoinsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Platform.Requests.BuyItemPokeCoinsRequest;
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Platform.Requests.BuyItemPokeCoinsRequest;
-                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Platform.Requests.BuyItemPokeCoinsRequest;
-                    public static toObject(message: POGOProtos.Networking.Platform.Requests.BuyItemPokeCoinsRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                    public toJSON(): { [k: string]: any };
-                }
-
-                interface IGetStoreItemsRequest {
-                }
-
-                class GetStoreItemsRequest implements IGetStoreItemsRequest {
-                    constructor(properties?: POGOProtos.Networking.Platform.Requests.IGetStoreItemsRequest);
-                    public static create(properties?: POGOProtos.Networking.Platform.Requests.IGetStoreItemsRequest): POGOProtos.Networking.Platform.Requests.GetStoreItemsRequest;
-                    public static encode(message: POGOProtos.Networking.Platform.Requests.IGetStoreItemsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static encodeDelimited(message: POGOProtos.Networking.Platform.Requests.IGetStoreItemsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Platform.Requests.GetStoreItemsRequest;
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Platform.Requests.GetStoreItemsRequest;
-                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Platform.Requests.GetStoreItemsRequest;
-                    public static toObject(message: POGOProtos.Networking.Platform.Requests.GetStoreItemsRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                    public toJSON(): { [k: string]: any };
-                }
-
-                interface IJoinEventRequest {
-                    qrcode?: (string|null);
-                }
-
-                class JoinEventRequest implements IJoinEventRequest {
-                    constructor(properties?: POGOProtos.Networking.Platform.Requests.IJoinEventRequest);
-                    public qrcode: string;
-                    public static create(properties?: POGOProtos.Networking.Platform.Requests.IJoinEventRequest): POGOProtos.Networking.Platform.Requests.JoinEventRequest;
-                    public static encode(message: POGOProtos.Networking.Platform.Requests.IJoinEventRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static encodeDelimited(message: POGOProtos.Networking.Platform.Requests.IJoinEventRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Platform.Requests.JoinEventRequest;
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Platform.Requests.JoinEventRequest;
-                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Platform.Requests.JoinEventRequest;
-                    public static toObject(message: POGOProtos.Networking.Platform.Requests.JoinEventRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                    public toJSON(): { [k: string]: any };
-                }
-
-                interface ISendEncryptedSignatureRequest {
-                    encrypted_signature?: (Uint8Array|null);
-                }
-
-                class SendEncryptedSignatureRequest implements ISendEncryptedSignatureRequest {
-                    constructor(properties?: POGOProtos.Networking.Platform.Requests.ISendEncryptedSignatureRequest);
-                    public encrypted_signature: Uint8Array;
-                    public static create(properties?: POGOProtos.Networking.Platform.Requests.ISendEncryptedSignatureRequest): POGOProtos.Networking.Platform.Requests.SendEncryptedSignatureRequest;
-                    public static encode(message: POGOProtos.Networking.Platform.Requests.ISendEncryptedSignatureRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static encodeDelimited(message: POGOProtos.Networking.Platform.Requests.ISendEncryptedSignatureRequest, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Platform.Requests.SendEncryptedSignatureRequest;
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Platform.Requests.SendEncryptedSignatureRequest;
-                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Platform.Requests.SendEncryptedSignatureRequest;
-                    public static toObject(message: POGOProtos.Networking.Platform.Requests.SendEncryptedSignatureRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                    public toJSON(): { [k: string]: any };
-                }
-
-                interface IUnknownPtr8Request {
-                    message?: (string|null);
-                }
-
-                class UnknownPtr8Request implements IUnknownPtr8Request {
-                    constructor(properties?: POGOProtos.Networking.Platform.Requests.IUnknownPtr8Request);
-                    public message: string;
-                    public static create(properties?: POGOProtos.Networking.Platform.Requests.IUnknownPtr8Request): POGOProtos.Networking.Platform.Requests.UnknownPtr8Request;
-                    public static encode(message: POGOProtos.Networking.Platform.Requests.IUnknownPtr8Request, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static encodeDelimited(message: POGOProtos.Networking.Platform.Requests.IUnknownPtr8Request, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Platform.Requests.UnknownPtr8Request;
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Platform.Requests.UnknownPtr8Request;
-                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Platform.Requests.UnknownPtr8Request;
-                    public static toObject(message: POGOProtos.Networking.Platform.Requests.UnknownPtr8Request, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                    public toJSON(): { [k: string]: any };
-                }
-            }
-
-            namespace Responses {
-
-                interface IBuyItemAndroidResponse {
-                    result?: (POGOProtos.Networking.Platform.Responses.BuyItemAndroidResponse.Status|null);
-                    purchase_token?: (string|null);
-                }
-
-                class BuyItemAndroidResponse implements IBuyItemAndroidResponse {
-                    constructor(properties?: POGOProtos.Networking.Platform.Responses.IBuyItemAndroidResponse);
-                    public result: POGOProtos.Networking.Platform.Responses.BuyItemAndroidResponse.Status;
-                    public purchase_token: string;
-                    public static create(properties?: POGOProtos.Networking.Platform.Responses.IBuyItemAndroidResponse): POGOProtos.Networking.Platform.Responses.BuyItemAndroidResponse;
-                    public static encode(message: POGOProtos.Networking.Platform.Responses.IBuyItemAndroidResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static encodeDelimited(message: POGOProtos.Networking.Platform.Responses.IBuyItemAndroidResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Platform.Responses.BuyItemAndroidResponse;
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Platform.Responses.BuyItemAndroidResponse;
-                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Platform.Responses.BuyItemAndroidResponse;
-                    public static toObject(message: POGOProtos.Networking.Platform.Responses.BuyItemAndroidResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                    public toJSON(): { [k: string]: any };
-                }
-
-                namespace BuyItemAndroidResponse {
-
-                    enum Status {
-                        UNKNOWN = 0,
-                        SUCCESS = 1
-                    }
-                }
-
-                interface IBuyItemPokeCoinsResponse {
-                    result?: (POGOProtos.Networking.Platform.Responses.BuyItemPokeCoinsResponse.Status|null);
-                }
-
-                class BuyItemPokeCoinsResponse implements IBuyItemPokeCoinsResponse {
-                    constructor(properties?: POGOProtos.Networking.Platform.Responses.IBuyItemPokeCoinsResponse);
-                    public result: POGOProtos.Networking.Platform.Responses.BuyItemPokeCoinsResponse.Status;
-                    public static create(properties?: POGOProtos.Networking.Platform.Responses.IBuyItemPokeCoinsResponse): POGOProtos.Networking.Platform.Responses.BuyItemPokeCoinsResponse;
-                    public static encode(message: POGOProtos.Networking.Platform.Responses.IBuyItemPokeCoinsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static encodeDelimited(message: POGOProtos.Networking.Platform.Responses.IBuyItemPokeCoinsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Platform.Responses.BuyItemPokeCoinsResponse;
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Platform.Responses.BuyItemPokeCoinsResponse;
-                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Platform.Responses.BuyItemPokeCoinsResponse;
-                    public static toObject(message: POGOProtos.Networking.Platform.Responses.BuyItemPokeCoinsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                    public toJSON(): { [k: string]: any };
-                }
-
-                namespace BuyItemPokeCoinsResponse {
-
-                    enum Status {
-                        UNKNOWN = 0,
-                        SUCCESS = 1,
-                        NOT_ENOUGH_POKECOINS = 3
-                    }
-                }
-
-                interface IGetStoreItemsResponse {
-                    status?: (POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.Status|null);
-                    items?: (POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreItem[]|null);
-                    player_currencies?: (POGOProtos.Data.Player.ICurrency[]|null);
-                    hash?: (string|null);
-                }
-
-                class GetStoreItemsResponse implements IGetStoreItemsResponse {
-                    constructor(properties?: POGOProtos.Networking.Platform.Responses.IGetStoreItemsResponse);
-                    public status: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.Status;
-                    public items: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreItem[];
-                    public player_currencies: POGOProtos.Data.Player.ICurrency[];
-                    public hash: string;
-                    public static create(properties?: POGOProtos.Networking.Platform.Responses.IGetStoreItemsResponse): POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse;
-                    public static encode(message: POGOProtos.Networking.Platform.Responses.IGetStoreItemsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static encodeDelimited(message: POGOProtos.Networking.Platform.Responses.IGetStoreItemsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse;
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse;
-                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse;
-                    public static toObject(message: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                    public toJSON(): { [k: string]: any };
-                }
-
-                namespace GetStoreItemsResponse {
-
-                    interface IStoreItem {
-                        item_id?: (string|null);
-                        is_iap?: (boolean|null);
-                        currency_to_buy?: (POGOProtos.Data.Player.ICurrency|null);
-                        yields_currency?: (POGOProtos.Data.Player.ICurrency|null);
-                        yields_item?: (POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreItemInfo|null);
-                        tags?: (POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreTags[]|null);
-                        unknown7?: (number|null);
-                    }
-
-                    class StoreItem implements IStoreItem {
-                        constructor(properties?: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreItem);
-                        public item_id: string;
-                        public is_iap: boolean;
-                        public currency_to_buy?: (POGOProtos.Data.Player.ICurrency|null);
-                        public yields_currency?: (POGOProtos.Data.Player.ICurrency|null);
-                        public yields_item?: (POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreItemInfo|null);
-                        public tags: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreTags[];
-                        public unknown7: number;
-                        public static create(properties?: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreItem): POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreItem;
-                        public static encode(message: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreItem, writer?: $protobuf.Writer): $protobuf.Writer;
-                        public static encodeDelimited(message: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreItem, writer?: $protobuf.Writer): $protobuf.Writer;
-                        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreItem;
-                        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreItem;
-                        public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreItem;
-                        public static toObject(message: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreItem, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                        public toJSON(): { [k: string]: any };
-                    }
-
-                    interface IStoreTags {
-                        tag?: (string|null);
-                        value?: (string|null);
-                    }
-
-                    class StoreTags implements IStoreTags {
-                        constructor(properties?: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreTags);
-                        public tag: string;
-                        public value: string;
-                        public static create(properties?: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreTags): POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreTags;
-                        public static encode(message: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreTags, writer?: $protobuf.Writer): $protobuf.Writer;
-                        public static encodeDelimited(message: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreTags, writer?: $protobuf.Writer): $protobuf.Writer;
-                        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreTags;
-                        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreTags;
-                        public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreTags;
-                        public static toObject(message: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreTags, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                        public toJSON(): { [k: string]: any };
-                    }
-
-                    interface IStoreItemInfo {
-                        item_id?: (string|null);
-                        count?: (number|null);
-                    }
-
-                    class StoreItemInfo implements IStoreItemInfo {
-                        constructor(properties?: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreItemInfo);
-                        public item_id: string;
-                        public count: number;
-                        public static create(properties?: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreItemInfo): POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreItemInfo;
-                        public static encode(message: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreItemInfo, writer?: $protobuf.Writer): $protobuf.Writer;
-                        public static encodeDelimited(message: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreItemInfo, writer?: $protobuf.Writer): $protobuf.Writer;
-                        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreItemInfo;
-                        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreItemInfo;
-                        public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreItemInfo;
-                        public static toObject(message: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreItemInfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                        public toJSON(): { [k: string]: any };
-                    }
-
-                    enum Status {
-                        UNDEFINED = 0,
-                        OKAY = 1
-                    }
-                }
-
-                interface IJoinEventResponse {
-                    status?: (POGOProtos.Networking.Platform.Responses.JoinEventResponse.Status|null);
-                    qrcode?: (string|null);
-                }
-
-                class JoinEventResponse implements IJoinEventResponse {
-                    constructor(properties?: POGOProtos.Networking.Platform.Responses.IJoinEventResponse);
-                    public status: POGOProtos.Networking.Platform.Responses.JoinEventResponse.Status;
-                    public qrcode: string;
-                    public static create(properties?: POGOProtos.Networking.Platform.Responses.IJoinEventResponse): POGOProtos.Networking.Platform.Responses.JoinEventResponse;
-                    public static encode(message: POGOProtos.Networking.Platform.Responses.IJoinEventResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static encodeDelimited(message: POGOProtos.Networking.Platform.Responses.IJoinEventResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Platform.Responses.JoinEventResponse;
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Platform.Responses.JoinEventResponse;
-                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Platform.Responses.JoinEventResponse;
-                    public static toObject(message: POGOProtos.Networking.Platform.Responses.JoinEventResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                    public toJSON(): { [k: string]: any };
-                }
-
-                namespace JoinEventResponse {
-
-                    enum Status {
-                        UNDEFINED = 0,
-                        SUCCESS = 1,
-                        INVALID = 2
-                    }
-                }
-
-                interface ISendEncryptedSignatureResponse {
-                    received?: (boolean|null);
-                }
-
-                class SendEncryptedSignatureResponse implements ISendEncryptedSignatureResponse {
-                    constructor(properties?: POGOProtos.Networking.Platform.Responses.ISendEncryptedSignatureResponse);
-                    public received: boolean;
-                    public static create(properties?: POGOProtos.Networking.Platform.Responses.ISendEncryptedSignatureResponse): POGOProtos.Networking.Platform.Responses.SendEncryptedSignatureResponse;
-                    public static encode(message: POGOProtos.Networking.Platform.Responses.ISendEncryptedSignatureResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static encodeDelimited(message: POGOProtos.Networking.Platform.Responses.ISendEncryptedSignatureResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Platform.Responses.SendEncryptedSignatureResponse;
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Platform.Responses.SendEncryptedSignatureResponse;
-                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Platform.Responses.SendEncryptedSignatureResponse;
-                    public static toObject(message: POGOProtos.Networking.Platform.Responses.SendEncryptedSignatureResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                    public toJSON(): { [k: string]: any };
-                }
-
-                interface IUnknownPtr8Response {
-                    message?: (string|null);
-                }
-
-                class UnknownPtr8Response implements IUnknownPtr8Response {
-                    constructor(properties?: POGOProtos.Networking.Platform.Responses.IUnknownPtr8Response);
-                    public message: string;
-                    public static create(properties?: POGOProtos.Networking.Platform.Responses.IUnknownPtr8Response): POGOProtos.Networking.Platform.Responses.UnknownPtr8Response;
-                    public static encode(message: POGOProtos.Networking.Platform.Responses.IUnknownPtr8Response, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static encodeDelimited(message: POGOProtos.Networking.Platform.Responses.IUnknownPtr8Response, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Platform.Responses.UnknownPtr8Response;
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Platform.Responses.UnknownPtr8Response;
-                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Platform.Responses.UnknownPtr8Response;
-                    public static toObject(message: POGOProtos.Networking.Platform.Responses.UnknownPtr8Response, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                    public toJSON(): { [k: string]: any };
-                }
-            }
-        }
-
         namespace Requests {
 
             namespace Messages {
@@ -7722,6 +7241,70 @@ export namespace POGOProtos {
                     public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.AwardFreeRaidTicketMessage;
                     public static toObject(message: POGOProtos.Networking.Requests.Messages.AwardFreeRaidTicketMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
                     public toJSON(): { [k: string]: any };
+                }
+
+                interface IBelugaTransactionCompleteMessage {
+                    num_of_days?: (number|null);
+                    num_of_weeks?: (number|null);
+                }
+
+                class BelugaTransactionCompleteMessage implements IBelugaTransactionCompleteMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IBelugaTransactionCompleteMessage);
+                    public num_of_days: number;
+                    public num_of_weeks: number;
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IBelugaTransactionCompleteMessage): POGOProtos.Networking.Requests.Messages.BelugaTransactionCompleteMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IBelugaTransactionCompleteMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IBelugaTransactionCompleteMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.BelugaTransactionCompleteMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.BelugaTransactionCompleteMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.BelugaTransactionCompleteMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.BelugaTransactionCompleteMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IBelugaTransactionStartMessage {
+                    beluga_transfer?: (POGOProtos.Networking.Requests.Messages.BelugaTransactionStartMessage.IBelugaBleCompleteTransferRequest|null);
+                    app_signature?: (Uint8Array|null);
+                    firmware_signature?: (Uint8Array|null);
+                }
+
+                class BelugaTransactionStartMessage implements IBelugaTransactionStartMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IBelugaTransactionStartMessage);
+                    public beluga_transfer?: (POGOProtos.Networking.Requests.Messages.BelugaTransactionStartMessage.IBelugaBleCompleteTransferRequest|null);
+                    public app_signature: Uint8Array;
+                    public firmware_signature: Uint8Array;
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IBelugaTransactionStartMessage): POGOProtos.Networking.Requests.Messages.BelugaTransactionStartMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IBelugaTransactionStartMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IBelugaTransactionStartMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.BelugaTransactionStartMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.BelugaTransactionStartMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.BelugaTransactionStartMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.BelugaTransactionStartMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                namespace BelugaTransactionStartMessage {
+
+                    interface IBelugaBleCompleteTransferRequest {
+                        transaction_id?: (number|Long|null);
+                        beluga_requested_item_id?: (number|null);
+                        nonce?: (string|null);
+                    }
+
+                    class BelugaBleCompleteTransferRequest implements IBelugaBleCompleteTransferRequest {
+                        constructor(properties?: POGOProtos.Networking.Requests.Messages.BelugaTransactionStartMessage.IBelugaBleCompleteTransferRequest);
+                        public transaction_id: (number|Long);
+                        public beluga_requested_item_id: number;
+                        public nonce: string;
+                        public static create(properties?: POGOProtos.Networking.Requests.Messages.BelugaTransactionStartMessage.IBelugaBleCompleteTransferRequest): POGOProtos.Networking.Requests.Messages.BelugaTransactionStartMessage.BelugaBleCompleteTransferRequest;
+                        public static encode(message: POGOProtos.Networking.Requests.Messages.BelugaTransactionStartMessage.IBelugaBleCompleteTransferRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+                        public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.BelugaTransactionStartMessage.IBelugaBleCompleteTransferRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+                        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.BelugaTransactionStartMessage.BelugaBleCompleteTransferRequest;
+                        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.BelugaTransactionStartMessage.BelugaBleCompleteTransferRequest;
+                        public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.BelugaTransactionStartMessage.BelugaBleCompleteTransferRequest;
+                        public static toObject(message: POGOProtos.Networking.Requests.Messages.BelugaTransactionStartMessage.BelugaBleCompleteTransferRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                        public toJSON(): { [k: string]: any };
+                    }
                 }
 
                 interface ICancelTradingMessage {
@@ -8370,6 +7953,25 @@ export namespace POGOProtos {
                     public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.GetDownloadUrlsMessage;
                     public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.GetDownloadUrlsMessage;
                     public static toObject(message: POGOProtos.Networking.Requests.Messages.GetDownloadUrlsMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IGetFitnessReportMessage {
+                    num_of_days?: (number|null);
+                    num_of_weeks?: (number|null);
+                }
+
+                class GetFitnessReportMessage implements IGetFitnessReportMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IGetFitnessReportMessage);
+                    public num_of_days: number;
+                    public num_of_weeks: number;
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IGetFitnessReportMessage): POGOProtos.Networking.Requests.Messages.GetFitnessReportMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IGetFitnessReportMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IGetFitnessReportMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.GetFitnessReportMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.GetFitnessReportMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.GetFitnessReportMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.GetFitnessReportMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
                     public toJSON(): { [k: string]: any };
                 }
 
@@ -9362,6 +8964,25 @@ export namespace POGOProtos {
                     public toJSON(): { [k: string]: any };
                 }
 
+                interface IRequestGeofenceUpdatesMessage {
+                    number_of_points?: (number|null);
+                    minimum_point_radius_m?: (number|null);
+                }
+
+                class RequestGeofenceUpdatesMessage implements IRequestGeofenceUpdatesMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IRequestGeofenceUpdatesMessage);
+                    public number_of_points: number;
+                    public minimum_point_radius_m: number;
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IRequestGeofenceUpdatesMessage): POGOProtos.Networking.Requests.Messages.RequestGeofenceUpdatesMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IRequestGeofenceUpdatesMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IRequestGeofenceUpdatesMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.RequestGeofenceUpdatesMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.RequestGeofenceUpdatesMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.RequestGeofenceUpdatesMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.RequestGeofenceUpdatesMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
                 interface ISavePlayerSnapshotMessage {
                 }
 
@@ -9531,6 +9152,27 @@ export namespace POGOProtos {
                     public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.SetFriendNicknameMessage;
                     public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.SetFriendNicknameMessage;
                     public static toObject(message: POGOProtos.Networking.Requests.Messages.SetFriendNicknameMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface ISetInGameCurrencyExchangeRateMessage {
+                    in_game_currency?: (string|null);
+                    fiat_currency?: (string|null);
+                    fiat_currency_cost_e6_per_in_game_unit?: (number|Long|null);
+                }
+
+                class SetInGameCurrencyExchangeRateMessage implements ISetInGameCurrencyExchangeRateMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.ISetInGameCurrencyExchangeRateMessage);
+                    public in_game_currency: string;
+                    public fiat_currency: string;
+                    public fiat_currency_cost_e6_per_in_game_unit: (number|Long);
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.ISetInGameCurrencyExchangeRateMessage): POGOProtos.Networking.Requests.Messages.SetInGameCurrencyExchangeRateMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.ISetInGameCurrencyExchangeRateMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.ISetInGameCurrencyExchangeRateMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.SetInGameCurrencyExchangeRateMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.SetInGameCurrencyExchangeRateMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.SetInGameCurrencyExchangeRateMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.SetInGameCurrencyExchangeRateMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
                     public toJSON(): { [k: string]: any };
                 }
 
@@ -9725,6 +9367,38 @@ export namespace POGOProtos {
                     public toJSON(): { [k: string]: any };
                 }
 
+                interface IUpdatePlayerLocationMessage {
+                    geofence_identifier?: (string|null);
+                    reason?: (POGOProtos.Networking.Requests.Messages.UpdatePlayerLocationMessage.PingReason|null);
+                }
+
+                class UpdatePlayerLocationMessage implements IUpdatePlayerLocationMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IUpdatePlayerLocationMessage);
+                    public geofence_identifier: string;
+                    public reason: POGOProtos.Networking.Requests.Messages.UpdatePlayerLocationMessage.PingReason;
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IUpdatePlayerLocationMessage): POGOProtos.Networking.Requests.Messages.UpdatePlayerLocationMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IUpdatePlayerLocationMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IUpdatePlayerLocationMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.UpdatePlayerLocationMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.UpdatePlayerLocationMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.UpdatePlayerLocationMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.UpdatePlayerLocationMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                namespace UpdatePlayerLocationMessage {
+
+                    enum PingReason {
+                        UNSET = 0,
+                        ENTRANCE_EVENT = 1,
+                        EXIT_EVENT = 2,
+                        DWELL_EVENT = 3,
+                        VISIT_EVENT = 4,
+                        FITNESS_WAKEUP = 5,
+                        OTHER_WAKEUP = 6
+                    }
+                }
+
                 interface IUpdateTradingMessage {
                     player_id?: (string|null);
                     pokemon_id?: (number|Long|null);
@@ -9746,11 +9420,13 @@ export namespace POGOProtos {
 
                 interface IUpgradePokemonMessage {
                     pokemon_id?: (number|Long|null);
+                    preview?: (boolean|null);
                 }
 
                 class UpgradePokemonMessage implements IUpgradePokemonMessage {
                     constructor(properties?: POGOProtos.Networking.Requests.Messages.IUpgradePokemonMessage);
                     public pokemon_id: (number|Long);
+                    public preview: boolean;
                     public static create(properties?: POGOProtos.Networking.Requests.Messages.IUpgradePokemonMessage): POGOProtos.Networking.Requests.Messages.UpgradePokemonMessage;
                     public static encode(message: POGOProtos.Networking.Requests.Messages.IUpgradePokemonMessage, writer?: $protobuf.Writer): $protobuf.Writer;
                     public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IUpgradePokemonMessage, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -10103,6 +9779,8 @@ export namespace POGOProtos {
                 FETCH_ALL_NEWS = 816,
                 MARK_READ_NEWS_ARTICLE = 817,
                 GET_PLAYER_DISPLAY_INFO = 818,
+                BELUGA_TRANSACTION_START = 819,
+                BELUGA_TRANSACTION_COMPLETE = 820,
                 GET_NEW_QUESTS = 900,
                 GET_QUEST_DETAILS = 901,
                 COMPLETE_QUEST = 902,
@@ -10131,6 +9809,7 @@ export namespace POGOProtos {
                 SEND_PROBE = 1020,
                 PROBE_DATA = 1021,
                 COMBAT_DATA = 1022,
+                COMBAT_CHALLENGE_DATA = 1023,
                 REGISTER_PUSH_NOTIFICATION = 5000,
                 UNREGISTER_PUSH_NOTIFICATION = 5001,
                 UPDATE_NOTIFICATION_STATUS = 5002,
@@ -10148,7 +9827,24 @@ export namespace POGOProtos {
                 GET_AVAILABLE_SUBMISSIONS = 5014,
                 GET_SIGNED_URL_FOR_PHOTO_UPLOAD = 5015,
                 REPLACE_LOGIN_ACTION = 5016,
-                PROXY_SOCIAL_SIDE_CHANNEL_ACTION = 5017
+                PROXY_SOCIAL_SIDE_CHANNEL_ACTION = 5017,
+                COLLECT_CLIENT_TELEMETRY = 5018,
+                PURCHASE_SKU = 5019,
+                GET_AVAILABLE_SKUS_AND_BALANCES = 5020,
+                REDEEM_GOOGLE_RECEIPT = 5021,
+                REDEEM_APPLE_RECEIPT = 5022,
+                REDEEM_DESKTOP_RECEIPT = 5023,
+                UPDATE_FITNESS_METRICS = 5024,
+                GET_FITNESS_REPORT = 5025,
+                GET_CLIENT_TELEMETRY_SETTINGS = 5026,
+                REGISTER_BACKGROUND_SERVICE = 5028,
+                GET_CLIENT_BGMODE_SETTINGS = 5029,
+                PING_ASYNC = 5027,
+                PING_DOWNSTREAM = 5030,
+                SET_IN_GAME_CURRENCY_EXCHANGE_RATE = 5032,
+                REQUEST_GEOFENCE_UPDATES = 5033,
+                UPDATE_PLAYER_LOCATION = 5034,
+                PROFANITY_FILTER_ACTION = 5035
             }
 
             namespace Social {
@@ -10204,6 +9900,27 @@ export namespace POGOProtos {
                     public toJSON(): { [k: string]: any };
                 }
 
+                interface IGetFacebookFriendListMessage {
+                    fb_access_token?: (string|null);
+                    limit?: (number|null);
+                    cursor?: (string|null);
+                }
+
+                class GetFacebookFriendListMessage implements IGetFacebookFriendListMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Social.IGetFacebookFriendListMessage);
+                    public fb_access_token: string;
+                    public limit: number;
+                    public cursor: string;
+                    public static create(properties?: POGOProtos.Networking.Requests.Social.IGetFacebookFriendListMessage): POGOProtos.Networking.Requests.Social.GetFacebookFriendListMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Social.IGetFacebookFriendListMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Social.IGetFacebookFriendListMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Social.GetFacebookFriendListMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Social.GetFacebookFriendListMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Social.GetFacebookFriendListMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Social.GetFacebookFriendListMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
                 interface IIsMyFriendMessage {
                     is_history?: (boolean|null);
                     is_reverse?: (boolean|null);
@@ -10222,23 +9939,6 @@ export namespace POGOProtos {
                     public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Social.IsMyFriendMessage;
                     public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Social.IsMyFriendMessage;
                     public static toObject(message: POGOProtos.Networking.Requests.Social.IsMyFriendMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                    public toJSON(): { [k: string]: any };
-                }
-
-                interface IInviteFacebookFriendMessage {
-                    business_token?: (string|null);
-                }
-
-                class InviteFacebookFriendMessage implements IInviteFacebookFriendMessage {
-                    constructor(properties?: POGOProtos.Networking.Requests.Social.IInviteFacebookFriendMessage);
-                    public business_token: string;
-                    public static create(properties?: POGOProtos.Networking.Requests.Social.IInviteFacebookFriendMessage): POGOProtos.Networking.Requests.Social.InviteFacebookFriendMessage;
-                    public static encode(message: POGOProtos.Networking.Requests.Social.IInviteFacebookFriendMessage, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Social.IInviteFacebookFriendMessage, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Social.InviteFacebookFriendMessage;
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Social.InviteFacebookFriendMessage;
-                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Social.InviteFacebookFriendMessage;
-                    public static toObject(message: POGOProtos.Networking.Requests.Social.InviteFacebookFriendMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
                     public toJSON(): { [k: string]: any };
                 }
 
@@ -10338,6 +10038,25 @@ export namespace POGOProtos {
                     public toJSON(): { [k: string]: any };
                 }
 
+                interface ISendFacebookFriendInviteMessage {
+                    fb_access_token?: (string|null);
+                    friend_fb_user_id?: (string|null);
+                }
+
+                class SendFacebookFriendInviteMessage implements ISendFacebookFriendInviteMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Social.ISendFacebookFriendInviteMessage);
+                    public fb_access_token: string;
+                    public friend_fb_user_id: string;
+                    public static create(properties?: POGOProtos.Networking.Requests.Social.ISendFacebookFriendInviteMessage): POGOProtos.Networking.Requests.Social.SendFacebookFriendInviteMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Social.ISendFacebookFriendInviteMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Social.ISendFacebookFriendInviteMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Social.SendFacebookFriendInviteMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Social.SendFacebookFriendInviteMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Social.SendFacebookFriendInviteMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Social.SendFacebookFriendInviteMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
                 interface ISendFriendInviteMessage {
                     player_id?: (string|null);
                     friend_code?: (string|null);
@@ -10354,6 +10073,25 @@ export namespace POGOProtos {
                     public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Social.SendFriendInviteMessage;
                     public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Social.SendFriendInviteMessage;
                     public static toObject(message: POGOProtos.Networking.Requests.Social.SendFriendInviteMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IUpdateFacebookStatusMessage {
+                    fb_access_token?: (string|null);
+                    force_update?: (boolean|null);
+                }
+
+                class UpdateFacebookStatusMessage implements IUpdateFacebookStatusMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Social.IUpdateFacebookStatusMessage);
+                    public fb_access_token: string;
+                    public force_update: boolean;
+                    public static create(properties?: POGOProtos.Networking.Requests.Social.IUpdateFacebookStatusMessage): POGOProtos.Networking.Requests.Social.UpdateFacebookStatusMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Social.IUpdateFacebookStatusMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Social.IUpdateFacebookStatusMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Social.UpdateFacebookStatusMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Social.UpdateFacebookStatusMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Social.UpdateFacebookStatusMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Social.UpdateFacebookStatusMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
                     public toJSON(): { [k: string]: any };
                 }
             }
@@ -10516,6 +10254,150 @@ export namespace POGOProtos {
                     ERROR_PLAYER_DOES_NOT_MEET_MIN_LEVEL = 2,
                     ERROR_DAILY_TICKET_ALREADY_AWARDED = 3,
                     ERROR_PLAYER_OUT_OF_RANGE = 4
+                }
+            }
+
+            interface IBelugaTransactionCompleteResponse {
+                status?: (POGOProtos.Networking.Responses.BelugaTransactionCompleteResponse.Status|null);
+                candy_awarded?: (number|null);
+                loot_awarded?: (POGOProtos.Inventory.ILoot|null);
+                beluga_finalize_response?: (POGOProtos.Networking.Responses.BelugaTransactionCompleteResponse.IBelugaBleFinalizeTransfer|null);
+                buckets_until_weekly_award?: (number|null);
+            }
+
+            class BelugaTransactionCompleteResponse implements IBelugaTransactionCompleteResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IBelugaTransactionCompleteResponse);
+                public status: POGOProtos.Networking.Responses.BelugaTransactionCompleteResponse.Status;
+                public candy_awarded: number;
+                public loot_awarded?: (POGOProtos.Inventory.ILoot|null);
+                public beluga_finalize_response?: (POGOProtos.Networking.Responses.BelugaTransactionCompleteResponse.IBelugaBleFinalizeTransfer|null);
+                public buckets_until_weekly_award: number;
+                public static create(properties?: POGOProtos.Networking.Responses.IBelugaTransactionCompleteResponse): POGOProtos.Networking.Responses.BelugaTransactionCompleteResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IBelugaTransactionCompleteResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IBelugaTransactionCompleteResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.BelugaTransactionCompleteResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.BelugaTransactionCompleteResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.BelugaTransactionCompleteResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.BelugaTransactionCompleteResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace BelugaTransactionCompleteResponse {
+
+                enum Status {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    FAILED = 2,
+                    ERROR_INVALID_POKEMON_ID = 3,
+                    ERROR_POKEMON_DEPLOYED = 4,
+                    ERROR_POKEMON_NOT_ALLOWED = 5,
+                    ERROR_POKEMON_IS_BUDDY = 6,
+                    ERROR_INVALID_TRANSACTION_ID = 7,
+                    ERROR_MISSING_TRANSACTION_ID = 8
+                }
+
+                interface IBelugaBleFinalizeTransfer {
+                    beluga_transfer_complete?: (POGOProtos.Networking.Responses.BelugaTransactionCompleteResponse.BelugaBleFinalizeTransfer.IBelugaBleTransferComplete|null);
+                    server_signature?: (Uint8Array|null);
+                }
+
+                class BelugaBleFinalizeTransfer implements IBelugaBleFinalizeTransfer {
+                    constructor(properties?: POGOProtos.Networking.Responses.BelugaTransactionCompleteResponse.IBelugaBleFinalizeTransfer);
+                    public beluga_transfer_complete?: (POGOProtos.Networking.Responses.BelugaTransactionCompleteResponse.BelugaBleFinalizeTransfer.IBelugaBleTransferComplete|null);
+                    public server_signature: Uint8Array;
+                    public static create(properties?: POGOProtos.Networking.Responses.BelugaTransactionCompleteResponse.IBelugaBleFinalizeTransfer): POGOProtos.Networking.Responses.BelugaTransactionCompleteResponse.BelugaBleFinalizeTransfer;
+                    public static encode(message: POGOProtos.Networking.Responses.BelugaTransactionCompleteResponse.IBelugaBleFinalizeTransfer, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Responses.BelugaTransactionCompleteResponse.IBelugaBleFinalizeTransfer, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.BelugaTransactionCompleteResponse.BelugaBleFinalizeTransfer;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.BelugaTransactionCompleteResponse.BelugaBleFinalizeTransfer;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.BelugaTransactionCompleteResponse.BelugaBleFinalizeTransfer;
+                    public static toObject(message: POGOProtos.Networking.Responses.BelugaTransactionCompleteResponse.BelugaBleFinalizeTransfer, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                namespace BelugaBleFinalizeTransfer {
+
+                    interface IBelugaBleTransferComplete {
+                        nonce?: (string|null);
+                        beluga_id?: (string|null);
+                    }
+
+                    class BelugaBleTransferComplete implements IBelugaBleTransferComplete {
+                        constructor(properties?: POGOProtos.Networking.Responses.BelugaTransactionCompleteResponse.BelugaBleFinalizeTransfer.IBelugaBleTransferComplete);
+                        public nonce: string;
+                        public beluga_id: string;
+                        public static create(properties?: POGOProtos.Networking.Responses.BelugaTransactionCompleteResponse.BelugaBleFinalizeTransfer.IBelugaBleTransferComplete): POGOProtos.Networking.Responses.BelugaTransactionCompleteResponse.BelugaBleFinalizeTransfer.BelugaBleTransferComplete;
+                        public static encode(message: POGOProtos.Networking.Responses.BelugaTransactionCompleteResponse.BelugaBleFinalizeTransfer.IBelugaBleTransferComplete, writer?: $protobuf.Writer): $protobuf.Writer;
+                        public static encodeDelimited(message: POGOProtos.Networking.Responses.BelugaTransactionCompleteResponse.BelugaBleFinalizeTransfer.IBelugaBleTransferComplete, writer?: $protobuf.Writer): $protobuf.Writer;
+                        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.BelugaTransactionCompleteResponse.BelugaBleFinalizeTransfer.BelugaBleTransferComplete;
+                        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.BelugaTransactionCompleteResponse.BelugaBleFinalizeTransfer.BelugaBleTransferComplete;
+                        public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.BelugaTransactionCompleteResponse.BelugaBleFinalizeTransfer.BelugaBleTransferComplete;
+                        public static toObject(message: POGOProtos.Networking.Responses.BelugaTransactionCompleteResponse.BelugaBleFinalizeTransfer.BelugaBleTransferComplete, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                        public toJSON(): { [k: string]: any };
+                    }
+                }
+            }
+
+            interface IBelugaTransactionStartResponse {
+                status?: (POGOProtos.Networking.Responses.BelugaTransactionStartResponse.Status|null);
+                beluga_transfer_prep?: (POGOProtos.Networking.Responses.BelugaTransactionStartResponse.IBelugaBleTransferPrep|null);
+                server_signature?: (Uint8Array|null);
+            }
+
+            class BelugaTransactionStartResponse implements IBelugaTransactionStartResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IBelugaTransactionStartResponse);
+                public status: POGOProtos.Networking.Responses.BelugaTransactionStartResponse.Status;
+                public beluga_transfer_prep?: (POGOProtos.Networking.Responses.BelugaTransactionStartResponse.IBelugaBleTransferPrep|null);
+                public server_signature: Uint8Array;
+                public static create(properties?: POGOProtos.Networking.Responses.IBelugaTransactionStartResponse): POGOProtos.Networking.Responses.BelugaTransactionStartResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IBelugaTransactionStartResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IBelugaTransactionStartResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.BelugaTransactionStartResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.BelugaTransactionStartResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.BelugaTransactionStartResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.BelugaTransactionStartResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace BelugaTransactionStartResponse {
+
+                enum Status {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    FAILED = 2,
+                    ERROR_INVALID_POKEMON_ID = 3,
+                    ERROR_POKEMON_DEPLOYED = 4,
+                    ERROR_POKEMON_IS_EGG = 5,
+                    ERROR_POKEMON_IS_BUDDY = 6,
+                    ERROR_POKEMON_NOT_ALLOWED = 7,
+                    ERROR_INVALID_NONCE = 8,
+                    ERROR_TOO_MANY_POKEMON = 9,
+                    ERROR_NO_POKEMON_SPECIFIED = 10
+                }
+
+                interface IBelugaBleTransferPrep {
+                    pokemon_list?: (POGOProtos.Data.Beluga.IBelugaPokemon[]|null);
+                    eligble_for_item?: (boolean|null);
+                    transaction_id?: (number|Long|null);
+                    beluga_id?: (string|null);
+                    nonce?: (string|null);
+                }
+
+                class BelugaBleTransferPrep implements IBelugaBleTransferPrep {
+                    constructor(properties?: POGOProtos.Networking.Responses.BelugaTransactionStartResponse.IBelugaBleTransferPrep);
+                    public pokemon_list: POGOProtos.Data.Beluga.IBelugaPokemon[];
+                    public eligble_for_item: boolean;
+                    public transaction_id: (number|Long);
+                    public beluga_id: string;
+                    public nonce: string;
+                    public static create(properties?: POGOProtos.Networking.Responses.BelugaTransactionStartResponse.IBelugaBleTransferPrep): POGOProtos.Networking.Responses.BelugaTransactionStartResponse.BelugaBleTransferPrep;
+                    public static encode(message: POGOProtos.Networking.Responses.BelugaTransactionStartResponse.IBelugaBleTransferPrep, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Responses.BelugaTransactionStartResponse.IBelugaBleTransferPrep, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.BelugaTransactionStartResponse.BelugaBleTransferPrep;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.BelugaTransactionStartResponse.BelugaBleTransferPrep;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.BelugaTransactionStartResponse.BelugaBleTransferPrep;
+                    public static toObject(message: POGOProtos.Networking.Responses.BelugaTransactionStartResponse.BelugaBleTransferPrep, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
                 }
             }
 
@@ -11124,6 +11006,7 @@ export namespace POGOProtos {
                     weather_bonus_settings?: (POGOProtos.Settings.Master.IWeatherBonus|null);
                     pokemon_scale_settings?: (POGOProtos.Settings.Master.IPokemonScaleSetting|null);
                     iap_category_display?: (POGOProtos.Settings.Master.IIapItemCategoryDisplay|null);
+                    beluga_pokemon_whitelist?: (POGOProtos.Settings.Master.IBelugaPokemonWhitelist|null);
                     onboarding_settings?: (POGOProtos.Settings.Master.IOnboardingSettings|null);
                     friendship_milestone_settings?: (POGOProtos.Settings.Master.IFriendshipLevelMilestoneSettings|null);
                     lucky_pokemon_settings?: (POGOProtos.Settings.Master.ILuckyPokemonSettings|null);
@@ -11158,6 +11041,7 @@ export namespace POGOProtos {
                     public weather_bonus_settings?: (POGOProtos.Settings.Master.IWeatherBonus|null);
                     public pokemon_scale_settings?: (POGOProtos.Settings.Master.IPokemonScaleSetting|null);
                     public iap_category_display?: (POGOProtos.Settings.Master.IIapItemCategoryDisplay|null);
+                    public beluga_pokemon_whitelist?: (POGOProtos.Settings.Master.IBelugaPokemonWhitelist|null);
                     public onboarding_settings?: (POGOProtos.Settings.Master.IOnboardingSettings|null);
                     public friendship_milestone_settings?: (POGOProtos.Settings.Master.IFriendshipLevelMilestoneSettings|null);
                     public lucky_pokemon_settings?: (POGOProtos.Settings.Master.ILuckyPokemonSettings|null);
@@ -11635,6 +11519,7 @@ export namespace POGOProtos {
                 success?: (boolean|null);
                 family_candy_id?: (POGOProtos.Enums.PokemonFamilyId|null);
                 candy_earned_count?: (number|null);
+                km_remaining?: (number|null);
             }
 
             class GetBuddyWalkedResponse implements IGetBuddyWalkedResponse {
@@ -11642,6 +11527,7 @@ export namespace POGOProtos {
                 public success: boolean;
                 public family_candy_id: POGOProtos.Enums.PokemonFamilyId;
                 public candy_earned_count: number;
+                public km_remaining: number;
                 public static create(properties?: POGOProtos.Networking.Responses.IGetBuddyWalkedResponse): POGOProtos.Networking.Responses.GetBuddyWalkedResponse;
                 public static encode(message: POGOProtos.Networking.Responses.IGetBuddyWalkedResponse, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Networking.Responses.IGetBuddyWalkedResponse, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -11667,6 +11553,39 @@ export namespace POGOProtos {
                 public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.GetDownloadUrlsResponse;
                 public static toObject(message: POGOProtos.Networking.Responses.GetDownloadUrlsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
                 public toJSON(): { [k: string]: any };
+            }
+
+            interface IGetFitnessReportResponse {
+                status?: (POGOProtos.Networking.Responses.GetFitnessReportResponse.Status|null);
+                daily_reports?: (POGOProtos.Data.Fitness.IFitnessReport[]|null);
+                weekly_reports?: (POGOProtos.Data.Fitness.IFitnessReport[]|null);
+            }
+
+            class GetFitnessReportResponse implements IGetFitnessReportResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IGetFitnessReportResponse);
+                public status: POGOProtos.Networking.Responses.GetFitnessReportResponse.Status;
+                public daily_reports: POGOProtos.Data.Fitness.IFitnessReport[];
+                public weekly_reports: POGOProtos.Data.Fitness.IFitnessReport[];
+                public static create(properties?: POGOProtos.Networking.Responses.IGetFitnessReportResponse): POGOProtos.Networking.Responses.GetFitnessReportResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IGetFitnessReportResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IGetFitnessReportResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.GetFitnessReportResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.GetFitnessReportResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.GetFitnessReportResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.GetFitnessReportResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace GetFitnessReportResponse {
+
+                enum Status {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_PLAYER_NOT_FOUND = 2,
+                    ERROR_RECORDS_NOT_FOUND = 3,
+                    ERROR_INVALID_WINDOW = 4,
+                    ERROR_UNKNOWN = 5
+                }
             }
 
             interface IGetFitnessRewardsResponse {
@@ -12915,7 +12834,8 @@ export namespace POGOProtos {
                     SUCCESS = 1,
                     NOT_AVAILABLE = 2,
                     OVER_INVENTORY_LIMIT = 3,
-                    ALREADY_REDEEMED = 4
+                    ALREADY_REDEEMED = 4,
+                    OVER_PLAYER_REDEMPTION_LIMIT = 5
                 }
             }
 
@@ -12992,7 +12912,7 @@ export namespace POGOProtos {
                 min_player_level?: (number|null);
                 has_valid_email?: (boolean|null);
                 is_feature_enabled?: (boolean|null);
-                time_window_for_submissions_limit_ms?: (number|null);
+                time_window_for_submissions_limit_ms?: (number|Long|null);
             }
 
             class GetAvailableSubmissionsResponse implements IGetAvailableSubmissionsResponse {
@@ -13001,7 +12921,7 @@ export namespace POGOProtos {
                 public min_player_level: number;
                 public has_valid_email: boolean;
                 public is_feature_enabled: boolean;
-                public time_window_for_submissions_limit_ms: number;
+                public time_window_for_submissions_limit_ms: (number|Long);
                 public static create(properties?: POGOProtos.Networking.Responses.IGetAvailableSubmissionsResponse): POGOProtos.Networking.Responses.GetAvailableSubmissionsResponse;
                 public static encode(message: POGOProtos.Networking.Responses.IGetAvailableSubmissionsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Networking.Responses.IGetAvailableSubmissionsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -13159,6 +13079,23 @@ export namespace POGOProtos {
                     ERROR_QUEST_NOT_FOUND = 2,
                     ERROR_STORY_QUEST_NOT_REMOVABLE = 3
                 }
+            }
+
+            interface IRequestGeofenceUpdatesResponse {
+                geofence?: (POGOProtos.Data.Geofence.IGeofenceMetadata[]|null);
+            }
+
+            class RequestGeofenceUpdatesResponse implements IRequestGeofenceUpdatesResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IRequestGeofenceUpdatesResponse);
+                public geofence: POGOProtos.Data.Geofence.IGeofenceMetadata[];
+                public static create(properties?: POGOProtos.Networking.Responses.IRequestGeofenceUpdatesResponse): POGOProtos.Networking.Responses.RequestGeofenceUpdatesResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IRequestGeofenceUpdatesResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IRequestGeofenceUpdatesResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.RequestGeofenceUpdatesResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.RequestGeofenceUpdatesResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.RequestGeofenceUpdatesResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.RequestGeofenceUpdatesResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
             }
 
             interface ISavePlayerSnapshotResponse {
@@ -13452,6 +13389,32 @@ export namespace POGOProtos {
                 }
             }
 
+            interface ISetInGameCurrencyExchangeRateResponse {
+                status?: (POGOProtos.Networking.Responses.SetInGameCurrencyExchangeRateResponse.Status|null);
+            }
+
+            class SetInGameCurrencyExchangeRateResponse implements ISetInGameCurrencyExchangeRateResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.ISetInGameCurrencyExchangeRateResponse);
+                public status: POGOProtos.Networking.Responses.SetInGameCurrencyExchangeRateResponse.Status;
+                public static create(properties?: POGOProtos.Networking.Responses.ISetInGameCurrencyExchangeRateResponse): POGOProtos.Networking.Responses.SetInGameCurrencyExchangeRateResponse;
+                public static encode(message: POGOProtos.Networking.Responses.ISetInGameCurrencyExchangeRateResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.ISetInGameCurrencyExchangeRateResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.SetInGameCurrencyExchangeRateResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.SetInGameCurrencyExchangeRateResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.SetInGameCurrencyExchangeRateResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.SetInGameCurrencyExchangeRateResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace SetInGameCurrencyExchangeRateResponse {
+
+                enum Status {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    FAILURE = 2
+                }
+            }
+
             interface ISetLobbyPokemonResponse {
                 result?: (POGOProtos.Networking.Responses.SetLobbyPokemonResponse.Result|null);
                 lobby?: (POGOProtos.Data.Raid.ILobby|null);
@@ -13697,6 +13660,68 @@ export namespace POGOProtos {
                     }
                 }
 
+                interface IUpdateFacebookStatusResponse {
+                    result?: (POGOProtos.Networking.Responses.Social.UpdateFacebookStatusResponse.Result|null);
+                }
+
+                class UpdateFacebookStatusResponse implements IUpdateFacebookStatusResponse {
+                    constructor(properties?: POGOProtos.Networking.Responses.Social.IUpdateFacebookStatusResponse);
+                    public result: POGOProtos.Networking.Responses.Social.UpdateFacebookStatusResponse.Result;
+                    public static create(properties?: POGOProtos.Networking.Responses.Social.IUpdateFacebookStatusResponse): POGOProtos.Networking.Responses.Social.UpdateFacebookStatusResponse;
+                    public static encode(message: POGOProtos.Networking.Responses.Social.IUpdateFacebookStatusResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Responses.Social.IUpdateFacebookStatusResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.Social.UpdateFacebookStatusResponse;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.Social.UpdateFacebookStatusResponse;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.Social.UpdateFacebookStatusResponse;
+                    public static toObject(message: POGOProtos.Networking.Responses.Social.UpdateFacebookStatusResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                namespace UpdateFacebookStatusResponse {
+
+                    enum Result {
+                        UNSET = 0,
+                        SUCCESS = 1,
+                        ERROR_UNKNOWN = 2,
+                        ERROR_PLAYER_NOT_FOUND = 3,
+                        ERROR_FACEBOOK_API = 4,
+                        ERROR_ALREADY_EXISTS = 5
+                    }
+                }
+
+                interface IGetFacebookFriendListResponse {
+                    result?: (POGOProtos.Networking.Responses.Social.GetFacebookFriendListResponse.Result|null);
+                    friend?: (POGOProtos.Data.Friends.IFacebookFriend[]|null);
+                    next_cursor?: (string|null);
+                }
+
+                class GetFacebookFriendListResponse implements IGetFacebookFriendListResponse {
+                    constructor(properties?: POGOProtos.Networking.Responses.Social.IGetFacebookFriendListResponse);
+                    public result: POGOProtos.Networking.Responses.Social.GetFacebookFriendListResponse.Result;
+                    public friend: POGOProtos.Data.Friends.IFacebookFriend[];
+                    public next_cursor: string;
+                    public static create(properties?: POGOProtos.Networking.Responses.Social.IGetFacebookFriendListResponse): POGOProtos.Networking.Responses.Social.GetFacebookFriendListResponse;
+                    public static encode(message: POGOProtos.Networking.Responses.Social.IGetFacebookFriendListResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Responses.Social.IGetFacebookFriendListResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.Social.GetFacebookFriendListResponse;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.Social.GetFacebookFriendListResponse;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.Social.GetFacebookFriendListResponse;
+                    public static toObject(message: POGOProtos.Networking.Responses.Social.GetFacebookFriendListResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                namespace GetFacebookFriendListResponse {
+
+                    enum Result {
+                        UNSET = 0,
+                        SUCCESS = 1,
+                        ERROR_UNKNOWN = 2,
+                        ERROR_FACEBOOK_API = 3,
+                        ERROR_FACEBOOK_PERMISSIONS = 4,
+                        ERROR_NO_FACEBOOK_ID = 5
+                    }
+                }
+
                 interface IGetInboxResponse {
                     result?: (POGOProtos.Networking.Responses.Social.GetInboxResponse.Result|null);
                     inbox?: (POGOProtos.Data.Inbox.IClientInbox|null);
@@ -13722,36 +13747,6 @@ export namespace POGOProtos {
                         UNSET = 0,
                         SUCCESS = 1,
                         FAILURE = 2
-                    }
-                }
-
-                interface IInviteFacebookFriendResponse {
-                    result?: (POGOProtos.Networking.Responses.Social.InviteFacebookFriendResponse.Result|null);
-                }
-
-                class InviteFacebookFriendResponse implements IInviteFacebookFriendResponse {
-                    constructor(properties?: POGOProtos.Networking.Responses.Social.IInviteFacebookFriendResponse);
-                    public result: POGOProtos.Networking.Responses.Social.InviteFacebookFriendResponse.Result;
-                    public static create(properties?: POGOProtos.Networking.Responses.Social.IInviteFacebookFriendResponse): POGOProtos.Networking.Responses.Social.InviteFacebookFriendResponse;
-                    public static encode(message: POGOProtos.Networking.Responses.Social.IInviteFacebookFriendResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static encodeDelimited(message: POGOProtos.Networking.Responses.Social.IInviteFacebookFriendResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.Social.InviteFacebookFriendResponse;
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.Social.InviteFacebookFriendResponse;
-                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.Social.InviteFacebookFriendResponse;
-                    public static toObject(message: POGOProtos.Networking.Responses.Social.InviteFacebookFriendResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                    public toJSON(): { [k: string]: any };
-                }
-
-                namespace InviteFacebookFriendResponse {
-
-                    enum Result {
-                        UNSET = 0,
-                        SUCCESS = 1,
-                        ERROR_UNKNOWN = 2,
-                        ERROR_ALREADY_A_FRIEND = 3,
-                        ERROR_PLAYER_DOES_NOT_EXIST = 4,
-                        ERROR_PLAYER_INBOX_FULL = 5,
-                        ERROR_PLAYER_OUTBOX_FULL = 6
                     }
                 }
 
@@ -14102,6 +14097,21 @@ export namespace POGOProtos {
                 public toJSON(): { [k: string]: any };
             }
 
+            interface IUpdatePlayerLocationResponse {
+            }
+
+            class UpdatePlayerLocationResponse implements IUpdatePlayerLocationResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IUpdatePlayerLocationResponse);
+                public static create(properties?: POGOProtos.Networking.Responses.IUpdatePlayerLocationResponse): POGOProtos.Networking.Responses.UpdatePlayerLocationResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IUpdatePlayerLocationResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IUpdatePlayerLocationResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.UpdatePlayerLocationResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.UpdatePlayerLocationResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.UpdatePlayerLocationResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.UpdatePlayerLocationResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
             interface IUpdateTradingResponse {
                 result?: (POGOProtos.Networking.Responses.UpdateTradingResponse.Result|null);
                 trading?: (POGOProtos.Data.Trading.ITrading|null);
@@ -14141,12 +14151,14 @@ export namespace POGOProtos {
             interface IUpgradePokemonResponse {
                 result?: (POGOProtos.Networking.Responses.UpgradePokemonResponse.Result|null);
                 upgraded_pokemon?: (POGOProtos.Data.IPokemonData|null);
+                next_upgraded_pokemon?: (POGOProtos.Data.IPokemonData|null);
             }
 
             class UpgradePokemonResponse implements IUpgradePokemonResponse {
                 constructor(properties?: POGOProtos.Networking.Responses.IUpgradePokemonResponse);
                 public result: POGOProtos.Networking.Responses.UpgradePokemonResponse.Result;
                 public upgraded_pokemon?: (POGOProtos.Data.IPokemonData|null);
+                public next_upgraded_pokemon?: (POGOProtos.Data.IPokemonData|null);
                 public static create(properties?: POGOProtos.Networking.Responses.IUpgradePokemonResponse): POGOProtos.Networking.Responses.UpgradePokemonResponse;
                 public static encode(message: POGOProtos.Networking.Responses.IUpgradePokemonResponse, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Networking.Responses.IUpgradePokemonResponse, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -14549,6 +14561,25 @@ export namespace POGOProtos {
             public toJSON(): { [k: string]: any };
         }
 
+        interface IBelugaGlobalSettings {
+            enable_beluga_transfer?: (boolean|null);
+            max_num_pokemon_per_transfer?: (number|null);
+        }
+
+        class BelugaGlobalSettings implements IBelugaGlobalSettings {
+            constructor(properties?: POGOProtos.Settings.IBelugaGlobalSettings);
+            public enable_beluga_transfer: boolean;
+            public max_num_pokemon_per_transfer: number;
+            public static create(properties?: POGOProtos.Settings.IBelugaGlobalSettings): POGOProtos.Settings.BelugaGlobalSettings;
+            public static encode(message: POGOProtos.Settings.IBelugaGlobalSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: POGOProtos.Settings.IBelugaGlobalSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Settings.BelugaGlobalSettings;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.BelugaGlobalSettings;
+            public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.BelugaGlobalSettings;
+            public static toObject(message: POGOProtos.Settings.BelugaGlobalSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public toJSON(): { [k: string]: any };
+        }
+
         interface IClientPerformanceSettings {
             enable_local_disk_caching?: (boolean|null);
             max_number_local_battle_parties?: (number|null);
@@ -14688,6 +14719,7 @@ export namespace POGOProtos {
             client_perf_settings?: (POGOProtos.Settings.IClientPerformanceSettings|null);
             news_global_settings?: (POGOProtos.Settings.INewsGlobalSettings|null);
             quest_global_settings?: (POGOProtos.Settings.IQuestGlobalSettings|null);
+            beluga_global_settings?: (POGOProtos.Settings.IBelugaGlobalSettings|null);
             telemetry_global_settings?: (POGOProtos.Settings.ITelemetryGlobalSettings|null);
             login_settings?: (POGOProtos.Settings.ILoginSettings|null);
             social_settings?: (POGOProtos.Settings.ISocialClientSettings|null);
@@ -14696,6 +14728,8 @@ export namespace POGOProtos {
             upsight_logging_settings?: (POGOProtos.Settings.IUpsightLoggingSettings|null);
             bgmode_global_settings?: (POGOProtos.Settings.IBackgroundModeGlobalSettings|null);
             probe_settings?: (POGOProtos.Settings.IProbeSettings|null);
+            purchased_settings?: (POGOProtos.Settings.IPokecoinPurchaseDisplaySettings|null);
+            helpshift_settings?: (POGOProtos.Settings.IHelpshiftSettings|null);
         }
 
         class GlobalSettings implements IGlobalSettings {
@@ -14718,6 +14752,7 @@ export namespace POGOProtos {
             public client_perf_settings?: (POGOProtos.Settings.IClientPerformanceSettings|null);
             public news_global_settings?: (POGOProtos.Settings.INewsGlobalSettings|null);
             public quest_global_settings?: (POGOProtos.Settings.IQuestGlobalSettings|null);
+            public beluga_global_settings?: (POGOProtos.Settings.IBelugaGlobalSettings|null);
             public telemetry_global_settings?: (POGOProtos.Settings.ITelemetryGlobalSettings|null);
             public login_settings?: (POGOProtos.Settings.ILoginSettings|null);
             public social_settings?: (POGOProtos.Settings.ISocialClientSettings|null);
@@ -14726,6 +14761,8 @@ export namespace POGOProtos {
             public upsight_logging_settings?: (POGOProtos.Settings.IUpsightLoggingSettings|null);
             public bgmode_global_settings?: (POGOProtos.Settings.IBackgroundModeGlobalSettings|null);
             public probe_settings?: (POGOProtos.Settings.IProbeSettings|null);
+            public purchased_settings?: (POGOProtos.Settings.IPokecoinPurchaseDisplaySettings|null);
+            public helpshift_settings?: (POGOProtos.Settings.IHelpshiftSettings|null);
             public static create(properties?: POGOProtos.Settings.IGlobalSettings): POGOProtos.Settings.GlobalSettings;
             public static encode(message: POGOProtos.Settings.IGlobalSettings, writer?: $protobuf.Writer): $protobuf.Writer;
             public static encodeDelimited(message: POGOProtos.Settings.IGlobalSettings, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -14756,6 +14793,25 @@ export namespace POGOProtos {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.GpsSettings;
             public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.GpsSettings;
             public static toObject(message: POGOProtos.Settings.GpsSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public toJSON(): { [k: string]: any };
+        }
+
+        interface IHelpshiftSettings {
+            min_player_level?: (number|null);
+            default_player_level?: (number|null);
+        }
+
+        class HelpshiftSettings implements IHelpshiftSettings {
+            constructor(properties?: POGOProtos.Settings.IHelpshiftSettings);
+            public min_player_level: number;
+            public default_player_level: number;
+            public static create(properties?: POGOProtos.Settings.IHelpshiftSettings): POGOProtos.Settings.HelpshiftSettings;
+            public static encode(message: POGOProtos.Settings.IHelpshiftSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: POGOProtos.Settings.IHelpshiftSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Settings.HelpshiftSettings;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.HelpshiftSettings;
+            public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.HelpshiftSettings;
+            public static toObject(message: POGOProtos.Settings.HelpshiftSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
             public toJSON(): { [k: string]: any };
         }
 
@@ -14962,6 +15018,29 @@ export namespace POGOProtos {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.Master.BadgeSettings;
                 public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.Master.BadgeSettings;
                 public static toObject(message: POGOProtos.Settings.Master.BadgeSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            interface IBelugaPokemonWhitelist {
+                max_allowed_pokemon_pokedex_number?: (number|null);
+                additional_pokemon_allowed?: (POGOProtos.Enums.PokemonId[]|null);
+                forms_allowed?: (POGOProtos.Enums.Form[]|null);
+                costumes_allowed?: (POGOProtos.Enums.Costume[]|null);
+            }
+
+            class BelugaPokemonWhitelist implements IBelugaPokemonWhitelist {
+                constructor(properties?: POGOProtos.Settings.Master.IBelugaPokemonWhitelist);
+                public max_allowed_pokemon_pokedex_number: number;
+                public additional_pokemon_allowed: POGOProtos.Enums.PokemonId[];
+                public forms_allowed: POGOProtos.Enums.Form[];
+                public costumes_allowed: POGOProtos.Enums.Costume[];
+                public static create(properties?: POGOProtos.Settings.Master.IBelugaPokemonWhitelist): POGOProtos.Settings.Master.BelugaPokemonWhitelist;
+                public static encode(message: POGOProtos.Settings.Master.IBelugaPokemonWhitelist, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Settings.Master.IBelugaPokemonWhitelist, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Settings.Master.BelugaPokemonWhitelist;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.Master.BelugaPokemonWhitelist;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.Master.BelugaPokemonWhitelist;
+                public static toObject(message: POGOProtos.Settings.Master.BelugaPokemonWhitelist, options?: $protobuf.IConversionOptions): { [k: string]: any };
                 public toJSON(): { [k: string]: any };
             }
 
@@ -16331,6 +16410,25 @@ export namespace POGOProtos {
             public toJSON(): { [k: string]: any };
         }
 
+        interface IPokecoinPurchaseDisplaySettings {
+            feature_enabled?: (boolean|null);
+            enabled_countries?: (string[]|null);
+        }
+
+        class PokecoinPurchaseDisplaySettings implements IPokecoinPurchaseDisplaySettings {
+            constructor(properties?: POGOProtos.Settings.IPokecoinPurchaseDisplaySettings);
+            public feature_enabled: boolean;
+            public enabled_countries: string[];
+            public static create(properties?: POGOProtos.Settings.IPokecoinPurchaseDisplaySettings): POGOProtos.Settings.PokecoinPurchaseDisplaySettings;
+            public static encode(message: POGOProtos.Settings.IPokecoinPurchaseDisplaySettings, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: POGOProtos.Settings.IPokecoinPurchaseDisplaySettings, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Settings.PokecoinPurchaseDisplaySettings;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.PokecoinPurchaseDisplaySettings;
+            public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.PokecoinPurchaseDisplaySettings;
+            public static toObject(message: POGOProtos.Settings.PokecoinPurchaseDisplaySettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public toJSON(): { [k: string]: any };
+        }
+
         interface IProbeSettings {
             enable_sidechannel?: (boolean|null);
             enable_adhoc?: (boolean|null);
@@ -16395,6 +16493,9 @@ export namespace POGOProtos {
             max_friend_nickname_length?: (number|null);
             enable_add_friend_via_qr_code?: (boolean|null);
             enable_share_ex_pass?: (boolean|null);
+            enable_facebook_friends?: (boolean|null);
+            facebook_friend_limit_per_request?: (number|null);
+            disable_facebook_friends_opening_prompt?: (boolean|null);
         }
 
         class SocialClientSettings implements ISocialClientSettings {
@@ -16405,6 +16506,9 @@ export namespace POGOProtos {
             public max_friend_nickname_length: number;
             public enable_add_friend_via_qr_code: boolean;
             public enable_share_ex_pass: boolean;
+            public enable_facebook_friends: boolean;
+            public facebook_friend_limit_per_request: number;
+            public disable_facebook_friends_opening_prompt: boolean;
             public static create(properties?: POGOProtos.Settings.ISocialClientSettings): POGOProtos.Settings.SocialClientSettings;
             public static encode(message: POGOProtos.Settings.ISocialClientSettings, writer?: $protobuf.Writer): $protobuf.Writer;
             public static encodeDelimited(message: POGOProtos.Settings.ISocialClientSettings, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -16423,6 +16527,7 @@ export namespace POGOProtos {
             update_interval_ms?: (number|Long|null);
             frame_rate_sample_interval_ms?: (number|Long|null);
             frame_rate_sample_period_ms?: (number|Long|null);
+            enable_omni_wrapper_sending?: (boolean|null);
         }
 
         class TelemetryGlobalSettings implements ITelemetryGlobalSettings {
@@ -16434,6 +16539,7 @@ export namespace POGOProtos {
             public update_interval_ms: (number|Long);
             public frame_rate_sample_interval_ms: (number|Long);
             public frame_rate_sample_period_ms: (number|Long);
+            public enable_omni_wrapper_sending: boolean;
             public static create(properties?: POGOProtos.Settings.ITelemetryGlobalSettings): POGOProtos.Settings.TelemetryGlobalSettings;
             public static encode(message: POGOProtos.Settings.ITelemetryGlobalSettings, writer?: $protobuf.Writer): $protobuf.Writer;
             public static encodeDelimited(message: POGOProtos.Settings.ITelemetryGlobalSettings, writer?: $protobuf.Writer): $protobuf.Writer;

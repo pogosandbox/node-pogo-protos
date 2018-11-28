@@ -1,4 +1,5 @@
 node_modules
+old
 temp.js
 test/*
 .travis.yml

@@ -26,4 +26,5 @@ message TradingPokemon {
 	int32 individual_stamina = 18;
 	string nickname = 19;
 	bool favorite = 20;
+	int64 creation_time_ms = 22;
 }

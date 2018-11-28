@@ -259,4 +259,5 @@ enum PokemonMove {
 	MUDDY_WATER = 316;
 	BLAZE_KICK = 317;
 	RAZOR_SHELL = 318;
+	POWER_UP_PUNCH = 319;
 }

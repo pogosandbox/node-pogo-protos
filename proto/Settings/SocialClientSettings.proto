@@ -8,4 +8,7 @@ message SocialClientSettings {
 	int32 max_friend_nickname_length = 4;
 	bool enable_add_friend_via_qr_code = 5;
 	bool enable_share_ex_pass = 6;
+	bool enable_facebook_friends = 7;
+	int32 facebook_friend_limit_per_request = 8;
+	bool disable_facebook_friends_opening_prompt = 9;
 }

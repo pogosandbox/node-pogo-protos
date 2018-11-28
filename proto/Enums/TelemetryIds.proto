@@ -41,6 +41,9 @@ enum ClientTelemetryIds {
 	ASSET_STREAM_DOWNLOAD = 36;
 	ASSET_STREAM_CACHE_CULLED = 37;
 	RPC_SOCKET_TIMING = 38;
+	PERMISSIONS_FLOW = 39;
+	DEVICE_SERVICE_TOGGLE = 40;
+	BOOT_TELEMETRY = 41;
 }
 
 enum AvatarCustomizationTelemetryIds {

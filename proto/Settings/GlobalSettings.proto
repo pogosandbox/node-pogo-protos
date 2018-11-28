@@ -22,6 +22,9 @@ import "POGOProtos/Settings/QuestGlobalSettings.proto";
 import "POGOProtos/Settings/SocialClientSettings.proto";
 import "POGOProtos/Settings/TradingGlobalSettings.proto";
 import "POGOProtos/Settings/UpsightLoggingSettings.proto";
+import "POGOProtos/Settings/BelugaGlobalSettings.proto";
+import "POGOProtos/Settings/PokecoinPurchaseDisplaySettings.proto";
+import "POGOProtos/Settings/HelpshiftSettings.proto";
 
 message GlobalSettings {
 	.POGOProtos.Settings.FortSettings fort_settings = 2;
@@ -42,6 +45,7 @@ message GlobalSettings {
 	.POGOProtos.Settings.ClientPerformanceSettings client_perf_settings = 17;
 	.POGOProtos.Settings.NewsGlobalSettings news_global_settings = 18;
 	.POGOProtos.Settings.QuestGlobalSettings quest_global_settings = 19;
+	.POGOProtos.Settings.BelugaGlobalSettings beluga_global_settings = 20;
 	.POGOProtos.Settings.TelemetryGlobalSettings telemetry_global_settings = 21;
 	.POGOProtos.Settings.LoginSettings login_settings = 22;
 	.POGOProtos.Settings.SocialClientSettings social_settings = 23;
@@ -50,4 +54,6 @@ message GlobalSettings {
 	.POGOProtos.Settings.UpsightLoggingSettings upsight_logging_settings = 26;
 	.POGOProtos.Settings.BackgroundModeGlobalSettings bgmode_global_settings = 30;
 	.POGOProtos.Settings.ProbeSettings probe_settings = 31;
+	.POGOProtos.Settings.PokecoinPurchaseDisplaySettings purchased_settings = 32;
+	.POGOProtos.Settings.HelpshiftSettings helpshift_settings = 33;
 }

@@ -43,6 +43,7 @@ message RedeemPasscodeResponse {
 		NOT_AVAILABLE = 2;
 		OVER_INVENTORY_LIMIT = 3;
 		ALREADY_REDEEMED = 4;
+		OVER_PLAYER_REDEMPTION_LIMIT = 5;
 	}
 }
 
@@ -85,5 +86,5 @@ message GetAvailableSubmissionsResponse {
 	int32 min_player_level = 2;
 	bool has_valid_email = 3;
 	bool is_feature_enabled = 4;
-	int32 time_window_for_submissions_limit_ms = 5;
+	int64 time_window_for_submissions_limit_ms = 5;
 }
