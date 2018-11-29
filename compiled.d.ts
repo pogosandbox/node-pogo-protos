@@ -1,5 +1,4 @@
 import * as $protobuf from "protobufjs";
-
 export namespace POGOProtos {
 
     namespace Data {
@@ -7123,6 +7122,339 @@ export namespace POGOProtos {
     }
 
     namespace Networking {
+
+        namespace Platform {
+
+            enum PlatformRequestType {
+                METHOD_UNSET = 0,
+                BUY_ITEM_POKECOINS = 2,
+                BUY_ITEM_ANDROID = 3,
+                BUY_ITEM_IOS = 4,
+                GET_STORE_ITEMS = 5,
+                SEND_ENCRYPTED_SIGNATURE = 6,
+                UNKNOWN_PTR_8 = 8,
+                JOIN_EVENT = 9
+            }
+
+            namespace Requests {
+
+                interface IBuyItemAndroidRequest {
+                    buy_item_intent?: (string|null);
+                }
+
+                class BuyItemAndroidRequest implements IBuyItemAndroidRequest {
+                    constructor(properties?: POGOProtos.Networking.Platform.Requests.IBuyItemAndroidRequest);
+                    public buy_item_intent: string;
+                    public static create(properties?: POGOProtos.Networking.Platform.Requests.IBuyItemAndroidRequest): POGOProtos.Networking.Platform.Requests.BuyItemAndroidRequest;
+                    public static encode(message: POGOProtos.Networking.Platform.Requests.IBuyItemAndroidRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Platform.Requests.IBuyItemAndroidRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Platform.Requests.BuyItemAndroidRequest;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Platform.Requests.BuyItemAndroidRequest;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Platform.Requests.BuyItemAndroidRequest;
+                    public static toObject(message: POGOProtos.Networking.Platform.Requests.BuyItemAndroidRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IBuyItemPokeCoinsRequest {
+                    item_id?: (string|null);
+                }
+
+                class BuyItemPokeCoinsRequest implements IBuyItemPokeCoinsRequest {
+                    constructor(properties?: POGOProtos.Networking.Platform.Requests.IBuyItemPokeCoinsRequest);
+                    public item_id: string;
+                    public static create(properties?: POGOProtos.Networking.Platform.Requests.IBuyItemPokeCoinsRequest): POGOProtos.Networking.Platform.Requests.BuyItemPokeCoinsRequest;
+                    public static encode(message: POGOProtos.Networking.Platform.Requests.IBuyItemPokeCoinsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Platform.Requests.IBuyItemPokeCoinsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Platform.Requests.BuyItemPokeCoinsRequest;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Platform.Requests.BuyItemPokeCoinsRequest;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Platform.Requests.BuyItemPokeCoinsRequest;
+                    public static toObject(message: POGOProtos.Networking.Platform.Requests.BuyItemPokeCoinsRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IGetStoreItemsRequest {
+                }
+
+                class GetStoreItemsRequest implements IGetStoreItemsRequest {
+                    constructor(properties?: POGOProtos.Networking.Platform.Requests.IGetStoreItemsRequest);
+                    public static create(properties?: POGOProtos.Networking.Platform.Requests.IGetStoreItemsRequest): POGOProtos.Networking.Platform.Requests.GetStoreItemsRequest;
+                    public static encode(message: POGOProtos.Networking.Platform.Requests.IGetStoreItemsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Platform.Requests.IGetStoreItemsRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Platform.Requests.GetStoreItemsRequest;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Platform.Requests.GetStoreItemsRequest;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Platform.Requests.GetStoreItemsRequest;
+                    public static toObject(message: POGOProtos.Networking.Platform.Requests.GetStoreItemsRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IJoinEventRequest {
+                    qrcode?: (string|null);
+                }
+
+                class JoinEventRequest implements IJoinEventRequest {
+                    constructor(properties?: POGOProtos.Networking.Platform.Requests.IJoinEventRequest);
+                    public qrcode: string;
+                    public static create(properties?: POGOProtos.Networking.Platform.Requests.IJoinEventRequest): POGOProtos.Networking.Platform.Requests.JoinEventRequest;
+                    public static encode(message: POGOProtos.Networking.Platform.Requests.IJoinEventRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Platform.Requests.IJoinEventRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Platform.Requests.JoinEventRequest;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Platform.Requests.JoinEventRequest;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Platform.Requests.JoinEventRequest;
+                    public static toObject(message: POGOProtos.Networking.Platform.Requests.JoinEventRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface ISendEncryptedSignatureRequest {
+                    encrypted_signature?: (Uint8Array|null);
+                }
+
+                class SendEncryptedSignatureRequest implements ISendEncryptedSignatureRequest {
+                    constructor(properties?: POGOProtos.Networking.Platform.Requests.ISendEncryptedSignatureRequest);
+                    public encrypted_signature: Uint8Array;
+                    public static create(properties?: POGOProtos.Networking.Platform.Requests.ISendEncryptedSignatureRequest): POGOProtos.Networking.Platform.Requests.SendEncryptedSignatureRequest;
+                    public static encode(message: POGOProtos.Networking.Platform.Requests.ISendEncryptedSignatureRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Platform.Requests.ISendEncryptedSignatureRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Platform.Requests.SendEncryptedSignatureRequest;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Platform.Requests.SendEncryptedSignatureRequest;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Platform.Requests.SendEncryptedSignatureRequest;
+                    public static toObject(message: POGOProtos.Networking.Platform.Requests.SendEncryptedSignatureRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IUnknownPtr8Request {
+                    message?: (string|null);
+                }
+
+                class UnknownPtr8Request implements IUnknownPtr8Request {
+                    constructor(properties?: POGOProtos.Networking.Platform.Requests.IUnknownPtr8Request);
+                    public message: string;
+                    public static create(properties?: POGOProtos.Networking.Platform.Requests.IUnknownPtr8Request): POGOProtos.Networking.Platform.Requests.UnknownPtr8Request;
+                    public static encode(message: POGOProtos.Networking.Platform.Requests.IUnknownPtr8Request, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Platform.Requests.IUnknownPtr8Request, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Platform.Requests.UnknownPtr8Request;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Platform.Requests.UnknownPtr8Request;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Platform.Requests.UnknownPtr8Request;
+                    public static toObject(message: POGOProtos.Networking.Platform.Requests.UnknownPtr8Request, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+            }
+
+            namespace Responses {
+
+                interface IBuyItemAndroidResponse {
+                    result?: (POGOProtos.Networking.Platform.Responses.BuyItemAndroidResponse.Status|null);
+                    purchase_token?: (string|null);
+                }
+
+                class BuyItemAndroidResponse implements IBuyItemAndroidResponse {
+                    constructor(properties?: POGOProtos.Networking.Platform.Responses.IBuyItemAndroidResponse);
+                    public result: POGOProtos.Networking.Platform.Responses.BuyItemAndroidResponse.Status;
+                    public purchase_token: string;
+                    public static create(properties?: POGOProtos.Networking.Platform.Responses.IBuyItemAndroidResponse): POGOProtos.Networking.Platform.Responses.BuyItemAndroidResponse;
+                    public static encode(message: POGOProtos.Networking.Platform.Responses.IBuyItemAndroidResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Platform.Responses.IBuyItemAndroidResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Platform.Responses.BuyItemAndroidResponse;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Platform.Responses.BuyItemAndroidResponse;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Platform.Responses.BuyItemAndroidResponse;
+                    public static toObject(message: POGOProtos.Networking.Platform.Responses.BuyItemAndroidResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                namespace BuyItemAndroidResponse {
+
+                    enum Status {
+                        UNKNOWN = 0,
+                        SUCCESS = 1
+                    }
+                }
+
+                interface IBuyItemPokeCoinsResponse {
+                    result?: (POGOProtos.Networking.Platform.Responses.BuyItemPokeCoinsResponse.Status|null);
+                }
+
+                class BuyItemPokeCoinsResponse implements IBuyItemPokeCoinsResponse {
+                    constructor(properties?: POGOProtos.Networking.Platform.Responses.IBuyItemPokeCoinsResponse);
+                    public result: POGOProtos.Networking.Platform.Responses.BuyItemPokeCoinsResponse.Status;
+                    public static create(properties?: POGOProtos.Networking.Platform.Responses.IBuyItemPokeCoinsResponse): POGOProtos.Networking.Platform.Responses.BuyItemPokeCoinsResponse;
+                    public static encode(message: POGOProtos.Networking.Platform.Responses.IBuyItemPokeCoinsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Platform.Responses.IBuyItemPokeCoinsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Platform.Responses.BuyItemPokeCoinsResponse;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Platform.Responses.BuyItemPokeCoinsResponse;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Platform.Responses.BuyItemPokeCoinsResponse;
+                    public static toObject(message: POGOProtos.Networking.Platform.Responses.BuyItemPokeCoinsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                namespace BuyItemPokeCoinsResponse {
+
+                    enum Status {
+                        UNKNOWN = 0,
+                        SUCCESS = 1,
+                        NOT_ENOUGH_POKECOINS = 3
+                    }
+                }
+
+                interface IGetStoreItemsResponse {
+                    status?: (POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.Status|null);
+                    items?: (POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreItem[]|null);
+                    player_currencies?: (POGOProtos.Data.Player.ICurrency[]|null);
+                    hash?: (string|null);
+                }
+
+                class GetStoreItemsResponse implements IGetStoreItemsResponse {
+                    constructor(properties?: POGOProtos.Networking.Platform.Responses.IGetStoreItemsResponse);
+                    public status: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.Status;
+                    public items: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreItem[];
+                    public player_currencies: POGOProtos.Data.Player.ICurrency[];
+                    public hash: string;
+                    public static create(properties?: POGOProtos.Networking.Platform.Responses.IGetStoreItemsResponse): POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse;
+                    public static encode(message: POGOProtos.Networking.Platform.Responses.IGetStoreItemsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Platform.Responses.IGetStoreItemsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse;
+                    public static toObject(message: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                namespace GetStoreItemsResponse {
+
+                    interface IStoreItem {
+                        item_id?: (string|null);
+                        is_iap?: (boolean|null);
+                        currency_to_buy?: (POGOProtos.Data.Player.ICurrency|null);
+                        yields_currency?: (POGOProtos.Data.Player.ICurrency|null);
+                        yields_item?: (POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreItemInfo|null);
+                        tags?: (POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreTags[]|null);
+                        unknown7?: (number|null);
+                    }
+
+                    class StoreItem implements IStoreItem {
+                        constructor(properties?: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreItem);
+                        public item_id: string;
+                        public is_iap: boolean;
+                        public currency_to_buy?: (POGOProtos.Data.Player.ICurrency|null);
+                        public yields_currency?: (POGOProtos.Data.Player.ICurrency|null);
+                        public yields_item?: (POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreItemInfo|null);
+                        public tags: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreTags[];
+                        public unknown7: number;
+                        public static create(properties?: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreItem): POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreItem;
+                        public static encode(message: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreItem, writer?: $protobuf.Writer): $protobuf.Writer;
+                        public static encodeDelimited(message: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreItem, writer?: $protobuf.Writer): $protobuf.Writer;
+                        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreItem;
+                        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreItem;
+                        public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreItem;
+                        public static toObject(message: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreItem, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                        public toJSON(): { [k: string]: any };
+                    }
+
+                    interface IStoreTags {
+                        tag?: (string|null);
+                        value?: (string|null);
+                    }
+
+                    class StoreTags implements IStoreTags {
+                        constructor(properties?: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreTags);
+                        public tag: string;
+                        public value: string;
+                        public static create(properties?: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreTags): POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreTags;
+                        public static encode(message: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreTags, writer?: $protobuf.Writer): $protobuf.Writer;
+                        public static encodeDelimited(message: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreTags, writer?: $protobuf.Writer): $protobuf.Writer;
+                        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreTags;
+                        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreTags;
+                        public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreTags;
+                        public static toObject(message: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreTags, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                        public toJSON(): { [k: string]: any };
+                    }
+
+                    interface IStoreItemInfo {
+                        item_id?: (string|null);
+                        count?: (number|null);
+                    }
+
+                    class StoreItemInfo implements IStoreItemInfo {
+                        constructor(properties?: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreItemInfo);
+                        public item_id: string;
+                        public count: number;
+                        public static create(properties?: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreItemInfo): POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreItemInfo;
+                        public static encode(message: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreItemInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+                        public static encodeDelimited(message: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.IStoreItemInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+                        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreItemInfo;
+                        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreItemInfo;
+                        public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreItemInfo;
+                        public static toObject(message: POGOProtos.Networking.Platform.Responses.GetStoreItemsResponse.StoreItemInfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                        public toJSON(): { [k: string]: any };
+                    }
+
+                    enum Status {
+                        UNDEFINED = 0,
+                        OKAY = 1
+                    }
+                }
+
+                interface IJoinEventResponse {
+                    status?: (POGOProtos.Networking.Platform.Responses.JoinEventResponse.Status|null);
+                    qrcode?: (string|null);
+                }
+
+                class JoinEventResponse implements IJoinEventResponse {
+                    constructor(properties?: POGOProtos.Networking.Platform.Responses.IJoinEventResponse);
+                    public status: POGOProtos.Networking.Platform.Responses.JoinEventResponse.Status;
+                    public qrcode: string;
+                    public static create(properties?: POGOProtos.Networking.Platform.Responses.IJoinEventResponse): POGOProtos.Networking.Platform.Responses.JoinEventResponse;
+                    public static encode(message: POGOProtos.Networking.Platform.Responses.IJoinEventResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Platform.Responses.IJoinEventResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Platform.Responses.JoinEventResponse;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Platform.Responses.JoinEventResponse;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Platform.Responses.JoinEventResponse;
+                    public static toObject(message: POGOProtos.Networking.Platform.Responses.JoinEventResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                namespace JoinEventResponse {
+
+                    enum Status {
+                        UNDEFINED = 0,
+                        SUCCESS = 1,
+                        INVALID = 2
+                    }
+                }
+
+                interface ISendEncryptedSignatureResponse {
+                    received?: (boolean|null);
+                }
+
+                class SendEncryptedSignatureResponse implements ISendEncryptedSignatureResponse {
+                    constructor(properties?: POGOProtos.Networking.Platform.Responses.ISendEncryptedSignatureResponse);
+                    public received: boolean;
+                    public static create(properties?: POGOProtos.Networking.Platform.Responses.ISendEncryptedSignatureResponse): POGOProtos.Networking.Platform.Responses.SendEncryptedSignatureResponse;
+                    public static encode(message: POGOProtos.Networking.Platform.Responses.ISendEncryptedSignatureResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Platform.Responses.ISendEncryptedSignatureResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Platform.Responses.SendEncryptedSignatureResponse;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Platform.Responses.SendEncryptedSignatureResponse;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Platform.Responses.SendEncryptedSignatureResponse;
+                    public static toObject(message: POGOProtos.Networking.Platform.Responses.SendEncryptedSignatureResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IUnknownPtr8Response {
+                    message?: (string|null);
+                }
+
+                class UnknownPtr8Response implements IUnknownPtr8Response {
+                    constructor(properties?: POGOProtos.Networking.Platform.Responses.IUnknownPtr8Response);
+                    public message: string;
+                    public static create(properties?: POGOProtos.Networking.Platform.Responses.IUnknownPtr8Response): POGOProtos.Networking.Platform.Responses.UnknownPtr8Response;
+                    public static encode(message: POGOProtos.Networking.Platform.Responses.IUnknownPtr8Response, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Platform.Responses.IUnknownPtr8Response, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Platform.Responses.UnknownPtr8Response;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Platform.Responses.UnknownPtr8Response;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Platform.Responses.UnknownPtr8Response;
+                    public static toObject(message: POGOProtos.Networking.Platform.Responses.UnknownPtr8Response, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+            }
+        }
 
         namespace Requests {
 
