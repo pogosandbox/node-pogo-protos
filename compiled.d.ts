@@ -4161,6 +4161,7 @@ export namespace POGOProtos {
             BADGE_MAX_LEVEL_FRIENDS = 48,
             BADGE_TRADING = 49,
             BADGE_TRADING_DISTANCE = 50,
+            BADGE_POKEDEX_ENTRIES_GEN4 = 51,
             BADGE_EVENT_MIN = 2000,
             BADGE_CHICAGO_FEST_JULY_2017 = 2001,
             BADGE_PIKACHU_OUTBREAK_YOKOHAMA_2017 = 2002,
