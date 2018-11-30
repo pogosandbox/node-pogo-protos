@@ -1,7 +1,7 @@
 syntax = "proto3";
 package POGOProtos.Data.Logs;
 
-import "POGOProtos/Inventory/Lootproto";
+import "POGOProtos/Inventory/Loot.proto";
 
 message FitnessRewardsLogEntry {
 	Result result = 1;

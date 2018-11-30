@@ -1,4 +1,5 @@
 import * as $protobuf from "protobufjs";
+
 export namespace POGOProtos {
 
     namespace Data {
