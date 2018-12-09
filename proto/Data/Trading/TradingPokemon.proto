@@ -4,6 +4,7 @@ package POGOProtos.Data.Trading;
 import "POGOProtos/Data/PokemonDisplay.proto";
 import "POGOProtos/Data/PokemonData.proto";
 import "POGOProtos/Inventory/Item/ItemData.proto";
+import "POGOProtos/Enums/PokemonMove.proto";
 
 message TradingPokemon {
 	fixed64 pokemon_id = 1;
@@ -15,8 +16,8 @@ message TradingPokemon {
 	int32 adjusted_stamina_min = 7;
 	int32 adjusted_stamina_max = 8;
 	bool friend_level_cap = 9;
-	int32 move1 = 10;
-	int32 move2 = 11;
+	.POGOProtos.Enums.PokemonMove move1 = 10;
+	.POGOProtos.Enums.PokemonMove move2 = 11;
 	.POGOProtos.Data.PokemonDisplay pokemon_display = 12;
 	int64 captured_s2_cell_id = 13;
 	.POGOProtos.Data.PokemonData traded_pokemon = 14;
@@ -26,6 +27,6 @@ message TradingPokemon {
 	int32 individual_stamina = 18;
 	string nickname = 19;
 	bool favorite = 20;
-	int32 move3 = 21;
+	.POGOProtos.Enums.PokemonMove move3 = 21;
 	int64 creation_time_ms = 22;
 }

@@ -943,14 +943,14 @@ export namespace POGOProtos {
 
             interface ICombatPokemon {
                 pokemon_id?: (number|Long|null);
-                pokedex_id?: (number|null);
+                pokedex_id?: (POGOProtos.Enums.PokemonId|null);
                 cp?: (number|null);
                 cp_multiplier?: (number|null);
                 stamina?: (number|null);
                 max_stamina?: (number|null);
-                move1?: (number|null);
-                move2?: (number|null);
-                move3?: (number|null);
+                move1?: (POGOProtos.Enums.PokemonMove|null);
+                move2?: (POGOProtos.Enums.PokemonMove|null);
+                move3?: (POGOProtos.Enums.PokemonMove|null);
                 energy?: (number|null);
                 pokemon_display?: (POGOProtos.Data.IPokemonDisplay|null);
                 individual_attack?: (number|null);
@@ -966,14 +966,14 @@ export namespace POGOProtos {
             class CombatPokemon implements ICombatPokemon {
                 constructor(properties?: POGOProtos.Data.Combat.ICombatPokemon);
                 public pokemon_id: (number|Long);
-                public pokedex_id: number;
+                public pokedex_id: POGOProtos.Enums.PokemonId;
                 public cp: number;
                 public cp_multiplier: number;
                 public stamina: number;
                 public max_stamina: number;
-                public move1: number;
-                public move2: number;
-                public move3: number;
+                public move1: POGOProtos.Enums.PokemonMove;
+                public move2: POGOProtos.Enums.PokemonMove;
+                public move3: POGOProtos.Enums.PokemonMove;
                 public energy: number;
                 public pokemon_display?: (POGOProtos.Data.IPokemonDisplay|null);
                 public individual_attack: number;
@@ -3195,7 +3195,7 @@ export namespace POGOProtos {
             original_owner_nickname?: (string|null);
             traded_time_ms?: (number|Long|null);
             is_lucky?: (boolean|null);
-            move3?: (number|null);
+            move_3?: (POGOProtos.Enums.PokemonMove|null);
             pvp_combat_stats?: (POGOProtos.Data.Combat.IPokemonCombatStats|null);
             npc_combat_stats?: (POGOProtos.Data.Combat.IPokemonCombatStats|null);
         }
@@ -3247,7 +3247,7 @@ export namespace POGOProtos {
             public original_owner_nickname: string;
             public traded_time_ms: (number|Long);
             public is_lucky: boolean;
-            public move3: number;
+            public move_3: POGOProtos.Enums.PokemonMove;
             public pvp_combat_stats?: (POGOProtos.Data.Combat.IPokemonCombatStats|null);
             public npc_combat_stats?: (POGOProtos.Data.Combat.IPokemonCombatStats|null);
             public static create(properties?: POGOProtos.Data.IPokemonData): POGOProtos.Data.PokemonData;
@@ -4609,8 +4609,8 @@ export namespace POGOProtos {
                 adjusted_stamina_min?: (number|null);
                 adjusted_stamina_max?: (number|null);
                 friend_level_cap?: (boolean|null);
-                move1?: (number|null);
-                move2?: (number|null);
+                move1?: (POGOProtos.Enums.PokemonMove|null);
+                move2?: (POGOProtos.Enums.PokemonMove|null);
                 pokemon_display?: (POGOProtos.Data.IPokemonDisplay|null);
                 captured_s2_cell_id?: (number|Long|null);
                 traded_pokemon?: (POGOProtos.Data.IPokemonData|null);
@@ -4620,7 +4620,7 @@ export namespace POGOProtos {
                 individual_stamina?: (number|null);
                 nickname?: (string|null);
                 favorite?: (boolean|null);
-                move3?: (number|null);
+                move3?: (POGOProtos.Enums.PokemonMove|null);
                 creation_time_ms?: (number|Long|null);
             }
 
@@ -4635,8 +4635,8 @@ export namespace POGOProtos {
                 public adjusted_stamina_min: number;
                 public adjusted_stamina_max: number;
                 public friend_level_cap: boolean;
-                public move1: number;
-                public move2: number;
+                public move1: POGOProtos.Enums.PokemonMove;
+                public move2: POGOProtos.Enums.PokemonMove;
                 public pokemon_display?: (POGOProtos.Data.IPokemonDisplay|null);
                 public captured_s2_cell_id: (number|Long);
                 public traded_pokemon?: (POGOProtos.Data.IPokemonData|null);
@@ -4646,7 +4646,7 @@ export namespace POGOProtos {
                 public individual_stamina: number;
                 public nickname: string;
                 public favorite: boolean;
-                public move3: number;
+                public move3: POGOProtos.Enums.PokemonMove;
                 public creation_time_ms: (number|Long);
                 public static create(properties?: POGOProtos.Data.Trading.ITradingPokemon): POGOProtos.Data.Trading.TradingPokemon;
                 public static encode(message: POGOProtos.Data.Trading.ITradingPokemon, writer?: $protobuf.Writer): $protobuf.Writer;

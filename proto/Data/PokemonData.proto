@@ -53,7 +53,7 @@ message PokemonData {
 	string original_owner_nickname = 44;
 	int64 traded_time_ms = 45;
 	bool is_lucky = 46;
-	int32 move3 = 47;
+	.POGOProtos.Enums.PokemonMove move_3 = 47;
 	.POGOProtos.Data.Combat.PokemonCombatStats pvp_combat_stats = 48;
 	.POGOProtos.Data.Combat.PokemonCombatStats npc_combat_stats = 49;
 }
