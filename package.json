@@ -1,6 +1,6 @@
 {
   "name": "node-pogo-protos-vnext",
-  "version": "2.30.0",
+  "version": "2.30.1",
   "description": "Pokémon Go Protobuf files from POGOProtos, wrapped up in a Node module",
   "main": "index.js",
   "repository": {
