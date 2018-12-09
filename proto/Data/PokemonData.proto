@@ -5,6 +5,7 @@ import "POGOProtos/Data/PokemonDisplay.proto";
 import "POGOProtos/Enums/PokemonId.proto";
 import "POGOProtos/Enums/PokemonMove.proto";
 import "POGOProtos/Inventory/Item/ItemId.proto";
+import "POGOProtos/Data/Combat/PokemonCombatStats.proto";
 
 message PokemonData {
 	fixed64 id = 1;
@@ -52,4 +53,7 @@ message PokemonData {
 	string original_owner_nickname = 44;
 	int64 traded_time_ms = 45;
 	bool is_lucky = 46;
+	int32 move3 = 47;
+	.POGOProtos.Data.Combat.PokemonCombatStats pvp_combat_stats = 48;
+	.POGOProtos.Data.Combat.PokemonCombatStats npc_combat_stats = 49;
 }

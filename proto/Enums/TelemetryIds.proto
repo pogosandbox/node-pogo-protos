@@ -106,6 +106,7 @@ enum LoginActionTelemetryIds {
 	COMPLETE_SUPERAWESOME_SIGN_IN = 22;
 	EXIT_NEW_PLAYER = 23;
 	EXIT_EXISTING_PLAYER = 24;
+	LOGIN_STARTED = 25;
 }
 
 enum MapEventsTelemetryIds {

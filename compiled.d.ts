@@ -1,5 +1,4 @@
 import * as $protobuf from "protobufjs";
-
 export namespace POGOProtos {
 
     namespace Data {
@@ -313,7 +312,8 @@ export namespace POGOProtos {
                 ACTION_PLAYER_QUIT = 7,
                 ACTION_VICTORY = 8,
                 ACTION_DEFEAT = 9,
-                ACTION_TIMED_OUT = 10
+                ACTION_TIMED_OUT = 10,
+                ACTION_SPECIAL_ATTACK_2 = 11
             }
 
             interface IBattleLog {
@@ -660,6 +660,210 @@ export namespace POGOProtos {
             public static fromObject(object: { [k: string]: any }): POGOProtos.Data.ClientVersion;
             public static toObject(message: POGOProtos.Data.ClientVersion, options?: $protobuf.IConversionOptions): { [k: string]: any };
             public toJSON(): { [k: string]: any };
+        }
+
+        namespace Combat {
+
+            interface ICombatMoveBuffs {
+                attacker_attack_stat_stage_change?: (number|null);
+                attacker_defense_stat_stage_change?: (number|null);
+                target_attack_stat_stage_change?: (number|null);
+                target_defense_stat_stage_change?: (number|null);
+            }
+
+            class CombatMoveBuffs implements ICombatMoveBuffs {
+                constructor(properties?: POGOProtos.Data.Combat.ICombatMoveBuffs);
+                public attacker_attack_stat_stage_change: number;
+                public attacker_defense_stat_stage_change: number;
+                public target_attack_stat_stage_change: number;
+                public target_defense_stat_stage_change: number;
+                public static create(properties?: POGOProtos.Data.Combat.ICombatMoveBuffs): POGOProtos.Data.Combat.CombatMoveBuffs;
+                public static encode(message: POGOProtos.Data.Combat.ICombatMoveBuffs, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Combat.ICombatMoveBuffs, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Combat.CombatMoveBuffs;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Combat.CombatMoveBuffs;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Combat.CombatMoveBuffs;
+                public static toObject(message: POGOProtos.Data.Combat.CombatMoveBuffs, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            interface IPlayerCombatStats {
+            }
+
+            class PlayerCombatStats implements IPlayerCombatStats {
+                constructor(properties?: POGOProtos.Data.Combat.IPlayerCombatStats);
+                public static create(properties?: POGOProtos.Data.Combat.IPlayerCombatStats): POGOProtos.Data.Combat.PlayerCombatStats;
+                public static encode(message: POGOProtos.Data.Combat.IPlayerCombatStats, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Combat.IPlayerCombatStats, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Combat.PlayerCombatStats;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Combat.PlayerCombatStats;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Combat.PlayerCombatStats;
+                public static toObject(message: POGOProtos.Data.Combat.PlayerCombatStats, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace PlayerCombatStats {
+
+                interface IPlayerCombatBadgeStatsProto {
+                    num_won?: (number|null);
+                    num_total?: (number|null);
+                }
+
+                class PlayerCombatBadgeStatsProto implements IPlayerCombatBadgeStatsProto {
+                    constructor(properties?: POGOProtos.Data.Combat.PlayerCombatStats.IPlayerCombatBadgeStatsProto);
+                    public num_won: number;
+                    public num_total: number;
+                    public static create(properties?: POGOProtos.Data.Combat.PlayerCombatStats.IPlayerCombatBadgeStatsProto): POGOProtos.Data.Combat.PlayerCombatStats.PlayerCombatBadgeStatsProto;
+                    public static encode(message: POGOProtos.Data.Combat.PlayerCombatStats.IPlayerCombatBadgeStatsProto, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Data.Combat.PlayerCombatStats.IPlayerCombatBadgeStatsProto, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Combat.PlayerCombatStats.PlayerCombatBadgeStatsProto;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Combat.PlayerCombatStats.PlayerCombatBadgeStatsProto;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Combat.PlayerCombatStats.PlayerCombatBadgeStatsProto;
+                    public static toObject(message: POGOProtos.Data.Combat.PlayerCombatStats.PlayerCombatBadgeStatsProto, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+            }
+
+            interface IPokemonCombatStats {
+                num_won?: (number|null);
+                num_total?: (number|null);
+            }
+
+            class PokemonCombatStats implements IPokemonCombatStats {
+                constructor(properties?: POGOProtos.Data.Combat.IPokemonCombatStats);
+                public num_won: number;
+                public num_total: number;
+                public static create(properties?: POGOProtos.Data.Combat.IPokemonCombatStats): POGOProtos.Data.Combat.PokemonCombatStats;
+                public static encode(message: POGOProtos.Data.Combat.IPokemonCombatStats, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Combat.IPokemonCombatStats, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Combat.PokemonCombatStats;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Combat.PokemonCombatStats;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Combat.PokemonCombatStats;
+                public static toObject(message: POGOProtos.Data.Combat.PokemonCombatStats, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            interface IPokemonCondition {
+                type?: (POGOProtos.Enums.ConditionType|null);
+                with_pokemon_cp_limit?: (POGOProtos.Data.Combat.IWithPokemonCpLimit|null);
+                with_pokemon_type?: (POGOProtos.Data.Combat.IWithPokemonType|null);
+                with_pokemon_category?: (POGOProtos.Data.Combat.IWithPokemonCategory|null);
+            }
+
+            class PokemonCondition implements IPokemonCondition {
+                constructor(properties?: POGOProtos.Data.Combat.IPokemonCondition);
+                public type: POGOProtos.Enums.ConditionType;
+                public with_pokemon_cp_limit?: (POGOProtos.Data.Combat.IWithPokemonCpLimit|null);
+                public with_pokemon_type?: (POGOProtos.Data.Combat.IWithPokemonType|null);
+                public with_pokemon_category?: (POGOProtos.Data.Combat.IWithPokemonCategory|null);
+                public static create(properties?: POGOProtos.Data.Combat.IPokemonCondition): POGOProtos.Data.Combat.PokemonCondition;
+                public static encode(message: POGOProtos.Data.Combat.IPokemonCondition, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Combat.IPokemonCondition, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Combat.PokemonCondition;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Combat.PokemonCondition;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Combat.PokemonCondition;
+                public static toObject(message: POGOProtos.Data.Combat.PokemonCondition, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            interface IUnlockCondition {
+                type?: (POGOProtos.Enums.ConditionType|null);
+                min_pokemon_count?: (number|null);
+                with_player_level?: (POGOProtos.Data.Combat.IWithPlayerLevel|null);
+                with_pokemon_cp_limit?: (POGOProtos.Data.Combat.IWithPokemonCpLimit|null);
+                with_pokemon_type?: (POGOProtos.Data.Combat.IWithPokemonType|null);
+                with_pokemon_category?: (POGOProtos.Data.Combat.IWithPokemonCategory|null);
+            }
+
+            class UnlockCondition implements IUnlockCondition {
+                constructor(properties?: POGOProtos.Data.Combat.IUnlockCondition);
+                public type: POGOProtos.Enums.ConditionType;
+                public min_pokemon_count: number;
+                public with_player_level?: (POGOProtos.Data.Combat.IWithPlayerLevel|null);
+                public with_pokemon_cp_limit?: (POGOProtos.Data.Combat.IWithPokemonCpLimit|null);
+                public with_pokemon_type?: (POGOProtos.Data.Combat.IWithPokemonType|null);
+                public with_pokemon_category?: (POGOProtos.Data.Combat.IWithPokemonCategory|null);
+                public static create(properties?: POGOProtos.Data.Combat.IUnlockCondition): POGOProtos.Data.Combat.UnlockCondition;
+                public static encode(message: POGOProtos.Data.Combat.IUnlockCondition, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Combat.IUnlockCondition, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Combat.UnlockCondition;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Combat.UnlockCondition;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Combat.UnlockCondition;
+                public static toObject(message: POGOProtos.Data.Combat.UnlockCondition, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            interface IWithPlayerLevel {
+                level?: (number|null);
+            }
+
+            class WithPlayerLevel implements IWithPlayerLevel {
+                constructor(properties?: POGOProtos.Data.Combat.IWithPlayerLevel);
+                public level: number;
+                public static create(properties?: POGOProtos.Data.Combat.IWithPlayerLevel): POGOProtos.Data.Combat.WithPlayerLevel;
+                public static encode(message: POGOProtos.Data.Combat.IWithPlayerLevel, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Combat.IWithPlayerLevel, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Combat.WithPlayerLevel;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Combat.WithPlayerLevel;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Combat.WithPlayerLevel;
+                public static toObject(message: POGOProtos.Data.Combat.WithPlayerLevel, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            interface IWithPokemonCategory {
+                category_name?: (string|null);
+                pokemon_ids?: (POGOProtos.Enums.PokemonType[]|null);
+            }
+
+            class WithPokemonCategory implements IWithPokemonCategory {
+                constructor(properties?: POGOProtos.Data.Combat.IWithPokemonCategory);
+                public category_name: string;
+                public pokemon_ids: POGOProtos.Enums.PokemonType[];
+                public static create(properties?: POGOProtos.Data.Combat.IWithPokemonCategory): POGOProtos.Data.Combat.WithPokemonCategory;
+                public static encode(message: POGOProtos.Data.Combat.IWithPokemonCategory, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Combat.IWithPokemonCategory, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Combat.WithPokemonCategory;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Combat.WithPokemonCategory;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Combat.WithPokemonCategory;
+                public static toObject(message: POGOProtos.Data.Combat.WithPokemonCategory, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            interface IWithPokemonCpLimit {
+                min_cp?: (number|null);
+                max_cp?: (number|null);
+            }
+
+            class WithPokemonCpLimit implements IWithPokemonCpLimit {
+                constructor(properties?: POGOProtos.Data.Combat.IWithPokemonCpLimit);
+                public min_cp: number;
+                public max_cp: number;
+                public static create(properties?: POGOProtos.Data.Combat.IWithPokemonCpLimit): POGOProtos.Data.Combat.WithPokemonCpLimit;
+                public static encode(message: POGOProtos.Data.Combat.IWithPokemonCpLimit, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Combat.IWithPokemonCpLimit, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Combat.WithPokemonCpLimit;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Combat.WithPokemonCpLimit;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Combat.WithPokemonCpLimit;
+                public static toObject(message: POGOProtos.Data.Combat.WithPokemonCpLimit, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            interface IWithPokemonType {
+                pokemon_type?: (POGOProtos.Enums.PokemonType[]|null);
+            }
+
+            class WithPokemonType implements IWithPokemonType {
+                constructor(properties?: POGOProtos.Data.Combat.IWithPokemonType);
+                public pokemon_type: POGOProtos.Enums.PokemonType[];
+                public static create(properties?: POGOProtos.Data.Combat.IWithPokemonType): POGOProtos.Data.Combat.WithPokemonType;
+                public static encode(message: POGOProtos.Data.Combat.IWithPokemonType, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Combat.IWithPokemonType, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Combat.WithPokemonType;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Combat.WithPokemonType;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Combat.WithPokemonType;
+                public static toObject(message: POGOProtos.Data.Combat.WithPokemonType, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
         }
 
         namespace Debug {
@@ -2026,6 +2230,25 @@ export namespace POGOProtos {
             }
         }
 
+        interface INpcPokemon {
+            pokemon_type?: (POGOProtos.Enums.PokemonId|null);
+            pokemon_display?: (POGOProtos.Data.IPokemonDisplay|null);
+        }
+
+        class NpcPokemon implements INpcPokemon {
+            constructor(properties?: POGOProtos.Data.INpcPokemon);
+            public pokemon_type: POGOProtos.Enums.PokemonId;
+            public pokemon_display?: (POGOProtos.Data.IPokemonDisplay|null);
+            public static create(properties?: POGOProtos.Data.INpcPokemon): POGOProtos.Data.NpcPokemon;
+            public static encode(message: POGOProtos.Data.INpcPokemon, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: POGOProtos.Data.INpcPokemon, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.NpcPokemon;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.NpcPokemon;
+            public static fromObject(object: { [k: string]: any }): POGOProtos.Data.NpcPokemon;
+            public static toObject(message: POGOProtos.Data.NpcPokemon, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public toJSON(): { [k: string]: any };
+        }
+
         namespace Player {
 
             interface IContactSettings {
@@ -2341,6 +2564,9 @@ export namespace POGOProtos {
                 num_max_level_friends?: (number|null);
                 trade_accumulated_distance_km?: (number|Long|null);
                 fitness_report_last_check_bucket?: (number|Long|null);
+                combat_stats?: (POGOProtos.Data.Combat.IPlayerCombatStats|null);
+                num_npc_combats_won?: (number|null);
+                num_npc_combats_total?: (number|null);
             }
 
             class PlayerStats implements IPlayerStats {
@@ -2383,6 +2609,9 @@ export namespace POGOProtos {
                 public num_max_level_friends: number;
                 public trade_accumulated_distance_km: (number|Long);
                 public fitness_report_last_check_bucket: (number|Long);
+                public combat_stats?: (POGOProtos.Data.Combat.IPlayerCombatStats|null);
+                public num_npc_combats_won: number;
+                public num_npc_combats_total: number;
                 public static create(properties?: POGOProtos.Data.Player.IPlayerStats): POGOProtos.Data.Player.PlayerStats;
                 public static encode(message: POGOProtos.Data.Player.IPlayerStats, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Data.Player.IPlayerStats, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -2601,6 +2830,9 @@ export namespace POGOProtos {
             original_owner_nickname?: (string|null);
             traded_time_ms?: (number|Long|null);
             is_lucky?: (boolean|null);
+            move3?: (number|null);
+            pvp_combat_stats?: (POGOProtos.Data.Combat.IPokemonCombatStats|null);
+            npc_combat_stats?: (POGOProtos.Data.Combat.IPokemonCombatStats|null);
         }
 
         class PokemonData implements IPokemonData {
@@ -2650,6 +2882,9 @@ export namespace POGOProtos {
             public original_owner_nickname: string;
             public traded_time_ms: (number|Long);
             public is_lucky: boolean;
+            public move3: number;
+            public pvp_combat_stats?: (POGOProtos.Data.Combat.IPokemonCombatStats|null);
+            public npc_combat_stats?: (POGOProtos.Data.Combat.IPokemonCombatStats|null);
             public static create(properties?: POGOProtos.Data.IPokemonData): POGOProtos.Data.PokemonData;
             public static encode(message: POGOProtos.Data.IPokemonData, writer?: $protobuf.Writer): $protobuf.Writer;
             public static encodeDelimited(message: POGOProtos.Data.IPokemonData, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -4162,6 +4397,9 @@ export namespace POGOProtos {
             BADGE_TRADING = 49,
             BADGE_TRADING_DISTANCE = 50,
             BADGE_POKEDEX_ENTRIES_GEN4 = 51,
+            BADGE_GREAT_LEAGUE = 52,
+            BADGE_ULTRA_LEAGUE = 53,
+            BADGE_MASTER_LEAGUE = 54,
             BADGE_EVENT_MIN = 2000,
             BADGE_CHICAGO_FEST_JULY_2017 = 2001,
             BADGE_PIKACHU_OUTBREAK_YOKOHAMA_2017 = 2002,
@@ -4196,7 +4434,10 @@ export namespace POGOProtos {
             BADGE_YOKOSUKA_1_SEP_2018_KURIHAMA = 2031,
             BADGE_YOKOSUKA_2_SEP_2018_MIKASA = 2032,
             BADGE_YOKOSUKA_2_SEP_2018_VERNY = 2033,
-            BADGE_YOKOSUKA_2_SEP_2018_KURIHAMA = 2034
+            BADGE_YOKOSUKA_2_SEP_2018_KURIHAMA = 2034,
+            BADGE_TOP_BANANA_1 = 2035,
+            BADGE_TOP_BANANA_2 = 2036,
+            BADGE_TOP_BANANA_3 = 2037
         }
 
         enum BuddySize {
@@ -4230,6 +4471,14 @@ export namespace POGOProtos {
             CAM_TARGET_SHOULDER_ATTACKER_DEFENDER = 12,
             CAM_TARGET_SHOULDER_ATTACKER_DEFENDER_MIRROR = 13,
             CAM_TARGET_ATTACKER_DEFENDER_WORLD = 14
+        }
+
+        enum ConditionType {
+            UNSET = 0,
+            WITH_POKEMON_CP_LIMIT = 1,
+            WITH_PLAYER_LEVEL = 2,
+            WITH_POKEMON_TYPE = 3,
+            WITH_POKEMON_CATEGORY = 4
         }
 
         enum Costume {
@@ -4496,6 +4745,7 @@ export namespace POGOProtos {
             BGMODE_EGG_HATCH = 11,
             BGMODE_BUDDY_CANDY = 12,
             BGMODE_WEEKLY_FITNESS_REPORT = 13,
+            COMBAT_CHALLENGE_OPENED = 14,
             BGMODE_OFF_SESSION_DISTANCE = 15
         }
 
@@ -4528,7 +4778,11 @@ export namespace POGOProtos {
             EGG_TUTORIAL_FINISHED = 20,
             POKESTOP_LETSGO = 21,
             WILD_POKEMON_ENCOUNTER_ENTERED = 22,
-            WILD_POKEMON_CAUGHT = 23
+            WILD_POKEMON_CAUGHT = 23,
+            AR_STANDARD_ENABLED = 24,
+            AR_STANDARD_REJECTED = 25,
+            AR_PLUS_ENABLED = 26,
+            AR_PLUS_REJECTED = 27
         }
 
         enum OnboardingPathIds {
@@ -5693,7 +5947,8 @@ export namespace POGOProtos {
             SOCKS = 9,
             BELT = 10,
             GLASSES = 11,
-            NECKLACE = 12
+            NECKLACE = 12,
+            SKIN = 13
         }
 
         enum SocialAction {
@@ -5831,7 +6086,8 @@ export namespace POGOProtos {
             CANCEL_SUPERAWESOME_SIGN_IN = 21,
             COMPLETE_SUPERAWESOME_SIGN_IN = 22,
             EXIT_NEW_PLAYER = 23,
-            EXIT_EXISTING_PLAYER = 24
+            EXIT_EXISTING_PLAYER = 24,
+            LOGIN_STARTED = 25
         }
 
         enum MapEventsTelemetryIds {
@@ -5931,7 +6187,16 @@ export namespace POGOProtos {
             CHALLENGE_QUEST_TUTORIAL = 10,
             PRIVACY_POLICY_CONFIRMATION = 11,
             TRADING_TUTORIAL = 12,
-            POI_SUBMISSION_TUTORIAL = 13
+            POI_SUBMISSION_TUTORIAL = 13,
+            V1_START_TUTORIAL = 14,
+            V2_START_TUTORIAL = 15,
+            V2_CUSTOMIZED_AVATAR = 16,
+            V2_CAUGHT_FIRST_WILD = 17,
+            V2_FINISHED_TUTORIAL_CATCHES = 18,
+            V2_NAME_SELECTION = 19,
+            V2_EGG_GIVEN = 20,
+            V2_START_EGG_TUTORIAL = 21,
+            V2_COMPLETED_EGG_TUTORIAL = 22
         }
 
         enum VariableName {
@@ -8273,6 +8538,21 @@ export namespace POGOProtos {
                     public toJSON(): { [k: string]: any };
                 }
 
+                interface IGetClientTelemetrySettingsMessage {
+                }
+
+                class GetClientTelemetrySettingsMessage implements IGetClientTelemetrySettingsMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IGetClientTelemetrySettingsMessage);
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IGetClientTelemetrySettingsMessage): POGOProtos.Networking.Requests.Messages.GetClientTelemetrySettingsMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IGetClientTelemetrySettingsMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IGetClientTelemetrySettingsMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.GetClientTelemetrySettingsMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.GetClientTelemetrySettingsMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.GetClientTelemetrySettingsMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.GetClientTelemetrySettingsMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
                 interface IGetDownloadUrlsMessage {
                     asset_id?: (string[]|null);
                 }
@@ -10140,10 +10420,31 @@ export namespace POGOProtos {
                 CANCEL_TRADING = 973,
                 GET_TRADING = 974,
                 GET_FITNESS_REWARDS = 980,
+                GET_COMBAT_PLAYER_PROFILE = 990,
+                GENERATE_COMBAT_CHALLENGE_ID = 991,
+                CREATE_COMBAT_CHALLENGE = 992,
+                OPEN_COMBAT_CHALLENGE = 993,
+                GET_COMBAT_CHALLENGE = 994,
+                ACCEPT_COMBAT_CHALLENGE = 995,
+                DECLINE_COMBAT_CHALLENGE = 996,
+                CANCEL_COMBAT_CHALLENGE = 997,
+                SUBMIT_COMBAT_CHALLENGE_POKEMONS = 998,
+                SAVE_COMBAT_PLAYER_PREFERENCES = 999,
+                OPEN_COMBAT_SESSION = 1000,
+                UPDATE_COMBAT = 1001,
+                QUIT_COMBAT = 1002,
+                GET_COMBAT_RESULTS = 1003,
+                UNLOCK_SPECIAL_MOVE = 1004,
+                GET_NPC_COMBAT_REWARDS = 1005,
+                COMBAT_FRIEND_REQUEST = 1006,
+                OPEN_NPC_COMBAT_SESSION = 1007,
+                START_TUTORIAL_ACTION = 1008,
+                GET_TUTORIAL_EGG_ACTION = 1009,
                 SEND_PROBE = 1020,
                 PROBE_DATA = 1021,
                 COMBAT_DATA = 1022,
                 COMBAT_CHALLENGE_DATA = 1023,
+                GET_SIGNED_GMAP_URL = 1105,
                 REGISTER_PUSH_NOTIFICATION = 5000,
                 UNREGISTER_PUSH_NOTIFICATION = 5001,
                 UPDATE_NOTIFICATION_STATUS = 5002,
@@ -11344,8 +11645,16 @@ export namespace POGOProtos {
                     onboarding_settings?: (POGOProtos.Settings.Master.IOnboardingSettings|null);
                     friendship_milestone_settings?: (POGOProtos.Settings.Master.IFriendshipLevelMilestoneSettings|null);
                     lucky_pokemon_settings?: (POGOProtos.Settings.Master.ILuckyPokemonSettings|null);
+                    combat_settings?: (POGOProtos.Settings.Master.ICombatSettings|null);
+                    combat_league_settings?: (POGOProtos.Settings.Master.ICombatLeagueSettings|null);
+                    combat_league?: (POGOProtos.Settings.Master.ICombatLeague|null);
                     ex_raid_settings?: (POGOProtos.Settings.Master.IExRaidSettings|null);
+                    combat_move?: (POGOProtos.Settings.Master.ICombatMoveSettings|null);
                     background_mode_settings?: (POGOProtos.Settings.Master.IBackgroundModeSettings|null);
+                    combat_stat_stage_settings?: (POGOProtos.Settings.Master.ICombatStatStageSettings|null);
+                    combat_npc_trainer?: (POGOProtos.Settings.Master.ICombatNpcTrainer|null);
+                    combat_npc_personality?: (POGOProtos.Settings.Master.ICombatNpcPersonality|null);
+                    onboarding_v2_settings?: (POGOProtos.Settings.Master.IOnboardingV2Settings|null);
                 }
 
                 class ItemTemplate implements IItemTemplate {
@@ -11379,8 +11688,16 @@ export namespace POGOProtos {
                     public onboarding_settings?: (POGOProtos.Settings.Master.IOnboardingSettings|null);
                     public friendship_milestone_settings?: (POGOProtos.Settings.Master.IFriendshipLevelMilestoneSettings|null);
                     public lucky_pokemon_settings?: (POGOProtos.Settings.Master.ILuckyPokemonSettings|null);
+                    public combat_settings?: (POGOProtos.Settings.Master.ICombatSettings|null);
+                    public combat_league_settings?: (POGOProtos.Settings.Master.ICombatLeagueSettings|null);
+                    public combat_league?: (POGOProtos.Settings.Master.ICombatLeague|null);
                     public ex_raid_settings?: (POGOProtos.Settings.Master.IExRaidSettings|null);
+                    public combat_move?: (POGOProtos.Settings.Master.ICombatMoveSettings|null);
                     public background_mode_settings?: (POGOProtos.Settings.Master.IBackgroundModeSettings|null);
+                    public combat_stat_stage_settings?: (POGOProtos.Settings.Master.ICombatStatStageSettings|null);
+                    public combat_npc_trainer?: (POGOProtos.Settings.Master.ICombatNpcTrainer|null);
+                    public combat_npc_personality?: (POGOProtos.Settings.Master.ICombatNpcPersonality|null);
+                    public onboarding_v2_settings?: (POGOProtos.Settings.Master.IOnboardingV2Settings|null);
                     public static create(properties?: POGOProtos.Networking.Responses.DownloadItemTemplatesResponse.IItemTemplate): POGOProtos.Networking.Responses.DownloadItemTemplatesResponse.ItemTemplate;
                     public static encode(message: POGOProtos.Networking.Responses.DownloadItemTemplatesResponse.IItemTemplate, writer?: $protobuf.Writer): $protobuf.Writer;
                     public static encodeDelimited(message: POGOProtos.Networking.Responses.DownloadItemTemplatesResponse.IItemTemplate, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -11869,6 +12186,39 @@ export namespace POGOProtos {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.GetBuddyWalkedResponse;
                 public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.GetBuddyWalkedResponse;
                 public static toObject(message: POGOProtos.Networking.Responses.GetBuddyWalkedResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            interface IGetClientTelemetrySettingsResponse {
+                one?: (number|null);
+                two?: (number|null);
+                three?: (number|null);
+                four?: (number|null);
+                five?: (number|null);
+                six?: (number|Long|null);
+                seven?: (number|null);
+                eight?: (number|Long|null);
+                nine?: (string|null);
+            }
+
+            class GetClientTelemetrySettingsResponse implements IGetClientTelemetrySettingsResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IGetClientTelemetrySettingsResponse);
+                public one: number;
+                public two: number;
+                public three: number;
+                public four: number;
+                public five: number;
+                public six: (number|Long);
+                public seven: number;
+                public eight: (number|Long);
+                public nine: string;
+                public static create(properties?: POGOProtos.Networking.Responses.IGetClientTelemetrySettingsResponse): POGOProtos.Networking.Responses.GetClientTelemetrySettingsResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IGetClientTelemetrySettingsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IGetClientTelemetrySettingsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.GetClientTelemetrySettingsResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.GetClientTelemetrySettingsResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.GetClientTelemetrySettingsResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.GetClientTelemetrySettingsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
                 public toJSON(): { [k: string]: any };
             }
 
@@ -13994,35 +14344,6 @@ export namespace POGOProtos {
                     }
                 }
 
-                interface IUpdateFacebookStatusResponse {
-                    result?: (POGOProtos.Networking.Responses.Social.UpdateFacebookStatusResponse.Result|null);
-                }
-
-                class UpdateFacebookStatusResponse implements IUpdateFacebookStatusResponse {
-                    constructor(properties?: POGOProtos.Networking.Responses.Social.IUpdateFacebookStatusResponse);
-                    public result: POGOProtos.Networking.Responses.Social.UpdateFacebookStatusResponse.Result;
-                    public static create(properties?: POGOProtos.Networking.Responses.Social.IUpdateFacebookStatusResponse): POGOProtos.Networking.Responses.Social.UpdateFacebookStatusResponse;
-                    public static encode(message: POGOProtos.Networking.Responses.Social.IUpdateFacebookStatusResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static encodeDelimited(message: POGOProtos.Networking.Responses.Social.IUpdateFacebookStatusResponse, writer?: $protobuf.Writer): $protobuf.Writer;
-                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.Social.UpdateFacebookStatusResponse;
-                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.Social.UpdateFacebookStatusResponse;
-                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.Social.UpdateFacebookStatusResponse;
-                    public static toObject(message: POGOProtos.Networking.Responses.Social.UpdateFacebookStatusResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
-                    public toJSON(): { [k: string]: any };
-                }
-
-                namespace UpdateFacebookStatusResponse {
-
-                    enum Result {
-                        UNSET = 0,
-                        SUCCESS = 1,
-                        ERROR_UNKNOWN = 2,
-                        ERROR_PLAYER_NOT_FOUND = 3,
-                        ERROR_FACEBOOK_API = 4,
-                        ERROR_ALREADY_EXISTS = 5
-                    }
-                }
-
                 interface IGetFacebookFriendListResponse {
                     result?: (POGOProtos.Networking.Responses.Social.GetFacebookFriendListResponse.Result|null);
                     friend?: (POGOProtos.Data.Friends.IFacebookFriend[]|null);
@@ -14316,6 +14637,35 @@ export namespace POGOProtos {
                         ERROR_CANNOT_SEND_INVITES_TO_YOURSELF = 9,
                         ERROR_INVITE_ALREADY_RECEIVED = 10,
                         ERROR_RECEIVER_HAS_MAX_FRIENDS = 11
+                    }
+                }
+
+                interface IUpdateFacebookStatusResponse {
+                    result?: (POGOProtos.Networking.Responses.Social.UpdateFacebookStatusResponse.Result|null);
+                }
+
+                class UpdateFacebookStatusResponse implements IUpdateFacebookStatusResponse {
+                    constructor(properties?: POGOProtos.Networking.Responses.Social.IUpdateFacebookStatusResponse);
+                    public result: POGOProtos.Networking.Responses.Social.UpdateFacebookStatusResponse.Result;
+                    public static create(properties?: POGOProtos.Networking.Responses.Social.IUpdateFacebookStatusResponse): POGOProtos.Networking.Responses.Social.UpdateFacebookStatusResponse;
+                    public static encode(message: POGOProtos.Networking.Responses.Social.IUpdateFacebookStatusResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Responses.Social.IUpdateFacebookStatusResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.Social.UpdateFacebookStatusResponse;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.Social.UpdateFacebookStatusResponse;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.Social.UpdateFacebookStatusResponse;
+                    public static toObject(message: POGOProtos.Networking.Responses.Social.UpdateFacebookStatusResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                namespace UpdateFacebookStatusResponse {
+
+                    enum Result {
+                        UNSET = 0,
+                        SUCCESS = 1,
+                        ERROR_UNKNOWN = 2,
+                        ERROR_PLAYER_NOT_FOUND = 3,
+                        ERROR_FACEBOOK_API = 4,
+                        ERROR_ALREADY_EXISTS = 5
                     }
                 }
             }
@@ -15335,6 +15685,7 @@ export namespace POGOProtos {
                 capture_reward?: (POGOProtos.Data.Badge.IBadgeCaptureReward[]|null);
                 event_badge?: (boolean|null);
                 event_badge_settings?: (POGOProtos.Settings.Master.IEventBadgeSettings|null);
+                combat_league_template_id?: (string|null);
             }
 
             class BadgeSettings implements IBadgeSettings {
@@ -15345,6 +15696,7 @@ export namespace POGOProtos {
                 public capture_reward: POGOProtos.Data.Badge.IBadgeCaptureReward[];
                 public event_badge: boolean;
                 public event_badge_settings?: (POGOProtos.Settings.Master.IEventBadgeSettings|null);
+                public combat_league_template_id: string;
                 public static create(properties?: POGOProtos.Settings.Master.IBadgeSettings): POGOProtos.Settings.Master.BadgeSettings;
                 public static encode(message: POGOProtos.Settings.Master.IBadgeSettings, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Settings.Master.IBadgeSettings, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -15422,6 +15774,264 @@ export namespace POGOProtos {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.Master.CameraSettings;
                 public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.Master.CameraSettings;
                 public static toObject(message: POGOProtos.Settings.Master.CameraSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            interface ICombatLeague {
+                title?: (string|null);
+                enabled?: (boolean|null);
+                unlock_condition?: (POGOProtos.Data.Combat.IUnlockCondition[]|null);
+                pokemon_condition?: (POGOProtos.Data.Combat.IPokemonCondition[]|null);
+                icon_url?: (string|null);
+                pokemon_count?: (number|null);
+                banned_pokemon?: (POGOProtos.Enums.PokemonId[]|null);
+                badge_type?: (POGOProtos.Enums.BadgeType|null);
+                minigame_defense_chance_limit?: (number|null);
+            }
+
+            class CombatLeague implements ICombatLeague {
+                constructor(properties?: POGOProtos.Settings.Master.ICombatLeague);
+                public title: string;
+                public enabled: boolean;
+                public unlock_condition: POGOProtos.Data.Combat.IUnlockCondition[];
+                public pokemon_condition: POGOProtos.Data.Combat.IPokemonCondition[];
+                public icon_url: string;
+                public pokemon_count: number;
+                public banned_pokemon: POGOProtos.Enums.PokemonId[];
+                public badge_type: POGOProtos.Enums.BadgeType;
+                public minigame_defense_chance_limit: number;
+                public static create(properties?: POGOProtos.Settings.Master.ICombatLeague): POGOProtos.Settings.Master.CombatLeague;
+                public static encode(message: POGOProtos.Settings.Master.ICombatLeague, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Settings.Master.ICombatLeague, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Settings.Master.CombatLeague;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.Master.CombatLeague;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.Master.CombatLeague;
+                public static toObject(message: POGOProtos.Settings.Master.CombatLeague, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            interface ICombatLeagueSettings {
+                combat_league_template_id?: (string[]|null);
+            }
+
+            class CombatLeagueSettings implements ICombatLeagueSettings {
+                constructor(properties?: POGOProtos.Settings.Master.ICombatLeagueSettings);
+                public combat_league_template_id: string[];
+                public static create(properties?: POGOProtos.Settings.Master.ICombatLeagueSettings): POGOProtos.Settings.Master.CombatLeagueSettings;
+                public static encode(message: POGOProtos.Settings.Master.ICombatLeagueSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Settings.Master.ICombatLeagueSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Settings.Master.CombatLeagueSettings;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.Master.CombatLeagueSettings;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.Master.CombatLeagueSettings;
+                public static toObject(message: POGOProtos.Settings.Master.CombatLeagueSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            interface ICombatMoveSettings {
+                unique_id?: (POGOProtos.Enums.PokemonMove|null);
+                type?: (POGOProtos.Enums.PokemonType|null);
+                power?: (number|null);
+                vfx_name?: (string|null);
+                duration_turns?: (number|null);
+                energy_delta?: (number|null);
+                buffs?: (POGOProtos.Data.Combat.ICombatMoveBuffs|null);
+            }
+
+            class CombatMoveSettings implements ICombatMoveSettings {
+                constructor(properties?: POGOProtos.Settings.Master.ICombatMoveSettings);
+                public unique_id: POGOProtos.Enums.PokemonMove;
+                public type: POGOProtos.Enums.PokemonType;
+                public power: number;
+                public vfx_name: string;
+                public duration_turns: number;
+                public energy_delta: number;
+                public buffs?: (POGOProtos.Data.Combat.ICombatMoveBuffs|null);
+                public static create(properties?: POGOProtos.Settings.Master.ICombatMoveSettings): POGOProtos.Settings.Master.CombatMoveSettings;
+                public static encode(message: POGOProtos.Settings.Master.ICombatMoveSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Settings.Master.ICombatMoveSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Settings.Master.CombatMoveSettings;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.Master.CombatMoveSettings;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.Master.CombatMoveSettings;
+                public static toObject(message: POGOProtos.Settings.Master.CombatMoveSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            interface ICombatNpcPersonality {
+                personality_name?: (string|null);
+                super_effective_chance?: (number|null);
+                special_chance?: (number|null);
+                defensive_minimum_score?: (number|null);
+                defensive_maximum_score?: (number|null);
+                offensive_minimum_score?: (number|null);
+                offensive_maximum_score?: (number|null);
+            }
+
+            class CombatNpcPersonality implements ICombatNpcPersonality {
+                constructor(properties?: POGOProtos.Settings.Master.ICombatNpcPersonality);
+                public personality_name: string;
+                public super_effective_chance: number;
+                public special_chance: number;
+                public defensive_minimum_score: number;
+                public defensive_maximum_score: number;
+                public offensive_minimum_score: number;
+                public offensive_maximum_score: number;
+                public static create(properties?: POGOProtos.Settings.Master.ICombatNpcPersonality): POGOProtos.Settings.Master.CombatNpcPersonality;
+                public static encode(message: POGOProtos.Settings.Master.ICombatNpcPersonality, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Settings.Master.ICombatNpcPersonality, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Settings.Master.CombatNpcPersonality;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.Master.CombatNpcPersonality;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.Master.CombatNpcPersonality;
+                public static toObject(message: POGOProtos.Settings.Master.CombatNpcPersonality, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            interface ICombatNpcTrainer {
+                trainer_name?: (string|null);
+                combat_league_template_id?: (string|null);
+                combat_personality_id?: (string|null);
+                win_loot_table_id?: (string|null);
+                lose_loot_table_id?: (string|null);
+                avatar?: (POGOProtos.Data.Player.IPlayerAvatar|null);
+                available_pokemon?: (POGOProtos.Data.INpcPokemon[]|null);
+                trainer_title?: (string|null);
+                trainer_quote?: (string|null);
+            }
+
+            class CombatNpcTrainer implements ICombatNpcTrainer {
+                constructor(properties?: POGOProtos.Settings.Master.ICombatNpcTrainer);
+                public trainer_name: string;
+                public combat_league_template_id: string;
+                public combat_personality_id: string;
+                public win_loot_table_id: string;
+                public lose_loot_table_id: string;
+                public avatar?: (POGOProtos.Data.Player.IPlayerAvatar|null);
+                public available_pokemon: POGOProtos.Data.INpcPokemon[];
+                public trainer_title: string;
+                public trainer_quote: string;
+                public static create(properties?: POGOProtos.Settings.Master.ICombatNpcTrainer): POGOProtos.Settings.Master.CombatNpcTrainer;
+                public static encode(message: POGOProtos.Settings.Master.ICombatNpcTrainer, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Settings.Master.ICombatNpcTrainer, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Settings.Master.CombatNpcTrainer;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.Master.CombatNpcTrainer;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.Master.CombatNpcTrainer;
+                public static toObject(message: POGOProtos.Settings.Master.CombatNpcTrainer, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            interface ICombatSettings {
+                round_duration_seconds?: (number|null);
+                turn_duration_seconds?: (number|null);
+                minigame_duration_seconds?: (number|null);
+                same_type_attack_bonus_multiplier?: (number|null);
+                fast_attack_bonus_multiplier?: (number|null);
+                charge_attack_bonus_multiplier?: (number|null);
+                defense_bonus_multiplier?: (number|null);
+                minigame_bonus_base_multiplier?: (number|null);
+                minigame_bonus_variable_multiplier?: (number|null);
+                max_energy?: (number|null);
+                defender_minigame_multiplier?: (number|null);
+                change_pokemon_duration_seconds?: (number|null);
+                minigame_submit_score_duration_seconds?: (number|null);
+                quick_swap_combat_start_available_seconds?: (number|null);
+                quick_swap_cooldown_duration_seconds?: (number|null);
+                offensive_input_challenge_settings?: (POGOProtos.Settings.Master.CombatSettings.ICombatOffensiveInputChallengeSettings|null);
+                defensive_input_challenge_settings?: (POGOProtos.Settings.Master.CombatSettings.ICombatDefensiveInputChallengeSettings|null);
+            }
+
+            class CombatSettings implements ICombatSettings {
+                constructor(properties?: POGOProtos.Settings.Master.ICombatSettings);
+                public round_duration_seconds: number;
+                public turn_duration_seconds: number;
+                public minigame_duration_seconds: number;
+                public same_type_attack_bonus_multiplier: number;
+                public fast_attack_bonus_multiplier: number;
+                public charge_attack_bonus_multiplier: number;
+                public defense_bonus_multiplier: number;
+                public minigame_bonus_base_multiplier: number;
+                public minigame_bonus_variable_multiplier: number;
+                public max_energy: number;
+                public defender_minigame_multiplier: number;
+                public change_pokemon_duration_seconds: number;
+                public minigame_submit_score_duration_seconds: number;
+                public quick_swap_combat_start_available_seconds: number;
+                public quick_swap_cooldown_duration_seconds: number;
+                public offensive_input_challenge_settings?: (POGOProtos.Settings.Master.CombatSettings.ICombatOffensiveInputChallengeSettings|null);
+                public defensive_input_challenge_settings?: (POGOProtos.Settings.Master.CombatSettings.ICombatDefensiveInputChallengeSettings|null);
+                public static create(properties?: POGOProtos.Settings.Master.ICombatSettings): POGOProtos.Settings.Master.CombatSettings;
+                public static encode(message: POGOProtos.Settings.Master.ICombatSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Settings.Master.ICombatSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Settings.Master.CombatSettings;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.Master.CombatSettings;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.Master.CombatSettings;
+                public static toObject(message: POGOProtos.Settings.Master.CombatSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace CombatSettings {
+
+                interface ICombatOffensiveInputChallengeSettings {
+                    score_per_tap?: (number|null);
+                    score_decay_per_second?: (number|null);
+                    max_score?: (number|null);
+                    high_score_additional_decay_per_second?: (number|null);
+                    max_time_additional_decay_per_second?: (number|null);
+                }
+
+                class CombatOffensiveInputChallengeSettings implements ICombatOffensiveInputChallengeSettings {
+                    constructor(properties?: POGOProtos.Settings.Master.CombatSettings.ICombatOffensiveInputChallengeSettings);
+                    public score_per_tap: number;
+                    public score_decay_per_second: number;
+                    public max_score: number;
+                    public high_score_additional_decay_per_second: number;
+                    public max_time_additional_decay_per_second: number;
+                    public static create(properties?: POGOProtos.Settings.Master.CombatSettings.ICombatOffensiveInputChallengeSettings): POGOProtos.Settings.Master.CombatSettings.CombatOffensiveInputChallengeSettings;
+                    public static encode(message: POGOProtos.Settings.Master.CombatSettings.ICombatOffensiveInputChallengeSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Settings.Master.CombatSettings.ICombatOffensiveInputChallengeSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Settings.Master.CombatSettings.CombatOffensiveInputChallengeSettings;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.Master.CombatSettings.CombatOffensiveInputChallengeSettings;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.Master.CombatSettings.CombatOffensiveInputChallengeSettings;
+                    public static toObject(message: POGOProtos.Settings.Master.CombatSettings.CombatOffensiveInputChallengeSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface ICombatDefensiveInputChallengeSettings {
+                    full_rotations_for_max_score?: (number|null);
+                }
+
+                class CombatDefensiveInputChallengeSettings implements ICombatDefensiveInputChallengeSettings {
+                    constructor(properties?: POGOProtos.Settings.Master.CombatSettings.ICombatDefensiveInputChallengeSettings);
+                    public full_rotations_for_max_score: number;
+                    public static create(properties?: POGOProtos.Settings.Master.CombatSettings.ICombatDefensiveInputChallengeSettings): POGOProtos.Settings.Master.CombatSettings.CombatDefensiveInputChallengeSettings;
+                    public static encode(message: POGOProtos.Settings.Master.CombatSettings.ICombatDefensiveInputChallengeSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Settings.Master.CombatSettings.ICombatDefensiveInputChallengeSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Settings.Master.CombatSettings.CombatDefensiveInputChallengeSettings;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.Master.CombatSettings.CombatDefensiveInputChallengeSettings;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.Master.CombatSettings.CombatDefensiveInputChallengeSettings;
+                    public static toObject(message: POGOProtos.Settings.Master.CombatSettings.CombatDefensiveInputChallengeSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+            }
+
+            interface ICombatStatStageSettings {
+                minimum_stat_stage?: (number|null);
+                maximum_stat_stage?: (number|null);
+                attack_buff_multiplier?: (number[]|null);
+                defense_buff_multiplier?: (number[]|null);
+            }
+
+            class CombatStatStageSettings implements ICombatStatStageSettings {
+                constructor(properties?: POGOProtos.Settings.Master.ICombatStatStageSettings);
+                public minimum_stat_stage: number;
+                public maximum_stat_stage: number;
+                public attack_buff_multiplier: number[];
+                public defense_buff_multiplier: number[];
+                public static create(properties?: POGOProtos.Settings.Master.ICombatStatStageSettings): POGOProtos.Settings.Master.CombatStatStageSettings;
+                public static encode(message: POGOProtos.Settings.Master.ICombatStatStageSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Settings.Master.ICombatStatStageSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Settings.Master.CombatStatStageSettings;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.Master.CombatStatStageSettings;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.Master.CombatStatStageSettings;
+                public static toObject(message: POGOProtos.Settings.Master.CombatStatStageSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
                 public toJSON(): { [k: string]: any };
             }
 
@@ -16221,6 +16831,29 @@ export namespace POGOProtos {
                 public toJSON(): { [k: string]: any };
             }
 
+            interface IOnboardingV2Settings {
+                enable_onboarding_v2?: (boolean|null);
+                pokedex_id?: (POGOProtos.Enums.PokemonId[]|null);
+                onboarding_egg_pokemon?: (POGOProtos.Enums.PokemonId|null);
+                egg_km_until_hatch?: (number|null);
+            }
+
+            class OnboardingV2Settings implements IOnboardingV2Settings {
+                constructor(properties?: POGOProtos.Settings.Master.IOnboardingV2Settings);
+                public enable_onboarding_v2: boolean;
+                public pokedex_id: POGOProtos.Enums.PokemonId[];
+                public onboarding_egg_pokemon: POGOProtos.Enums.PokemonId;
+                public egg_km_until_hatch: number;
+                public static create(properties?: POGOProtos.Settings.Master.IOnboardingV2Settings): POGOProtos.Settings.Master.OnboardingV2Settings;
+                public static encode(message: POGOProtos.Settings.Master.IOnboardingV2Settings, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Settings.Master.IOnboardingV2Settings, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Settings.Master.OnboardingV2Settings;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.Master.OnboardingV2Settings;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.Master.OnboardingV2Settings;
+                public static toObject(message: POGOProtos.Settings.Master.OnboardingV2Settings, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
             interface IPlayerLevelSettings {
                 rank_num?: (number[]|null);
                 required_experience?: (number[]|null);
@@ -16466,8 +17099,15 @@ export namespace POGOProtos {
                 buddy_scale?: (number|null);
                 buddy_portrait_offset?: (number[]|null);
                 parent_form?: (POGOProtos.Enums.Form|null);
+                third_move?: (POGOProtos.Settings.Master.PokemonSettings.IPokemonThirdMoveAttributes|null);
                 is_transferable?: (boolean|null);
                 is_deployable?: (boolean|null);
+                combat_shoulder_camera_angle?: (number[]|null);
+                is_tradable?: (boolean|null);
+                combat_default_camera_angle?: (number[]|null);
+                combat_opponent_focus_camera_angle?: (number[]|null);
+                combat_player_focus_camera_angle?: (number[]|null);
+                combat_player_pokemon_position_offset?: (number[]|null);
             }
 
             class PokemonSettings implements IPokemonSettings {
@@ -16506,8 +17146,15 @@ export namespace POGOProtos {
                 public buddy_scale: number;
                 public buddy_portrait_offset: number[];
                 public parent_form: POGOProtos.Enums.Form;
+                public third_move?: (POGOProtos.Settings.Master.PokemonSettings.IPokemonThirdMoveAttributes|null);
                 public is_transferable: boolean;
                 public is_deployable: boolean;
+                public combat_shoulder_camera_angle: number[];
+                public is_tradable: boolean;
+                public combat_default_camera_angle: number[];
+                public combat_opponent_focus_camera_angle: number[];
+                public combat_player_focus_camera_angle: number[];
+                public combat_player_pokemon_position_offset: number[];
                 public static create(properties?: POGOProtos.Settings.Master.IPokemonSettings): POGOProtos.Settings.Master.PokemonSettings;
                 public static encode(message: POGOProtos.Settings.Master.IPokemonSettings, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Settings.Master.IPokemonSettings, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -16516,6 +17163,28 @@ export namespace POGOProtos {
                 public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.Master.PokemonSettings;
                 public static toObject(message: POGOProtos.Settings.Master.PokemonSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
                 public toJSON(): { [k: string]: any };
+            }
+
+            namespace PokemonSettings {
+
+                interface IPokemonThirdMoveAttributes {
+                    stardust_to_unlock?: (number|null);
+                    candy_to_unlock?: (number|null);
+                }
+
+                class PokemonThirdMoveAttributes implements IPokemonThirdMoveAttributes {
+                    constructor(properties?: POGOProtos.Settings.Master.PokemonSettings.IPokemonThirdMoveAttributes);
+                    public stardust_to_unlock: number;
+                    public candy_to_unlock: number;
+                    public static create(properties?: POGOProtos.Settings.Master.PokemonSettings.IPokemonThirdMoveAttributes): POGOProtos.Settings.Master.PokemonSettings.PokemonThirdMoveAttributes;
+                    public static encode(message: POGOProtos.Settings.Master.PokemonSettings.IPokemonThirdMoveAttributes, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Settings.Master.PokemonSettings.IPokemonThirdMoveAttributes, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Settings.Master.PokemonSettings.PokemonThirdMoveAttributes;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.Master.PokemonSettings.PokemonThirdMoveAttributes;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.Master.PokemonSettings.PokemonThirdMoveAttributes;
+                    public static toObject(message: POGOProtos.Settings.Master.PokemonSettings.PokemonThirdMoveAttributes, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
             }
 
             interface IPokemonUpgradeSettings {

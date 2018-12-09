@@ -24,11 +24,13 @@
   },
   "homepage": "https://github.com/pogosandbox/node-pogo-protos#readme",
   "dependencies": {
+    "npm-run-all": "^4.1.5",
     "protobufjs": "^6.8.8"
   },
   "typings": "./pogo-protos.d.ts",
   "scripts": {
     "test": "node test/test.js",
+    "make": "run-s compile minjs js ts",
     "compile": "node proto/compile.js",
     "minjs": "pbjs --keep-case -t static-module --no-verify --no-beautify --no-comments -o compiled.js ./proto/POGOProtos.proto",
     "js": "pbjs --keep-case -t static-module --no-verify -o temp.js ./proto/POGOProtos.proto",

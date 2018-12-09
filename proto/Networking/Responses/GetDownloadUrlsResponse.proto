@@ -3,7 +3,6 @@ package POGOProtos.Networking.Responses;
 
 import "POGOProtos/Data/DownloadUrlEntry.proto";
 
-// UNTESTED
 message GetDownloadUrlsResponse {
 	repeated .POGOProtos.Data.DownloadUrlEntry download_urls = 1;
 }

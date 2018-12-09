@@ -48,6 +48,18 @@ message PokemonSettings {
 	float buddy_scale = 33;
 	repeated float buddy_portrait_offset = 34;
 	.POGOProtos.Enums.Form parent_form = 35;
+	PokemonThirdMoveAttributes third_move = 36;
 	bool is_transferable = 37;
 	bool is_deployable = 38;
+	repeated float combat_shoulder_camera_angle = 39;
+	bool is_tradable = 40;
+	repeated float combat_default_camera_angle = 41;
+	repeated float combat_opponent_focus_camera_angle = 42;
+	repeated float combat_player_focus_camera_angle = 43;
+	repeated float combat_player_pokemon_position_offset = 44;
+
+	message PokemonThirdMoveAttributes {
+		int32 stardust_to_unlock = 1;
+		int32 candy_to_unlock = 2;
+	}
 }

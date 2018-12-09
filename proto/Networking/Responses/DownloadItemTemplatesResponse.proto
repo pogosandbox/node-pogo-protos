@@ -30,6 +30,14 @@ import "POGOProtos/Settings/Master/FriendshipLevelMilestoneSettings.proto";
 import "POGOProtos/Settings/Master/LuckyPokemonSettings.proto";
 import "POGOProtos/Settings/Master/ExRaidSettings.proto";
 import "POGOProtos/Settings/Master/BackgroundModeSettings.proto";
+import "POGOProtos/Settings/Master/CombatMoveSettings.proto";
+import "POGOProtos/Settings/Master/CombatSettings.proto";
+import "POGOProtos/Settings/Master/CombatStatStageSettings.proto";
+import "POGOProtos/Settings/Master/CombatNpcTrainer.proto";
+import "POGOProtos/Settings/Master/CombatNpcPersonality.proto";
+import "POGOProtos/Settings/Master/OnboardingV2Settings.proto";
+import "POGOProtos/Settings/Master/CombatLeagueSettings.proto";
+import "POGOProtos/Settings/Master/CombatLeague.proto";
 
 message DownloadItemTemplatesResponse {
 	Result result = 1;
@@ -67,8 +75,16 @@ message DownloadItemTemplatesResponse {
 		.POGOProtos.Settings.Master.OnboardingSettings onboarding_settings = 30;
 		.POGOProtos.Settings.Master.FriendshipLevelMilestoneSettings friendship_milestone_settings = 31;
 		.POGOProtos.Settings.Master.LuckyPokemonSettings lucky_pokemon_settings = 32;
+		.POGOProtos.Settings.Master.CombatSettings combat_settings = 33;
+		.POGOProtos.Settings.Master.CombatLeagueSettings combat_league_settings = 34;
+		.POGOProtos.Settings.Master.CombatLeague combat_league = 35;
 		.POGOProtos.Settings.Master.ExRaidSettings ex_raid_settings = 36;
+		.POGOProtos.Settings.Master.CombatMoveSettings combat_move = 37;
 		.POGOProtos.Settings.Master.BackgroundModeSettings background_mode_settings = 38;
+		.POGOProtos.Settings.Master.CombatStatStageSettings combat_stat_stage_settings = 39;
+		.POGOProtos.Settings.Master.CombatNpcTrainer combat_npc_trainer = 40;
+		.POGOProtos.Settings.Master.CombatNpcPersonality combat_npc_personality = 41;
+		.POGOProtos.Settings.Master.OnboardingV2Settings onboarding_v2_settings = 42;
 	}
 
 	enum Result {
