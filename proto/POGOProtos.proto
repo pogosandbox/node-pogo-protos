@@ -223,6 +223,7 @@ import public "Map/Weather/ClientWeather.proto";
 import public "Map/Weather/DisplayWeather.proto";
 import public "Map/Weather/GameplayWeather.proto";
 import public "Map/Weather/WeatherAlert.proto";
+import public "Networking/Envelopes/AuthTicket.proto";
 import public "Networking/Platform/PlatformRequestType.proto";
 import public "Networking/Platform/Requests/BuyItemAndroidRequest.proto";
 import public "Networking/Platform/Requests/BuyItemPokeCoinsRequest.proto";

@@ -7778,6 +7778,30 @@ export namespace POGOProtos {
 
     namespace Networking {
 
+        namespace Envelopes {
+
+            interface IAuthTicket {
+                start?: (Uint8Array|null);
+                expire_timestamp_ms?: (number|Long|null);
+                end?: (Uint8Array|null);
+            }
+
+            class AuthTicket implements IAuthTicket {
+                constructor(properties?: POGOProtos.Networking.Envelopes.IAuthTicket);
+                public start: Uint8Array;
+                public expire_timestamp_ms: (number|Long);
+                public end: Uint8Array;
+                public static create(properties?: POGOProtos.Networking.Envelopes.IAuthTicket): POGOProtos.Networking.Envelopes.AuthTicket;
+                public static encode(message: POGOProtos.Networking.Envelopes.IAuthTicket, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Envelopes.IAuthTicket, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Envelopes.AuthTicket;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Envelopes.AuthTicket;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Envelopes.AuthTicket;
+                public static toObject(message: POGOProtos.Networking.Envelopes.AuthTicket, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+        }
+
         namespace Platform {
 
             enum PlatformRequestType {
