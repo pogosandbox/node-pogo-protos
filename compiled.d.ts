@@ -664,6 +664,181 @@ export namespace POGOProtos {
 
         namespace Combat {
 
+            interface IChallengePlayer {
+                player_id?: (string|null);
+                player_avatar?: (POGOProtos.Data.Player.IPlayerAvatar|null);
+                combat_player_s2_cell_id?: (number|Long|null);
+                attacking_pokemon_id?: ((number|Long)[]|null);
+            }
+
+            class ChallengePlayer implements IChallengePlayer {
+                constructor(properties?: POGOProtos.Data.Combat.IChallengePlayer);
+                public player_id: string;
+                public player_avatar?: (POGOProtos.Data.Player.IPlayerAvatar|null);
+                public combat_player_s2_cell_id: (number|Long);
+                public attacking_pokemon_id: (number|Long)[];
+                public static create(properties?: POGOProtos.Data.Combat.IChallengePlayer): POGOProtos.Data.Combat.ChallengePlayer;
+                public static encode(message: POGOProtos.Data.Combat.IChallengePlayer, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Combat.IChallengePlayer, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Combat.ChallengePlayer;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Combat.ChallengePlayer;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Combat.ChallengePlayer;
+                public static toObject(message: POGOProtos.Data.Combat.ChallengePlayer, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            interface ICombat {
+                combat_state?: (POGOProtos.Data.Combat.Combat.CombatState|null);
+                combat_id?: (string|null);
+                player?: (POGOProtos.Data.Combat.ICombatPlayer|null);
+                opponent?: (POGOProtos.Data.Combat.ICombatPlayer|null);
+                combat_start_ms?: (number|Long|null);
+                combat_end_ms?: (number|Long|null);
+                server_ms?: (number|Long|null);
+                current_turn?: (number|null);
+                turn_start_ms?: (number|Long|null);
+                minigame_end_ms?: (number|Long|null);
+                minigame_submit_score_end_ms?: (number|Long|null);
+                change_pokemon_end_ms?: (number|Long|null);
+                quick_swap_cooldown_duration_ms?: (number|Long|null);
+            }
+
+            class Combat implements ICombat {
+                constructor(properties?: POGOProtos.Data.Combat.ICombat);
+                public combat_state: POGOProtos.Data.Combat.Combat.CombatState;
+                public combat_id: string;
+                public player?: (POGOProtos.Data.Combat.ICombatPlayer|null);
+                public opponent?: (POGOProtos.Data.Combat.ICombatPlayer|null);
+                public combat_start_ms: (number|Long);
+                public combat_end_ms: (number|Long);
+                public server_ms: (number|Long);
+                public current_turn: number;
+                public turn_start_ms: (number|Long);
+                public minigame_end_ms: (number|Long);
+                public minigame_submit_score_end_ms: (number|Long);
+                public change_pokemon_end_ms: (number|Long);
+                public quick_swap_cooldown_duration_ms: (number|Long);
+                public static create(properties?: POGOProtos.Data.Combat.ICombat): POGOProtos.Data.Combat.Combat;
+                public static encode(message: POGOProtos.Data.Combat.ICombat, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Combat.ICombat, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Combat.Combat;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Combat.Combat;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Combat.Combat;
+                public static toObject(message: POGOProtos.Data.Combat.Combat, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace Combat {
+
+                enum CombatState {
+                    UNSET = 0,
+                    WAITING_FOR_PLAYERS = 1,
+                    READY = 2,
+                    ACTIVE = 3,
+                    SPECIAL_ATTACK = 4,
+                    WAITING_FOR_CHANGE_POKEMON = 5,
+                    FINISHED = 6,
+                    PLAYER_QUIT = 7,
+                    TIMEOUT = 8
+                }
+            }
+
+            interface ICombatAction {
+                type?: (POGOProtos.Data.Combat.CombatAction.ActionType|null);
+                action_start_turn?: (number|null);
+                duration_turns?: (number|null);
+                attacker_index?: (number|null);
+                target_index?: (number|null);
+                active_pokemon_id?: (number|Long|null);
+                target_pokemon_id?: (number|Long|null);
+                minigame_score?: (number|null);
+                move?: (number|null);
+            }
+
+            class CombatAction implements ICombatAction {
+                constructor(properties?: POGOProtos.Data.Combat.ICombatAction);
+                public type: POGOProtos.Data.Combat.CombatAction.ActionType;
+                public action_start_turn: number;
+                public duration_turns: number;
+                public attacker_index: number;
+                public target_index: number;
+                public active_pokemon_id: (number|Long);
+                public target_pokemon_id: (number|Long);
+                public minigame_score: number;
+                public move: number;
+                public static create(properties?: POGOProtos.Data.Combat.ICombatAction): POGOProtos.Data.Combat.CombatAction;
+                public static encode(message: POGOProtos.Data.Combat.ICombatAction, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Combat.ICombatAction, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Combat.CombatAction;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Combat.CombatAction;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Combat.CombatAction;
+                public static toObject(message: POGOProtos.Data.Combat.CombatAction, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace CombatAction {
+
+                enum ActionType {
+                    UNSET = 0,
+                    ATTACK = 1,
+                    SPECIAL_ATTACK = 2,
+                    SPECIAL_ATTACK_2 = 3,
+                    MINIGAME_OFFENSIVE_FINISH = 4,
+                    MINIGAME_DEFENSIVE_START = 5,
+                    MINIGAME_DEFENSIVE_FINISH = 6,
+                    FAINT = 7,
+                    CHANGE_POKEMON = 8,
+                    QUICK_SWAP_POKEMON = 9
+                }
+            }
+
+            interface ICombatChallenge {
+                challenge_id?: (string|null);
+                type?: (POGOProtos.Enums.CombatType|null);
+                combat_league_template_id?: (string|null);
+                challenger?: (POGOProtos.Data.Combat.IChallengePlayer|null);
+                opponent?: (POGOProtos.Data.Combat.IChallengePlayer|null);
+                state?: (POGOProtos.Data.Combat.CombatChallenge.CombatChallengeState|null);
+                created_timestamp_ms?: (number|Long|null);
+                expiration_timestamp_ms?: (number|Long|null);
+                combat_id?: (string|null);
+            }
+
+            class CombatChallenge implements ICombatChallenge {
+                constructor(properties?: POGOProtos.Data.Combat.ICombatChallenge);
+                public challenge_id: string;
+                public type: POGOProtos.Enums.CombatType;
+                public combat_league_template_id: string;
+                public challenger?: (POGOProtos.Data.Combat.IChallengePlayer|null);
+                public opponent?: (POGOProtos.Data.Combat.IChallengePlayer|null);
+                public state: POGOProtos.Data.Combat.CombatChallenge.CombatChallengeState;
+                public created_timestamp_ms: (number|Long);
+                public expiration_timestamp_ms: (number|Long);
+                public combat_id: string;
+                public static create(properties?: POGOProtos.Data.Combat.ICombatChallenge): POGOProtos.Data.Combat.CombatChallenge;
+                public static encode(message: POGOProtos.Data.Combat.ICombatChallenge, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Combat.ICombatChallenge, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Combat.CombatChallenge;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Combat.CombatChallenge;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Combat.CombatChallenge;
+                public static toObject(message: POGOProtos.Data.Combat.CombatChallenge, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace CombatChallenge {
+
+                enum CombatChallengeState {
+                    UNSET = 0,
+                    CREATED = 1,
+                    OPENED = 2,
+                    CANCELLED = 3,
+                    ACCEPTED = 4,
+                    DECLINED = 5,
+                    READY = 6,
+                    TIMEOUT = 7
+                }
+            }
+
             interface ICombatMoveBuffs {
                 attacker_attack_stat_stage_change?: (number|null);
                 attacker_defense_stat_stage_change?: (number|null);
@@ -684,6 +859,138 @@ export namespace POGOProtos {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Combat.CombatMoveBuffs;
                 public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Combat.CombatMoveBuffs;
                 public static toObject(message: POGOProtos.Data.Combat.CombatMoveBuffs, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            interface ICombatPlayer {
+                public_profile?: (POGOProtos.Data.Player.IPlayerPublicProfile|null);
+                active_pokemon?: (POGOProtos.Data.Combat.ICombatPokemon|null);
+                reserve_pokemon?: (POGOProtos.Data.Combat.ICombatPokemon[]|null);
+                fainted_pokemon?: (POGOProtos.Data.Combat.ICombatPokemon[]|null);
+                current_action?: (POGOProtos.Data.Combat.ICombatAction|null);
+                lockstep_ack?: (boolean|null);
+                last_updated_turn?: (number|null);
+                minigame_action?: (POGOProtos.Data.Combat.ICombatAction|null);
+                quick_swap_available_ms?: (number|Long|null);
+                minigame_defense_chances_left?: (number|null);
+            }
+
+            class CombatPlayer implements ICombatPlayer {
+                constructor(properties?: POGOProtos.Data.Combat.ICombatPlayer);
+                public public_profile?: (POGOProtos.Data.Player.IPlayerPublicProfile|null);
+                public active_pokemon?: (POGOProtos.Data.Combat.ICombatPokemon|null);
+                public reserve_pokemon: POGOProtos.Data.Combat.ICombatPokemon[];
+                public fainted_pokemon: POGOProtos.Data.Combat.ICombatPokemon[];
+                public current_action?: (POGOProtos.Data.Combat.ICombatAction|null);
+                public lockstep_ack: boolean;
+                public last_updated_turn: number;
+                public minigame_action?: (POGOProtos.Data.Combat.ICombatAction|null);
+                public quick_swap_available_ms: (number|Long);
+                public minigame_defense_chances_left: number;
+                public static create(properties?: POGOProtos.Data.Combat.ICombatPlayer): POGOProtos.Data.Combat.CombatPlayer;
+                public static encode(message: POGOProtos.Data.Combat.ICombatPlayer, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Combat.ICombatPlayer, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Combat.CombatPlayer;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Combat.CombatPlayer;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Combat.CombatPlayer;
+                public static toObject(message: POGOProtos.Data.Combat.CombatPlayer, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            interface ICombatPlayerPreferences {
+                friends_combat_opt_out?: (boolean|null);
+                nearby_combat_opt_in?: (boolean|null);
+            }
+
+            class CombatPlayerPreferences implements ICombatPlayerPreferences {
+                constructor(properties?: POGOProtos.Data.Combat.ICombatPlayerPreferences);
+                public friends_combat_opt_out: boolean;
+                public nearby_combat_opt_in: boolean;
+                public static create(properties?: POGOProtos.Data.Combat.ICombatPlayerPreferences): POGOProtos.Data.Combat.CombatPlayerPreferences;
+                public static encode(message: POGOProtos.Data.Combat.ICombatPlayerPreferences, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Combat.ICombatPlayerPreferences, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Combat.CombatPlayerPreferences;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Combat.CombatPlayerPreferences;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Combat.CombatPlayerPreferences;
+                public static toObject(message: POGOProtos.Data.Combat.CombatPlayerPreferences, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            interface ICombatPlayerProfile {
+                player_id?: (string|null);
+                public_profile?: (POGOProtos.Data.Player.IPlayerPublicProfile|null);
+                combat_league_template_id?: (string[]|null);
+                buddy_pokemon_id?: (number|Long|null);
+                location?: (POGOProtos.Data.ILocation|null);
+            }
+
+            class CombatPlayerProfile implements ICombatPlayerProfile {
+                constructor(properties?: POGOProtos.Data.Combat.ICombatPlayerProfile);
+                public player_id: string;
+                public public_profile?: (POGOProtos.Data.Player.IPlayerPublicProfile|null);
+                public combat_league_template_id: string[];
+                public buddy_pokemon_id: (number|Long);
+                public location?: (POGOProtos.Data.ILocation|null);
+                public static create(properties?: POGOProtos.Data.Combat.ICombatPlayerProfile): POGOProtos.Data.Combat.CombatPlayerProfile;
+                public static encode(message: POGOProtos.Data.Combat.ICombatPlayerProfile, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Combat.ICombatPlayerProfile, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Combat.CombatPlayerProfile;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Combat.CombatPlayerProfile;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Combat.CombatPlayerProfile;
+                public static toObject(message: POGOProtos.Data.Combat.CombatPlayerProfile, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            interface ICombatPokemon {
+                pokemon_id?: (number|Long|null);
+                pokedex_id?: (number|null);
+                cp?: (number|null);
+                cp_multiplier?: (number|null);
+                stamina?: (number|null);
+                max_stamina?: (number|null);
+                move1?: (number|null);
+                move2?: (number|null);
+                move3?: (number|null);
+                energy?: (number|null);
+                pokemon_display?: (POGOProtos.Data.IPokemonDisplay|null);
+                individual_attack?: (number|null);
+                individual_defense?: (number|null);
+                individual_stamina?: (number|null);
+                attack_stat_stage?: (number|null);
+                defense_stat_stage?: (number|null);
+                battles_won?: (number|null);
+                battles_lost?: (number|null);
+                nickname?: (string|null);
+            }
+
+            class CombatPokemon implements ICombatPokemon {
+                constructor(properties?: POGOProtos.Data.Combat.ICombatPokemon);
+                public pokemon_id: (number|Long);
+                public pokedex_id: number;
+                public cp: number;
+                public cp_multiplier: number;
+                public stamina: number;
+                public max_stamina: number;
+                public move1: number;
+                public move2: number;
+                public move3: number;
+                public energy: number;
+                public pokemon_display?: (POGOProtos.Data.IPokemonDisplay|null);
+                public individual_attack: number;
+                public individual_defense: number;
+                public individual_stamina: number;
+                public attack_stat_stage: number;
+                public defense_stat_stage: number;
+                public battles_won: number;
+                public battles_lost: number;
+                public nickname: string;
+                public static create(properties?: POGOProtos.Data.Combat.ICombatPokemon): POGOProtos.Data.Combat.CombatPokemon;
+                public static encode(message: POGOProtos.Data.Combat.ICombatPokemon, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Combat.ICombatPokemon, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Combat.CombatPokemon;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Combat.CombatPokemon;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Combat.CombatPokemon;
+                public static toObject(message: POGOProtos.Data.Combat.CombatPokemon, options?: $protobuf.IConversionOptions): { [k: string]: any };
                 public toJSON(): { [k: string]: any };
             }
 
@@ -1620,6 +1927,25 @@ export namespace POGOProtos {
             }
         }
 
+        interface ILocation {
+            lat_degree?: (number|null);
+            lng_degree?: (number|null);
+        }
+
+        class Location implements ILocation {
+            constructor(properties?: POGOProtos.Data.ILocation);
+            public lat_degree: number;
+            public lng_degree: number;
+            public static create(properties?: POGOProtos.Data.ILocation): POGOProtos.Data.Location;
+            public static encode(message: POGOProtos.Data.ILocation, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: POGOProtos.Data.ILocation, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Location;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Location;
+            public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Location;
+            public static toObject(message: POGOProtos.Data.Location, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public toJSON(): { [k: string]: any };
+        }
+
         namespace Login {
 
             interface ILoginDetail {
@@ -1662,6 +1988,7 @@ export namespace POGOProtos {
                 share_ex_raid_pass?: (POGOProtos.Data.Logs.IShareExRaidPassLogEntry|null);
                 decline_ex_raid_pass?: (POGOProtos.Data.Logs.IDeclineExRaidPassLogEntry|null);
                 fitness_rewards?: (POGOProtos.Data.Logs.IFitnessRewardsLogEntry|null);
+                combat?: (POGOProtos.Data.Logs.ICombatLogEntry|null);
             }
 
             class ActionLogEntry implements IActionLogEntry {
@@ -1683,7 +2010,8 @@ export namespace POGOProtos {
                 public share_ex_raid_pass?: (POGOProtos.Data.Logs.IShareExRaidPassLogEntry|null);
                 public decline_ex_raid_pass?: (POGOProtos.Data.Logs.IDeclineExRaidPassLogEntry|null);
                 public fitness_rewards?: (POGOProtos.Data.Logs.IFitnessRewardsLogEntry|null);
-                public Action?: ("catch_pokemon"|"fort_search"|"buddy_pokemon"|"raid_rewards"|"passcode_rewards"|"complete_quest"|"complete_quest_stamp_card"|"complete_quest_pokemon_encounter"|"beluga_transfer"|"open_gift"|"send_gift"|"trading"|"share_ex_raid_pass"|"decline_ex_raid_pass"|"fitness_rewards");
+                public combat?: (POGOProtos.Data.Logs.ICombatLogEntry|null);
+                public Action?: ("catch_pokemon"|"fort_search"|"buddy_pokemon"|"raid_rewards"|"passcode_rewards"|"complete_quest"|"complete_quest_stamp_card"|"complete_quest_pokemon_encounter"|"beluga_transfer"|"open_gift"|"send_gift"|"trading"|"share_ex_raid_pass"|"decline_ex_raid_pass"|"fitness_rewards"|"combat");
                 public static create(properties?: POGOProtos.Data.Logs.IActionLogEntry): POGOProtos.Data.Logs.ActionLogEntry;
                 public static encode(message: POGOProtos.Data.Logs.IActionLogEntry, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Data.Logs.IActionLogEntry, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -1788,6 +2116,41 @@ export namespace POGOProtos {
                     POKEMON_CAPTURED = 1,
                     POKEMON_FLED = 2,
                     POKEMON_HATCHED = 3
+                }
+            }
+
+            interface ICombatLogEntry {
+                result?: (POGOProtos.Data.Logs.CombatLogEntry.Result|null);
+                finish_state?: (POGOProtos.Enums.CombatPlayerFinishState|null);
+                rewards?: (POGOProtos.Inventory.ILoot|null);
+                opponent?: (string|null);
+                combat_league_template_id?: (string|null);
+                npc_template_id?: (string|null);
+            }
+
+            class CombatLogEntry implements ICombatLogEntry {
+                constructor(properties?: POGOProtos.Data.Logs.ICombatLogEntry);
+                public result: POGOProtos.Data.Logs.CombatLogEntry.Result;
+                public finish_state: POGOProtos.Enums.CombatPlayerFinishState;
+                public rewards?: (POGOProtos.Inventory.ILoot|null);
+                public opponent: string;
+                public combat_league_template_id: string;
+                public npc_template_id: string;
+                public static create(properties?: POGOProtos.Data.Logs.ICombatLogEntry): POGOProtos.Data.Logs.CombatLogEntry;
+                public static encode(message: POGOProtos.Data.Logs.ICombatLogEntry, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Data.Logs.ICombatLogEntry, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Data.Logs.CombatLogEntry;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Data.Logs.CombatLogEntry;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Data.Logs.CombatLogEntry;
+                public static toObject(message: POGOProtos.Data.Logs.CombatLogEntry, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace CombatLogEntry {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1
                 }
             }
 
@@ -2708,6 +3071,7 @@ export namespace POGOProtos {
             secondary_player_avatar?: (POGOProtos.Data.Player.IPlayerAvatar|null);
             name_is_blacklisted?: (boolean|null);
             social_player_settings?: (POGOProtos.Data.Player.ISocialPlayerSettings|null);
+            combat_player_preferences?: (POGOProtos.Data.Combat.ICombatPlayerPreferences|null);
             player_support_id?: (string|null);
         }
 
@@ -2730,6 +3094,7 @@ export namespace POGOProtos {
             public secondary_player_avatar?: (POGOProtos.Data.Player.IPlayerAvatar|null);
             public name_is_blacklisted: boolean;
             public social_player_settings?: (POGOProtos.Data.Player.ISocialPlayerSettings|null);
+            public combat_player_preferences?: (POGOProtos.Data.Combat.ICombatPlayerPreferences|null);
             public player_support_id: string;
             public static create(properties?: POGOProtos.Data.IPlayerData): POGOProtos.Data.PlayerData;
             public static encode(message: POGOProtos.Data.IPlayerData, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -4255,6 +4620,7 @@ export namespace POGOProtos {
                 individual_stamina?: (number|null);
                 nickname?: (string|null);
                 favorite?: (boolean|null);
+                move3?: (number|null);
                 creation_time_ms?: (number|Long|null);
             }
 
@@ -4280,6 +4646,7 @@ export namespace POGOProtos {
                 public individual_stamina: number;
                 public nickname: string;
                 public favorite: boolean;
+                public move3: number;
                 public creation_time_ms: (number|Long);
                 public static create(properties?: POGOProtos.Data.Trading.ITradingPokemon): POGOProtos.Data.Trading.TradingPokemon;
                 public static encode(message: POGOProtos.Data.Trading.ITradingPokemon, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -4471,6 +4838,27 @@ export namespace POGOProtos {
             CAM_TARGET_SHOULDER_ATTACKER_DEFENDER = 12,
             CAM_TARGET_SHOULDER_ATTACKER_DEFENDER_MIRROR = 13,
             CAM_TARGET_ATTACKER_DEFENDER_WORLD = 14
+        }
+
+        enum CombatPlayerFinishState {
+            WINNER = 0,
+            LOSER = 1,
+            DRAW = 2
+        }
+
+        enum CombatRewardStatus {
+            UNSET_REWARD_STATUS = 0,
+            REWARDS_GRANTED = 1,
+            MAX_REWARDS_RECEIVED = 2,
+            PLAYER_BAG_FULL = 3
+        }
+
+        enum CombatType {
+            COMBAT_TYPE_UNSET = 0,
+            SOLO = 1,
+            QR_CODE = 2,
+            FRIENDS = 3,
+            NEARBY = 4
         }
 
         enum ConditionType {
@@ -7727,6 +8115,25 @@ export namespace POGOProtos {
 
             namespace Messages {
 
+                interface IAcceptCombatChallengeMessage {
+                    challenge_id?: (string|null);
+                    attacking_pokemon_id?: ((number|Long)[]|null);
+                }
+
+                class AcceptCombatChallengeMessage implements IAcceptCombatChallengeMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IAcceptCombatChallengeMessage);
+                    public challenge_id: string;
+                    public attacking_pokemon_id: (number|Long)[];
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IAcceptCombatChallengeMessage): POGOProtos.Networking.Requests.Messages.AcceptCombatChallengeMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IAcceptCombatChallengeMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IAcceptCombatChallengeMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.AcceptCombatChallengeMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.AcceptCombatChallengeMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.AcceptCombatChallengeMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.AcceptCombatChallengeMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
                 interface IAddFortModifierMessage {
                     modifier_type?: (POGOProtos.Inventory.Item.ItemId|null);
                     fort_id?: (string|null);
@@ -7906,6 +8313,23 @@ export namespace POGOProtos {
                     }
                 }
 
+                interface ICancelCombatChallengeMessage {
+                    challenge_id?: (string|null);
+                }
+
+                class CancelCombatChallengeMessage implements ICancelCombatChallengeMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.ICancelCombatChallengeMessage);
+                    public challenge_id: string;
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.ICancelCombatChallengeMessage): POGOProtos.Networking.Requests.Messages.CancelCombatChallengeMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.ICancelCombatChallengeMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.ICancelCombatChallengeMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.CancelCombatChallengeMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.CancelCombatChallengeMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.CancelCombatChallengeMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.CancelCombatChallengeMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
                 interface ICancelTradingMessage {
                     player_id?: (string|null);
                 }
@@ -8075,6 +8499,23 @@ export namespace POGOProtos {
                     public toJSON(): { [k: string]: any };
                 }
 
+                interface ICombatFriendRequestMessage {
+                    combat_id?: (string|null);
+                }
+
+                class CombatFriendRequestMessage implements ICombatFriendRequestMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.ICombatFriendRequestMessage);
+                    public combat_id: string;
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.ICombatFriendRequestMessage): POGOProtos.Networking.Requests.Messages.CombatFriendRequestMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.ICombatFriendRequestMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.ICombatFriendRequestMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.CombatFriendRequestMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.CombatFriendRequestMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.CombatFriendRequestMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.CombatFriendRequestMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
                 interface ICompleteQuestMessage {
                     quest_id?: (string|null);
                     sub_quest_id?: (string|null);
@@ -8125,6 +8566,40 @@ export namespace POGOProtos {
                     public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.ConfirmTradingMessage;
                     public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.ConfirmTradingMessage;
                     public static toObject(message: POGOProtos.Networking.Requests.Messages.ConfirmTradingMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface ICreateCombatChallengeMessage {
+                    challenge_id?: (string|null);
+                }
+
+                class CreateCombatChallengeMessage implements ICreateCombatChallengeMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.ICreateCombatChallengeMessage);
+                    public challenge_id: string;
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.ICreateCombatChallengeMessage): POGOProtos.Networking.Requests.Messages.CreateCombatChallengeMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.ICreateCombatChallengeMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.ICreateCombatChallengeMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.CreateCombatChallengeMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.CreateCombatChallengeMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.CreateCombatChallengeMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.CreateCombatChallengeMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IDeclineCombatChallengeMessage {
+                    challenge_id?: (string|null);
+                }
+
+                class DeclineCombatChallengeMessage implements IDeclineCombatChallengeMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IDeclineCombatChallengeMessage);
+                    public challenge_id: string;
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IDeclineCombatChallengeMessage): POGOProtos.Networking.Requests.Messages.DeclineCombatChallengeMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IDeclineCombatChallengeMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IDeclineCombatChallengeMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.DeclineCombatChallengeMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.DeclineCombatChallengeMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.DeclineCombatChallengeMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.DeclineCombatChallengeMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
                     public toJSON(): { [k: string]: any };
                 }
 
@@ -8492,6 +8967,21 @@ export namespace POGOProtos {
                     public toJSON(): { [k: string]: any };
                 }
 
+                interface IGenerateCombatChallengeIdMessage {
+                }
+
+                class GenerateCombatChallengeIdMessage implements IGenerateCombatChallengeIdMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IGenerateCombatChallengeIdMessage);
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IGenerateCombatChallengeIdMessage): POGOProtos.Networking.Requests.Messages.GenerateCombatChallengeIdMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IGenerateCombatChallengeIdMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IGenerateCombatChallengeIdMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.GenerateCombatChallengeIdMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.GenerateCombatChallengeIdMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.GenerateCombatChallengeIdMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.GenerateCombatChallengeIdMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
                 interface IGetAssetDigestMessage {
                     platform?: (POGOProtos.Enums.Platform|null);
                     device_manufacturer?: (string|null);
@@ -8550,6 +9040,57 @@ export namespace POGOProtos {
                     public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.GetClientTelemetrySettingsMessage;
                     public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.GetClientTelemetrySettingsMessage;
                     public static toObject(message: POGOProtos.Networking.Requests.Messages.GetClientTelemetrySettingsMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IGetCombatChallengeMessage {
+                    challenge_id?: (string|null);
+                }
+
+                class GetCombatChallengeMessage implements IGetCombatChallengeMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IGetCombatChallengeMessage);
+                    public challenge_id: string;
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IGetCombatChallengeMessage): POGOProtos.Networking.Requests.Messages.GetCombatChallengeMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IGetCombatChallengeMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IGetCombatChallengeMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.GetCombatChallengeMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.GetCombatChallengeMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.GetCombatChallengeMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.GetCombatChallengeMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IGetCombatPlayerProfileMessage {
+                    player_id?: (string|null);
+                }
+
+                class GetCombatPlayerProfileMessage implements IGetCombatPlayerProfileMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IGetCombatPlayerProfileMessage);
+                    public player_id: string;
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IGetCombatPlayerProfileMessage): POGOProtos.Networking.Requests.Messages.GetCombatPlayerProfileMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IGetCombatPlayerProfileMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IGetCombatPlayerProfileMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.GetCombatPlayerProfileMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.GetCombatPlayerProfileMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.GetCombatPlayerProfileMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.GetCombatPlayerProfileMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IGetCombatResultsMessage {
+                    combat_id?: (string|null);
+                }
+
+                class GetCombatResultsMessage implements IGetCombatResultsMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IGetCombatResultsMessage);
+                    public combat_id: string;
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IGetCombatResultsMessage): POGOProtos.Networking.Requests.Messages.GetCombatResultsMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IGetCombatResultsMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IGetCombatResultsMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.GetCombatResultsMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.GetCombatResultsMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.GetCombatResultsMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.GetCombatResultsMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
                     public toJSON(): { [k: string]: any };
                 }
 
@@ -8798,6 +9339,29 @@ export namespace POGOProtos {
                     public toJSON(): { [k: string]: any };
                 }
 
+                interface IGetNpcCombatRewardsMessage {
+                    combat_npc_trainer_template_id?: (string|null);
+                    finish_state?: (POGOProtos.Enums.CombatPlayerFinishState|null);
+                    attacking_pokemon_id?: ((number|Long)[]|null);
+                    combat_id?: (string|null);
+                }
+
+                class GetNpcCombatRewardsMessage implements IGetNpcCombatRewardsMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IGetNpcCombatRewardsMessage);
+                    public combat_npc_trainer_template_id: string;
+                    public finish_state: POGOProtos.Enums.CombatPlayerFinishState;
+                    public attacking_pokemon_id: (number|Long)[];
+                    public combat_id: string;
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IGetNpcCombatRewardsMessage): POGOProtos.Networking.Requests.Messages.GetNpcCombatRewardsMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IGetNpcCombatRewardsMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IGetNpcCombatRewardsMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.GetNpcCombatRewardsMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.GetNpcCombatRewardsMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.GetNpcCombatRewardsMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.GetNpcCombatRewardsMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
                 interface IGetPlayerDayMessage {
                 }
 
@@ -8915,6 +9479,41 @@ export namespace POGOProtos {
                     public toJSON(): { [k: string]: any };
                 }
 
+                interface IGetSignedGmapUrlMessage {
+                    latitude?: (number|null);
+                    longitude?: (number|null);
+                    width?: (number|null);
+                    height?: (number|null);
+                    zoom?: (number|null);
+                    language_code?: (string|null);
+                    country_code?: (string|null);
+                    map_style?: (string|null);
+                    map_type?: (string|null);
+                    icon_params?: (string|null);
+                }
+
+                class GetSignedGmapUrlMessage implements IGetSignedGmapUrlMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IGetSignedGmapUrlMessage);
+                    public latitude: number;
+                    public longitude: number;
+                    public width: number;
+                    public height: number;
+                    public zoom: number;
+                    public language_code: string;
+                    public country_code: string;
+                    public map_style: string;
+                    public map_type: string;
+                    public icon_params: string;
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IGetSignedGmapUrlMessage): POGOProtos.Networking.Requests.Messages.GetSignedGmapUrlMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IGetSignedGmapUrlMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IGetSignedGmapUrlMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.GetSignedGmapUrlMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.GetSignedGmapUrlMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.GetSignedGmapUrlMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.GetSignedGmapUrlMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
                 interface IGetTradingMessage {
                     player_id?: (string|null);
                 }
@@ -8929,6 +9528,21 @@ export namespace POGOProtos {
                     public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.GetTradingMessage;
                     public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.GetTradingMessage;
                     public static toObject(message: POGOProtos.Networking.Requests.Messages.GetTradingMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IGetTutorialEggActionMessage {
+                }
+
+                class GetTutorialEggActionMessage implements IGetTutorialEggActionMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IGetTutorialEggActionMessage);
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IGetTutorialEggActionMessage): POGOProtos.Networking.Requests.Messages.GetTutorialEggActionMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IGetTutorialEggActionMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IGetTutorialEggActionMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.GetTutorialEggActionMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.GetTutorialEggActionMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.GetTutorialEggActionMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.GetTutorialEggActionMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
                     public toJSON(): { [k: string]: any };
                 }
 
@@ -9265,6 +9879,52 @@ export namespace POGOProtos {
                     public toJSON(): { [k: string]: any };
                 }
 
+                interface IOpenCombatChallengeMessage {
+                    type?: (POGOProtos.Enums.CombatType|null);
+                    challenge_id?: (string|null);
+                    combat_league_template_id?: (string|null);
+                    opponent_player_id?: (string|null);
+                    attacking_pokemon_id?: ((number|Long)[]|null);
+                }
+
+                class OpenCombatChallengeMessage implements IOpenCombatChallengeMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IOpenCombatChallengeMessage);
+                    public type: POGOProtos.Enums.CombatType;
+                    public challenge_id: string;
+                    public combat_league_template_id: string;
+                    public opponent_player_id: string;
+                    public attacking_pokemon_id: (number|Long)[];
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IOpenCombatChallengeMessage): POGOProtos.Networking.Requests.Messages.OpenCombatChallengeMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IOpenCombatChallengeMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IOpenCombatChallengeMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.OpenCombatChallengeMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.OpenCombatChallengeMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.OpenCombatChallengeMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.OpenCombatChallengeMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IOpenCombatSessionMessage {
+                    combat_id?: (string|null);
+                    attacking_pokemon_id?: ((number|Long)[]|null);
+                    combat_league_template_id?: (string|null);
+                }
+
+                class OpenCombatSessionMessage implements IOpenCombatSessionMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IOpenCombatSessionMessage);
+                    public combat_id: string;
+                    public attacking_pokemon_id: (number|Long)[];
+                    public combat_league_template_id: string;
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IOpenCombatSessionMessage): POGOProtos.Networking.Requests.Messages.OpenCombatSessionMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IOpenCombatSessionMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IOpenCombatSessionMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.OpenCombatSessionMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.OpenCombatSessionMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.OpenCombatSessionMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.OpenCombatSessionMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
                 interface IOpenGiftMessage {
                     player_id?: (string|null);
                     giftbox_id?: (number|Long|null);
@@ -9281,6 +9941,25 @@ export namespace POGOProtos {
                     public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.OpenGiftMessage;
                     public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.OpenGiftMessage;
                     public static toObject(message: POGOProtos.Networking.Requests.Messages.OpenGiftMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IOpenNpcCombatSessionMessage {
+                    attacking_pokemon_id?: ((number|Long)[]|null);
+                    combat_npc_template_id?: (string|null);
+                }
+
+                class OpenNpcCombatSessionMessage implements IOpenNpcCombatSessionMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IOpenNpcCombatSessionMessage);
+                    public attacking_pokemon_id: (number|Long)[];
+                    public combat_npc_template_id: string;
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IOpenNpcCombatSessionMessage): POGOProtos.Networking.Requests.Messages.OpenNpcCombatSessionMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IOpenNpcCombatSessionMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IOpenNpcCombatSessionMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.OpenNpcCombatSessionMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.OpenNpcCombatSessionMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.OpenNpcCombatSessionMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.OpenNpcCombatSessionMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
                     public toJSON(): { [k: string]: any };
                 }
 
@@ -9504,6 +10183,23 @@ export namespace POGOProtos {
                     public toJSON(): { [k: string]: any };
                 }
 
+                interface IQuitCombatMessage {
+                    combat_id?: (string|null);
+                }
+
+                class QuitCombatMessage implements IQuitCombatMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IQuitCombatMessage);
+                    public combat_id: string;
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IQuitCombatMessage): POGOProtos.Networking.Requests.Messages.QuitCombatMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IQuitCombatMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IQuitCombatMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.QuitCombatMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.QuitCombatMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.QuitCombatMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.QuitCombatMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
                 interface IRecycleInventoryItemMessage {
                     item_id?: (POGOProtos.Inventory.Item.ItemId|null);
                     count?: (number|null);
@@ -9594,6 +10290,23 @@ export namespace POGOProtos {
                     public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.RequestGeofenceUpdatesMessage;
                     public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.RequestGeofenceUpdatesMessage;
                     public static toObject(message: POGOProtos.Networking.Requests.Messages.RequestGeofenceUpdatesMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface ISaveCombatPlayerPreferencesMessage {
+                    preferences?: (POGOProtos.Data.Combat.ICombatPlayerPreferences|null);
+                }
+
+                class SaveCombatPlayerPreferencesMessage implements ISaveCombatPlayerPreferencesMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.ISaveCombatPlayerPreferencesMessage);
+                    public preferences?: (POGOProtos.Data.Combat.ICombatPlayerPreferences|null);
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.ISaveCombatPlayerPreferencesMessage): POGOProtos.Networking.Requests.Messages.SaveCombatPlayerPreferencesMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.ISaveCombatPlayerPreferencesMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.ISaveCombatPlayerPreferencesMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.SaveCombatPlayerPreferencesMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.SaveCombatPlayerPreferencesMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.SaveCombatPlayerPreferencesMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.SaveCombatPlayerPreferencesMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
                     public toJSON(): { [k: string]: any };
                 }
 
@@ -9960,6 +10673,78 @@ export namespace POGOProtos {
                     public toJSON(): { [k: string]: any };
                 }
 
+                interface IStartTutorialActionMessage {
+                    onboarding_v2_enabled?: (boolean|null);
+                }
+
+                class StartTutorialActionMessage implements IStartTutorialActionMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IStartTutorialActionMessage);
+                    public onboarding_v2_enabled: boolean;
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IStartTutorialActionMessage): POGOProtos.Networking.Requests.Messages.StartTutorialActionMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IStartTutorialActionMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IStartTutorialActionMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.StartTutorialActionMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.StartTutorialActionMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.StartTutorialActionMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.StartTutorialActionMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface ISubmitCombatChallengePokemonsMessage {
+                    challenge_id?: (string|null);
+                    attacking_pokemon_id?: ((number|Long)[]|null);
+                }
+
+                class SubmitCombatChallengePokemonsMessage implements ISubmitCombatChallengePokemonsMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.ISubmitCombatChallengePokemonsMessage);
+                    public challenge_id: string;
+                    public attacking_pokemon_id: (number|Long)[];
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.ISubmitCombatChallengePokemonsMessage): POGOProtos.Networking.Requests.Messages.SubmitCombatChallengePokemonsMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.ISubmitCombatChallengePokemonsMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.ISubmitCombatChallengePokemonsMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.SubmitCombatChallengePokemonsMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.SubmitCombatChallengePokemonsMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.SubmitCombatChallengePokemonsMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.SubmitCombatChallengePokemonsMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IUnlockSpecialMoveMessage {
+                    pokemon_id?: (number|Long|null);
+                }
+
+                class UnlockSpecialMoveMessage implements IUnlockSpecialMoveMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IUnlockSpecialMoveMessage);
+                    public pokemon_id: (number|Long);
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IUnlockSpecialMoveMessage): POGOProtos.Networking.Requests.Messages.UnlockSpecialMoveMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IUnlockSpecialMoveMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IUnlockSpecialMoveMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.UnlockSpecialMoveMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.UnlockSpecialMoveMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.UnlockSpecialMoveMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.UnlockSpecialMoveMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IUpdateCombatMessage {
+                    combat_id?: (string|null);
+                    action?: (POGOProtos.Data.Combat.ICombatAction|null);
+                }
+
+                class UpdateCombatMessage implements IUpdateCombatMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IUpdateCombatMessage);
+                    public combat_id: string;
+                    public action?: (POGOProtos.Data.Combat.ICombatAction|null);
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IUpdateCombatMessage): POGOProtos.Networking.Requests.Messages.UpdateCombatMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IUpdateCombatMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IUpdateCombatMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.UpdateCombatMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.UpdateCombatMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.UpdateCombatMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.UpdateCombatMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
                 interface IUpdateNotificationMessage {
                     notification_ids?: (string[]|null);
                     create_timestamp_ms?: ((number|Long)[]|null);
@@ -10155,12 +10940,14 @@ export namespace POGOProtos {
                 interface IUseItemMoveRerollMessage {
                     item_id?: (POGOProtos.Inventory.Item.ItemId|null);
                     pokemon_id?: (number|Long|null);
+                    reroll_unlocked_move?: (boolean|null);
                 }
 
                 class UseItemMoveRerollMessage implements IUseItemMoveRerollMessage {
                     constructor(properties?: POGOProtos.Networking.Requests.Messages.IUseItemMoveRerollMessage);
                     public item_id: POGOProtos.Inventory.Item.ItemId;
                     public pokemon_id: (number|Long);
+                    public reroll_unlocked_move: boolean;
                     public static create(properties?: POGOProtos.Networking.Requests.Messages.IUseItemMoveRerollMessage): POGOProtos.Networking.Requests.Messages.UseItemMoveRerollMessage;
                     public static encode(message: POGOProtos.Networking.Requests.Messages.IUseItemMoveRerollMessage, writer?: $protobuf.Writer): $protobuf.Writer;
                     public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IUseItemMoveRerollMessage, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -10734,6 +11521,42 @@ export namespace POGOProtos {
 
         namespace Responses {
 
+            interface ICreateCombatChallengeResponse {
+                result?: (POGOProtos.Networking.Responses.CreateCombatChallengeResponse.Result|null);
+                challenge?: (POGOProtos.Data.Combat.ICombatChallenge|null);
+            }
+
+            class CreateCombatChallengeResponse implements ICreateCombatChallengeResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.ICreateCombatChallengeResponse);
+                public result: POGOProtos.Networking.Responses.CreateCombatChallengeResponse.Result;
+                public challenge?: (POGOProtos.Data.Combat.ICombatChallenge|null);
+                public static create(properties?: POGOProtos.Networking.Responses.ICreateCombatChallengeResponse): POGOProtos.Networking.Responses.CreateCombatChallengeResponse;
+                public static encode(message: POGOProtos.Networking.Responses.ICreateCombatChallengeResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.ICreateCombatChallengeResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.CreateCombatChallengeResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.CreateCombatChallengeResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.CreateCombatChallengeResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.CreateCombatChallengeResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace CreateCombatChallengeResponse {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_INVALID_CHALLENGE_STATE = 2,
+                    ERROR_CHALLENGE_NOT_FOUND = 3,
+                    ERROR_POKEMON_NOT_IN_INVENTORY = 4,
+                    ERROR_NOT_ELIGIBLE_LEAGUE = 5,
+                    ERROR_PLAYER_BELOW_MINIMUM_LEVEL = 6,
+                    ERROR_OPPONENT_NOT_IN_RANGE = 7,
+                    ERROR_ALREADY_TIMEDOUT = 8,
+                    ERROR_ALREADY_CANCELLED = 9,
+                    ERROR_ACCESS_DENIED = 10
+                }
+            }
+
             interface IAddFortModifierResponse {
                 result?: (POGOProtos.Networking.Responses.AddFortModifierResponse.Result|null);
                 fort_details?: (POGOProtos.Networking.Responses.IFortDetailsResponse|null);
@@ -11036,6 +11859,37 @@ export namespace POGOProtos {
                 }
             }
 
+            interface ICancelCombatChallengeResponse {
+                result?: (POGOProtos.Networking.Responses.CancelCombatChallengeResponse.Result|null);
+            }
+
+            class CancelCombatChallengeResponse implements ICancelCombatChallengeResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.ICancelCombatChallengeResponse);
+                public result: POGOProtos.Networking.Responses.CancelCombatChallengeResponse.Result;
+                public static create(properties?: POGOProtos.Networking.Responses.ICancelCombatChallengeResponse): POGOProtos.Networking.Responses.CancelCombatChallengeResponse;
+                public static encode(message: POGOProtos.Networking.Responses.ICancelCombatChallengeResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.ICancelCombatChallengeResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.CancelCombatChallengeResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.CancelCombatChallengeResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.CancelCombatChallengeResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.CancelCombatChallengeResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace CancelCombatChallengeResponse {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_INVALID_CHALLENGE_STATE = 2,
+                    ERROR_CHALLENGE_NOT_FOUND = 3,
+                    ERROR_ALREADY_ACCEPTED = 4,
+                    ERROR_ALREADY_DECLINED = 5,
+                    ERROR_ALREADY_TIMEDOUT = 6,
+                    ERROR_ACCESS_DENIED = 7
+                }
+            }
+
             interface ICancelTradingResponse {
                 result?: (POGOProtos.Networking.Responses.CancelTradingResponse.Result|null);
                 trading?: (POGOProtos.Data.Trading.ITrading|null);
@@ -11306,6 +12160,35 @@ export namespace POGOProtos {
                 }
             }
 
+            interface ICombatFriendRequestResponse {
+                result?: (POGOProtos.Networking.Responses.CombatFriendRequestResponse.Result|null);
+            }
+
+            class CombatFriendRequestResponse implements ICombatFriendRequestResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.ICombatFriendRequestResponse);
+                public result: POGOProtos.Networking.Responses.CombatFriendRequestResponse.Result;
+                public static create(properties?: POGOProtos.Networking.Responses.ICombatFriendRequestResponse): POGOProtos.Networking.Responses.CombatFriendRequestResponse;
+                public static encode(message: POGOProtos.Networking.Responses.ICombatFriendRequestResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.ICombatFriendRequestResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.CombatFriendRequestResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.CombatFriendRequestResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.CombatFriendRequestResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.CombatFriendRequestResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace CombatFriendRequestResponse {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_COMBAT_NOT_FOUND = 2,
+                    ERROR_COMBAT_INCOMPLETE = 3,
+                    ERROR_PLAYER_NOT_IN_COMBAT = 4,
+                    ERROR_SOCIAL_RPC = 5
+                }
+            }
+
             interface ICompleteQuestResponse {
                 status?: (POGOProtos.Networking.Responses.CompleteQuestResponse.Status|null);
                 quest?: (POGOProtos.Data.Quests.IClientQuest|null);
@@ -11411,6 +12294,35 @@ export namespace POGOProtos {
                     ERROR_TRADING_EXPIRED = 13,
                     ERROR_TRANSACTION = 14,
                     ERROR_DAILY_LIMIT_REACHED = 15
+                }
+            }
+
+            interface IDeclineCombatChallengeResponse {
+                result?: (POGOProtos.Networking.Responses.DeclineCombatChallengeResponse.Result|null);
+            }
+
+            class DeclineCombatChallengeResponse implements IDeclineCombatChallengeResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IDeclineCombatChallengeResponse);
+                public result: POGOProtos.Networking.Responses.DeclineCombatChallengeResponse.Result;
+                public static create(properties?: POGOProtos.Networking.Responses.IDeclineCombatChallengeResponse): POGOProtos.Networking.Responses.DeclineCombatChallengeResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IDeclineCombatChallengeResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IDeclineCombatChallengeResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.DeclineCombatChallengeResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.DeclineCombatChallengeResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.DeclineCombatChallengeResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.DeclineCombatChallengeResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace DeclineCombatChallengeResponse {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_INVALID_CHALLENGE_STATE = 2,
+                    ERROR_CHALLENGE_NOT_FOUND = 3,
+                    ERROR_ALREADY_TIMEDOUT = 4,
+                    ERROR_ALREADY_CANCELLED = 5
                 }
             }
 
@@ -12133,6 +13045,35 @@ export namespace POGOProtos {
                 }
             }
 
+            interface IGenerateCombatChallengeIdResponse {
+                result?: (POGOProtos.Networking.Responses.GenerateCombatChallengeIdResponse.Result|null);
+                challenge_id?: (string|null);
+            }
+
+            class GenerateCombatChallengeIdResponse implements IGenerateCombatChallengeIdResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IGenerateCombatChallengeIdResponse);
+                public result: POGOProtos.Networking.Responses.GenerateCombatChallengeIdResponse.Result;
+                public challenge_id: string;
+                public static create(properties?: POGOProtos.Networking.Responses.IGenerateCombatChallengeIdResponse): POGOProtos.Networking.Responses.GenerateCombatChallengeIdResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IGenerateCombatChallengeIdResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IGenerateCombatChallengeIdResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.GenerateCombatChallengeIdResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.GenerateCombatChallengeIdResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.GenerateCombatChallengeIdResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.GenerateCombatChallengeIdResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace GenerateCombatChallengeIdResponse {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_PLAYER_BELOW_MINIMUM_LEVEL = 2,
+                    ERROR_ACCESS_DENIED = 3
+                }
+            }
+
             interface IGetAssetDigestResponse {
                 digest?: (POGOProtos.Data.IAssetDigestEntry[]|null);
                 timestamp_ms?: (number|Long|null);
@@ -12220,6 +13161,122 @@ export namespace POGOProtos {
                 public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.GetClientTelemetrySettingsResponse;
                 public static toObject(message: POGOProtos.Networking.Responses.GetClientTelemetrySettingsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
                 public toJSON(): { [k: string]: any };
+            }
+
+            interface IGetCombatChallengeResponse {
+                result?: (POGOProtos.Networking.Responses.GetCombatChallengeResponse.Result|null);
+                challenge?: (POGOProtos.Data.Combat.ICombatChallenge|null);
+            }
+
+            class GetCombatChallengeResponse implements IGetCombatChallengeResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IGetCombatChallengeResponse);
+                public result: POGOProtos.Networking.Responses.GetCombatChallengeResponse.Result;
+                public challenge?: (POGOProtos.Data.Combat.ICombatChallenge|null);
+                public static create(properties?: POGOProtos.Networking.Responses.IGetCombatChallengeResponse): POGOProtos.Networking.Responses.GetCombatChallengeResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IGetCombatChallengeResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IGetCombatChallengeResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.GetCombatChallengeResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.GetCombatChallengeResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.GetCombatChallengeResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.GetCombatChallengeResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace GetCombatChallengeResponse {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_CHALLENGE_NOT_FOUND = 2
+                }
+            }
+
+            interface IGetCombatPlayerProfileResponse {
+                result?: (POGOProtos.Networking.Responses.GetCombatPlayerProfileResponse.Result|null);
+                profile?: (POGOProtos.Data.Combat.ICombatPlayerProfile|null);
+            }
+
+            class GetCombatPlayerProfileResponse implements IGetCombatPlayerProfileResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IGetCombatPlayerProfileResponse);
+                public result: POGOProtos.Networking.Responses.GetCombatPlayerProfileResponse.Result;
+                public profile?: (POGOProtos.Data.Combat.ICombatPlayerProfile|null);
+                public static create(properties?: POGOProtos.Networking.Responses.IGetCombatPlayerProfileResponse): POGOProtos.Networking.Responses.GetCombatPlayerProfileResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IGetCombatPlayerProfileResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IGetCombatPlayerProfileResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.GetCombatPlayerProfileResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.GetCombatPlayerProfileResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.GetCombatPlayerProfileResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.GetCombatPlayerProfileResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace GetCombatPlayerProfileResponse {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_PLAYER_NOT_FOUND = 2,
+                    ERROR_ACCESS_DENIED = 3
+                }
+            }
+
+            interface IGetCombatResultsResponse {
+                result?: (POGOProtos.Networking.Responses.GetCombatResultsResponse.Result|null);
+                reward_status?: (POGOProtos.Enums.CombatRewardStatus|null);
+                rewards?: (POGOProtos.Inventory.ILoot|null);
+                friend_level_up?: (POGOProtos.Data.Friends.ILeveledUpFriends|null);
+                number_rewarded_battles_today?: (number|null);
+                combat_player_finish_state?: (POGOProtos.Enums.CombatPlayerFinishState|null);
+                combat_rematch?: (POGOProtos.Networking.Responses.GetCombatResultsResponse.ICombatRematch|null);
+            }
+
+            class GetCombatResultsResponse implements IGetCombatResultsResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IGetCombatResultsResponse);
+                public result: POGOProtos.Networking.Responses.GetCombatResultsResponse.Result;
+                public reward_status: POGOProtos.Enums.CombatRewardStatus;
+                public rewards?: (POGOProtos.Inventory.ILoot|null);
+                public friend_level_up?: (POGOProtos.Data.Friends.ILeveledUpFriends|null);
+                public number_rewarded_battles_today: number;
+                public combat_player_finish_state: POGOProtos.Enums.CombatPlayerFinishState;
+                public combat_rematch?: (POGOProtos.Networking.Responses.GetCombatResultsResponse.ICombatRematch|null);
+                public static create(properties?: POGOProtos.Networking.Responses.IGetCombatResultsResponse): POGOProtos.Networking.Responses.GetCombatResultsResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IGetCombatResultsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IGetCombatResultsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.GetCombatResultsResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.GetCombatResultsResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.GetCombatResultsResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.GetCombatResultsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace GetCombatResultsResponse {
+
+                interface ICombatRematch {
+                    combat_rematch_id?: (string|null);
+                    combat_league_template_id?: (string|null);
+                }
+
+                class CombatRematch implements ICombatRematch {
+                    constructor(properties?: POGOProtos.Networking.Responses.GetCombatResultsResponse.ICombatRematch);
+                    public combat_rematch_id: string;
+                    public combat_league_template_id: string;
+                    public static create(properties?: POGOProtos.Networking.Responses.GetCombatResultsResponse.ICombatRematch): POGOProtos.Networking.Responses.GetCombatResultsResponse.CombatRematch;
+                    public static encode(message: POGOProtos.Networking.Responses.GetCombatResultsResponse.ICombatRematch, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Responses.GetCombatResultsResponse.ICombatRematch, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.GetCombatResultsResponse.CombatRematch;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.GetCombatResultsResponse.CombatRematch;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.GetCombatResultsResponse.CombatRematch;
+                    public static toObject(message: POGOProtos.Networking.Responses.GetCombatResultsResponse.CombatRematch, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_INVALID_COMBAT_STATE = 2,
+                    ERROR_COMBAT_NOT_FOUND = 3,
+                    ERROR_PLAYER_QUIT = 4
+                }
             }
 
             interface IGetDownloadUrlsResponse {
@@ -12593,6 +13650,38 @@ export namespace POGOProtos {
                 }
             }
 
+            interface IGetNpcCombatRewardsResponse {
+                result?: (POGOProtos.Networking.Responses.GetNpcCombatRewardsResponse.Result|null);
+                reward_status?: (POGOProtos.Enums.CombatRewardStatus|null);
+                rewards?: (POGOProtos.Inventory.ILoot|null);
+                number_rewarded_npc_battles_today?: (number|null);
+            }
+
+            class GetNpcCombatRewardsResponse implements IGetNpcCombatRewardsResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IGetNpcCombatRewardsResponse);
+                public result: POGOProtos.Networking.Responses.GetNpcCombatRewardsResponse.Result;
+                public reward_status: POGOProtos.Enums.CombatRewardStatus;
+                public rewards?: (POGOProtos.Inventory.ILoot|null);
+                public number_rewarded_npc_battles_today: number;
+                public static create(properties?: POGOProtos.Networking.Responses.IGetNpcCombatRewardsResponse): POGOProtos.Networking.Responses.GetNpcCombatRewardsResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IGetNpcCombatRewardsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IGetNpcCombatRewardsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.GetNpcCombatRewardsResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.GetNpcCombatRewardsResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.GetNpcCombatRewardsResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.GetNpcCombatRewardsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace GetNpcCombatRewardsResponse {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_INVALD_NUMBER_ATTACKING_POKEMON_IDS = 2
+                }
+            }
+
             interface IGetPlayerDayResponse {
                 result?: (POGOProtos.Networking.Responses.GetPlayerDayResponse.Result|null);
                 day?: (number|Long|null);
@@ -12681,6 +13770,7 @@ export namespace POGOProtos {
                 was_suspended?: (boolean|null);
                 suspended_message_acknowledged?: (boolean|null);
                 warn_expire_ms?: (number|Long|null);
+                user_permission?: (number[]|null);
             }
 
             class GetPlayerResponse implements IGetPlayerResponse {
@@ -12694,6 +13784,7 @@ export namespace POGOProtos {
                 public was_suspended: boolean;
                 public suspended_message_acknowledged: boolean;
                 public warn_expire_ms: (number|Long);
+                public user_permission: number[];
                 public static create(properties?: POGOProtos.Networking.Responses.IGetPlayerResponse): POGOProtos.Networking.Responses.GetPlayerResponse;
                 public static encode(message: POGOProtos.Networking.Responses.IGetPlayerResponse, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Networking.Responses.IGetPlayerResponse, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -12783,6 +13874,37 @@ export namespace POGOProtos {
                 }
             }
 
+            interface IGetSignedGmapUrlResponse {
+                result?: (POGOProtos.Networking.Responses.GetSignedGmapUrlResponse.Result|null);
+                signed_url?: (string|null);
+            }
+
+            class GetSignedGmapUrlResponse implements IGetSignedGmapUrlResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IGetSignedGmapUrlResponse);
+                public result: POGOProtos.Networking.Responses.GetSignedGmapUrlResponse.Result;
+                public signed_url: string;
+                public static create(properties?: POGOProtos.Networking.Responses.IGetSignedGmapUrlResponse): POGOProtos.Networking.Responses.GetSignedGmapUrlResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IGetSignedGmapUrlResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IGetSignedGmapUrlResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.GetSignedGmapUrlResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.GetSignedGmapUrlResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.GetSignedGmapUrlResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.GetSignedGmapUrlResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace GetSignedGmapUrlResponse {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_PLAYER_NOT_VALID = 2,
+                    ERROR_RATE_LIMITED = 3,
+                    ERROR_MISSING_INPUT = 4,
+                    ERROR_UNKNOWN = 5
+                }
+            }
+
             interface IGetTradingResponse {
                 result?: (POGOProtos.Networking.Responses.GetTradingResponse.Result|null);
                 trading?: (POGOProtos.Data.Trading.ITrading|null);
@@ -12812,6 +13934,34 @@ export namespace POGOProtos {
                     ERROR_INVALID_PLAYER_ID = 4,
                     ERROR_INVALID_STATE = 5,
                     ERROR_STATE_HANDLER = 6
+                }
+            }
+
+            interface IGetTutorialEggActionResponse {
+                result?: (POGOProtos.Networking.Responses.GetTutorialEggActionResponse.Result|null);
+            }
+
+            class GetTutorialEggActionResponse implements IGetTutorialEggActionResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IGetTutorialEggActionResponse);
+                public result: POGOProtos.Networking.Responses.GetTutorialEggActionResponse.Result;
+                public static create(properties?: POGOProtos.Networking.Responses.IGetTutorialEggActionResponse): POGOProtos.Networking.Responses.GetTutorialEggActionResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IGetTutorialEggActionResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IGetTutorialEggActionResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.GetTutorialEggActionResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.GetTutorialEggActionResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.GetTutorialEggActionResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.GetTutorialEggActionResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace GetTutorialEggActionResponse {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_PLAYER_ALREADY_HAS_TUTORIAL_EGG = 2,
+                    ERROR_FAILED_TO_ADD_EGG = 3,
+                    ERROR_NOT_V2_FLOW = 4
                 }
             }
 
@@ -13317,6 +14467,81 @@ export namespace POGOProtos {
                 }
             }
 
+            interface IOpenCombatChallengeResponse {
+                result?: (POGOProtos.Networking.Responses.OpenCombatChallengeResponse.Result|null);
+                challenge?: (POGOProtos.Data.Combat.ICombatChallenge|null);
+            }
+
+            class OpenCombatChallengeResponse implements IOpenCombatChallengeResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IOpenCombatChallengeResponse);
+                public result: POGOProtos.Networking.Responses.OpenCombatChallengeResponse.Result;
+                public challenge?: (POGOProtos.Data.Combat.ICombatChallenge|null);
+                public static create(properties?: POGOProtos.Networking.Responses.IOpenCombatChallengeResponse): POGOProtos.Networking.Responses.OpenCombatChallengeResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IOpenCombatChallengeResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IOpenCombatChallengeResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.OpenCombatChallengeResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.OpenCombatChallengeResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.OpenCombatChallengeResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.OpenCombatChallengeResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace OpenCombatChallengeResponse {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_INVALID_CHALLENGE_STATE = 2,
+                    ERROR_CHALLENGE_NOT_FOUND = 3,
+                    ERROR_POKEMON_NOT_IN_INVENTORY = 4,
+                    ERROR_NOT_ELIGIBLE_LEAGUE = 5,
+                    ERROR_PLAYER_BELOW_MINIMUM_LEVEL = 6,
+                    ERROR_ALREADY_TIMEDOUT = 8,
+                    ERROR_ALREADY_CANCELLED = 9,
+                    ERROR_FRIEND_NOT_FOUND = 10,
+                    ERROR_FAILED_TO_SEND_NOTIFICATION = 11,
+                    ERROR_ACCESS_DENIED = 12,
+                    ERROR_INELIGIBLE_OPPONENT = 13
+                }
+            }
+
+            interface IOpenCombatSessionResponse {
+                result?: (POGOProtos.Networking.Responses.OpenCombatSessionResponse.Result|null);
+                combat?: (POGOProtos.Data.Combat.ICombat|null);
+            }
+
+            class OpenCombatSessionResponse implements IOpenCombatSessionResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IOpenCombatSessionResponse);
+                public result: POGOProtos.Networking.Responses.OpenCombatSessionResponse.Result;
+                public combat?: (POGOProtos.Data.Combat.ICombat|null);
+                public static create(properties?: POGOProtos.Networking.Responses.IOpenCombatSessionResponse): POGOProtos.Networking.Responses.OpenCombatSessionResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IOpenCombatSessionResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IOpenCombatSessionResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.OpenCombatSessionResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.OpenCombatSessionResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.OpenCombatSessionResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.OpenCombatSessionResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace OpenCombatSessionResponse {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_INVALID_COMBAT_STATE = 2,
+                    ERROR_COMBAT_SESSION_FULL = 3,
+                    ERROR_POKEMON_NOT_IN_INVENTORY = 4,
+                    ERROR_OPPONENT_NOT_IN_RANGE = 5,
+                    ERROR_CHALLENGE_EXPIRED = 6,
+                    ERROR_PLAYER_BELOW_MINIMUM_LEVEL = 7,
+                    ERROR_OPPONENT_QUIT = 8,
+                    ERROR_POKEMON_LINEUP_INELIGIBLE_FOR_LEAGUE = 9,
+                    ERROR_COMBAT_LEAGUE_UNSPECIFIED = 10,
+                    ERROR_ACCESS_DENIED = 11
+                }
+            }
+
             interface IOpenGiftResponse {
                 result?: (POGOProtos.Networking.Responses.OpenGiftResponse.Result|null);
                 items?: (POGOProtos.Inventory.ILoot|null);
@@ -13354,6 +14579,36 @@ export namespace POGOProtos {
                     ERROR_FRIEND_NOT_FOUND = 6,
                     ERROR_INVALID_PLAYER_ID = 7,
                     ERROR_FRIEND_UPDATE = 8
+                }
+            }
+
+            interface IOpenNpcCombatSessionResponse {
+                result?: (POGOProtos.Networking.Responses.OpenNpcCombatSessionResponse.Result|null);
+                combat?: (POGOProtos.Data.Combat.ICombat|null);
+            }
+
+            class OpenNpcCombatSessionResponse implements IOpenNpcCombatSessionResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IOpenNpcCombatSessionResponse);
+                public result: POGOProtos.Networking.Responses.OpenNpcCombatSessionResponse.Result;
+                public combat?: (POGOProtos.Data.Combat.ICombat|null);
+                public static create(properties?: POGOProtos.Networking.Responses.IOpenNpcCombatSessionResponse): POGOProtos.Networking.Responses.OpenNpcCombatSessionResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IOpenNpcCombatSessionResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IOpenNpcCombatSessionResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.OpenNpcCombatSessionResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.OpenNpcCombatSessionResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.OpenNpcCombatSessionResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.OpenNpcCombatSessionResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace OpenNpcCombatSessionResponse {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_PLAYER_BELOW_MINIMUM_LEVEL = 2,
+                    ERROR_POKEMON_LINEUP_INELIGIBLE_FOR_LEAGUE = 3,
+                    ERROR_ACCESS_DENIED = 4
                 }
             }
 
@@ -13650,6 +14905,36 @@ export namespace POGOProtos {
                 }
             }
 
+            interface IQuitCombatResponse {
+                result?: (POGOProtos.Networking.Responses.QuitCombatResponse.Result|null);
+                combat?: (POGOProtos.Data.Combat.ICombat|null);
+            }
+
+            class QuitCombatResponse implements IQuitCombatResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IQuitCombatResponse);
+                public result: POGOProtos.Networking.Responses.QuitCombatResponse.Result;
+                public combat?: (POGOProtos.Data.Combat.ICombat|null);
+                public static create(properties?: POGOProtos.Networking.Responses.IQuitCombatResponse): POGOProtos.Networking.Responses.QuitCombatResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IQuitCombatResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IQuitCombatResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.QuitCombatResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.QuitCombatResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.QuitCombatResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.QuitCombatResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace QuitCombatResponse {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_COMBAT_NOT_FOUND = 2,
+                    ERROR_INVALID_COMBAT_STATE = 3,
+                    ERROR_PLAYER_NOT_IN_COMBAT = 4
+                }
+            }
+
             interface IRecycleInventoryItemResponse {
                 result?: (POGOProtos.Networking.Responses.RecycleInventoryItemResponse.Result|null);
                 new_count?: (number|null);
@@ -13780,6 +15065,32 @@ export namespace POGOProtos {
                 public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.RequestGeofenceUpdatesResponse;
                 public static toObject(message: POGOProtos.Networking.Responses.RequestGeofenceUpdatesResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
                 public toJSON(): { [k: string]: any };
+            }
+
+            interface ISaveCombatPlayerPreferencesResponse {
+                result?: (POGOProtos.Networking.Responses.SaveCombatPlayerPreferencesResponse.Result|null);
+            }
+
+            class SaveCombatPlayerPreferencesResponse implements ISaveCombatPlayerPreferencesResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.ISaveCombatPlayerPreferencesResponse);
+                public result: POGOProtos.Networking.Responses.SaveCombatPlayerPreferencesResponse.Result;
+                public static create(properties?: POGOProtos.Networking.Responses.ISaveCombatPlayerPreferencesResponse): POGOProtos.Networking.Responses.SaveCombatPlayerPreferencesResponse;
+                public static encode(message: POGOProtos.Networking.Responses.ISaveCombatPlayerPreferencesResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.ISaveCombatPlayerPreferencesResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.SaveCombatPlayerPreferencesResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.SaveCombatPlayerPreferencesResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.SaveCombatPlayerPreferencesResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.SaveCombatPlayerPreferencesResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace SaveCombatPlayerPreferencesResponse {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_UNKNOWN = 2
+                }
             }
 
             interface ISavePlayerSnapshotResponse {
@@ -14760,6 +16071,109 @@ export namespace POGOProtos {
                 }
             }
 
+            interface IStartTutorialActionResponse {
+                result?: (POGOProtos.Networking.Responses.StartTutorialActionResponse.Result|null);
+            }
+
+            class StartTutorialActionResponse implements IStartTutorialActionResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IStartTutorialActionResponse);
+                public result: POGOProtos.Networking.Responses.StartTutorialActionResponse.Result;
+                public static create(properties?: POGOProtos.Networking.Responses.IStartTutorialActionResponse): POGOProtos.Networking.Responses.StartTutorialActionResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IStartTutorialActionResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IStartTutorialActionResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.StartTutorialActionResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.StartTutorialActionResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.StartTutorialActionResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.StartTutorialActionResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace StartTutorialActionResponse {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_PLAYER_ALREADY_STARTED_TUTORIAL = 2,
+                    ERROR_FAILED_TO_START = 3
+                }
+            }
+
+            interface ISubmitCombatChallengePokemonsResponse {
+                result?: (POGOProtos.Networking.Responses.SubmitCombatChallengePokemonsResponse.Result|null);
+                challenge?: (POGOProtos.Data.Combat.ICombatChallenge|null);
+            }
+
+            class SubmitCombatChallengePokemonsResponse implements ISubmitCombatChallengePokemonsResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.ISubmitCombatChallengePokemonsResponse);
+                public result: POGOProtos.Networking.Responses.SubmitCombatChallengePokemonsResponse.Result;
+                public challenge?: (POGOProtos.Data.Combat.ICombatChallenge|null);
+                public static create(properties?: POGOProtos.Networking.Responses.ISubmitCombatChallengePokemonsResponse): POGOProtos.Networking.Responses.SubmitCombatChallengePokemonsResponse;
+                public static encode(message: POGOProtos.Networking.Responses.ISubmitCombatChallengePokemonsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.ISubmitCombatChallengePokemonsResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.SubmitCombatChallengePokemonsResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.SubmitCombatChallengePokemonsResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.SubmitCombatChallengePokemonsResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.SubmitCombatChallengePokemonsResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace SubmitCombatChallengePokemonsResponse {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_INVALID_CHALLENGE_STATE = 2,
+                    ERROR_CHALLENGE_NOT_FOUND = 3,
+                    ERROR_POKEMON_NOT_IN_INVENTORY = 4,
+                    ERROR_NOT_ELIGIBLE_LEAGUE = 5,
+                    ERROR_ALREADY_TIMEDOUT = 6,
+                    ERROR_ALREADY_CANCELLED = 7,
+                    ERROR_ACCESS_DENIED = 8,
+                    ERROR_ALREADY_DECLINED = 9
+                }
+            }
+
+            interface IUpdateCombatResponse {
+                result?: (POGOProtos.Networking.Responses.UpdateCombatResponse.Result|null);
+                combat?: (POGOProtos.Data.Combat.ICombat|null);
+            }
+
+            class UpdateCombatResponse implements IUpdateCombatResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IUpdateCombatResponse);
+                public result: POGOProtos.Networking.Responses.UpdateCombatResponse.Result;
+                public combat?: (POGOProtos.Data.Combat.ICombat|null);
+                public static create(properties?: POGOProtos.Networking.Responses.IUpdateCombatResponse): POGOProtos.Networking.Responses.UpdateCombatResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IUpdateCombatResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IUpdateCombatResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.UpdateCombatResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.UpdateCombatResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.UpdateCombatResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.UpdateCombatResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace UpdateCombatResponse {
+
+                enum Result {
+                    UNSET = 0,
+                    SUCCESS = 1,
+                    ERROR_INVALID_COMBAT_STATE = 2,
+                    ERROR_COMBAT_NOT_FOUND = 3,
+                    ERROR_PLAYER_NOT_IN_COMBAT = 4,
+                    ERROR_ILLEGAL_ACTION = 5,
+                    ERROR_INVALID_SUBMIT_TIME = 6,
+                    ERROR_PLAYER_IN_MINIGAME = 7,
+                    ERROR_EXISTING_QUEUED_ATTACK = 8,
+                    ERROR_INVALID_CHANGE_POKEMON = 9,
+                    ERROR_INSUFFICIENT_ENERGY = 10,
+                    ERROR_INVALID_MOVE = 11,
+                    ERROR_INVALID_DURATION_TURNS = 12,
+                    ERROR_INVALID_MINIGAME_STATE = 13,
+                    ERROR_INVALID_QUICK_SWAP_POKEMON = 14,
+                    ERROR_QUICK_SWAP_NOT_AVAILABLE = 15
+                }
+            }
+
             interface IUpdateNotificationResponse {
                 notification_ids?: (string[]|null);
                 create_timestamp_ms?: ((number|Long)[]|null);
@@ -15047,7 +16461,8 @@ export namespace POGOProtos {
                     NO_PLAYER = 4,
                     WRONG_ITEM_TYPE = 5,
                     ITEM_NOT_IN_INVENTORY = 6,
-                    INVALID_POKEMON = 7
+                    INVALID_POKEMON = 7,
+                    MOVE_LOCKED = 8
                 }
             }
 
@@ -15283,6 +16698,64 @@ export namespace POGOProtos {
             public toJSON(): { [k: string]: any };
         }
 
+        interface ICombatChallengeGlobalSettings {
+            distance_check_override_friendship_level?: (POGOProtos.Enums.FriendshipLevelMilestone|null);
+            get_combat_challenge_polling_interval_sec?: (number|null);
+        }
+
+        class CombatChallengeGlobalSettings implements ICombatChallengeGlobalSettings {
+            constructor(properties?: POGOProtos.Settings.ICombatChallengeGlobalSettings);
+            public distance_check_override_friendship_level: POGOProtos.Enums.FriendshipLevelMilestone;
+            public get_combat_challenge_polling_interval_sec: number;
+            public static create(properties?: POGOProtos.Settings.ICombatChallengeGlobalSettings): POGOProtos.Settings.CombatChallengeGlobalSettings;
+            public static encode(message: POGOProtos.Settings.ICombatChallengeGlobalSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: POGOProtos.Settings.ICombatChallengeGlobalSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Settings.CombatChallengeGlobalSettings;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.CombatChallengeGlobalSettings;
+            public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.CombatChallengeGlobalSettings;
+            public static toObject(message: POGOProtos.Settings.CombatChallengeGlobalSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public toJSON(): { [k: string]: any };
+        }
+
+        interface ICombatGlobalSettings {
+            enable_combat?: (boolean|null);
+            maximum_daily_rewarded_battles?: (number|null);
+            enable_combat_stat_stages?: (boolean|null);
+            minimum_player_level?: (number|null);
+            maximum_daily_npc_rewarded_battles?: (number|null);
+            active_combat_update_interval_ms?: (number|null);
+            waiting_for_player_update_interval_ms?: (number|null);
+            ready_for_battle_update_interval_ms?: (number|null);
+            pre_move_submit_window_ms?: (number|null);
+            post_move_submit_window_ms?: (number|null);
+            enable_sockets?: (boolean|null);
+            enable_spin_minigame?: (boolean|null);
+        }
+
+        class CombatGlobalSettings implements ICombatGlobalSettings {
+            constructor(properties?: POGOProtos.Settings.ICombatGlobalSettings);
+            public enable_combat: boolean;
+            public maximum_daily_rewarded_battles: number;
+            public enable_combat_stat_stages: boolean;
+            public minimum_player_level: number;
+            public maximum_daily_npc_rewarded_battles: number;
+            public active_combat_update_interval_ms: number;
+            public waiting_for_player_update_interval_ms: number;
+            public ready_for_battle_update_interval_ms: number;
+            public pre_move_submit_window_ms: number;
+            public post_move_submit_window_ms: number;
+            public enable_sockets: boolean;
+            public enable_spin_minigame: boolean;
+            public static create(properties?: POGOProtos.Settings.ICombatGlobalSettings): POGOProtos.Settings.CombatGlobalSettings;
+            public static encode(message: POGOProtos.Settings.ICombatGlobalSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: POGOProtos.Settings.ICombatGlobalSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Settings.CombatGlobalSettings;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.CombatGlobalSettings;
+            public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.CombatGlobalSettings;
+            public static toObject(message: POGOProtos.Settings.CombatGlobalSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public toJSON(): { [k: string]: any };
+        }
+
         interface IDownloadSettingsAction {
             hash?: (string|null);
         }
@@ -15410,10 +16883,14 @@ export namespace POGOProtos {
             trading_global_settings?: (POGOProtos.Settings.ITradingGlobalSettings|null);
             additional_allowed_pokemon_ids?: (POGOProtos.Enums.PokemonId[]|null);
             upsight_logging_settings?: (POGOProtos.Settings.IUpsightLoggingSettings|null);
+            combat_global_settings?: (POGOProtos.Settings.ICombatGlobalSettings|null);
+            third_move_settings?: (POGOProtos.Settings.IThirdMoveGlobalSettings|null);
+            combat_challenge_global_settings?: (POGOProtos.Settings.ICombatChallengeGlobalSettings|null);
             bgmode_global_settings?: (POGOProtos.Settings.IBackgroundModeGlobalSettings|null);
             probe_settings?: (POGOProtos.Settings.IProbeSettings|null);
             purchased_settings?: (POGOProtos.Settings.IPokecoinPurchaseDisplaySettings|null);
             helpshift_settings?: (POGOProtos.Settings.IHelpshiftSettings|null);
+            poi_settings?: (POGOProtos.Settings.IPoiGlobalSettings|null);
         }
 
         class GlobalSettings implements IGlobalSettings {
@@ -15443,10 +16920,14 @@ export namespace POGOProtos {
             public trading_global_settings?: (POGOProtos.Settings.ITradingGlobalSettings|null);
             public additional_allowed_pokemon_ids: POGOProtos.Enums.PokemonId[];
             public upsight_logging_settings?: (POGOProtos.Settings.IUpsightLoggingSettings|null);
+            public combat_global_settings?: (POGOProtos.Settings.ICombatGlobalSettings|null);
+            public third_move_settings?: (POGOProtos.Settings.IThirdMoveGlobalSettings|null);
+            public combat_challenge_global_settings?: (POGOProtos.Settings.ICombatChallengeGlobalSettings|null);
             public bgmode_global_settings?: (POGOProtos.Settings.IBackgroundModeGlobalSettings|null);
             public probe_settings?: (POGOProtos.Settings.IProbeSettings|null);
             public purchased_settings?: (POGOProtos.Settings.IPokecoinPurchaseDisplaySettings|null);
             public helpshift_settings?: (POGOProtos.Settings.IHelpshiftSettings|null);
+            public poi_settings?: (POGOProtos.Settings.IPoiGlobalSettings|null);
             public static create(properties?: POGOProtos.Settings.IGlobalSettings): POGOProtos.Settings.GlobalSettings;
             public static encode(message: POGOProtos.Settings.IGlobalSettings, writer?: $protobuf.Writer): $protobuf.Writer;
             public static encodeDelimited(message: POGOProtos.Settings.IGlobalSettings, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -15571,6 +17052,7 @@ export namespace POGOProtos {
             min_nearby_hide_sightings?: (number|null);
             enable_special_weather?: (boolean|null);
             special_weather_probability?: (number|null);
+            google_maps_client_id?: (string|null);
         }
 
         class MapSettings implements IMapSettings {
@@ -15585,6 +17067,7 @@ export namespace POGOProtos {
             public min_nearby_hide_sightings: number;
             public enable_special_weather: boolean;
             public special_weather_probability: number;
+            public google_maps_client_id: string;
             public static create(properties?: POGOProtos.Settings.IMapSettings): POGOProtos.Settings.MapSettings;
             public static encode(message: POGOProtos.Settings.IMapSettings, writer?: $protobuf.Writer): $protobuf.Writer;
             public static encodeDelimited(message: POGOProtos.Settings.IMapSettings, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -17413,6 +18896,23 @@ export namespace POGOProtos {
             public toJSON(): { [k: string]: any };
         }
 
+        interface IPoiGlobalSettings {
+            is_enabled?: (boolean|null);
+        }
+
+        class PoiGlobalSettings implements IPoiGlobalSettings {
+            constructor(properties?: POGOProtos.Settings.IPoiGlobalSettings);
+            public is_enabled: boolean;
+            public static create(properties?: POGOProtos.Settings.IPoiGlobalSettings): POGOProtos.Settings.PoiGlobalSettings;
+            public static encode(message: POGOProtos.Settings.IPoiGlobalSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: POGOProtos.Settings.IPoiGlobalSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Settings.PoiGlobalSettings;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.PoiGlobalSettings;
+            public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.PoiGlobalSettings;
+            public static toObject(message: POGOProtos.Settings.PoiGlobalSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public toJSON(): { [k: string]: any };
+        }
+
         interface IPokecoinPurchaseDisplaySettings {
             feature_enabled?: (boolean|null);
             enabled_countries?: (string[]|null);
@@ -17550,6 +19050,23 @@ export namespace POGOProtos {
             public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.TelemetryGlobalSettings;
             public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.TelemetryGlobalSettings;
             public static toObject(message: POGOProtos.Settings.TelemetryGlobalSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
+            public toJSON(): { [k: string]: any };
+        }
+
+        interface IThirdMoveGlobalSettings {
+            unlock_enabled?: (boolean|null);
+        }
+
+        class ThirdMoveGlobalSettings implements IThirdMoveGlobalSettings {
+            constructor(properties?: POGOProtos.Settings.IThirdMoveGlobalSettings);
+            public unlock_enabled: boolean;
+            public static create(properties?: POGOProtos.Settings.IThirdMoveGlobalSettings): POGOProtos.Settings.ThirdMoveGlobalSettings;
+            public static encode(message: POGOProtos.Settings.IThirdMoveGlobalSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: POGOProtos.Settings.IThirdMoveGlobalSettings, writer?: $protobuf.Writer): $protobuf.Writer;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Settings.ThirdMoveGlobalSettings;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Settings.ThirdMoveGlobalSettings;
+            public static fromObject(object: { [k: string]: any }): POGOProtos.Settings.ThirdMoveGlobalSettings;
+            public static toObject(message: POGOProtos.Settings.ThirdMoveGlobalSettings, options?: $protobuf.IConversionOptions): { [k: string]: any };
             public toJSON(): { [k: string]: any };
         }
 

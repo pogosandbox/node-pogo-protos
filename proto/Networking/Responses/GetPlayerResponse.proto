@@ -13,4 +13,5 @@ message GetPlayerResponse {
 	bool was_suspended = 7;
 	bool suspended_message_acknowledged = 8;
 	int64 warn_expire_ms = 9;
+	repeated int32 user_permission = 10;
 }

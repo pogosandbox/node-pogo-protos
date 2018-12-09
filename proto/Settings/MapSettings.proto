@@ -12,4 +12,5 @@ message MapSettings {
 	int32 min_nearby_hide_sightings = 8;
 	bool enable_special_weather = 9;
 	float special_weather_probability = 10;
+	string google_maps_client_id = 11;
 }

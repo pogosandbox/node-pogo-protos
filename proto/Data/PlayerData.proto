@@ -10,6 +10,7 @@ import "POGOProtos/Data/Player/Currency.proto";
 import "POGOProtos/Data/Player/SocialPlayerSettings.proto";
 import "POGOProtos/Data/BuddyPokemon.proto";
 import "POGOProtos/Enums/TeamColor.proto";
+import "POGOProtos/Data/Combat/CombatPlayerPreferences.proto";
 
 message PlayerData {
 	int64 creation_timestamp_ms = 1;
@@ -29,5 +30,6 @@ message PlayerData {
 	.POGOProtos.Data.Player.PlayerAvatar secondary_player_avatar = 18;
 	bool name_is_blacklisted = 19;
 	.POGOProtos.Data.Player.SocialPlayerSettings social_player_settings = 20;
+	.POGOProtos.Data.Combat.CombatPlayerPreferences combat_player_preferences = 21;
 	string player_support_id = 22;
 }
