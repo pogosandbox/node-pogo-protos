@@ -7780,6 +7780,49 @@ export namespace POGOProtos {
 
         namespace Envelopes {
 
+            interface IAuthInfo {
+                provider?: (string|null);
+                token?: (POGOProtos.Networking.Envelopes.AuthInfo.IJWT|null);
+                unknown1?: (number|null);
+            }
+
+            class AuthInfo implements IAuthInfo {
+                constructor(properties?: POGOProtos.Networking.Envelopes.IAuthInfo);
+                public provider: string;
+                public token?: (POGOProtos.Networking.Envelopes.AuthInfo.IJWT|null);
+                public unknown1: number;
+                public static create(properties?: POGOProtos.Networking.Envelopes.IAuthInfo): POGOProtos.Networking.Envelopes.AuthInfo;
+                public static encode(message: POGOProtos.Networking.Envelopes.IAuthInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Envelopes.IAuthInfo, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Envelopes.AuthInfo;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Envelopes.AuthInfo;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Envelopes.AuthInfo;
+                public static toObject(message: POGOProtos.Networking.Envelopes.AuthInfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace AuthInfo {
+
+                interface IJWT {
+                    contents?: (string|null);
+                    unknown2?: (number|null);
+                }
+
+                class JWT implements IJWT {
+                    constructor(properties?: POGOProtos.Networking.Envelopes.AuthInfo.IJWT);
+                    public contents: string;
+                    public unknown2: number;
+                    public static create(properties?: POGOProtos.Networking.Envelopes.AuthInfo.IJWT): POGOProtos.Networking.Envelopes.AuthInfo.JWT;
+                    public static encode(message: POGOProtos.Networking.Envelopes.AuthInfo.IJWT, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Envelopes.AuthInfo.IJWT, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Envelopes.AuthInfo.JWT;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Envelopes.AuthInfo.JWT;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Envelopes.AuthInfo.JWT;
+                    public static toObject(message: POGOProtos.Networking.Envelopes.AuthInfo.JWT, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+            }
+
             interface IAuthTicket {
                 start?: (Uint8Array|null);
                 expire_timestamp_ms?: (number|Long|null);
