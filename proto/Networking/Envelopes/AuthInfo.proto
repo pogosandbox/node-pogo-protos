@@ -4,10 +4,14 @@ package POGOProtos.Networking.Envelopes;
 message AuthInfo {
     string provider = 1;
     JWT token = 2;
-    uint32 unknown1 = 3;
+    Stuff stuff = 3;
 
     message JWT {
         string contents = 1;
         int32 unknown2 = 2;
+    }
+
+    message Stuff {
+        int32 value = 1;
     }
 }

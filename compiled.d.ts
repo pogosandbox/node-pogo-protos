@@ -7783,14 +7783,14 @@ export namespace POGOProtos {
             interface IAuthInfo {
                 provider?: (string|null);
                 token?: (POGOProtos.Networking.Envelopes.AuthInfo.IJWT|null);
-                unknown1?: (number|null);
+                stuff?: (POGOProtos.Networking.Envelopes.AuthInfo.IStuff|null);
             }
 
             class AuthInfo implements IAuthInfo {
                 constructor(properties?: POGOProtos.Networking.Envelopes.IAuthInfo);
                 public provider: string;
                 public token?: (POGOProtos.Networking.Envelopes.AuthInfo.IJWT|null);
-                public unknown1: number;
+                public stuff?: (POGOProtos.Networking.Envelopes.AuthInfo.IStuff|null);
                 public static create(properties?: POGOProtos.Networking.Envelopes.IAuthInfo): POGOProtos.Networking.Envelopes.AuthInfo;
                 public static encode(message: POGOProtos.Networking.Envelopes.IAuthInfo, writer?: $protobuf.Writer): $protobuf.Writer;
                 public static encodeDelimited(message: POGOProtos.Networking.Envelopes.IAuthInfo, writer?: $protobuf.Writer): $protobuf.Writer;
@@ -7819,6 +7819,23 @@ export namespace POGOProtos {
                     public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Envelopes.AuthInfo.JWT;
                     public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Envelopes.AuthInfo.JWT;
                     public static toObject(message: POGOProtos.Networking.Envelopes.AuthInfo.JWT, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
+                interface IStuff {
+                    value?: (number|null);
+                }
+
+                class Stuff implements IStuff {
+                    constructor(properties?: POGOProtos.Networking.Envelopes.AuthInfo.IStuff);
+                    public value: number;
+                    public static create(properties?: POGOProtos.Networking.Envelopes.AuthInfo.IStuff): POGOProtos.Networking.Envelopes.AuthInfo.Stuff;
+                    public static encode(message: POGOProtos.Networking.Envelopes.AuthInfo.IStuff, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Envelopes.AuthInfo.IStuff, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Envelopes.AuthInfo.Stuff;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Envelopes.AuthInfo.Stuff;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Envelopes.AuthInfo.Stuff;
+                    public static toObject(message: POGOProtos.Networking.Envelopes.AuthInfo.Stuff, options?: $protobuf.IConversionOptions): { [k: string]: any };
                     public toJSON(): { [k: string]: any };
                 }
             }
