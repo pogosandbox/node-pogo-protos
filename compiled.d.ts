@@ -9906,6 +9906,21 @@ export namespace POGOProtos {
                     public toJSON(): { [k: string]: any };
                 }
 
+                interface IListLoginActionMessage {
+                }
+
+                class ListLoginActionMessage implements IListLoginActionMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IListLoginActionMessage);
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IListLoginActionMessage): POGOProtos.Networking.Requests.Messages.ListLoginActionMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IListLoginActionMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IListLoginActionMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.ListLoginActionMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.ListLoginActionMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.ListLoginActionMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.ListLoginActionMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
                 interface IMarkReadNewsArticleMessage {
                     news_ids?: (string[]|null);
                 }
@@ -14473,6 +14488,25 @@ export namespace POGOProtos {
                 public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.ListGymBadgesResponse;
                 public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.ListGymBadgesResponse;
                 public static toObject(message: POGOProtos.Networking.Responses.ListGymBadgesResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            interface IListLoginActionResponse {
+                success?: (boolean|null);
+                login_detail?: (POGOProtos.Data.Login.ILoginDetail[]|null);
+            }
+
+            class ListLoginActionResponse implements IListLoginActionResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IListLoginActionResponse);
+                public success: boolean;
+                public login_detail: POGOProtos.Data.Login.ILoginDetail[];
+                public static create(properties?: POGOProtos.Networking.Responses.IListLoginActionResponse): POGOProtos.Networking.Responses.ListLoginActionResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IListLoginActionResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IListLoginActionResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.ListLoginActionResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.ListLoginActionResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.ListLoginActionResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.ListLoginActionResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
                 public toJSON(): { [k: string]: any };
             }
 

@@ -155,7 +155,7 @@ enum RequestType {
 	PING = 5007;                                // 
 	ADD_LOGIN_ACTION = 5008;                    // 
 	REMOVE_LOGIN_ACTION = 5009;                 // 
-	LIST_LOGIN_ACTION = 5010;                   // 
+	LIST_LOGIN_ACTION = 5010;                   // Implemented?
 	ADD_NEW_POI = 5011;                         // Implemented
 	PROXY_SOCIAL_ACTION = 5012;                 // 
 	CLIENT_TELEMETRY = 5013;                    // 
