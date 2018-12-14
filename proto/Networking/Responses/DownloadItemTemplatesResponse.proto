@@ -38,6 +38,7 @@ import "POGOProtos/Settings/Master/CombatNpcPersonality.proto";
 import "POGOProtos/Settings/Master/OnboardingV2Settings.proto";
 import "POGOProtos/Settings/Master/CombatLeagueSettings.proto";
 import "POGOProtos/Settings/Master/CombatLeague.proto";
+import "POGOProtos/Settings/Master/BelugaPokemonWhitelist.proto";
 
 message DownloadItemTemplatesResponse {
 	Result result = 1;

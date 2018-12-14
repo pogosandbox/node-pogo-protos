@@ -3525,7 +3525,7 @@ export namespace POGOProtos {
             }
 
             interface IQuestCondition {
-                type?: (POGOProtos.Data.Quests.QuestCondition.ConditionType|null);
+                type?: (POGOProtos.Data.Quests.QuestCondition.QuestConditionType|null);
                 with_pokemon_type?: (POGOProtos.Data.Quests.QuestCondition.IWithPokemonType|null);
                 with_pokemon_category?: (POGOProtos.Data.Quests.QuestCondition.IWithPokemonCategory|null);
                 with_weather_boost?: (POGOProtos.Data.Quests.QuestCondition.IWithWeatherBoost|null);
@@ -3546,7 +3546,7 @@ export namespace POGOProtos {
 
             class QuestCondition implements IQuestCondition {
                 constructor(properties?: POGOProtos.Data.Quests.IQuestCondition);
-                public type: POGOProtos.Data.Quests.QuestCondition.ConditionType;
+                public type: POGOProtos.Data.Quests.QuestCondition.QuestConditionType;
                 public with_pokemon_type?: (POGOProtos.Data.Quests.QuestCondition.IWithPokemonType|null);
                 public with_pokemon_category?: (POGOProtos.Data.Quests.QuestCondition.IWithPokemonCategory|null);
                 public with_weather_boost?: (POGOProtos.Data.Quests.QuestCondition.IWithWeatherBoost|null);
@@ -3575,8 +3575,8 @@ export namespace POGOProtos {
 
             namespace QuestCondition {
 
-                enum ConditionType {
-                    UNSET = 0,
+                enum QuestConditionType {
+                    CONDITIONTYPE_UNSET = 0,
                     WITH_POKEMON_TYPE = 1,
                     WITH_POKEMON_CATEGORY = 2,
                     WITH_WEATHER_BOOST = 3,
