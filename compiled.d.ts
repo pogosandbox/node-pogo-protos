@@ -10248,6 +10248,27 @@ export namespace POGOProtos {
                     public toJSON(): { [k: string]: any };
                 }
 
+                interface IProxySocialSideChannelActionMessage {
+                    action?: (number|null);
+                    host?: (string|null);
+                    payload?: (Uint8Array|null);
+                }
+
+                class ProxySocialSideChannelActionMessage implements IProxySocialSideChannelActionMessage {
+                    constructor(properties?: POGOProtos.Networking.Requests.Messages.IProxySocialSideChannelActionMessage);
+                    public action: number;
+                    public host: string;
+                    public payload: Uint8Array;
+                    public static create(properties?: POGOProtos.Networking.Requests.Messages.IProxySocialSideChannelActionMessage): POGOProtos.Networking.Requests.Messages.ProxySocialSideChannelActionMessage;
+                    public static encode(message: POGOProtos.Networking.Requests.Messages.IProxySocialSideChannelActionMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static encodeDelimited(message: POGOProtos.Networking.Requests.Messages.IProxySocialSideChannelActionMessage, writer?: $protobuf.Writer): $protobuf.Writer;
+                    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Requests.Messages.ProxySocialSideChannelActionMessage;
+                    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Requests.Messages.ProxySocialSideChannelActionMessage;
+                    public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Requests.Messages.ProxySocialSideChannelActionMessage;
+                    public static toObject(message: POGOProtos.Networking.Requests.Messages.ProxySocialSideChannelActionMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                    public toJSON(): { [k: string]: any };
+                }
+
                 interface IGetAvailableSubmissionsMessage {
                 }
 
@@ -14948,6 +14969,44 @@ export namespace POGOProtos {
             }
 
             namespace ProxySocialActionResponse {
+
+                enum Status {
+                    UNSET = 0,
+                    COMPLETED = 1,
+                    COMPLETED_AND_REASSIGNED = 2,
+                    ACTION_NOT_FOUND = 3,
+                    ASSIGNMENT_ERROR = 4,
+                    PROXY_UNAUTHORIZED_ERROR = 5,
+                    INTERNAL_ERROR = 6,
+                    BAD_REQUEST = 7,
+                    ACCESS_DENIED = 8,
+                    TIMEOUT_ERROR = 9,
+                    RATE_LIMITED = 10
+                }
+            }
+
+            interface IProxySocialSideChannelActionResponse {
+                status?: (POGOProtos.Networking.Responses.ProxySocialSideChannelActionResponse.Status|null);
+                assigned_host?: (string|null);
+                payload?: (Uint8Array|null);
+            }
+
+            class ProxySocialSideChannelActionResponse implements IProxySocialSideChannelActionResponse {
+                constructor(properties?: POGOProtos.Networking.Responses.IProxySocialSideChannelActionResponse);
+                public status: POGOProtos.Networking.Responses.ProxySocialSideChannelActionResponse.Status;
+                public assigned_host: string;
+                public payload: Uint8Array;
+                public static create(properties?: POGOProtos.Networking.Responses.IProxySocialSideChannelActionResponse): POGOProtos.Networking.Responses.ProxySocialSideChannelActionResponse;
+                public static encode(message: POGOProtos.Networking.Responses.IProxySocialSideChannelActionResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static encodeDelimited(message: POGOProtos.Networking.Responses.IProxySocialSideChannelActionResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+                public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): POGOProtos.Networking.Responses.ProxySocialSideChannelActionResponse;
+                public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): POGOProtos.Networking.Responses.ProxySocialSideChannelActionResponse;
+                public static fromObject(object: { [k: string]: any }): POGOProtos.Networking.Responses.ProxySocialSideChannelActionResponse;
+                public static toObject(message: POGOProtos.Networking.Responses.ProxySocialSideChannelActionResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+                public toJSON(): { [k: string]: any };
+            }
+
+            namespace ProxySocialSideChannelActionResponse {
 
                 enum Status {
                     UNSET = 0,

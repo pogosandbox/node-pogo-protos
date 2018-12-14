@@ -51,5 +51,11 @@ message ProxySocialActionMessage {
     bytes payload = 3;
 }
 
+message ProxySocialSideChannelActionMessage {
+    uint32 action = 1;
+    string host = 2;
+    bytes payload = 3;
+}
+
 message GetAvailableSubmissionsMessage {
 }
