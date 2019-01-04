@@ -3,7 +3,7 @@ package POGOProtos.Networking.Responses;
 
 import "POGOProtos/Data/PokemonData.proto";
 
-message GetTutorialEggActionResponse {
+message UnlockSpecialMoveResponse {
 	Result result = 1;
 	.POGOProtos.Data.PokemonData unlocked_pokemon = 2;
 
