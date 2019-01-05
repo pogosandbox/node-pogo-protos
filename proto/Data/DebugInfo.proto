@@ -1,0 +1,7 @@
+syntax = "proto3";
+package POGOProtos.Data;
+
+message DebugInfo {
+	double latitude = 1;
+	double longitude = 2;
+}

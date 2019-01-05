@@ -2,5 +2,5 @@ syntax = "proto3";
 package POGOProtos.Networking.Requests.Social;
 
 message RemoveFriendMessage {
-    string friend_code = 1;
+	string player_id = 1;
 }

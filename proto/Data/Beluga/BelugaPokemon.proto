@@ -1,9 +1,9 @@
-
 syntax = "proto3";
 package POGOProtos.Data.Beluga;
 
-import "POGOProtos/Enums/Gender.proto";
 import "POGOProtos/Enums/Costume.proto";
+import "POGOProtos/Enums/Gender.proto";
+import "POGOProtos/Enums/PokemonMove.proto";
 import "POGOProtos/Enums/TeamColor.proto";
 
 message BelugaPokemon {
@@ -28,18 +28,18 @@ message BelugaPokemon {
 	string nickname = 19;
 	.POGOProtos.Enums.Gender gender = 20;
 	.POGOProtos.Enums.Costume costume = 21;
-	BelugaForm form = 22;
+	PokemonForm form = 22;
 	bool shiny = 23;
-	int32 move1 = 24;
-	int32 move2 = 25;
+	.POGOProtos.Enums.PokemonMove move1 = 24;
+	.POGOProtos.Enums.PokemonMove move2 = 25;
+
+	enum PokemonForm {
+		FORM_UNSET = 0;
+		ALOLA = 1;
+	}
 
 	enum TrainerGender {
 		TRAINER_MALE = 0;
 		TRAINER_FEMALE = 1;
-	}
-
-	enum BelugaForm {
-		FORM_UNSET = 0;
-		ALOLA = 1;
 	}
 }

@@ -19,3 +19,8 @@ enum PokemonGoPlusIds {
 	POKESTOP_SPUN = 14;
 	POKESTOP_NOT_SPUN_DUE_ERROR = 15;
 }
+
+enum DeviceKind {
+	POKEMON_GO_PLUS_KIND = 0;
+	POKE_BALL_PLUS = 1;
+}

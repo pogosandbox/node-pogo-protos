@@ -2,18 +2,23 @@ syntax = "proto3";
 package POGOProtos.Data.Quests;
 
 import "POGOProtos/Enums/QuestType.proto";
-import "POGOProtos/Data/Quests/DailyQuest.proto";
 import "POGOProtos/Data/Quests/CatchPokemonQuest.proto";
 import "POGOProtos/Data/Quests/QuestReward.proto";
 import "POGOProtos/Data/Quests/QuestGoal.proto";
+import "POGOProtos/Data/Quests/AddFriendQuest.proto";
+import "POGOProtos/Data/Quests/TradePokemonQuest.proto";
 
 message Quest {
 	.POGOProtos.Enums.QuestType quest_type = 1;
-	.POGOProtos.Data.Quests.DailyQuest daily_quest = 2;
-	MultiPartQuest multi_part = 3;
-	.POGOProtos.Data.Quests.CatchPokemonQuest catch_pokemon = 4;
-	AddFriendQuest add_friend = 5;
-	TradePokemonQuest trade_pokemon = 6;
+
+	oneof Quest {
+		DailyQuest daily_quest = 2;
+		MultiPartQuest multi_part = 3;
+		.POGOProtos.Data.Quests.CatchPokemonQuest catch_pokemon = 4;
+		.POGOProtos.Data.Quests.AddFriendQuest add_friend = 5;
+		.POGOProtos.Data.Quests.TradePokemonQuest trade_pokemon = 6;
+	}
+
 	string quest_id = 100;
 	int64 quest_seed = 101;
 	Context quest_context = 102;
@@ -38,23 +43,20 @@ message Quest {
 		repeated .POGOProtos.Data.Quests.Quest sub_quests = 1;
 	}
 
-	message AddFriendQuest {
-		repeated string added_friend_ids = 1;
+	message DailyQuest {
+		int32 current_period_bucket = 1;
+		int32 current_streak_count = 2;
 	}
 
-	message TradePokemonQuest {
-		repeated string friend_id = 1;
+	message DailyCounter {
+		int64 window = 1;
+		int32 count = 2;
 	}
 
 	enum Context {
 		UNSET = 0;
 		STORY_QUEST = 1;
 		CHALLENGE_QUEST = 2;
-	}
-
-	message DailyCounter {
-		int64 window = 1;
-		int32 count = 2;
 	}
 
 	enum Status {

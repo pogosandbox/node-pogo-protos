@@ -9,26 +9,29 @@ import "POGOProtos/Enums/RaidLevel.proto";
 import "POGOProtos/Inventory/Item/ItemId.proto";
 
 message QuestCondition {
-	QuestConditionType type = 1;
-	WithPokemonType with_pokemon_type = 2;
-	WithPokemonCategory with_pokemon_category = 3;
-	WithWeatherBoost with_weather_boost = 4;
-	WithDailyCaptureBonus with_daily_capture_bonus = 5;
-	WithDailySpinBonus with_daily_spin_bonus = 6;
-	WithWinRaidStatus with_win_raid_status = 7;
-	WithRaidLevel with_raid_level = 8;
-	WithThrowType with_throw_type = 9;
-	WithWinGymBattleStatus with_win_gym_battle_status = 10;
-	WithSuperEffectiveChargeMove with_super_effective_charge_move = 11;
-	WithItem with_item = 12;
-	WithUniquePokestop with_unique_pokestop = 13;
-	WithQuestContext with_quest_context = 14;
-	WithBadgeType with_badge_type = 15;
-	WithPlayerLevel with_player_level = 16;
-	WithWinBattleStatus with_win_battle_status = 17;
+	ConditionType type = 1;
 
-	enum QuestConditionType {
-		CONDITIONTYPE_UNSET = 0;
+	oneof Condition {
+		WithPokemonType with_pokemon_type = 2;
+		WithPokemonCategory with_pokemon_category = 3;
+		WithWeatherBoost with_weather_boost = 4;
+		WithDailyCaptureBonus with_daily_capture_bonus = 5;
+		WithDailySpinBonus with_daily_spin_bonus = 6;
+		WithWinRaidStatus with_win_raid_status = 7;
+		WithRaidLevel with_raid_level = 8;
+		WithThrowType with_throw_type = 9;
+		WithWinGymBattleStatus with_win_gym_battle_status = 10;
+		WithSuperEffectiveChargeMove with_super_effective_charge_move = 11;
+		WithItem with_item = 12;
+		WithUniquePokestop with_unique_pokestop = 13;
+		WithQuestContext with_quest_context = 14;
+		WithBadgeType with_badge_type = 15;
+		WithPlayerLevel with_player_level = 16;
+		WithWinBattleStatus with_win_battle_status = 17;
+	}
+
+	enum ConditionType {
+		UNSET = 0;
 		WITH_POKEMON_TYPE = 1;
 		WITH_POKEMON_CATEGORY = 2;
 		WITH_WEATHER_BOOST = 3;
@@ -77,8 +80,10 @@ message QuestCondition {
 	}
 
 	message WithThrowType {
-		.POGOProtos.Enums.ActivityType throw_type = 1;
-		bool hit = 2;
+		oneof Throw {
+			.POGOProtos.Enums.ActivityType throw_type = 1;
+			bool hit = 2;
+		}
 	}
 
 	message WithCurveBall {

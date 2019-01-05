@@ -1,14 +1,11 @@
 syntax = "proto3";
 package POGOProtos.Networking.Responses;
 
-import "POGOProtos/Settings/Master/LuckyPokemonSettings.proto";
-import "POGOProtos/Settings/Master/ExRaidSettings.proto";
-import "POGOProtos/Settings/Master/BackgroundModeSettings.proto";
-import "POGOProtos/Data/Beluga/BelugaPokemon.proto";
+import "POGOProtos/Data/Beluga/BelugaBleTransferPrep.proto";
 
 message BelugaTransactionStartResponse {
 	Status status = 1;
-	BelugaBleTransferPrep beluga_transfer_prep = 2;
+	.POGOProtos.Data.Beluga.BelugaBleTransferPrep beluga_transfer_prep = 2;
 	bytes server_signature = 3;
 
 	enum Status {
@@ -23,13 +20,5 @@ message BelugaTransactionStartResponse {
 		ERROR_INVALID_NONCE = 8;
 		ERROR_TOO_MANY_POKEMON = 9;
 		ERROR_NO_POKEMON_SPECIFIED = 10;
-	}
-
-	message BelugaBleTransferPrep {
-		repeated .POGOProtos.Data.Beluga.BelugaPokemon pokemon_list = 1;
-		bool eligble_for_item = 2;
-		int64 transaction_id = 3;
-		string beluga_id = 4;
-		string nonce = 5;
 	}
 }

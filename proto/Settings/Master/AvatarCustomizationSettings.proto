@@ -3,12 +3,12 @@ package POGOProtos.Settings.Master;
 
 import "POGOProtos/Data/Player/PlayerAvatarType.proto";
 import "POGOProtos/Enums/BadgeType.proto";
-import "POGOProtos/Enums/Slot.proto";
+import "POGOProtos/Data/Avatar/AvatarCustomization.proto";
 
 message AvatarCustomizationSettings {
 	bool enabled = 1;
 	.POGOProtos.Data.Player.PlayerAvatarType avatar_type = 2;
-	repeated .POGOProtos.Enums.Slot slot = 3;
+	repeated .POGOProtos.Data.Avatar.AvatarCustomization.Slot slot = 3;
 	string bundle_name = 4;
 	string asset_name = 5;
 	string group_name = 6;

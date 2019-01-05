@@ -12,3 +12,8 @@ message SocialClientSettings {
 	int32 facebook_friend_limit_per_request = 8;
 	bool disable_facebook_friends_opening_prompt = 9;
 }
+
+message SocialGiftCountTelemetry {
+	int32 unopened_gift_count = 1;
+	int32 unsent_gift_count = 2;
+}

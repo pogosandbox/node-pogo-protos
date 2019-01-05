@@ -16,6 +16,7 @@ import "POGOProtos/Data/Logs/ShareExRaidPassLogEntry.proto";
 import "POGOProtos/Data/Logs/DeclineExRaidPassLogEntry.proto";
 import "POGOProtos/Data/Logs/FitnessRewardsLogEntry.proto";
 import "POGOProtos/Data/Logs/BelugaDailyTransferLogEntry.proto";
+import "POGOProtos/Data/Logs/CombatLogEntry.proto";
 
 message ActionLogEntry {
 	int64 timestamp_ms = 1;

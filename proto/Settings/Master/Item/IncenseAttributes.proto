@@ -1,8 +1,8 @@
 syntax = "proto3";
 package POGOProtos.Settings.Master.Item;
 
-import "POGOProtos/Enums/PokemonId.proto";
 import "POGOProtos/Enums/PokemonType.proto";
+import "POGOProtos/Enums/PokemonId.proto";
 
 message IncenseAttributes {
 	int32 incense_lifetime_seconds = 1;

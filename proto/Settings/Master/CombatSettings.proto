@@ -1,9 +1,6 @@
 syntax = "proto3";
 package POGOProtos.Settings.Master;
 
-import "POGOProtos/Enums/PokemonType.proto";
-import "POGOProtos/Enums/PokemonMove.proto";
-
 message CombatSettings {
 	float round_duration_seconds = 1;
 	float turn_duration_seconds = 2;

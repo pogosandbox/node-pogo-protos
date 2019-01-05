@@ -1,8 +1,6 @@
 syntax = "proto3";
 package POGOProtos.Networking.Requests.Messages;
 
-import "POGOProtos/Data/Combat/CombatAction.proto";
-
 message GetCombatResultsMessage {
 	string combat_id = 1;
 }

@@ -3,7 +3,7 @@ package POGOProtos.Networking.Responses;
 
 import "POGOProtos/Data/Combat/CombatChallenge.proto";
 
-message CreateCombatChallengeResponse {
+message AcceptCombatChallengeResponse {
 	Result result = 1;
 	.POGOProtos.Data.Combat.CombatChallenge challenge = 2;
 

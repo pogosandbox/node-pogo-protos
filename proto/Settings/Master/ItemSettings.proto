@@ -4,7 +4,6 @@ package POGOProtos.Settings.Master;
 import "POGOProtos/Enums/ItemCategory.proto";
 import "POGOProtos/Inventory/Item/ItemId.proto";
 import "POGOProtos/Inventory/Item/ItemType.proto";
-
 import "POGOProtos/Settings/Master/Item/FoodAttributes.proto";
 import "POGOProtos/Settings/Master/Item/PotionAttributes.proto";
 import "POGOProtos/Settings/Master/Item/ReviveAttributes.proto";

@@ -7,13 +7,16 @@ import "POGOProtos/Inventory/Item/ItemId.proto";
 
 message QuestReward {
 	Type type = 1;
-	int32 exp = 2;
-	ItemReward item = 3;
-	int32 stardust = 4;
-	PokemonCandyReward candy = 5;
-	string avatar_template_id = 6;
-	string quest_template_id = 7;
-	PokemonEncounterReward pokemon_encounter = 8;
+
+	oneof Reward {
+		int32 exp = 2;
+		ItemReward item = 3;
+		int32 stardust = 4;
+		PokemonCandyReward candy = 5;
+		string avatar_template_id = 6;
+		string quest_template_id = 7;
+		PokemonEncounterReward pokemon_encounter = 8;
+	}
 
 	enum Type {
 		UNSET = 0;
@@ -37,8 +40,11 @@ message QuestReward {
 	}
 
 	message PokemonEncounterReward {
-		.POGOProtos.Enums.PokemonId pokemon_id = 1;
-		bool use_quest_pokemon_encounter_distribuition = 2;
+		oneof Type {
+			.POGOProtos.Enums.PokemonId pokemon_id = 1;
+			bool use_quest_pokemon_encounter_distribuition = 2;
+		}
+
 		.POGOProtos.Data.PokemonDisplay pokemon_display = 3;
 		bool is_hidden_ditto = 4;
 		.POGOProtos.Data.PokemonDisplay ditto_display = 5;

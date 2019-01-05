@@ -6,5 +6,5 @@ enum CombatType {
 	SOLO = 1;
 	QR_CODE = 2;
 	FRIENDS = 3;
-	NEARBY = 4;
+	NEARBY_COMBAT = 4;
 }
