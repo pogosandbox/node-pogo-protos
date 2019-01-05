@@ -5,7 +5,7 @@ import "POGOProtos/Data/PokemonData.proto";
 
 message UseItemMoveRerollResponse {
 	Result result = 1;
-	.POGOProtos.Data.PokemonData upgraded_pokemon = 2;
+	.POGOProtos.Data.PokemonData updated_pokemon = 2;
 
 	enum Result {
 		UNSET = 0;

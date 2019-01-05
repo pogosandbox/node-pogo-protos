@@ -1,7 +1,7 @@
 syntax = "proto3";
 package POGOProtos.Networking.Responses;
 
-import "POGOProtos/Settings/Master/AvatarCustomizationSettings.proto";
+import "POGOProtos/Data/Avatar/AvatarCustomization.proto";
 import "POGOProtos/Settings/Master/BadgeSettings.proto";
 import "POGOProtos/Settings/Master/CameraSettings.proto";
 import "POGOProtos/Settings/Master/EncounterSettings.proto";
@@ -64,7 +64,7 @@ message DownloadItemTemplatesResponse {
 		.POGOProtos.Settings.Master.PokemonUpgradeSettings pokemon_upgrades = 18;
 		.POGOProtos.Settings.Master.EquippedBadgeSettings equipped_badges = 19;
 		.POGOProtos.Settings.Master.QuestSettings quest_settings = 20;
-		.POGOProtos.Settings.Master.AvatarCustomizationSettings avatar_customization = 21;
+		.POGOProtos.Data.Avatar.AvatarCustomization avatar_customization = 21;
 		.POGOProtos.Settings.Master.FormSettings form_settings = 22;
 		.POGOProtos.Settings.Master.GenderSettings gender_settings = 23;
 		.POGOProtos.Settings.Master.GymBadgeGmtSettings gym_badge_settings = 24;

@@ -2,6 +2,7 @@ syntax = "proto3";
 package POGOProtos.Networking.Responses;
 
 import "POGOProtos/Data/Login/LoginDetail.proto";
+import "POGOProtos/Enums/NotificationState.proto";
 
 message RegisterPushNotificationResponse {
 	Result result = 1;
@@ -16,12 +17,7 @@ message RegisterPushNotificationResponse {
 message UpdateNotificationStatusResponse {
 	repeated string notification_ids = 1;
 	repeated int64 create_timestamp_ms = 2;
-	NotificationState state = 3;
-
-	enum NotificationState {
-		UNSET_STATE = 0;
-		VIEWED = 1;
-	}
+	.POGOProtos.Enums.NotificationState state = 3;
 }
 
 message OptOutPushNotificationCategoryResponse {
@@ -29,6 +25,11 @@ message OptOutPushNotificationCategoryResponse {
 }
 
 message RedeemPasscodeResponse {
+	Result result = 1;
+	repeated AcquiredItem acquired_item = 2;
+	bytes acquired_items_proto = 3;
+	string passcode = 4;
+
 	enum Result {
 		UNSET = 0;
 		SUCCESS = 1;
@@ -42,11 +43,6 @@ message RedeemPasscodeResponse {
 		string item = 1;
 		int64 count = 2;
 	}
-
-	Result result = 1;
-	repeated AcquiredItem acquired_item = 2;
-	bytes acquired_items_proto = 3;
-	string passcode = 4;
 }
 
 message AddNewPoiResponse {

@@ -1,5 +1,5 @@
 syntax = "proto3";
-package POGOProtos.Networking.Platform.Ditto;
+package POGOProtos.Data.Ditto;
 
 message DownstreamActionEventParams {
 	repeated uint32 methods = 1;

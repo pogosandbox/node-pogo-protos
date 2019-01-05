@@ -3,6 +3,7 @@ package POGOProtos.Networking.Requests.Messages;
 
 import "POGOProtos/Data/Player/PlayerReputation.proto";
 import "POGOProtos/Enums/IdentityProvider.proto";
+import "POGOProtos/Enums/NotificationState.proto";
 
 message RegisterPushNotificationMessage {
 	ApnToken apn_token = 1;
@@ -22,12 +23,7 @@ message RegisterPushNotificationMessage {
 message UpdateNotificationStatusMessage {
 	repeated string notification_ids = 1;
 	repeated int64 create_timestamp_ms = 2;
-	NotificationState state = 3;
-
-	enum NotificationState {
-		UNSET_STATE = 0;
-		VIEWED = 1;
-	}
+	.POGOProtos.Enums.NotificationState state = 3;
 }
 
 message OptOutPushNotificationCategoryMessage {
