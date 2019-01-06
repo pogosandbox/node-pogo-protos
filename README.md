@@ -1,3 +1,8 @@
+# DEPRECATED, use [pogo-protos](https://github.com/pogosandbox/pogo-protos)
+#
+#
+  
+
 # node-pogo-protos
 Uses [protobuf.js](https://github.com/dcodeIO/protobuf.js) to compile the Protobuf files from
 [POGOProtos](https://github.com/AeonLucid/POGOProtos) into an easy to use Node module.
